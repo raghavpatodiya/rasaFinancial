@@ -92,12 +92,18 @@ nlu:
 
 - intent: ask_stock_price
   examples: |
-    - give me stock price for [](stock_name)
-    - stock price for [](stock_name)
-    - price for [](stock_name)
-    - price of [](stock_name)
-    - [](stock_name) stock price
-    - what is the [](stock_name) stock price?
-    - can you tell me the [](stock_name) stock price?
-    - please fetch the [](stock_name) stock price
+    - give me stock price for [apple](stock_name)
+    - stock price for [google](stock_name)
+    - price for [netflix](stock_name)
+    - price of [microsoft](stock_name)
+    - [amazon](stock_name) stock price
+    - what is the [facebook](stock_name) stock price?
+    - can you tell me the [twitter](stock_name) stock price?
+    - please fetch the [instagram](stock_name) stock price
+    - what's the price for [snapchat](stock_name)
+    - give me the current price for [uber](stock_name)
+    - price of [lyft](stock_name) share
+    - how much is [airbnb](stock_name) company worth
+    - what's the value of [disney](stock_name) stocks
+    - could you tell me the price for [walmart](stock_name) shares
     

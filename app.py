@@ -3,6 +3,7 @@ import requests
 
 # URL of Rasa's server
 RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
+ACTION_SERVER_URL = 'http://localhost:5055/webhook'
 
 app = Flask(__name__)
 
@@ -22,7 +23,6 @@ def webhook():
         rasa_response_json = rasa_response.json()
 
         print("Rasa Response:", rasa_response_json)
-
         bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
 
     except Exception as e:
