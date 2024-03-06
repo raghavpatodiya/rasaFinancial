@@ -14,31 +14,44 @@ class ActionGetStockPrice(Action):
             "microsoft": "MSFT",
             "google": "GOOGL",
             "amazon": "AMZN",
-            "facebook": "FB",
+            "facebook": "META",
             "twitter": "TWTR",
-            "netflix": "NFL",
-            "instagram": "INST",
+            "netflix": "NFLX",
+            "instagram": "FB",
             "snapchat": "SNAP",
             "uber": "UBER",
             "lyft": "LYFT",
-            "airbnb": "AIRBNB",
             "disney": "DIS",
             "walmart": "WMT",
             "nike": "NKE",
             "coca-cola": "KO",
             "pepsi": "PEP",
-            "mastercard": "MASTER"
+            "mastercard": "MA",
+            "visa": "V",
+            "johnson & johnson": "JNJ",
+            "nvidia": "NVDA",
+            "intel": "INTC",
+            "amd": "AMD",
+            "oracle": "ORCL",
+            "ibm": "IBM",
+            "cvs": "CVS",
+            "atlassian": "TEAM"
         }
         try:
+            entities = tracker.latest_message.get('entities', [])
+            print("Entities extracted:", entities)  # Debug statement
+
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            print("Company name extracted:", company_name)  # Debug statement
+
             if company_name.lower() in ticker_mapping:
                 stock_ticker = ticker_mapping[company_name.lower()]
                 stock_data = yf.Ticker(stock_ticker)
                 if len(stock_data.history(period='1d')) > 0:
                     current_price = stock_data.history(period='1d')['Close'][0]
-                    dispatcher.utter_message(text=f"The current stock price of {stock_ticker} is ${current_price:.2f}")
+                    dispatcher.utter_message(text=f"The current stock price of {company_name} is ${current_price:.2f}")
                 else:
-                    dispatcher.utter_message(text=f"No data found for the stock symbol {stock_ticker}. Please enter a valid stock symbol.")
+                    dispatcher.utter_message(text=f"No data found for the company {company_name}. Please enter a valid company name .")
             else:
                 dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
         

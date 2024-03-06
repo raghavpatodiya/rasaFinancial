@@ -33,8 +33,8 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  # utter_ask_stock_price:
-  # - text: "The current stock price of [](stock_name) is"
+  utter_ask_any_else:
+  - text: "would you like to know anything else?"
 
 actions:
   - get_stock_price

@@ -103,7 +103,7 @@ nlu:
     - what's the price for [snapchat](stock_name)
     - give me the current price for [uber](stock_name)
     - price of [lyft](stock_name) share
-    - how much is [airbnb](stock_name) company worth
+    - how much is [atlassian](stock_name) company's stock worth ?
     - what's the value of [disney](stock_name) stocks
     - could you tell me the price for [walmart](stock_name) shares
     
