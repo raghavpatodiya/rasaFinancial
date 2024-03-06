@@ -32,4 +32,4 @@ stories:
 - story: asking stock price
   steps:
   - intent: ask_stock_price
-  - action: utter_ask_stock_price
+  - action: get_stock_price

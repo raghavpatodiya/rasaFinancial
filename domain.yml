@@ -33,11 +33,11 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  utter_ask_stock_price:
-  - text: "The current stock price of [AAPL](stock_name) is"
+  # utter_ask_stock_price:
+  # - text: "The current stock price of [](stock_name) is"
 
 actions:
-  - action_get_stock_price
+  - get_stock_price
 
 session_config:
   session_expiration_time: 60

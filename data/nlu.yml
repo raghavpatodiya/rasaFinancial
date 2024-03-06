@@ -92,10 +92,10 @@ nlu:
 
 - intent: ask_stock_price
   examples: |
-    - give me stock price for [AAPL](stock_name)
-    - stock price for [AAPL](stock_name)
-    - price for [AAPL](stock_name)
-    - price of [AAPL](stock_name)
-    - [AAPL](stock_name) stock price
-    - what is the [AAPL](stock_name) stock price?
+    - give me stock price for [](stock_name)
+    - stock price for [](stock_name)
+    - price for [](stock_name)
+    - price of [](stock_name)
+    - [](stock_name) stock price
+    - what is the [](stock_name) stock price?
     
