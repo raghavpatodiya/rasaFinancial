@@ -23,8 +23,9 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier # for entity extraction
-    epochs: 100
-    constrain_similarities: true
+    # epochs: 100
+    # constrain_similarities: true
+  # - name: SpacyEntityExtractor
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100
@@ -32,6 +33,7 @@ pipeline:
   - name: FallbackClassifier
     threshold: 0.3
     ambiguity_threshold: 0.1
+  - name: "CRFEntityExtractor"
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
