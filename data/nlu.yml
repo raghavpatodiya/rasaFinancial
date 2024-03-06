@@ -98,4 +98,6 @@ nlu:
     - price of [](stock_name)
     - [](stock_name) stock price
     - what is the [](stock_name) stock price?
+    - can you tell me the [](stock_name) stock price?
+    - please fetch the [](stock_name) stock price
     
