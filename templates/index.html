@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rasa & Flask Chatbot</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      .chat-sign-button {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
+      body {
+        background-color: #222;
+        color: #fff;
+      }
+
+      .container {
+        margin-top: 50px;
+      }
+
+      .card {
+        background-color: #333;
+        border: none;
+        color: #fff;
+      }
+
+      .card-header {
+        background-color: #007bff;
+        color: #fff;
+        border-bottom: none;
+      }
+
+      .card-body {
+        overflow-y: auto;
+        max-height: 300px;
+      }
+
+      .card-footer {
+        background-color: #444;
+        border-top: none;
+      }
+
+      .form-control {
+        background-color: #444;
+        color: #fff;
+        border-color: #666;
+      }
+
+      .btn-primary {
+        background-color: #ffffff;
+        border-color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        background-color: #ffffff;
+        border-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Welcome to my Chatbot!</h1>
+      <button
+        id="chat-widget-button"
+        type="button"
+        class="btn btn-primary rounded-circle position-fixed chat-sign-button"
+        style="bottom: 20px; right: 20px"
+      ></button>
+
+      <!-- Chatbox -->
+      <div
+        id="chat-widget"
+        class="card position-fixed shadow d-none"
+        style="bottom: 100px; right: 20px; width: 300px"
+      >
+        <div class="card-header bg-primary text-white">
+          Chatbot
+          <button
+            id="chat-widget-close-button"
+            type="button"
+            class="btn-close float-end"
+            aria-label="Close"
+          >
+            X
+          </button>
+        </div>
+        <div
+          class="card-body"
+          id="chat-widget-messages"
+          style="overflow-y: auto; max-height: 300px"
+        >
+          <!-- Chat messages will append here -->
+        </div>
+        <div class="card-footer">
+          <input
+            type="text"
+            class="form-control"
+            id="chat-widget-input"
+            placeholder="Type your message...."
+          />
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $("#chat-widget-button").on("click", function () {
+          $("#chat-widget").toggleClass("d-none");
+        });
+        $("#chat-widget-close-button").on("click", function () {
+          $("#chat-widget").addClass("d-none");
+        });
+        // Handle user input in the chat box
+        $("#chat-widget-input").keypress(function (event) {
+          if (event.which == 13) {
+            let userMessage = $("#chat-widget-input").val();
+            $("#chat-widget-input").val("");
+
+            // Append user's message to the chatbox
+            $("#chat-widget-messages").append(
+              "<div><strong>You:</strong> " + escapeHtml(userMessage) + "</div>"
+            );
+
+            // Send user's message to the server and get bot's response
+            $.ajax({
+              type: "POST",
+              url: "/webhook",
+              contentType: "application/json",
+              data: JSON.stringify({ message: userMessage }),
+              success: function (data) {
+                let botResponse = data.response;
+                // Append bot's response to the chatbox
+                $("#chat-widget-messages").append(
+                  "<div><strong>Bot:</strong> " +
+                    escapeHtml(botResponse) +
+                    "</div>"
+                );
+              },
+              error: function () {
+                // Handle error if needed
+              },
+            });
+          }
+        });
+
+        // Function to escape HTML characters
+        function escapeHtml(text) {
+          return text
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
+      });
+    </script>
+  </body>
+</html>

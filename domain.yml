@@ -8,6 +8,10 @@ intents:
   - mood_great
   - mood_unhappy
   - bot_challenge
+  - ask_stock_price
+
+entities:
+  - stock_name
 
 responses:
   utter_greet:
@@ -28,6 +32,12 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_ask_stock_price:
+  - text: "The current stock price of [AAPL](stock_name) is"
+
+actions:
+  - action_get_stock_price
 
 session_config:
   session_expiration_time: 60
