@@ -37,7 +37,7 @@ responses:
   - text: "would you like to know anything else?"
 
 actions:
-  - get_stock_price
+  - get_latest_stock_price
 
 session_config:
   session_expiration_time: 60

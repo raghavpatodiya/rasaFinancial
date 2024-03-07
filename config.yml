@@ -23,8 +23,8 @@ pipeline:
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier # for entity extraction
-    # epochs: 100
-    # constrain_similarities: true
+    epochs: 100
+    constrain_similarities: true
   # - name: SpacyEntityExtractor
   - name: EntitySynonymMapper
   - name: ResponseSelector

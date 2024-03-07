@@ -2,48 +2,20 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import yfinance as yf
+from actions.ticker_mapping import get_ticker_mapping
 
 class ActionGetStockPrice(Action):
     def name(self) -> Text:
-        return "get_stock_price"
+        return "get_latest_stock_price"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        ticker_mapping = {
-            "tesla": "TSLA",
-            "apple": "AAPL",
-            "microsoft": "MSFT",
-            "google": "GOOGL",
-            "amazon": "AMZN",
-            "facebook": "META",
-            "twitter": "TWTR",
-            "netflix": "NFLX",
-            "instagram": "FB",
-            "snapchat": "SNAP",
-            "uber": "UBER",
-            "lyft": "LYFT",
-            "disney": "DIS",
-            "walmart": "WMT",
-            "nike": "NKE",
-            "coca-cola": "KO",
-            "pepsi": "PEP",
-            "mastercard": "MA",
-            "visa": "V",
-            "johnson & johnson": "JNJ",
-            "nvidia": "NVDA",
-            "intel": "INTC",
-            "amd": "AMD",
-            "oracle": "ORCL",
-            "ibm": "IBM",
-            "cvs": "CVS",
-            "atlassian": "TEAM"
-        }
         try:
             entities = tracker.latest_message.get('entities', [])
             print("Entities extracted:", entities)  # Debug statement
-
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             print("Company name extracted:", company_name)  # Debug statement
 
+            ticker_mapping = get_ticker_mapping()
             if company_name.lower() in ticker_mapping:
                 stock_ticker = ticker_mapping[company_name.lower()]
                 stock_data = yf.Ticker(stock_ticker)

@@ -46,3 +46,5 @@ Start simple: Begin with factual responses before venturing into predictions.
 Iteratively improve: Continuously gather new training data and refine your model.
 Be transparent: Clearly explain the limitations of your bot and emphasize that predictions are not financial advice.
 Explore Rasa resources: Refer to the official Rasa documentation, tutorials, and community forums for further guidance: https://rasa.com/docs/.
+
+git prompts - add fix error update test
