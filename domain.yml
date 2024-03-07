@@ -9,9 +9,11 @@ intents:
   - mood_unhappy
   - bot_challenge
   - ask_stock_price
+  - ask_older_stock_price
 
 entities:
   - stock_name
+  - time_period
 
 responses:
   utter_greet:
@@ -38,7 +40,7 @@ responses:
 
 actions:
   - get_latest_stock_price
-
+  - get_older_stock_price
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

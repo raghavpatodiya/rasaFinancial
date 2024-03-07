@@ -106,4 +106,13 @@ nlu:
     - how much is [atlassian](stock_name) company's stock worth ?
     - what's the value of [disney](stock_name) stocks
     - could you tell me the price for [walmart](stock_name) shares
+
+- intent: ask_older_stock_price
+  examples: |
+    - what is the [apple](stock_name) stock price for the last [1 year](time_period)
+    - can you tell me the [google](stock_name) stock price for the last [two months](time_period)
+    - get me the stock price of [microsoft](stock_name) for the last [3 days](time_period)
+    - fetch the stock price of [amazon](stock_name) for the last [four weeks](time_period)
+    - what was the [facebook](stock_name) stock price in the last [6 months](time_period)
+
     
