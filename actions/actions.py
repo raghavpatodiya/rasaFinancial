@@ -78,3 +78,24 @@ class ActionGetOlderStockPrice(Action):
             dispatcher.utter_message(text="An error occurred while fetching stock price. Please try again later.")
 
         return []
+    
+class ActionGetStockInfo(Action):
+    def name(self)->Text:
+        return "get_stock_info"
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            if company_name:
+                stock_info = yf.Ticker(company_name)
+                info = stock_info.info
+                info_message = f"Here is some information about {company_name}:\n\n"
+                for key, value in info.items():
+                    info_message += f"{key}: {value}\n"
+                dispatcher.utter_message(text=info_message)
+            else:
+                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+        except Exception as e:
+            print(f"An error occurred while fetching stock information: {e}")
+            dispatcher.utter_message(text="An error occurred while fetching stock information. Please try again later.")
+
+        return []

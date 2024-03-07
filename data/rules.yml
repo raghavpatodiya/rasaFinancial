@@ -21,3 +21,8 @@ rules:
   steps: 
   - intent: ask_older_stock_price
   - action: get_older_stock_price
+
+- rule: stock info
+  steps:
+  - intent: ask_stock_info
+  - action: get_stock_info

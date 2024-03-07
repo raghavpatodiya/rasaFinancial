@@ -115,4 +115,12 @@ nlu:
     - fetch the stock price of [amazon](stock_name) for the last [four weeks](time_period)
     - what was the [facebook](stock_name) stock price in the last [6 months](time_period)
 
-    
+- intent: ask_stock_info
+  examples: |
+    - what is the [apple](stock_name)'s stock info
+    - can you tell me aboout [google](stock_name)
+    - provide details about [netflix](stock_name)
+    - show me more information on [microsoft](stock_name)
+    - get me the information on [lyft](stock_name)
+    - fetch some info of [amazon](stock_name)
+    - please, tell me about [facebook](stock_name)

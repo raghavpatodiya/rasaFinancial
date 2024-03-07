@@ -10,6 +10,7 @@ intents:
   - bot_challenge
   - ask_stock_price
   - ask_older_stock_price
+  - ask_stock_info
 
 entities:
   - stock_name
@@ -41,6 +42,7 @@ responses:
 actions:
   - get_latest_stock_price
   - get_older_stock_price
+  - get_stock_info
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
