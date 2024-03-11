@@ -14,6 +14,7 @@ intents:
   - ask_older_stock_price
   - ask_general_info
   - ask_specific_info
+  - what_can_you_do
 
 entities:
   - stock_name
@@ -48,6 +49,9 @@ responses:
 
   utter_be_polite:
   - text: "I don't like your tone. Please be polite !"
+
+  utter_what_can_you_do:
+  - text: "I can help you with anything related to stocks and more !!"
 actions:
   - get_latest_stock_price
   - get_older_stock_price

@@ -108,6 +108,17 @@ nlu:
     - you're useless
     - what a trash bot 
     - damn, you're stupid
+    - bot motherfucker
+    - wtf is wrong with you
+
+- intent: what_can_you_do
+  examples: |
+    - what can you do ?
+    - please tell me what  you can do.
+    - what are your capabilities ?
+    - what is your purpose ?
+    - why should i use you ?
+    - can you  help me ?
 
 - intent: ask_latest_stock_price
   examples: |
@@ -145,6 +156,7 @@ nlu:
     - get me the information on [lyft](stock_name)
     - fetch some info of [amazon](stock_name)
     - please, tell me about [facebook](stock_name)
+    - i need to know about [twitter](stock_name). Please provide its information
 
 - intent: ask_specific_info
   examples: |
@@ -153,6 +165,7 @@ nlu:
     - how many [fullTimeEmployess](info) does [apple](stock_name) have ?
     - what is the [symbol](info) of [Microsoft](stock_name)?
     - can you fetch me [targetHighPrice](info) of [Nvidia](stock_name) ?
+    - i need to know the [targetLowPrice](info) of [Amazon](stock_name) !
 
     
 

@@ -1,7 +1,7 @@
 version: "3.1"
 
 rules:
-
+  
 - rule: Say goodbye anytime the user says goodbye
   steps:
   - intent: goodbye
@@ -20,6 +20,11 @@ rules:
   steps: 
   - intent: abusive_user
   - action: utter_be_polite
+
+- rule: what can you do
+  steps: 
+  - intent: what_can_you_do
+  - action: utter_what_can_you_do
 
 - rule: latest stock price
   steps:
@@ -40,4 +45,5 @@ rules:
   steps:
   - intent: ask_specific_info
   - action: get_specific_info
+
 

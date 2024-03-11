@@ -48,3 +48,5 @@ Be transparent: Clearly explain the limitations of your bot and emphasize that p
 Explore Rasa resources: Refer to the official Rasa documentation, tutorials, and community forums for further guidance: https://rasa.com/docs/.
 
 git prompts - add fix error update test
+
+read about - nlu classifiers
