@@ -137,3 +137,14 @@ nlu:
     - how are you doing ?
     - how are you ?
 
+- intent: abusive_user
+  examples: |
+    - you suck !
+    - what the fuck is wrong with you
+    - i hate you
+    - you're the worst 
+    - you're useless
+    - what a trash bot 
+    
+
+

@@ -12,6 +12,7 @@ intents:
   - ask_older_stock_price
   - ask_stock_info
   - whats_up
+  - abusive_user
 
 entities:
   - stock_name
@@ -42,6 +43,9 @@ responses:
 
   utter_whats_up:
   - text: "Hey, i'm good ! How about you ?"
+
+  utter_be_polite:
+  - text: "I don't like your tone. Please be polite !"
 actions:
   - get_latest_stock_price
   - get_older_stock_price

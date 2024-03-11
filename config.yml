@@ -18,12 +18,11 @@ pipeline:
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer
-  - name: CountVectorsFeaturizer
     analyzer: char_wb
     min_ngram: 1
     max_ngram: 4
   - name: DIETClassifier # for entity extraction
-    # epochs: 100
+    epochs: 100
     # constrain_similarities: true
   # - name: SpacyEntityExtractor
   - name: EntitySynonymMapper

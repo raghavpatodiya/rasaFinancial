@@ -16,11 +16,11 @@ class ActionGetStockPrice(Action):
             print("Company name extracted:", company_name)  # Debug statement
 
             ticker_mapping = get_ticker_mapping()
-            if company_name.lower() in ticker_mapping:
-                stock_ticker = ticker_mapping[company_name.lower()]
+            if company_name in ticker_mapping:
+                stock_ticker = ticker_mapping[company_name]
                 stock_data = yf.Ticker(stock_ticker)
                 if len(stock_data.history(period='1d')) > 0:
-                    current_price = stock_data.history(period='1d')['Close'][0]
+                    current_price = stock_data.history(period='1d')['Close'].iloc[0]
                     dispatcher.utter_message(text=f"The current stock price of {company_name} is ${current_price:.2f}")
                 else:
                     dispatcher.utter_message(text=f"No data found for the company {company_name}. Please enter a valid company name .")
@@ -47,8 +47,8 @@ class ActionGetOlderStockPrice(Action):
             print("Time period extracted:", time_period)  # Debug statement
 
             ticker_mapping = get_ticker_mapping()
-            if company_name.lower() in ticker_mapping:
-                stock_ticker = ticker_mapping[company_name.lower()]
+            if company_name in ticker_mapping:
+                stock_ticker = ticker_mapping[company_name]
                 stock_data = yf.Ticker(stock_ticker)
                 if time_period in ["one year", "1 year"]:
                     stock_history = stock_data.history(period='1y')
@@ -87,10 +87,9 @@ class ActionGetStockInfo(Action):
         try:
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             print("Company name extracted:", company_name)  # Debug statement
-
             ticker_mapping = get_ticker_mapping()
-            if company_name.lower() in ticker_mapping:
-                stock_ticker = ticker_mapping[company_name.lower()]
+            if company_name in ticker_mapping:
+                stock_ticker = ticker_mapping[company_name]
                 stock_info = yf.Ticker(stock_ticker)
                 info = stock_info.info
                 print(info)

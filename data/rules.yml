@@ -31,3 +31,8 @@ rules:
   steps: 
   - intent: whats_up
   - action: utter_whats_up
+
+- rule: abusive user
+  steps: 
+  - intent: abusive_user
+  - action: utter_be_polite
