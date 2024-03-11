@@ -80,17 +80,36 @@ class ActionGetOlderStockPrice(Action):
         return []
     
 class ActionGetStockInfo(Action):
-    def name(self)->Text:
+    def name(self) -> Text:
         return "get_stock_info"
+
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
-            if company_name:
-                stock_info = yf.Ticker(company_name)
+            print("Company name extracted:", company_name)  # Debug statement
+
+            ticker_mapping = get_ticker_mapping()
+            if company_name.lower() in ticker_mapping:
+                stock_ticker = ticker_mapping[company_name.lower()]
+                stock_info = yf.Ticker(stock_ticker)
                 info = stock_info.info
-                info_message = f"Here is some information about {company_name}:\n\n"
-                for key, value in info.items():
-                    info_message += f"{key}: {value}\n"
+                print(info)
+                # Constructing the message with the 10 important points
+                info_message = f"Here are some important details about {company_name}:\n\n"
+                info_message += f"Website: {info['website']}\n"
+                info_message += f"Industry: {info['industry']}\n"
+                info_message += f"Sector: {info['sector']}\n"
+                info_message += f"Description: {info['longBusinessSummary']}\n"
+                info_message += f"Number of Employees: {info['fullTimeEmployees']}\n"
+                info_message += f"Leadership Team:\n"
+                for officer in info['companyOfficers']:
+                    info_message += f"- {officer['name']}, {officer['title']}\n"
+                info_message += f"Previous Close: {info['previousClose']}\n"
+                info_message += f"Open: {info['open']}\n"
+                info_message += f"Day Low: {info['dayLow']}\n"
+                info_message += f"Day High: {info['dayHigh']}\n"
+                info_message += f"Volume: {info['volume']}\n"
+                
                 dispatcher.utter_message(text=info_message)
             else:
                 dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
