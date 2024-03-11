@@ -11,22 +11,6 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
-
-- rule: latest stock price
-  steps:
-  - intent: ask_stock_price
-  - action: get_latest_stock_price
-
-- rule: older stock price
-  steps: 
-  - intent: ask_older_stock_price
-  - action: get_older_stock_price
-
-- rule: stock info
-  steps:
-  - intent: ask_stock_info
-  - action: get_stock_info
-
 - rule: whats up
   steps: 
   - intent: whats_up
@@ -36,3 +20,24 @@ rules:
   steps: 
   - intent: abusive_user
   - action: utter_be_polite
+
+- rule: latest stock price
+  steps:
+  - intent: ask_latest_stock_price
+  - action: get_latest_stock_price
+
+- rule: older stock price
+  steps: 
+  - intent: ask_older_stock_price
+  - action: get_older_stock_price
+
+- rule: general stock info
+  steps:
+  - intent: ask_general_info
+  - action: get_general_info
+
+- rule: specific stock info
+  steps:
+  - intent: ask_specific_info
+  - action: get_specific_info
+

@@ -89,8 +89,27 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: whats_up
+  examples: |
+    - what are you doing right now ?
+    - what's up ?
+    - what's new ?
+    - what's new with you ?
+    - how's it going ?
+    - how are you doing ?
+    - how are you ?
 
-- intent: ask_stock_price
+- intent: abusive_user
+  examples: |
+    - you suck !
+    - what the fuck is wrong with you
+    - i hate you
+    - you're the worst 
+    - you're useless
+    - what a trash bot 
+    - damn, you're stupid
+
+- intent: ask_latest_stock_price
   examples: |
     - give me stock price for [apple](stock_name)
     - stock price for [google](stock_name)
@@ -117,7 +136,7 @@ nlu:
     - get me [last week](time_period) stock price of [twitter](stock_name)
     - what was [previous weeks](time_period) stock price of [atlassian](stock_name)
 
-- intent: ask_stock_info
+- intent: ask_general_info
   examples: |
     - what is the [apple](stock_name)'s stock info
     - can you tell me aboout [google](stock_name)
@@ -127,24 +146,14 @@ nlu:
     - fetch some info of [amazon](stock_name)
     - please, tell me about [facebook](stock_name)
 
-- intent: whats_up
+- intent: ask_specific_info
   examples: |
-    - what are you doing right now ?
-    - what's up ?
-    - what's new ?
-    - what's new with you ?
-    - how's it going ?
-    - how are you doing ?
-    - how are you ?
+    - tell me [address1](info) of [google](stock_name)
+    - fetch me [longBusinessSummary](info) of [atlassian](stock_name)
+    - how many [fullTimeEmployess](info) does [apple](stock_name) have ?
+    - what is the [symbol](info) of [Microsoft](stock_name)?
+    - can you fetch me [targetHighPrice](info) of [Nvidia](stock_name) ?
 
-- intent: abusive_user
-  examples: |
-    - you suck !
-    - what the fuck is wrong with you
-    - i hate you
-    - you're the worst 
-    - you're useless
-    - what a trash bot 
     
 
 

@@ -79,9 +79,9 @@ class ActionGetOlderStockPrice(Action):
 
         return []
     
-class ActionGetStockInfo(Action):
+class ActionGetGeneralInfo(Action):
     def name(self) -> Text:
-        return "get_stock_info"
+        return "get_general_info"
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
@@ -109,6 +109,42 @@ class ActionGetStockInfo(Action):
                 info_message += f"Volume: {info['volume']}\n"
                 
                 dispatcher.utter_message(text=info_message)
+            else:
+                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+        except Exception as e:
+            print(f"An error occurred while fetching stock information: {e}")
+            dispatcher.utter_message(text="An error occurred while fetching stock information. Please try again later.")
+
+        return []
+
+class ActionGetSpecificInfo(Action):
+    def name(self) -> Text:
+        return "get_specific_info"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            entities = tracker.latest_message.get('entities', [])
+            print("Entities extracted:", entities)  # Debug statement
+            
+            # Extracting entity values from user message
+            info_type = next(tracker.get_latest_entity_values("info"), None)
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            print("Info type extracted:", info_type)  # Debug statement
+            print("Company name extracted:", company_name)  # Debug statement
+            
+            # Retrieving ticker mapping
+            ticker_mapping = get_ticker_mapping()
+            if company_name in ticker_mapping:
+                stock_ticker = ticker_mapping[company_name]
+                stock_info = yf.Ticker(stock_ticker)
+                info = stock_info.info
+                
+                # Retrieving specific information requested by the user
+                if info_type in info:
+                    requested_info = info[info_type]
+                    dispatcher.utter_message(text=f"The {info_type} of {company_name} is: {requested_info}")
+                else:
+                    dispatcher.utter_message(text=f"Sorry, I couldn't find the requested information for {company_name}.")
             else:
                 dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
         except Exception as e:

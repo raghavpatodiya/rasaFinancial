@@ -31,7 +31,15 @@ stories:
 
 - story: stock price
   steps:
-  - intent: ask_stock_price
+  - intent: ask_latest_stock_price
   - action: get_latest_stock_price
   - intent: ask_older_stock_price
   - action: get_older_stock_price
+
+- story: stock info
+  steps:
+  - intent: ask_general_info
+  - action: get_general_info
+  - intent: ask_specific_info
+  - action: get_specific_info
+
