@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-stock_name",
+      "2": "I-stock_name",
+      "3": "L-stock_name",
+      "4": "U-stock_name",
+      "5": "B-time_period",
+      "6": "I-time_period",
+      "7": "L-time_period",
+      "8": "U-time_period",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-stock_name": 1,
+      "I-stock_name": 2,
+      "L-stock_name": 3,
+      "U-stock_name": 4,
+      "B-time_period": 5,
+      "I-time_period": 6,
+      "L-time_period": 7,
+      "U-time_period": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]
