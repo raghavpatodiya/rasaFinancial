@@ -94,7 +94,7 @@ class ActionGetStockInfo(Action):
                 stock_info = yf.Ticker(stock_ticker)
                 info = stock_info.info
                 print(info)
-                info_message = f"Here are some important details about {company_name}:\n"
+                info_message = f"Here are some important details about {company_name}:\n\n"
                 info_message += f"Website: {info['website']}\n"
                 info_message += f"Industry: {info['industry']}\n"
                 info_message += f"Sector: {info['sector']}\n"
