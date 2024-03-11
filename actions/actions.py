@@ -58,7 +58,7 @@ class ActionGetOlderStockPrice(Action):
                     stock_history = stock_data.history(period='2mo')
                 elif time_period in ["one month", "1 month"]:
                     stock_history = stock_data.history(period='1mo')
-                elif time_period in ["one week", "1 week"]:
+                elif time_period in ["one week", "1 week", "last week", "previous weeks"]:
                     stock_history = stock_data.history(period='1wk')
                 elif time_period in ["three days", "3 days"]:
                     stock_history = stock_data.history(period='3d')
@@ -94,8 +94,7 @@ class ActionGetStockInfo(Action):
                 stock_info = yf.Ticker(stock_ticker)
                 info = stock_info.info
                 print(info)
-                # Constructing the message with the 10 important points
-                info_message = f"Here are some important details about {company_name}:\n\n"
+                info_message = f"Here are some important details about {company_name}:\n"
                 info_message += f"Website: {info['website']}\n"
                 info_message += f"Industry: {info['industry']}\n"
                 info_message += f"Sector: {info['sector']}\n"

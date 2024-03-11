@@ -114,6 +114,8 @@ nlu:
     - get me the stock price of [microsoft](stock_name) for the last [3 days](time_period)
     - fetch the stock price of [amazon](stock_name) for the last [four weeks](time_period)
     - what was the [facebook](stock_name) stock price in the last [6 months](time_period)
+    - get me [last week](time_period) stock price of [twitter](stock_name)
+    - what was [previous weeks](time_period) stock price of [atlassian](stock_name)
 
 - intent: ask_stock_info
   examples: |
@@ -124,3 +126,14 @@ nlu:
     - get me the information on [lyft](stock_name)
     - fetch some info of [amazon](stock_name)
     - please, tell me about [facebook](stock_name)
+
+- intent: whats_up
+  examples: |
+    - what are you doing right now ?
+    - what's up ?
+    - what's new ?
+    - what's new with you ?
+    - how's it going ?
+    - how are you doing ?
+    - how are you ?
+    

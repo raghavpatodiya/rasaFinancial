@@ -26,6 +26,7 @@ pipeline:
     # epochs: 100
     # constrain_similarities: true
   # - name: SpacyEntityExtractor
+  
   - name: EntitySynonymMapper
   - name: ResponseSelector
     epochs: 100

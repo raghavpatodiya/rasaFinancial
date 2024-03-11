@@ -26,3 +26,8 @@ rules:
   steps:
   - intent: ask_stock_info
   - action: get_stock_info
+
+- rule: whats up
+  steps: 
+  - intent: whats_up
+  - action: utter_whats_up
