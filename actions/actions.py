@@ -12,7 +12,7 @@ class ActionGetStockPrice(Action):
         try:
             entities = tracker.latest_message.get('entities', [])
             print("Entities extracted:", entities)  # Debug statement
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
             print("Company name extracted:", company_name)  # Debug statement
 
             ticker_mapping = get_ticker_mapping()
@@ -41,7 +41,7 @@ class ActionGetOlderStockPrice(Action):
         try:
             entities = tracker.latest_message.get('entities', [])
             print("Entities extracted:", entities)  # Debug statement
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
             time_period = next(tracker.get_latest_entity_values("time_period"), None)
             print("Company name extracted:", company_name)  # Debug statement
             print("Time period extracted:", time_period)  # Debug statement
@@ -58,7 +58,7 @@ class ActionGetOlderStockPrice(Action):
                     stock_history = stock_data.history(period='2mo')
                 elif time_period in ["one month", "1 month"]:
                     stock_history = stock_data.history(period='1mo')
-                elif time_period in ["one week", "1 week", "last week", "previous weeks"]:
+                elif time_period in ["one week", "1 week", "last weeks", "previous weeks"]:
                     stock_history = stock_data.history(period='1wk')
                 elif time_period in ["three days", "3 days"]:
                     stock_history = stock_data.history(period='3d')
@@ -85,7 +85,7 @@ class ActionGetGeneralInfo(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
             print("Company name extracted:", company_name)  # Debug statement
             ticker_mapping = get_ticker_mapping()
             if company_name in ticker_mapping:
@@ -128,7 +128,7 @@ class ActionGetSpecificInfo(Action):
             
             # Extracting entity values from user message
             info_type = next(tracker.get_latest_entity_values("info"), None)
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
             print("Info type extracted:", info_type)  # Debug statement
             print("Company name extracted:", company_name)  # Debug statement
             

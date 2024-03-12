@@ -85,6 +85,10 @@ nlu:
 
 - intent: bot_challenge
   examples: |
+    - what are you ?
+    - who are you ?
+    - tell me about yourself !
+    - can you introduce yourself ?
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
@@ -119,6 +123,7 @@ nlu:
     - what is your purpose ?
     - why should i use you ?
     - can you  help me ?
+    - what are your powers ?
 
 - intent: ask_latest_stock_price
   examples: |
@@ -136,6 +141,7 @@ nlu:
     - how much is [atlassian](stock_name) company's stock worth ?
     - what's the value of [disney](stock_name) stocks
     - could you tell me the price for [walmart](stock_name) shares
+    - get me stock price of  [coca cola](stock_name)
 
 - intent: ask_older_stock_price
   examples: |
