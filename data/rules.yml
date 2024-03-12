@@ -46,4 +46,8 @@ rules:
   - intent: ask_specific_info
   - action: get_specific_info
 
+- rule: get future price
+  steps:
+  - intent: ask_stock_predictions
+  - action: get_stock_predictions
 

@@ -3,7 +3,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import yfinance as yf
 from actions.ticker_mapping import get_ticker_mapping
-
+import requests
 class ActionGetStockPrice(Action):
     def name(self) -> Text:
         return "get_latest_stock_price"

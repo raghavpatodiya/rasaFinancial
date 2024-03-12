@@ -21,3 +21,5 @@
 # ' rasa train nlu ' to train only on intents
 
 # ' rasa shell nlu ' to check intent confidence scores for a given query
+
+# to run older model ' rasa shell -m models\older-model-name '

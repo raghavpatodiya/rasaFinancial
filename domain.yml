@@ -16,7 +16,7 @@ intents:
   - ask_specific_info
   - what_can_you_do
   - ask_time
-
+  - ask_stock_predictions
 entities:
   - stock_name
   - time_period
@@ -29,6 +29,7 @@ slots:
     mappings:
       - type: from_entity
         entity: time
+        intent: ask_time
 
 
 responses:
@@ -70,6 +71,7 @@ actions:
   - get_older_stock_price
   - get_general_info
   - get_specific_info
+  - get_stock_predictions
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

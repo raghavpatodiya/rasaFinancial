@@ -179,6 +179,10 @@ nlu:
     - can you fetch me [targetHighPrice](info) of [Nvidia](stock_name) ?
     - i need to know the [targetLowPrice](info) of [Amazon](stock_name) !
 
-    
-
-
+- intent: ask_stock_predictions
+  examples: |
+    - what will be the future price for [google](stock_name)  ?
+    - predict the stock price of [apple](stock_name) in next [three months](time_period) ?
+    - will the stock price of [microsoft](stock_name) go up ?
+    - can you tell me the predicted stock price for [atlassian](stock_name) ?
+    - please make some predictions to give me the future prices of [nvidia](stock_name) stock !

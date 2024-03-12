@@ -43,7 +43,7 @@ pipeline:
   dimensions: ["time"]
   locale: "En_IN"
   timezone: "India Standard Time"
-  timeout : 3
+  timeout : 10
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
