@@ -17,31 +17,40 @@ class ActionGetStockPredictions(Action):
             'symbol': stock_ticker,
             'interval': '1day',  # Adjust interval as needed
             'outputsize': 1000,  # Adjust output size as needed
-            'apikey': API_KEY
+            'apikey': self.api_key
         }
         response = requests.get(endpoint, params=params)
         data = response.json()
-        df = pd.DataFrame(data['values'])
+        if 'values' in data:
+            df = pd.DataFrame(data['values'])
+        else:
+            df = pd.DataFrame()
         return df
 
     def build_predictive_model(self, df: pd.DataFrame) -> LinearRegression:
-        # Prepare data for modeling
-        X = df[['open', 'high', 'low', 'volume']]  # Features
-        y = df['close']  # Target variable
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        model = LinearRegression()
-        model.fit(X_train, y_train)
-        return model
+        if not df.empty:
+            # Prepare data for modeling
+            X = df[['open', 'high', 'low', 'volume']]  # Features
+            y = df['close']  # Target variable
+            X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)   
+            model = LinearRegression()
+            model.fit(X_train, y_train)
+            return model, X_test, y_test
+        else:
+            return None, None, None
 
     def backtest_model(self, model: LinearRegression, X_test: pd.DataFrame, y_test: pd.Series) -> float:
-        y_pred = model.predict(X_test)
-        mse = mean_squared_error(y_test, y_pred)
-        return mse
+        if model and X_test is not None and y_test is not None:
+            y_pred = model.predict(X_test)
+            mse = mean_squared_error(y_test, y_pred)
+            return mse
+        else:
+            return float('inf')
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            with open('actions\API_KEY.txt', 'r') as file:
-                API_KEY = file.read().strip()
+            with open('actions/API_KEY.txt', 'r') as file:
+                self.api_key = file.read().strip()
 
             entities = tracker.latest_message.get('entities', [])
             company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
@@ -50,25 +59,21 @@ class ActionGetStockPredictions(Action):
             if company_name in ticker_mapping:
                 stock_ticker = ticker_mapping[company_name]
 
-                # Fetch historical data
                 df = self.fetch_historical_data(stock_ticker)
-
-                # Build predictive model
-                model = self.build_predictive_model(df)
-
-                # Backtest model
+                model, X_test, y_test = self.build_predictive_model(df)
                 mse = self.backtest_model(model, X_test, y_test)
 
-                # Provide real-time predictions
-                current_data = df.iloc[-1]
-                prediction = model.predict(current_data[['open', 'high', 'low', 'volume']].values.reshape(1, -1))[0]
-                dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${prediction:.2f}. Mean Squared Error: {mse:.2f}")
+                if model:
+                    current_data = df.iloc[-1]
+                    prediction = model.predict(current_data[['open', 'high', 'low', 'volume']].values.reshape(1, -1))[0]
+                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${prediction:.2f}. Mean Squared Error: {mse:.2f}")
+                else:
+                    dispatcher.utter_message(text="Not enough data to build a predictive model.")
 
             else:
                 dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
         
         except Exception as e:
-            print(f"An error occurred: {e}")
-            dispatcher.utter_message(text="An error occurred. Please try again later.")
+            dispatcher.utter_message(text=f"An error occurred: {e}")
 
         return []
