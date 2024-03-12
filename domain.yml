@@ -24,8 +24,8 @@ entities:
   - time
 # slots to store use info
 slots:
-  time: # slot name
-    type: text
+  time:
+    type: any
     mappings:
       - type: from_entity
         entity: time

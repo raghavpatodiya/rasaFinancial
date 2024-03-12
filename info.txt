@@ -50,3 +50,5 @@ Explore Rasa resources: Refer to the official Rasa documentation, tutorials, and
 git prompts - add fix error update test
 
 read about - nlu classifiers
+
+confidence score - the closer to 1, the better

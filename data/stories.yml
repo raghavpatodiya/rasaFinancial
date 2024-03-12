@@ -29,21 +29,27 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
-- story: stock price
+- story: latest stock price
   steps:
   - intent: ask_latest_stock_price
   - action: get_latest_stock_price
+
+- story: older stock price
+  steps: 
   - intent: ask_older_stock_price
   - action: get_older_stock_price
-
-- story: stock info
+  
+- story: general stock info
   steps:
   - intent: ask_general_info
   - action: get_general_info
+
+- story: specific stock info
+  steps:
   - intent: ask_specific_info
   - action: get_specific_info
 
-- story: ask_time
+- story: ask time
   steps:
   - intent: ask_time
   - action: utter_time

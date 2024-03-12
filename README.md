@@ -18,4 +18,6 @@
 
 # ' docker kill [container_name]' to kill the docker container
 
-# in my case ' docker kill inspiring_goldwasser'
+# ' rasa train nlu ' to train only on intents
+
+# ' rasa shell nlu ' to check intent confidence scores for a given query

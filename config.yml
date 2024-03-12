@@ -18,6 +18,7 @@ pipeline:
 - name: RegexFeaturizer
 - name: LexicalSyntacticFeaturizer
 - name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
@@ -27,27 +28,22 @@ pipeline:
   constrain_similarities: true
   # - name: SpacyEntityExtractor
   # - name: CRFEntityExtractor # in nlp for named entity recognition
+- name: EntitySynonymMapper
 - name: ResponseSelector
   epochs: 100
   constrain_similarities: true
 - name: FallbackClassifier
   threshold: 0.3   # confidence level
   ambiguity_threshold: 0.1
-- name: EntitySynonymMapper
+
 - name: "DucklingEntityExtractor"
   # url of the running duckling server
   url: "http://localhost:8000"
   # dimensions to extract
   dimensions: ["time"]
-  # allows you to configure the locale, by default the language is
-  # used
-  # locale: "de_DE"
-  # if not set the default timezone of Duckling is going to be used
-  # needed to calculate dates from relative expressions like "tomorrow"
-  # timezone: "Europe/Berlin"
-  # Timeout for receiving response from http url of the running duckling server
-  # if not set the default timeout of duckling http url is set to 3 seconds.
-  # timeout : 3
+  locale: "En_IN"
+  timezone: "India Standard Time"
+  timeout : 3
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
