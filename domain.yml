@@ -15,11 +15,21 @@ intents:
   - ask_general_info
   - ask_specific_info
   - what_can_you_do
+  - ask_time
 
 entities:
   - stock_name
   - time_period
   - info
+  - time
+# slots to store use info
+slots:
+  time: # slot name
+    type: text
+    mappings:
+      - type: from_entity
+        entity: time
+
 
 responses:
   utter_greet:
@@ -52,6 +62,9 @@ responses:
 
   utter_what_can_you_do:
   - text: "I can help you with anything related to stocks and more !!"
+
+  utter_time:
+  - text: "It's {time}"
 actions:
   - get_latest_stock_price
   - get_older_stock_price

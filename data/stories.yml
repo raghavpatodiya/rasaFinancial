@@ -43,3 +43,7 @@ stories:
   - intent: ask_specific_info
   - action: get_specific_info
 
+- story: ask_time
+  steps:
+  - intent: ask_time
+  - action: utter_time

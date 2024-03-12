@@ -125,6 +125,12 @@ nlu:
     - can you  help me ?
     - what are your powers ?
 
+- intent: ask_time
+  examples: |
+    - what  time is it ?
+    - can  you tell me the current time ?
+    - please tell me the time !
+
 - intent: ask_latest_stock_price
   examples: |
     - give me stock price for [apple](stock_name)

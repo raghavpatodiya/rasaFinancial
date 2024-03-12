@@ -11,3 +11,11 @@
 # ' rasa run --enable-api ' to enable http server
 
 # ' rasa run actions ' to run custom actions defined in actions.py
+
+# to run duckling on docker ' docker run -p 8000:8000 rasa/duckling '
+
+# ' docker ps ' to list down actice docker containers
+
+# ' docker kill [container_name]' to kill the docker container
+
+# in my case ' docker kill inspiring_goldwasser'
