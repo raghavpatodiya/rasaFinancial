@@ -7,42 +7,58 @@ from actions.ticker_mapping import get_ticker_mapping
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+import yfinance as yf
 
-import os # to get env
-from dotenv import load_dotenv
-load_dotenv() # taking environment variables from .env file
+# import os # to get env
+# from dotenv import load_dotenv
+# load_dotenv() # taking environment variables from .env file
 
-TWELVE_DATA_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
+# TWELVE_DATA_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
 
 class ActionGetStockPredictions(Action):
     def name(self) -> Text:
         return "get_stock_predictions"
 
+    # def fetch_historical_data(self, stock_ticker: str) -> pd.DataFrame:
+    #     endpoint = 'https://api.twelvedata.com/time_series'
+    #     params = {
+    #         'symbol': stock_ticker,
+    #         'interval': '1day',  # Adjust interval as needed
+    #         'outputsize': 1000,  # Adjust output size as needed
+    #         'apikey': TWELVE_DATA_API_KEY
+    #     }
+    #     response = requests.get(endpoint, params=params)
+    #     data = response.json()
+    #     if 'values' in data:
+    #         df = pd.DataFrame(data['values'])
+    #     else:
+    #         df = pd.DataFrame()
+    #     return df
     def fetch_historical_data(self, stock_ticker: str) -> pd.DataFrame:
-        endpoint = 'https://api.twelvedata.com/time_series'
-        params = {
-            'symbol': stock_ticker,
-            'interval': '1day',  # Adjust interval as needed
-            'outputsize': 1000,  # Adjust output size as needed
-            'apikey': TWELVE_DATA_API_KEY
-        }
-        response = requests.get(endpoint, params=params)
-        data = response.json()
-        if 'values' in data:
-            df = pd.DataFrame(data['values'])
-        else:
-            df = pd.DataFrame()
+        # Download historical data using yfinance
+        stock_data = yf.Ticker(stock_ticker)
+        df = stock_data.history(period="max")  # Fetch historical data for all available dates
+        print("Columns available in the DataFrame:")
+        print(df.columns)
         return df
+
 
     def build_predictive_model(self, df: pd.DataFrame) -> LinearRegression:
         if not df.empty:
             # Prepare data for modeling
-            X = df[['open', 'high', 'low', 'volume']]  # Features
-            y = df['close']  # Target variable
+            # features = ['previousClose', 'open', 'dayLow', 'dayHigh', 'volume', 'averageVolume',
+            #             'averageVolume10days', 'trailingPE', 'forwardPE', 'earningsGrowth', 'recommendationKey',
+            #             'numberOfAnalystOpinions', 'fiftyTwoWeekLow', 'fiftyTwoWeekHigh',
+            #             'fiftyDayAverage', 'twoHundredDayAverage']  # Features
+            features = ['Open', 'High', 'Low', 'Close', 'Volume', 'Dividends', 'Stock Splits']
+            X = df[features]  # Extracting features
+            y = df['Close']  # Target variable
             X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)   
             model = LinearRegression()
             model.fit(X_train, y_train)
+            # print("Features used for training the model:", features)
             return model, X_test, y_test
+            
         else:
             return None, None, None
 
@@ -69,7 +85,7 @@ class ActionGetStockPredictions(Action):
 
                 if model:
                     current_data = df.iloc[-1]
-                    prediction = model.predict(current_data[['open', 'high', 'low', 'volume']].values.reshape(1, -1))[0]
+                    prediction = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits', 'Close']].values.reshape(1, -1))[0]
                     dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${prediction:.2f}. Mean Squared Error: {mse:.2f}")
                 else:
                     dispatcher.utter_message(text="Not enough data to build a predictive model.")
