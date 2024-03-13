@@ -52,8 +52,8 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  utter_ask_any_else:
-  - text: "would you like to know anything else?"
+  # utter_ask_any_else:
+  # - text: "would you like to know anything else?"
 
   utter_whats_up:
   - text: "Hey, i'm good ! How about you ?"

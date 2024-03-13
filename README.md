@@ -23,3 +23,7 @@
 # ' rasa shell nlu ' to check intent confidence scores for a given query
 
 # to run older model ' rasa shell -m models\older-model-name '
+
+# ' rasa data validate ' to check conflicts in domain, nlu and story data
+
+# ' rasa test ' then check results

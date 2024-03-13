@@ -141,7 +141,7 @@ nlu:
     - what is the [facebook](stock_name) stock price?
     - can you tell me the [twitter](stock_name) stock price?
     - please fetch the [instagram](stock_name) stock price
-    - what's the price for [snapchat](stock_name)
+    - what's the price for [canoo](stock_name)
     - give me the current price for [uber](stock_name)
     - price of [lyft](stock_name) share
     - how much is [atlassian](stock_name) company's stock worth ?
