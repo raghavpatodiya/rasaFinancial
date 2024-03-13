@@ -1,17 +1,5 @@
 [
   {
-    "text": "what's the price for canoo",
-    "entities": [
-      {
-        "start": 21,
-        "end": 26,
-        "value": "canoo",
-        "entity": "stock_name"
-      }
-    ],
-    "predicted_entities": []
-  },
-  {
     "text": "get me last week stock price of twitter",
     "entities": [
       {
@@ -32,7 +20,7 @@
         "entity": "time_period",
         "start": 12,
         "end": 16,
-        "confidence_entity": 0.9969198703765869,
+        "confidence_entity": 0.998508632183075,
         "value": "week",
         "extractor": "DIETClassifier"
       },
@@ -40,7 +28,7 @@
         "entity": "stock_name",
         "start": 32,
         "end": 39,
-        "confidence_entity": 0.9990142583847046,
+        "confidence_entity": 0.9995717406272888,
         "value": "twitter",
         "extractor": "DIETClassifier",
         "processors": [

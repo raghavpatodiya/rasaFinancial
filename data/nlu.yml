@@ -148,6 +148,8 @@ nlu:
     - what's the value of [disney](stock_name) stocks
     - could you tell me the price for [walmart](stock_name) shares
     - get me stock price of  [coca cola](stock_name)
+    - stock price of [magnite](stock_name)
+    - give me stock price of [zentex](stock_name)
 
 - intent: ask_older_stock_price
   examples: |

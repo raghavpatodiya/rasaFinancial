@@ -11,32 +11,44 @@ recipe: default.v1
 language: en
 
 pipeline:
-# No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
-# If you'd like to customize it, uncomment and adjust the pipeline.
 # See https://rasa.com/docs/rasa/tuning-your-model for more information.
-- name: WhitespaceTokenizer
+
+# pip install spacy
+# python -m spacy download en_core_web_sm
+- name: SpacyNLP
+  model: en_core_web_md
+
+# tokenization
+# - name: WhitespaceTokenizer
+- name: SpacyTokenizer
+
+# featurization
 - name: RegexFeaturizer
 - name: LexicalSyntacticFeaturizer
-- name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer
   analyzer: char_wb
   min_ngram: 1
   max_ngram: 4
-  # order matters
+
+# entity extraction
+- name: SpacyEntityExtractor
+# - name: CRFEntityExtractor
 - name: DIETClassifier   # for entity extraction
   epochs: 100
   constrain_similarities: true
-  # - name: SpacyEntityExtractor
-  # - name: CRFEntityExtractor # in nlp for named entity recognition
-- name: EntitySynonymMapper
+
+# response selection
 - name: ResponseSelector
   epochs: 100
   constrain_similarities: true
+
+# fallback
 - name: FallbackClassifier
   threshold: 0.3   # confidence level
   ambiguity_threshold: 0.1
 
-- name: "DucklingEntityExtractor"
+# ducklingEntityExtractor
+- name: DucklingEntityExtractor
   # url of the running duckling server
   url: "http://localhost:8000"
   # dimensions to extract
@@ -44,6 +56,9 @@ pipeline:
   locale: "En_IN"
   timezone: "India Standard Time"
   timeout : 10
+
+# synonym mapper
+- name: EntitySynonymMapper
 
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/

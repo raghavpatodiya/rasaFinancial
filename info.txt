@@ -57,8 +57,6 @@ Test -
 
 diet classifier issue
 check results
-yf finance for predicitions
-print the variables on which model is being trained
 requirement.txt file 
-incorporate mappings !!
+incorporate mappings in predicitions !!
 

@@ -1,8 +1,19 @@
-# Created by https://www.toptal.com/developers/gitignore/api/venv,dotenv
-# Edit at https://www.toptal.com/developers/gitignore?templates=venv,dotenv
+# Created by https://www.toptal.com/developers/gitignore/api/text,venv,dotenv
+# Edit at https://www.toptal.com/developers/gitignore?templates=text,venv,dotenv
 
 ### dotenv ###
 .env
+
+### Text ###
+*.doc
+*.docx
+*.log
+*.msg
+*.pages
+*.rtf
+*.txt
+*.wpd
+*.wps
 
 ### venv ###
 # Virtualenv
@@ -17,3 +28,5 @@
 pyvenv.cfg
 .venv
 pip-selfcheck.json
+
+# End of https://www.toptal.com/developers/gitignore/api/text,venv,dotenv

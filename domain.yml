@@ -22,6 +22,7 @@ entities:
   - time_period
   - info
   - time
+  - ORG
 # slots to store use info
 slots:
   time:
