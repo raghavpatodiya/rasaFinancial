@@ -7,6 +7,13 @@ from actions.ticker_mapping import get_ticker_mapping
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
+
+import os # to get env
+from dotenv import load_dotenv
+load_dotenv() # taking environment variables from .env file
+
+TWELVE_DATA_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
+
 class ActionGetStockPredictions(Action):
     def name(self) -> Text:
         return "get_stock_predictions"
@@ -17,7 +24,7 @@ class ActionGetStockPredictions(Action):
             'symbol': stock_ticker,
             'interval': '1day',  # Adjust interval as needed
             'outputsize': 1000,  # Adjust output size as needed
-            'apikey': self.api_key
+            'apikey': TWELVE_DATA_API_KEY
         }
         response = requests.get(endpoint, params=params)
         data = response.json()
@@ -49,9 +56,6 @@ class ActionGetStockPredictions(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            with open('actions/API_KEY.txt', 'r') as file:
-                self.api_key = file.read().strip()
-
             entities = tracker.latest_message.get('entities', [])
             company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
             ticker_mapping = get_ticker_mapping()

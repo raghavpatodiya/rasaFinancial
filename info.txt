@@ -53,8 +53,13 @@ read about - nlu classifiers
 
 confidence score - the closer to 1, the better
 
-diet classifier
+Test - 
+
+diet classifier issue
+check results
 yf finance for predicitions
 print the variables on which model is being trained
 hide api key
 requirement.txt file 
+incorporate mappings !!
+
