@@ -55,8 +55,14 @@ confidence score - the closer to 1, the better
 
 Test - 
 
-diet classifier issue
+diet classifier issue, only spacy ?
 check results
 requirement.txt file 
 incorporate mappings in predicitions !!
+make presentation for mte
+integrate nlp ?
+improve template
+try other models to make predicitions
+check variables on which predictions are made
+
 
