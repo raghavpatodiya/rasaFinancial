@@ -21,7 +21,6 @@ class ActionGetStockPredictions(Action):
     def fetch_historical_data(self, stock_ticker: str) -> pd.DataFrame:
         # Download historical data using yfinance
         stock_data = yf.Ticker(stock_ticker)
-        current_price = stock_data.history(period='1d')['Close'].iloc[0]
         df = stock_data.history(period="max")  # Fetch historical data for all available dates
         print("Columns available in the DataFrame:")
         print(df.columns)
@@ -78,7 +77,8 @@ class ActionGetStockPredictions(Action):
 
             if company_name in ticker_mapping:
                 stock_ticker = ticker_mapping[company_name]
-
+                stock_data = yf.Ticker(stock_ticker)
+                current_price = stock_data.history(period='1d')['Close'].iloc[0]
                 df = self.fetch_historical_data(stock_ticker)
                 model, X_test, y_test = self.build_predictive_model(df)
                 mse = self.backtest_model(model, X_test, y_test)
@@ -88,8 +88,6 @@ class ActionGetStockPredictions(Action):
                     prediction = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits']].values.reshape(1, -1))[0]
                      # Store prediction and current_price in tracker
                     tracker.slots["predicted_price"] = prediction
-                    stock_data = yf.Ticker(stock_ticker)
-                    current_price = stock_data.history(period='1d')['Close'].iloc[0]
                     tracker.slots["current_price"] = current_price
                     dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${prediction:.2f}. Mean Squared Error: {mse:.2f}")
                 else:
@@ -124,7 +122,7 @@ class ActionWhatToDo(Action):
                 elif predicted_price < current_price and diff_percentage > 10:
                     dispatcher.utter_message(text=f"Recommendation: Sell. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
                 else:
-                    dispatcher.utter_message(text=f"Recommendation: Hold. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
+                    dispatcher.utter_message(text=f"Recommendation: Do Nothing. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
             else:
                 dispatcher.utter_message(text="Unable to determine buy/sell/hold recommendation. Please try again later.")
         
