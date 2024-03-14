@@ -188,3 +188,17 @@ nlu:
     - will the stock price of [microsoft](stock_name) go up ?
     - can you tell me the predicted stock price for [atlassian](stock_name) ?
     - please make some predictions to give me the future prices of [nvidia](stock_name) stock !
+
+- intent: ask_buy_sell_hold
+  examples: |
+    - should i sell my shares of ?
+    - what should i do with my shares ?
+    - can i sell my shares now ?
+    - i feel like i should hold my stocks 
+    - buy or sell?
+    - buy, sell or hold ?
+    - recommend me something about buying or selling of this stock 
+    - please can you tell me weather i should sell this stock or not ?
+    - i am selling my shares !
+    - i am buying this stock !
+    - i will do nothing and hold !

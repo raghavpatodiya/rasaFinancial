@@ -14,12 +14,14 @@ import yfinance as yf
 # load_dotenv() # taking environment variables from .env file
 # TWELVE_DATA_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
 
+# here we predict the current day's closing stock price
 class ActionGetStockPredictions(Action):
     def name(self) -> Text:
         return "get_stock_predictions"
     def fetch_historical_data(self, stock_ticker: str) -> pd.DataFrame:
         # Download historical data using yfinance
         stock_data = yf.Ticker(stock_ticker)
+        current_price = stock_data.history(period='1d')['Close'].iloc[0]
         df = stock_data.history(period="max")  # Fetch historical data for all available dates
         print("Columns available in the DataFrame:")
         print(df.columns)
@@ -84,6 +86,11 @@ class ActionGetStockPredictions(Action):
                 if model:
                     current_data = df.iloc[-1]
                     prediction = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits']].values.reshape(1, -1))[0]
+                     # Store prediction and current_price in tracker
+                    tracker.slots["predicted_price"] = prediction
+                    stock_data = yf.Ticker(stock_ticker)
+                    current_price = stock_data.history(period='1d')['Close'].iloc[0]
+                    tracker.slots["current_price"] = current_price
                     dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${prediction:.2f}. Mean Squared Error: {mse:.2f}")
                 else:
                     dispatcher.utter_message(text="Not enough data to build a predictive model.")
@@ -95,3 +102,36 @@ class ActionGetStockPredictions(Action):
             dispatcher.utter_message(text=f"An error occurred: {e}")
 
         return []
+
+
+    
+class ActionWhatToDo(Action):
+    def name(self) -> Text:
+        return "get_buy_sell_hold"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            # Extract predicted_price and current_price from tracker
+            predicted_price = tracker.get_slot("predicted_price")
+            current_price = tracker.get_slot("current_price")
+
+            if predicted_price is not None and current_price is not None:
+                diff = current_price - predicted_price
+                diff_percentage = (diff / current_price) * 100
+
+                if predicted_price > current_price:
+                    dispatcher.utter_message(text=f"Recommendation: Buy. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
+                elif predicted_price < current_price and diff_percentage > 10:
+                    dispatcher.utter_message(text=f"Recommendation: Sell. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
+                else:
+                    dispatcher.utter_message(text=f"Recommendation: Hold. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
+            else:
+                dispatcher.utter_message(text="Unable to determine buy/sell/hold recommendation. Please try again later.")
+        
+        except Exception as e:
+            dispatcher.utter_message(text=f"An error occurred: {e}")
+
+        return []
+
+
+  

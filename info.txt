@@ -63,4 +63,7 @@ improve template
 try other models to make predicitions
 check variables on which predictions are made
 
-
+only spacy, duckling, dietClassifier ?
+if predicted price >current price, yes recommend buying
+if predicted price <current price && diff> (10%current_price) then sell
+else hold

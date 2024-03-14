@@ -17,6 +17,7 @@ intents:
   - what_can_you_do
   - ask_time
   - ask_stock_predictions
+  - ask_buy_sell_hold
 entities:
   - stock_name
   - time_period
@@ -31,6 +32,7 @@ slots:
       - type: from_entity
         entity: time
         intent: ask_time
+
 
 
 responses:
@@ -73,6 +75,7 @@ actions:
   - get_general_info
   - get_specific_info
   - get_stock_predictions
+  - get_buy_sell_hold
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
