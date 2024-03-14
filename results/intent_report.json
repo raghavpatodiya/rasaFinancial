@@ -1,9 +1,30 @@
 {
+  "whats_up": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
+    "confused_with": {}
+  },
   "abusive_user": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 9,
+    "confused_with": {}
+  },
+  "greet": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 13,
+    "confused_with": {}
+  },
+  "deny": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
     "confused_with": {}
   },
   "ask_older_stock_price": {
@@ -20,6 +41,48 @@
     "support": 8,
     "confused_with": {}
   },
+  "ask_stock_predictions": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 5,
+    "confused_with": {}
+  },
+  "bot_challenge": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 8,
+    "confused_with": {}
+  },
+  "affirm": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 6,
+    "confused_with": {}
+  },
+  "mood_great": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 14,
+    "confused_with": {}
+  },
+  "what_can_you_do": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
+    "confused_with": {}
+  },
+  "ask_time": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3,
+    "confused_with": {}
+  },
   "ask_latest_stock_price": {
     "precision": 1.0,
     "recall": 1.0,
@@ -27,18 +90,11 @@
     "support": 17,
     "confused_with": {}
   },
-  "greet": {
+  "ask_specific_info": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 13,
-    "confused_with": {}
-  },
-  "ask_stock_predictions": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 5,
+    "support": 6,
     "confused_with": {}
   },
   "mood_unhappy": {
@@ -55,60 +111,11 @@
     "support": 10,
     "confused_with": {}
   },
-  "what_can_you_do": {
+  "ask_buy_sell_hold": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 7,
-    "confused_with": {}
-  },
-  "ask_specific_info": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 6,
-    "confused_with": {}
-  },
-  "whats_up": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7,
-    "confused_with": {}
-  },
-  "bot_challenge": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 8,
-    "confused_with": {}
-  },
-  "mood_great": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 14,
-    "confused_with": {}
-  },
-  "affirm": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 6,
-    "confused_with": {}
-  },
-  "ask_time": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 3,
-    "confused_with": {}
-  },
-  "deny": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 7,
+    "support": 11,
     "confused_with": {}
   },
   "accuracy": 1.0,
@@ -116,18 +123,18 @@
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 141
+    "support": 152
   },
   "weighted avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 141
+    "support": 152
   },
   "micro avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 141
+    "support": 152
   }
 }

@@ -36,25 +36,25 @@ class ActionGetStockPredictions(Action):
             model = LinearRegression()
             model.fit(X_train, y_train)
 
-            # Evaluate model
-            y_pred_train = model.predict(X_train)
-            y_pred_test = model.predict(X_test)
-            mse_train = mean_squared_error(y_train, y_pred_train)
-            mse_test = mean_squared_error(y_test, y_pred_test)
-            mae_train = mean_absolute_error(y_train, y_pred_train)
-            mae_test = mean_absolute_error(y_test, y_pred_test)
-            r2_train = r2_score(y_train, y_pred_train)
-            r2_test = r2_score(y_test, y_pred_test)
+            # # Evaluate model
+            # y_pred_train = model.predict(X_train)
+            # y_pred_test = model.predict(X_test)
+            # mse_train = mean_squared_error(y_train, y_pred_train)
+            # mse_test = mean_squared_error(y_test, y_pred_test)
+            # mae_train = mean_absolute_error(y_train, y_pred_train)
+            # mae_test = mean_absolute_error(y_test, y_pred_test)
+            # r2_train = r2_score(y_train, y_pred_train)
+            # r2_test = r2_score(y_test, y_pred_test)
 
-            # Print evaluation metrics
-            print("Training set evaluation:")
-            print(f"Mean Squared Error (MSE): {mse_train:.2f}")
-            print(f"Mean Absolute Error (MAE): {mae_train:.2f}")
-            print(f"R-squared (R2): {r2_train:.2f}")
-            print("\nTesting set evaluation:")
-            print(f"Mean Squared Error (MSE): {mse_test:.2f}")
-            print(f"Mean Absolute Error (MAE): {mae_test:.2f}")
-            print(f"R-squared (R2): {r2_test:.2f}")
+            # # Print evaluation metrics
+            # print("Training set evaluation:")
+            # print(f"Mean Squared Error (MSE): {mse_train:.2f}")
+            # print(f"Mean Absolute Error (MAE): {mae_train:.2f}")
+            # print(f"R-squared (R2): {r2_train:.2f}")
+            # print("\nTesting set evaluation:")
+            # print(f"Mean Squared Error (MSE): {mse_test:.2f}")
+            # print(f"Mean Absolute Error (MAE): {mae_test:.2f}")
+            # print(f"R-squared (R2): {r2_test:.2f}")
 
             return model, X_test, y_test
             
@@ -110,19 +110,18 @@ class ActionWhatToDo(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
             # Extract predicted_price and current_price from tracker
-            predicted_price = tracker.get_slot("predicted_price")
+            prediction = tracker.get_slot("predicted_price")
             current_price = tracker.get_slot("current_price")
 
-            if predicted_price is not None and current_price is not None:
-                diff = current_price - predicted_price
+            if prediction is not None and current_price is not None:
+                diff = current_price - prediction
                 diff_percentage = (diff / current_price) * 100
-
-                if predicted_price > current_price:
-                    dispatcher.utter_message(text=f"Recommendation: Buy. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
-                elif predicted_price < current_price and diff_percentage > 10:
-                    dispatcher.utter_message(text=f"Recommendation: Sell. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
+                if prediction > current_price:
+                    dispatcher.utter_message(text=f"Recommendation: Buy. Predicted price: ${prediction:.2f}, Current price: ${current_price:.2f}")
+                elif prediction < current_price and diff_percentage > 10:
+                    dispatcher.utter_message(text=f"Recommendation: Sell. Predicted price: ${prediction:.2f}, Current price: ${current_price:.2f}")
                 else:
-                    dispatcher.utter_message(text=f"Recommendation: Do Nothing. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
+                    dispatcher.utter_message(text=f"Recommendation: Hold. Predicted price: ${prediction:.2f}, Current price: ${current_price:.2f}")
             else:
                 dispatcher.utter_message(text="Unable to determine buy/sell/hold recommendation. Please try again later.")
         
