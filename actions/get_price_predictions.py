@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import yfinance as yf
+import json
 
 # import os # to get env
 # from dotenv import load_dotenv
@@ -85,11 +86,23 @@ class ActionGetStockPredictions(Action):
 
                 if model:
                     current_data = df.iloc[-1]
-                    prediction = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits']].values.reshape(1, -1))[0]
-                     # Store prediction and current_price in tracker
-                    tracker.slots["predicted_price"] = prediction
-                    tracker.slots["current_price"] = current_price
-                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${prediction:.2f}. Mean Squared Error: {mse:.2f}")
+                    predicted_price = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits']].values.reshape(1, -1))[0]
+                    
+                    # Store prediction and current_price in tracker
+                    # tracker.slots["predicted_price"] = predicted_price
+                    # tracker.slots["current_price"] = current_price
+
+                    # Store data in external storage (e.g., JSON file)
+                    data = {
+                        "company_name": company_name,
+                        "stock_ticker": stock_ticker,
+                        "predicted_price": predicted_price,
+                        "current_price": current_price
+                    }
+                    with open('stock_data.json', 'w') as file:
+                        json.dump(data, file)
+
+                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}. Mean Squared Error: {mse:.2f}")
                 else:
                     dispatcher.utter_message(text="Not enough data to build a predictive model.")
 
@@ -110,18 +123,25 @@ class ActionWhatToDo(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
             # Extract predicted_price and current_price from tracker
-            prediction = tracker.get_slot("predicted_price")
-            current_price = tracker.get_slot("current_price")
+            # predicted_price = tracker.get_slot("predicted_price")
+            # current_price = tracker.get_slot("current_price")
 
-            if prediction is not None and current_price is not None:
-                diff = current_price - prediction
+            # Retrieve data from external storage
+            with open('stock_data.json', 'r') as file:
+                data = json.load(file)
+            # Extract predicted and current prices
+            predicted_price = data.get("predicted_price")
+            current_price = data.get("current_price")
+
+            if predicted_price is not None and current_price is not None:
+                diff = current_price - predicted_price
                 diff_percentage = (diff / current_price) * 100
-                if prediction > current_price:
-                    dispatcher.utter_message(text=f"Recommendation: Buy. Predicted price: ${prediction:.2f}, Current price: ${current_price:.2f}")
-                elif prediction < current_price and diff_percentage > 10:
-                    dispatcher.utter_message(text=f"Recommendation: Sell. Predicted price: ${prediction:.2f}, Current price: ${current_price:.2f}")
+                if predicted_price > current_price:
+                    dispatcher.utter_message(text=f"Recommendation: Buy. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
+                elif predicted_price < current_price and diff_percentage > 10:
+                    dispatcher.utter_message(text=f"Recommendation: Sell. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
                 else:
-                    dispatcher.utter_message(text=f"Recommendation: Hold. Predicted price: ${prediction:.2f}, Current price: ${current_price:.2f}")
+                    dispatcher.utter_message(text=f"Recommendation: Hold. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
             else:
                 dispatcher.utter_message(text="Unable to determine buy/sell/hold recommendation. Please try again later.")
         
