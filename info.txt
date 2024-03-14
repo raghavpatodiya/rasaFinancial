@@ -49,12 +49,10 @@ Explore Rasa resources: Refer to the official Rasa documentation, tutorials, and
 
 git prompts - add fix error update test
 
-read about - nlu classifiers
-
+general - 
 confidence score - the closer to 1, the better
 
 Test - 
-
 diet classifier issue, only spacy ?
 check results
 requirement.txt file 
