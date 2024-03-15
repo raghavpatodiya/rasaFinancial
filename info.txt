@@ -65,6 +65,6 @@ check variables on which predictions are made
 
 only spacy, duckling, dietClassifier ?
 
-i think the problem is after i predict price in a conversation, the action ActionGetStockPrediction ends. 
-and the values prediction and current_price stored in slots resets, so it doesnt matter, 
-even if ActionBuySellHold is being called just in the next conversation
+if user has mentioned company name then go on with it
+else if no company name mentioned get the value from stock_data.json
+this might have some serious repercussions

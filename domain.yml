@@ -33,8 +33,6 @@ slots:
         entity: time
         intent: ask_time
 
-
-
 responses:
   utter_greet:
   - text: "Hey! How are you?"

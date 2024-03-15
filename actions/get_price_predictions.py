@@ -20,7 +20,6 @@ class ActionGetStockPredictions(Action):
     def name(self) -> Text:
         return "get_stock_predictions"
     def fetch_historical_data(self, stock_ticker: str) -> pd.DataFrame:
-        # Download historical data using yfinance
         stock_data = yf.Ticker(stock_ticker)
         df = stock_data.history(period="max")  # Fetch historical data for all available dates
         print("Columns available in the DataFrame:")
@@ -88,7 +87,7 @@ class ActionGetStockPredictions(Action):
                     current_data = df.iloc[-1]
                     predicted_price = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits']].values.reshape(1, -1))[0]
                     
-                    # Store prediction and current_price in tracker
+                    # # Store prediction and current_price in tracker
                     # tracker.slots["predicted_price"] = predicted_price
                     # tracker.slots["current_price"] = current_price
 
@@ -122,7 +121,7 @@ class ActionWhatToDo(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            # Extract predicted_price and current_price from tracker
+            # # Extract predicted_price and current_price from tracker
             # predicted_price = tracker.get_slot("predicted_price")
             # current_price = tracker.get_slot("current_price")
 
