@@ -53,18 +53,18 @@ general -
 confidence score - the closer to 1, the better
 
 Test - 
-diet classifier issue, only spacy ?
-check results
-requirement.txt file 
 incorporate mappings in predicitions !!
 make presentation for mte
 integrate nlp ?
 improve template
 try other models to make predicitions
-check variables on which predictions are made
+
 
 only spacy, duckling, dietClassifier ?
 
 if user has mentioned company name then go on with it
 else if no company name mentioned get the value from stock_data.json
 this might have some serious repercussions
+
+stock tickers from api ?
+improve code structure
