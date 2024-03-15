@@ -16,6 +16,7 @@
 *.wps
 
 .rasa
+models/
 
 ### venv ###
 # Virtualenv
