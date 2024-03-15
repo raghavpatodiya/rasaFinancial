@@ -4,6 +4,8 @@
 
 # ' rasa init ' to initialize
 
+# ' rasa train ' to create your own model
+
 # ' rasa shell ' to test in shell
 
 # ' rasa run ' to run rasa server
