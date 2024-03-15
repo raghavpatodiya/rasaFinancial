@@ -68,3 +68,4 @@ this might have some serious repercussions
 
 stock tickers from api ?
 improve code structure
+readme template
