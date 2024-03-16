@@ -9,7 +9,7 @@
 - `rasa run`: Run the Rasa server to interact with your model via REST API.
 - `rasa run --enable-api`: Run the Rasa server with HTTP API enabled.
 - `rasa run actions`: Run custom actions defined in actions.py alongside your Rasa server.
-- To run Duckling on Docker:
+- To run Duckling on Docker: `docker run -p 8000:8000 rasa/duckling`
 - `docker ps`: List all active Docker containers.
 - `docker kill [container_name]`: Kill a specific Docker container.
 - `rasa train nlu`: Train the NLU (Natural Language Understanding) model only, focusing on intents.
