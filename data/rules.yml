@@ -60,3 +60,28 @@ rules:
   steps:
   - intent: ask_worst_stock
   - action: get_worst_stock
+
+- rule: how to evaluate
+  steps:
+  - intent: ask_how_to_evaluate
+  - action: utter_how_to_evaluate
+
+- rule: penny stock risks
+  steps: 
+  - intent: ask_penny_stock_risk
+  - action: utter_penny_stock_risk
+
+- rule: dividend investing
+  steps:
+  - intent: ask_dividend_investing
+  - action: utter_dividend_investing
+
+- rule: key indicators
+  steps:
+  - intent: ask_key_indicators
+  - action: utter_key_indicators
+
+- rule: market sentiment affect
+  steps:
+  - intent: ask_market_sentiment_affect
+  - action: utter_market_sentiment_affect

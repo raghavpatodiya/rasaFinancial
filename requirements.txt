@@ -1,4 +1,6 @@
-# pip freeze > requirements.txt
+# to install requirements, run ' pip install -r requirements.txt '
+# to create your very own requirements file, run ' pip freeze > requirements.txt '
+# also check the files that you require before actually installing
 absl-py==1.4.0
 aio-pika==8.2.3
 aiofiles==23.2.1

@@ -22,6 +22,11 @@ intents:
   - ask_volatility
   - ask_top_stock
   - ask_worst_stock
+  - ask_how_to_evaluate
+  - ask_penny_stock_risk
+  - ask_dividend_investing
+  - ask_key_indicators
+  - ask_market_sentiment_affect
 entities:
   - stock_name
   - time_period
@@ -72,6 +77,18 @@ responses:
 
   utter_time:
   - text: "It's {time}"
+
+  utter_how_to_evaluate:
+  - text: "Analyze financials, growth, competition, industry trends, and valuations before investing."
+  utter_penny_stock_risk:
+  - text: "Volatility, low liquidity, lack of regulation, susceptibility to scams, and potential for large losses are risks with penny stocks."
+  utter_dividend_investing:
+  - text: "Dividend investing involves buying stocks of companies that regularly pay dividends, providing investors with a steady income stream based on company profits."
+  utter_key_indicators:
+  - text: "Key indicators in financial statements include revenue growth, profitability margins, debt levels, cash flow, and return on investment (ROI)."
+  utter_market_sentiment_affect:
+  - text: "Market sentiment influences stock prices by impacting investor behavior, driving buying or selling pressure based on emotions, news, and perceptions of market conditions."
+
 actions:
   - get_latest_stock_price
   - get_older_stock_price

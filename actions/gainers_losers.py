@@ -9,7 +9,6 @@ from rasa_sdk.executor import CollectingDispatcher
 
 import os # to get env
 from dotenv import load_dotenv
-from rest_framework.decorators import action
 load_dotenv() # taking environment variables from .env file
 ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY")
 

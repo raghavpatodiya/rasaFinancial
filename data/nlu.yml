@@ -241,6 +241,22 @@ nlu:
     - what is the best stock ?
     - can you mention the best stock ?
     - fetch the latest best stock ?
+    - list down best stocks.
+    - what are the top performing stocks?
+    - show me the top stocks.
+    - which stocks are performing the best?
+    - list the top performing stocks.
+    - what stocks have the highest performance?
+    - could you provide the top stocks?
+    - display the best-performing stocks.
+    - I'm interested in the top stocks.
+    - give me a list of the top stocks.
+    - what stocks should I keep an eye on?
+    - which stocks are currently leading?
+    - can you tell me about the top stocks?
+    - show me the best stocks right now.
+    - provide information about the top-performing stocks.
+    - I want to know the top stocks in the market.
 
 - intent: ask_worst_stock
   examples: |
@@ -248,4 +264,25 @@ nlu:
     - list down the worst performers
     - can you mention the worst performers
     - fetch the worst stock
+    - which stocks are performing the worst?
+    - give me the least performing stocks
+    - show me the stocks with the lowest performance
+    - what are the worst stocks in the market?
+    - provide the names of the worst performing stocks
+    - could you tell me about the least performing stocks?
     
+- intent: ask_how_to_evaluate
+  examples: |
+    - How do I evaluate a company's stock before investing?
+- intent: ask_penny_stock_risk
+  examples: |
+    - What are the risks associated with penny stocks?
+- intent: ask_dividend_investing
+  examples: |
+    - Can you explain the concept of dividend investing?
+- intent: ask_key_indicators
+  examples: |
+    - What are some key indicators to look for in a company's financial statements?
+- intent: ask_market_sentiment_affect
+  examples: |
+    - How does market sentiment affect stock prices?
