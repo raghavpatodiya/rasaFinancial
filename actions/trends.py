@@ -39,11 +39,12 @@ class ActionGetStockTrend(Action):
             # dispatcher.utter_message(text="An error occurred while fetching stock price. Please try again later.")
             with open('stock_data.json', 'r') as file:
                     data = json.load(file)
-            current_price = data.get("current_price")
-            predicted_price = data.get("predicted_price")
             company_name = data.get("company_name")
-            if current_price is not None and predicted_price is not None:
-                price_change_percentage = ((current_price - predicted_price) / predicted_price) * 100
+            stock_ticker = data.get("stock_ticker")
+            stock_data = yf.Ticker(stock_ticker)
+            df = stock_data.history(period="1wk")  # Fetch historical data for all available dates
+            if not df.empty:
+                price_change_percentage = (df['Close'].iloc[-1] - df['Close'].iloc[0]) / df['Close'].iloc[0] * 100
                 if price_change_percentage > 0:
                     dispatcher.utter_message(text=f"The stock price of {company_name} has increased by {price_change_percentage:.2f}%. Trend - Upwards")
                 elif price_change_percentage < 0:
@@ -51,17 +52,21 @@ class ActionGetStockTrend(Action):
                 else:
                     dispatcher.utter_message(text=f"The stock price of {company_name} has remained unchanged. Trend - Stable")
             else:
-                dispatcher.utter_message(text="Unable to determine the trend. Please try again later.")
-
+                dispatcher.utter_message(text="Unable to analyze trend. No historical data available.")
         return []
 
 # get time period from user, if not extracted take default as 1wk
-    
+# or short-term, medium-term or long-term trends, by default short-term
 
 class ActionGetStockVolatility(Action):
     def name(self) -> Text:
         return "get_volatility"
     
+    # Low Volatility: If the percentage is low, it means the stock's price is relatively stable and does not change much over time.
+    # This might indicate that the stock is less risky but might also suggest lower potential returns.
+
+    # High Volatility: A high percentage indicates that the stock's price is highly volatile, meaning it experiences significant price swings over time.
+    # This can suggest higher risk but also the potential for higher returns.
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
             entities = tracker.latest_message.get('entities', [])
