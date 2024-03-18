@@ -202,3 +202,14 @@ nlu:
     - i am selling my shares !
     - i am buying this stock !
     - i will do nothing and hold !
+
+- intent: ask_stock_trend
+  examples: |
+    - What's happening in the market today for [apple](stock_name) ?
+    - what is up with [google](stock_name) ?
+    - will [Microsoft](stock_name) continue its rise ?
+    - is there any chances that [Atlassian](stock_name) could fall ?
+    - what do you think, will  [NVIDIA](stock_name) follow suit ?
+    - do you expect [canoo](stock_name) to experience a strong growth ?
+    - what are the odds that [samsung](stock_name) keeps rising ?
+    - get stock trend for [amazon](stock_name)

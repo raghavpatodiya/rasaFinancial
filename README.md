@@ -14,6 +14,6 @@
 - `docker kill [container_name]`: Kill a specific Docker container.
 - `rasa train nlu`: Train the NLU (Natural Language Understanding) model only, focusing on intents.
 - `rasa shell nlu`: Test the NLU model by checking intent confidence scores for a given query.
-- To run an older model:
+- To run an older model: `rasa shell -m models\older-model-name`
 - `rasa data validate`: Validate your domain, NLU, and story data for any conflicts or inconsistencies.
 - `rasa test`: Run tests on your Rasa model and evaluate the results.

@@ -60,3 +60,8 @@ stories:
   - action: get_stock_predictions
   - intent: ask_buy_sell_hold
   - action: get_buy_sell_hold
+
+- story: analyze trend
+  steps:
+  - intent: ask_stock_trend
+  - action: get_stock_trend
