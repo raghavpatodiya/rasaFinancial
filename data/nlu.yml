@@ -241,4 +241,11 @@ nlu:
     - what is the best stock ?
     - can you mention the best stock ?
     - fetch the latest best stock ?
+
+- intent: ask_worst_stock
+  examples: |
+    - what is the worst performing stock ?
+    - list down the worst performers
+    - can you mention the worst performers
+    - fetch the worst stock
     

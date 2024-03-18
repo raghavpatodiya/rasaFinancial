@@ -55,3 +55,8 @@ rules:
   steps:
   - intent: ask_top_stock
   - action: get_top_stock
+
+- rule: get worst stock
+  steps:
+  - intent: ask_worst_stock
+  - action: get_worst_stock
