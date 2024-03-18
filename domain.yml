@@ -19,6 +19,7 @@ intents:
   - ask_stock_predictions
   - ask_buy_sell_hold
   - ask_stock_trend
+  - ask_volatility
 entities:
   - stock_name
   - time_period
@@ -77,6 +78,7 @@ actions:
   - get_stock_predictions
   - get_buy_sell_hold
   - get_stock_trend
+  - get_volatility
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

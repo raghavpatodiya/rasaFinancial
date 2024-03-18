@@ -65,3 +65,8 @@ stories:
   steps:
   - intent: ask_stock_trend
   - action: get_stock_trend
+
+- story: analyze volatility
+  steps:
+  - intent: ask_volatility
+  - action: get_volatility

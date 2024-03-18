@@ -115,7 +115,7 @@ class ActionGetStockPredictions(Action):
 
 
     
-class ActionWhatToDo(Action):
+class ActionBuySellHold(Action):
     def name(self) -> Text:
         return "get_buy_sell_hold"
 

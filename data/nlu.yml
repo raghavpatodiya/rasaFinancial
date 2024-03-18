@@ -127,7 +127,7 @@ nlu:
 
 - intent: ask_time
   examples: |
-    - what  time is it ?
+    - what time is it ?
     - can  you tell me the current time ?
     - please tell me the time !
 
@@ -217,3 +217,17 @@ nlu:
     - what is the trend
     - what can you tell about the trend.
     - tell trend.
+    - extract trend
+
+- intent: ask_volatility
+  examples: |
+    - what is the market volatility of [Apple](stock_name)?
+    - how much fluctuations does [atlassian](stock_name) face?
+    - What is the volatility of [google](stock_name) ?
+    - Tell me about the volatility of [Tesla](stock_name) shares."
+    - how stable is [microsoft](stock_name) cost ?
+    - how stable is this stock ?
+    - can i rely on this ?
+    - Have there been any recent fluctuations in [Amazon](stock_name)'s stock?
+    - What are the recent price movements of [Zentex](stock_name) shares?"
+    - Can you tell me if there have been any significant changes in [Netflix](stock_name) stock?"

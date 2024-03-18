@@ -62,10 +62,24 @@ try other models to make predicitions
 
 only spacy, duckling, dietClassifier ?
 
-if user has mentioned company name then go on with it
-else if no company name mentioned get the value from stock_data.json
-this might have some serious repercussions
-
 stock tickers from api ?
-improve code structure
-readme template
+
+instead of dumping into json file only after predicitions, can i dump as soon as i get a company name. and then dump later accordingly
+
+dumping 
+
+data = {
+                        "company_name": company_name,
+                        "stock_ticker": stock_ticker,
+                        "predicted_price": predicted_price,
+                        "current_price": current_price
+                    }
+                    with open('stock_data.json', 'w') as file:
+                        json.dump(data, file)
+
+extraction
+
+with open('stock_data.json', 'r') as file:
+                data = json.load(file)
+            predicted_price = data.get("predicted_price")
+            current_price = data.get("current_price")
