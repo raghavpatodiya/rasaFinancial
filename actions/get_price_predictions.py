@@ -133,11 +133,11 @@ class ActionWhatToDo(Action):
             current_price = data.get("current_price")
 
             if predicted_price is not None and current_price is not None:
-                diff = current_price - predicted_price
-                diff_percentage = (diff / current_price) * 100
+                price_change = current_price - predicted_price
+                price_change_percentage = (price_change / current_price) * 100
                 if predicted_price > current_price:
                     dispatcher.utter_message(text=f"Recommendation: Buy. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
-                elif predicted_price < current_price and diff_percentage > 10:
+                elif predicted_price < current_price and price_change_percentage > 10:
                     dispatcher.utter_message(text=f"Recommendation: Sell. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")
                 else:
                     dispatcher.utter_message(text=f"Recommendation: Hold. Predicted price: ${predicted_price:.2f}, Current price: ${current_price:.2f}")

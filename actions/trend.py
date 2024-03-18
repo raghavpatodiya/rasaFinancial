@@ -4,7 +4,7 @@ from rasa_sdk.executor import CollectingDispatcher
 import pandas as pd
 import yfinance as yf
 from actions.ticker_mapping import get_ticker_mapping
-
+import json
 class ActionGetStockTrend(Action):
     def name(self) -> Text:
         return "get_stock_trend"
@@ -22,11 +22,11 @@ class ActionGetStockTrend(Action):
                 stock_data = yf.Ticker(stock_ticker)
                 df = stock_data.history(period="1wk")  # Fetch historical data for all available dates
                 if not df.empty:
-                    price_change = (df['Close'].iloc[-1] - df['Close'].iloc[0]) / df['Close'].iloc[0] * 100
-                    if price_change > 0:
-                        dispatcher.utter_message(text=f"The stock price of {company_name} has increased by {price_change:.2f}%. Trend - Upwards")
-                    elif price_change < 0:
-                        dispatcher.utter_message(text=f"The stock price of {company_name} has decreased by {price_change:.2f}%. Trend - Downwards")
+                    price_change_percentage = (df['Close'].iloc[-1] - df['Close'].iloc[0]) / df['Close'].iloc[0] * 100
+                    if price_change_percentage > 0:
+                        dispatcher.utter_message(text=f"The stock price of {company_name} has increased by {price_change_percentage:.2f}%. Trend - Upwards")
+                    elif price_change_percentage < 0:
+                        dispatcher.utter_message(text=f"The stock price of {company_name} has decreased by {price_change_percentage:.2f}%. Trend - Downwards")
                     else:
                         dispatcher.utter_message(text=f"The stock price of {company_name} has remained unchanged. Trend - Stable")
                 else:
@@ -35,8 +35,24 @@ class ActionGetStockTrend(Action):
                 dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
         
         except Exception as e:
-            print(f"An error occurred while fetching stock price: {e}")
-            dispatcher.utter_message(text="An error occurred while fetching stock price. Please try again later.")
+            # print(f"An error occurred while fetching stock price: {e}")
+            # dispatcher.utter_message(text="An error occurred while fetching stock price. Please try again later.")
+            with open('stock_data.json', 'r') as file:
+                    data = json.load(file)
+            current_price = data.get("current_price")
+            predicted_price = data.get("predicted_price")
+            company_name = data.get("company_name")
+            if current_price is not None and predicted_price is not None:
+                # Calculate the percentage change in closing price from the predicted price to the current price
+                price_change_percentage = ((current_price - predicted_price) / predicted_price) * 100
+                if price_change_percentage > 0:
+                    dispatcher.utter_message(text=f"The stock price of {company_name} has increased by {price_change_percentage:.2f}%. Trend - Upwards")
+                elif price_change_percentage < 0:
+                    dispatcher.utter_message(text=f"The stock price of {company_name} has decreased by {price_change_percentage:.2f}%. Trend - Downwards")
+                else:
+                    dispatcher.utter_message(text=f"The stock price of {company_name} has remained unchanged. Trend - Stable")
+            else:
+                dispatcher.utter_message(text="Unable to determine the trend. Please try again later.")
 
         return []
 

@@ -213,3 +213,7 @@ nlu:
     - do you expect [canoo](stock_name) to experience a strong growth ?
     - what are the odds that [samsung](stock_name) keeps rising ?
     - get stock trend for [amazon](stock_name)
+    - get me the trend !
+    - what is the trend
+    - what can you tell about the trend.
+    - tell trend.
