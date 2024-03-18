@@ -58,6 +58,7 @@ make presentation for mte
 integrate nlp ?
 improve template
 try other models to make predicitions
+advanced nlu
 
 
 only spacy, duckling, dietClassifier ?

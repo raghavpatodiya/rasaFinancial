@@ -164,7 +164,7 @@ nlu:
 - intent: ask_general_info
   examples: |
     - what is the [apple](stock_name)'s stock info
-    - can you tell me aboout [google](stock_name)
+    - can you tell me about [google](stock_name)
     - provide details about [netflix](stock_name)
     - show me more information on [microsoft](stock_name)
     - get me the information on [lyft](stock_name)
@@ -185,13 +185,15 @@ nlu:
   examples: |
     - what will be the future price for [google](stock_name)  ?
     - predict the stock price of [apple](stock_name) ?
-    - will the stock price of [microsoft](stock_name) go up ?
     - can you tell me the predicted stock price for [atlassian](stock_name) ?
     - please make some predictions to give me the future prices of [nvidia](stock_name) stock !
+    - what is the predicted price of [samsung](stock_name) stock ?
+    - go and predict the stock price of [canoo](stock_name)
+    - i want you to use some model to make predictions about [zentex](stock_name)'s stock !
 
 - intent: ask_buy_sell_hold
   examples: |
-    - should i sell my shares of ?
+    - should i sell my shares ?
     - what should i do with my shares ?
     - can i sell my shares now ?
     - i feel like i should hold my stocks 
@@ -224,10 +226,19 @@ nlu:
     - what is the market volatility of [Apple](stock_name)?
     - how much fluctuations does [atlassian](stock_name) face?
     - What is the volatility of [google](stock_name) ?
-    - Tell me about the volatility of [Tesla](stock_name) shares."
+    - Tell me about the volatility of [Tesla](stock_name) shares.
     - how stable is [microsoft](stock_name) cost ?
     - how stable is this stock ?
-    - can i rely on this ?
+    - how volatile is this stock ?
     - Have there been any recent fluctuations in [Amazon](stock_name)'s stock?
-    - What are the recent price movements of [Zentex](stock_name) shares?"
-    - Can you tell me if there have been any significant changes in [Netflix](stock_name) stock?"
+    - What are the recent price movements of [Zentex](stock_name) shares?
+    - Can you tell me if there have been any significant changes in [Netflix](stock_name) stock?
+
+- intent: ask_top_stock
+  examples: |
+    - what is the top performing stock ?
+    - get me the top performing stock ?
+    - what is the best stock ?
+    - can you mention the best stock ?
+    - fetch the latest best stock ?
+    

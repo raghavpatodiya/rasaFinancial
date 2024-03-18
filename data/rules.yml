@@ -51,3 +51,7 @@ rules:
   - intent: ask_stock_predictions
   - action: get_stock_predictions
 
+- rule: get top stock
+  steps:
+  - intent: ask_top_stock
+  - action: get_top_stock
