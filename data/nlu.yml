@@ -278,19 +278,18 @@ nlu:
     - What criteria should I use to evaluate a startup before investing?
     - What steps should I take to evaluate the sustainability of a company's business model?
     - Can you give some pointers for evaluating the potential return on investment in a project?
-    - What factors should I consider when assessing the growth potential of a technology company?
     - How do I evaluate the management team of a company before making an investment?
     - What strategies can I use to assess the competitive landscape of an industry before investing?
 
 - intent: ask_penny_stock_risk
   examples: |
     - What are the risks associated with penny stocks?
-    - What are some of the risks I should consider before investing in penny stocks?
-    - Could you outline the potential pitfalls of trading penny stocks?
+    - Risks I should consider before investing in penny stocks?
+    - Pitfalls of trading in penny stocks?
     - I'm interested in penny stocks, but I want to understand the risks involved. Can you explain them?
     - Before I delve into penny stocks, I want to know about the risks associated with them. Can you provide some insights?
-    - Are there specific dangers I should be aware of when dealing with penny stocks?
-    - What are the downsides or hazards of investing in penny stocks?
+    - Dangers I should be aware of when dealing with penny stocks?
+    - Downsides or hazards of investing in penny stocks?
 
 - intent: ask_dividend_investing
   examples: |
@@ -298,10 +297,8 @@ nlu:
     - What are the benefits of dividend investing?
     - How does dividend investing differ from other investment strategies?
     - Could you provide some tips for successful dividend investing?
-    - What are the key factors to consider when selecting dividend-paying stocks?
-    - Can you elaborate on the role of dividends in building a passive income stream?
     - What are some common misconceptions about dividend investing?
-    - Are there any risks associated with dividend investing?
+    - Is dividend investing risky?
     - Can you recommend any resources for beginners interested in dividend investing?
     - How frequently are dividends typically paid out to investors?
     - Could you explain the concept of dividend yield and its significance in dividend investing?
@@ -315,7 +312,7 @@ nlu:
     - Could you outline the crucial indicators that investors typically examine in a company's financial disclosures?
 
 - intent: ask_market_sentiment_affect
-  examples: |
+  examples: | 
     - How does market sentiment affect stock prices?
     - Can you explain how market sentiment impacts the stock market?
     - What is the relationship between market sentiment and stock prices?

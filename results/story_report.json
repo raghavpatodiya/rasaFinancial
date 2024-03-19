@@ -1,21 +1,9 @@
 {
-  "utter_happy": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 3
-  },
   "greet": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 5
-  },
-  "affirm": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 1
   },
   "mood_great": {
     "precision": 1.0,
@@ -23,17 +11,11 @@
     "f1-score": 1.0,
     "support": 2
   },
-  "deny": {
+  "affirm": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 2
-  },
-  "goodbye": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 2
+    "support": 1
   },
   "bot_challenge": {
     "precision": 1.0,
@@ -41,11 +23,29 @@
     "f1-score": 1.0,
     "support": 1
   },
-  "utter_goodbye": {
+  "deny": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 4
+    "support": 2
+  },
+  "utter_iamabot": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 1
+  },
+  "utter_greet": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 5
+  },
+  "utter_happy": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 3
   },
   "action_listen": {
     "precision": 1.0,
@@ -53,11 +53,17 @@
     "f1-score": 1.0,
     "support": 16
   },
-  "utter_iamabot": {
+  "utter_did_that_help": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 1
+    "support": 3
+  },
+  "goodbye": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2
   },
   "utter_cheer_up": {
     "precision": 1.0,
@@ -71,17 +77,11 @@
     "f1-score": 1.0,
     "support": 3
   },
-  "utter_greet": {
+  "utter_goodbye": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 5
-  },
-  "utter_did_that_help": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 3
+    "support": 4
   },
   "accuracy": 1.0,
   "macro avg": {
