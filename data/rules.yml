@@ -85,3 +85,43 @@ rules:
   steps:
   - intent: ask_market_sentiment_affect
   - action: utter_market_sentiment_affect
+
+- rule: pe ratio significance
+  steps:
+  - intent: ask_pe_ratio_significance
+  - action: utter_pe_ratio_significance
+
+- rule: identify undervalued stock
+  steps:
+  - intent: ask_identify_undervalued_stock
+  - action: utter_identify_undervalued_stock
+
+- rule: growth and value stock
+  steps:
+  - intent: ask_growth_value_stock
+  - action: utter_growth_value_stock
+
+- rule: inflation affect stock market
+  steps: 
+  - intent: ask_inflation_stock_market
+  - action: utter_inflation_stock_market
+
+- rule: benefits of index funds
+  steps:
+  - intent: ask_benefits_index_funds
+  - action: utter_benefits_index_funds
+
+- rule: determine risk tolerance
+  steps:
+  - intent: ask_determine_risk_tolerance
+  - action: utter_determine_risk_tolerance
+
+- rule: stock portfolio diversification
+  steps:
+  - intent: ask_diversification_stock_portfolio
+  - action: utter_diversification_stock_portfolio
+
+- rule: impact of interest rates  on stock prices
+  steps: 
+  - intent: ask_interest_rate_impact
+  - action: utter_interest_rate_impact

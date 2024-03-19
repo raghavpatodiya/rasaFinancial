@@ -158,7 +158,6 @@ nlu:
     - get me the stock price of [microsoft](stock_name) for the last [3 days](time_period)
     - fetch the stock price of [amazon](stock_name) for the last [four weeks](time_period)
     - what was the [facebook](stock_name) stock price in the last [6 months](time_period)
-    - get me [last week](time_period) stock price of [twitter](stock_name)
     - what was [previous weeks](time_period) stock price of [atlassian](stock_name)
 
 - intent: ask_general_info
@@ -274,15 +273,68 @@ nlu:
 - intent: ask_how_to_evaluate
   examples: |
     - How do I evaluate a company's stock before investing?
+    - What factors should i consider before investing in a company's stock's
+    - How can I assess the financial health of a potential investment?
+    - What criteria should I use to evaluate a startup before investing?
+    - What steps should I take to evaluate the sustainability of a company's business model?
+    - Can you give some pointers for evaluating the potential return on investment in a project?
+    - What factors should I consider when assessing the growth potential of a technology company?
+    - How do I evaluate the management team of a company before making an investment?
+    - What strategies can I use to assess the competitive landscape of an industry before investing?
 - intent: ask_penny_stock_risk
   examples: |
     - What are the risks associated with penny stocks?
+    - What are some of the risks I should consider before investing in penny stocks?
+    - Could you outline the potential pitfalls of trading penny stocks?
+    - I'm interested in penny stocks, but I want to understand the risks involved. Can you explain them?
+    - Before I delve into penny stocks, I want to know about the risks associated with them. Can you provide some insights?
+    - Are there specific dangers I should be aware of when dealing with penny stocks?
+    - What are the downsides or hazards of investing in penny stocks?
 - intent: ask_dividend_investing
   examples: |
     - Can you explain the concept of dividend investing?
+    - What are the benefits of dividend investing?
+    - How does dividend investing differ from other investment strategies?
+    - Could you provide some tips for successful dividend investing?
+    - What are the key factors to consider when selecting dividend-paying stocks?
+    - Can you elaborate on the role of dividends in building a passive income stream?
+    - What are some common misconceptions about dividend investing?
+    - Are there any risks associated with dividend investing?
+    - Can you recommend any resources for beginners interested in dividend investing?
+    - How frequently are dividends typically paid out to investors?
+    - Could you explain the concept of dividend yield and its significance in dividend investing?
 - intent: ask_key_indicators
   examples: |
     - What are some key indicators to look for in a company's financial statements?
 - intent: ask_market_sentiment_affect
   examples: |
     - How does market sentiment affect stock prices?
+    - What are some key indicators to look for in a company's financial statements?
+    - Can you provide me with a list of key indicators I should consider when analyzing a company's financial health?
+    - What are the main financial metrics investors should focus on when evaluating a company?
+    - Could you explain the essential performance measures that I should pay attention to in financial reports?
+    - I'm interested in understanding the crucial factors to consider when assessing the financial position of a company. Can you help?
+- intent: ask_pe_ratio_significance
+  examples: |
+    - What is the significance of P/E ratio in stock analysis?
+- intent: ask_identify_undervalued_stock
+  examples: |
+    - How do I identify undervalued stocks?
+- intent: ask_growth_value_stock
+  examples: |
+    - Can you explain the difference between growth and value stocks?
+- intent: ask_inflation_stock_market
+  examples: |
+    - How does inflation impact stock market performance?
+- intent: ask_benefits_index_funds
+  examples: |
+    - What are the potential benefits of investing in index funds?
+- intent: ask_determine_risk_tolerance
+  examples: |
+    - How do I determine my risk tolerance when investing in stocks?
+- intent: ask_diversification_stock_portfolio
+  examples: |
+    - What is the role of diversification in a stock portfolio?
+- intent: ask_interest_rate_impact
+  examples: |
+    - Can you explain the impact of interest rates on stock prices?

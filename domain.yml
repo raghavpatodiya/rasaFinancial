@@ -27,6 +27,14 @@ intents:
   - ask_dividend_investing
   - ask_key_indicators
   - ask_market_sentiment_affect
+  - ask_pe_ratio_significance
+  - ask_identify_undervalued_stock
+  - ask_growth_value_stock
+  - ask_inflation_stock_market
+  - ask_benefits_index_funds
+  - ask_determine_risk_tolerance
+  - ask_diversification_stock_portfolio
+  - ask_interest_rate_impact
 entities:
   - stock_name
   - time_period
@@ -88,6 +96,23 @@ responses:
   - text: "Key indicators in financial statements include revenue growth, profitability margins, debt levels, cash flow, and return on investment (ROI)."
   utter_market_sentiment_affect:
   - text: "Market sentiment influences stock prices by impacting investor behavior, driving buying or selling pressure based on emotions, news, and perceptions of market conditions."
+  utter_pe_ratio_significance:
+  - text: "The P/E ratio (Price-to-Earnings) helps assess a stock's valuation relative to its earnings, indicating how much investors are willing to pay per dollar of earnings."
+  utter_identify_undervalued_stock:
+  - text: "To identify undervalued stocks, analyze financial metrics like P/E ratio, PEG ratio, and compare them to industry peers, considering growth prospects and market sentiment."
+  utter_growth_value_stock:
+  - text: "Growth stocks are companies with high potential for future earnings growth, often reinvesting profits for expansion. Value stocks are undervalued companies trading below their intrinsic value, often with stable dividends."
+  utter_inflation_stock_market:
+  - text: "Inflation can lead to higher interest rates, reducing stock valuations. Companies with strong pricing power or assets like real estate may fare better."
+  utter_benefits_index_funds:
+  - text: "Index funds offer diversification, low fees, and passive management, mirroring market performance and potentially outperforming actively managed funds over the long term."
+  utter_determine_risk_tolerance:
+  - text: "Assess your financial goals, time horizon, and comfort level with market fluctuations to gauge your risk tolerance before investing in stocks."
+  utter_diversification_stock_portfolio:
+  - text: "Diversification reduces portfolio risk by spreading investments across different asset classes, sectors, and regions, mitigating the impact of adverse events on overall returns."
+  utter_interest_rate_impact:
+  - text: "Interest rates influence stock prices inversely. Higher rates may reduce borrowing and consumer spending, impacting corporate profits, causing stock prices to fall. Conversely, lower rates stimulate economic growth, boosting stock prices."
+  
 
 actions:
   - get_latest_stock_price
