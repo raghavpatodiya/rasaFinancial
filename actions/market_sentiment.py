@@ -31,8 +31,13 @@ class ActionGetMarketSentiment(Action):
                     response = requests.get(url)
                     data = response.json()
                     print(data)
-                    if 'overall_sentiment_score'  in data:
-                        sentiment_scores = [float(item['overall_sentiment_score']) for item in data if 'overall_sentiment_score' in item]
+                    if 'feed' in data:
+                        # Extract overall_sentiment_scores from each entry in the feed
+                        sentiment_scores = []
+                        for entry in data['feed']:
+                            if 'overall_sentiment_score' in entry:
+                                sentiment_scores.append(float(entry['overall_sentiment_score']))
+                        
                         if sentiment_scores:
                             average_sentiment = sum(sentiment_scores) / len(sentiment_scores)
                             sentiment_label = ''
@@ -51,7 +56,7 @@ class ActionGetMarketSentiment(Action):
                         else:
                             dispatcher.utter_message(text="No sentiment data available for this company.")
                     else:
-                        dispatcher.utter_message(text="overall_sentiment_scores couldn't be extracted")
+                        dispatcher.utter_message(text="No sentiment data available for this company.")
                 else:
                     dispatcher.utter_message(text="Sorry, I couldn't find the stock ticker for that company.")
             else:
