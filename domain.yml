@@ -35,11 +35,15 @@ intents:
   - ask_determine_risk_tolerance
   - ask_diversification_stock_portfolio
   - ask_interest_rate_impact
+  - ask_market_status
 entities:
   - stock_name
   - time_period
   - info
   - time
+  - region
+  # - ORG
+  # - GPE
 
 # slots to store use info
 slots:
@@ -125,6 +129,7 @@ actions:
   - get_volatility
   - get_top_stock
   - get_worst_stock
+  - get_market_status
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

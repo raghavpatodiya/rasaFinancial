@@ -257,6 +257,26 @@ nlu:
     - provide information about the top-performing stocks.
     - I want to know the top stocks in the market.
 
+- intent: ask_market_status
+  examples: |
+    - what is the market status ?
+    - get me [Global](region) market status !
+    - what is the [United States](region) market status today ?
+    - what is the [France](region) market status?
+    - give me the market status for [India](region).
+    - what's the market status in [United Kingdom](region) right now?
+    - can you tell me the market status for [Mainland China](region)?
+    - what is the current market status in [Spain](region)?
+    - get me the market status
+
+
+
+
+
+
+
+
+
 - intent: ask_worst_stock
   examples: |
     - what is the worst performing stock ?

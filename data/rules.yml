@@ -125,3 +125,8 @@ rules:
   steps: 
   - intent: ask_interest_rate_impact
   - action: utter_interest_rate_impact
+
+- rule: get market status
+  steps: 
+  - intent: ask_market_status
+  - action: get_market_status
