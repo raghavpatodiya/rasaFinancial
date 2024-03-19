@@ -40,7 +40,7 @@ entities:
   - time_period
   - info
   - time
-  - ORG # for spacy
+
 # slots to store use info
 slots:
   time:

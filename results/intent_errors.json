@@ -1,0 +1,114 @@
+[
+  {
+    "text": "What factors should I consider when assessing the growth potential of a technology company?",
+    "intent": "ask_how_to_evaluate",
+    "intent_prediction": {
+      "name": "ask_benefits_index_funds",
+      "confidence": 0.31166043877601624
+    }
+  },
+  {
+    "text": "What are some of the risks I should consider before investing in penny stocks?",
+    "intent": "ask_penny_stock_risk",
+    "intent_prediction": {
+      "name": "ask_identify_undervalued_stock",
+      "confidence": 0.1631051003932953
+    }
+  },
+  {
+    "text": "Could you outline the potential pitfalls of trading penny stocks?",
+    "intent": "ask_penny_stock_risk",
+    "intent_prediction": {
+      "name": "ask_benefits_index_funds",
+      "confidence": 0.19411133229732513
+    }
+  },
+  {
+    "text": "Are there specific dangers I should be aware of when dealing with penny stocks?",
+    "intent": "ask_penny_stock_risk",
+    "intent_prediction": {
+      "name": "ask_buy_sell_hold",
+      "confidence": 0.2699742019176483
+    }
+  },
+  {
+    "text": "What are the downsides or hazards of investing in penny stocks?",
+    "intent": "ask_penny_stock_risk",
+    "intent_prediction": {
+      "name": "ask_benefits_index_funds",
+      "confidence": 0.12594987452030182
+    }
+  },
+  {
+    "text": "What are the key factors to consider when selecting dividend-paying stocks?",
+    "intent": "ask_dividend_investing",
+    "intent_prediction": {
+      "name": "ask_stock_trend",
+      "confidence": 0.3268016278743744
+    }
+  },
+  {
+    "text": "Can you elaborate on the role of dividends in building a passive income stream?",
+    "intent": "ask_dividend_investing",
+    "intent_prediction": {
+      "name": "ask_stock_trend",
+      "confidence": 0.3032022714614868
+    }
+  },
+  {
+    "text": "Are there any risks associated with dividend investing?",
+    "intent": "ask_dividend_investing",
+    "intent_prediction": {
+      "name": "ask_penny_stock_risk",
+      "confidence": 0.3117341995239258
+    }
+  },
+  {
+    "text": "What are some key indicators to look for in a company's financial statements?",
+    "intent": "ask_market_sentiment_affect",
+    "intent_prediction": {
+      "name": "ask_key_indicators",
+      "confidence": 0.8239867091178894
+    }
+  },
+  {
+    "text": "Can you provide me with a list of key indicators I should consider when analyzing a company's financial health?",
+    "intent": "ask_market_sentiment_affect",
+    "intent_prediction": {
+      "name": "ask_key_indicators",
+      "confidence": 0.38693204522132874
+    }
+  },
+  {
+    "text": "What are the main financial metrics investors should focus on when evaluating a company?",
+    "intent": "ask_market_sentiment_affect",
+    "intent_prediction": {
+      "name": "ask_how_to_evaluate",
+      "confidence": 0.35913559794425964
+    }
+  },
+  {
+    "text": "Could you explain the essential performance measures that I should pay attention to in financial reports?",
+    "intent": "ask_market_sentiment_affect",
+    "intent_prediction": {
+      "name": "ask_benefits_index_funds",
+      "confidence": 0.13431398570537567
+    }
+  },
+  {
+    "text": "I'm interested in understanding the crucial factors to consider when assessing the financial position of a company. Can you help?",
+    "intent": "ask_market_sentiment_affect",
+    "intent_prediction": {
+      "name": "ask_benefits_index_funds",
+      "confidence": 0.15012435615062714
+    }
+  },
+  {
+    "text": "What role does the P/E ratio play in determining investment decisions?",
+    "intent": "ask_pe_ratio_significance",
+    "intent_prediction": {
+      "name": "ask_determine_risk_tolerance",
+      "confidence": 0.2050752341747284
+    }
+  }
+]

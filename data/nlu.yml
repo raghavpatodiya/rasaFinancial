@@ -281,6 +281,7 @@ nlu:
     - What factors should I consider when assessing the growth potential of a technology company?
     - How do I evaluate the management team of a company before making an investment?
     - What strategies can I use to assess the competitive landscape of an industry before investing?
+
 - intent: ask_penny_stock_risk
   examples: |
     - What are the risks associated with penny stocks?
@@ -290,6 +291,7 @@ nlu:
     - Before I delve into penny stocks, I want to know about the risks associated with them. Can you provide some insights?
     - Are there specific dangers I should be aware of when dealing with penny stocks?
     - What are the downsides or hazards of investing in penny stocks?
+
 - intent: ask_dividend_investing
   examples: |
     - Can you explain the concept of dividend investing?
@@ -303,38 +305,77 @@ nlu:
     - Can you recommend any resources for beginners interested in dividend investing?
     - How frequently are dividends typically paid out to investors?
     - Could you explain the concept of dividend yield and its significance in dividend investing?
+
 - intent: ask_key_indicators
   examples: |
     - What are some key indicators to look for in a company's financial statements?
+    - Can you provide me with a list of important indicators to analyze in a company's financial reports?
+    - I'm interested in understanding the key metrics to assess when reviewing a company's financial statements. Could you elaborate on that?
+    - What are the main factors or metrics one should consider when evaluating the financial health of a business?
+    - Could you outline the crucial indicators that investors typically examine in a company's financial disclosures?
+
 - intent: ask_market_sentiment_affect
   examples: |
     - How does market sentiment affect stock prices?
-    - What are some key indicators to look for in a company's financial statements?
-    - Can you provide me with a list of key indicators I should consider when analyzing a company's financial health?
-    - What are the main financial metrics investors should focus on when evaluating a company?
-    - Could you explain the essential performance measures that I should pay attention to in financial reports?
-    - I'm interested in understanding the crucial factors to consider when assessing the financial position of a company. Can you help?
+    - Can you explain how market sentiment impacts the stock market?
+    - What is the relationship between market sentiment and stock prices?
+    - Does market sentiment have a significant influence on stock prices?
+    - Could you elaborate on how changes in market sentiment affect investment decisions?
+    
 - intent: ask_pe_ratio_significance
   examples: |
     - What is the significance of P/E ratio in stock analysis?
+    - Why is the P/E ratio important in analyzing stocks?
+    - Can you explain the significance of the P/E ratio in evaluating a company's stock?
+    - How does the P/E ratio contribute to understanding a company's financial health?
+    - What role does the P/E ratio play in determining investment decisions?
+
 - intent: ask_identify_undervalued_stock
   examples: |
     - How do I identify undervalued stocks?
+    - What are the techniques to find undervalued stocks?
+    - Can you suggest methods for identifying undervalued stocks?
+    - I'm interested in learning about spotting undervalued stocks. How can I do that?
+
 - intent: ask_growth_value_stock
   examples: |
     - Can you explain the difference between growth and value stocks?
+    - What are the main distinctions between growth stocks and value stocks?
+    - I'm trying to understand the concept of growth versus value stocks. Can you help?
+    - Could you provide some insights into how growth stocks differ from value stocks?
+    
 - intent: ask_inflation_stock_market
   examples: |
     - How does inflation impact stock market performance?
+    - Can you explain the relationship between inflation and stock market performance?
+    - What happens to the stock market during periods of high inflation?
+    - How do investors respond to inflationary pressures in the stock market?
+
 - intent: ask_benefits_index_funds
   examples: |
     - What are the potential benefits of investing in index funds?
+    - Can you outline the advantages of putting money into index funds?
+    - What are the pros of choosing index funds for investment?
+    - Could you explain why index funds might be beneficial compared to other investment options?
+    
 - intent: ask_determine_risk_tolerance
   examples: |
     - How do I determine my risk tolerance when investing in stocks?
+    - What factors should I consider to determine my risk tolerance for investing?
+    - Can you guide me on assessing my risk tolerance before making investment decisions?
+    
+
 - intent: ask_diversification_stock_portfolio
   examples: |
     - What is the role of diversification in a stock portfolio?
+    - How does diversification benefit a stock portfolio?
+    - Can you explain why diversifying a stock portfolio is important?
+    - What are the advantages of diversifying my stock investments?
+    - Could you elaborate on the concept of diversification in the context of stock portfolios?
+
 - intent: ask_interest_rate_impact
   examples: |
     - Can you explain the impact of interest rates on stock prices?
+    - How do changes in interest rates affect the stock market?
+    - Could you elaborate on how interest rate fluctuations influence stock prices?
+    - I'm curious about the relationship between interest rates and stock market performance.
