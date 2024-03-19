@@ -36,6 +36,7 @@ intents:
   - ask_diversification_stock_portfolio
   - ask_interest_rate_impact
   - ask_market_status
+  - ask_market_sentiment
 entities:
   - stock_name
   - time_period
@@ -130,6 +131,7 @@ actions:
   - get_top_stock
   - get_worst_stock
   - get_market_status
+  - get_market_sentiment
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

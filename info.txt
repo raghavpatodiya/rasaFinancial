@@ -84,3 +84,6 @@ with open('stock_data.json', 'r') as file:
                 data = json.load(file)
             predicted_price = data.get("predicted_price")
             current_price = data.get("current_price")
+
+
+once price predicted - buysellhold, trend, volatality

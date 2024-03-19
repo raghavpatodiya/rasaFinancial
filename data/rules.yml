@@ -130,3 +130,8 @@ rules:
   steps: 
   - intent: ask_market_status
   - action: get_market_status
+
+- rule: get market sentiment
+  steps: 
+  - intent: ask_market_sentiment
+  - action: get_market_sentiment

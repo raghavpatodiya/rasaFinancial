@@ -269,7 +269,18 @@ nlu:
     - what is the current market status in [Spain](region)?
     - get me the market status
 
-
+- intent: ask_market_sentiment
+  examples: |
+    - What is the market sentiment for [apple](stock_name)?
+    - Can you tell me how the market feels about [Microsoft](stock_name)?
+    - I'm curious about the market sentiment towards [Tesla](stock_name).
+    - What's the sentiment like for [Amazon](stock_name)'s stock?
+    - How does the market perceive [Google](stock_name) right now?
+    - Tell me about the market sentiment for [Facebook](stock_name).
+    - I'm interested in knowing the market sentiment for [IBM](stock_name).
+    - What's the current market sentiment for [Netflix](stock_name)?
+    - Can you provide insight into the market sentiment for [Alibaba](stock_name)?
+    - What do you think about the market sentiment for [Nvidia](stock_name)?
 
 
 
