@@ -155,3 +155,23 @@ rules:
   steps: 
   - intent: ask_market_volatility_factors
   - action: utter_market_volatility_factors
+
+- rule: how to use technical analysis
+  steps: 
+  - intent: ask_use_technical_analysis
+  - action: utter_use_technical_analysis
+
+- rule: mutual funds vs individual stocks
+  steps:
+  - intent: ask_mutual_funds_individual_stocks
+  - action: utter_mutual_funds_individual_stocks
+
+- rule: what is market capitalization
+  steps: 
+  - intent: ask_market_capitalization
+  - action: utter_market_capitalization
+  
+- rule: intepret stock market indices like s&p 500
+  steps:
+  - intent: ask_intepret_stock_market_indices
+  - action: utter_intepret_stock_market_indices

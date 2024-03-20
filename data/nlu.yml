@@ -436,3 +436,35 @@ nlu:
     - Can you list some of the factors that affect stock market volatility?
     - I'm curious about the elements that contribute to stock market volatility.
     - What are the main drivers behind fluctuations in the stock market?
+
+- intent: ask_use_technical_analysis
+  examples: |
+    - How can I use technical analysis to make better investment decisions?
+    - How can I utilize technical analysis to improve my investment strategies?
+    - What are the effective ways to apply technical analysis for better decision-making in investments?
+    - Could you provide guidance on employing technical analysis to enhance my investment decisions?
+    - In what ways can I incorporate technical analysis into my investment approach for better outcomes?
+
+- intent: ask_mutual_funds_individual_stocks
+  examples: |
+    - What are the differences between mutual funds and individual stocks?
+    - Mutual funds vs. individual stocks.
+    - Can you explain the distinctions between investing in mutual funds and individual stocks?
+    - I'm curious about the variances between mutual funds and individual stocks.
+    - Could you outline the disparities between mutual funds and individual stocks?
+
+- intent: ask_market_capitalization
+  examples: |
+    - Can you explain the concept of market capitalization?
+    - What does market capitalization mean?
+    - How is market capitalization calculated?
+    - Could you provide some examples of companies with high market capitalization?
+    - Why is market capitalization important for investors?
+    - Is market capitalization the same as market value?
+
+- intent: ask_intepret_stock_market_indices
+  examples: |
+    - How do I interpret stock market indices like the S&P 500?
+    - What's the best way to analyze stock market indices like the NASDAQ Composite Index?
+    - Could you explain how I should interpret stock market indices such as the FTSE 100?
+    - I'm curious about interpreting stock market indices such as the Nikkei 225. Can you help?

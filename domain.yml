@@ -41,6 +41,10 @@ intents:
   - ask_geological_unstability_affect
   - ask_stock_market_guide
   - ask_market_volatility_factors
+  - ask_use_technical_analysis
+  - ask_mutual_funds_individual_stocks
+  - ask_market_capitalization
+  - ask_intepret_stock_market_indices
 entities:
   - stock_name
   - time_period
@@ -129,10 +133,20 @@ responses:
   - text: "Key terms include stock, market capitalization, dividend, P/E ratio, bull and bear markets, indexes, volatility, blue chip stocks, IPOs, providing foundational knowledge for newcomers."
   utter_market_volatility_factors:
   - text: "Economic indicators, interest rates, corporate earnings, investor sentiment, geopolitics, technology, liquidity, and regulatory changes are among the key drivers impacting market volatility."
+  utter_use_technical_analysis:
+  - text: "Analyze past market data to forecast future price movements using charts, patterns, and indicators for better investment decisions."
+  utter_mutual_funds_individual_stocks:
+  - text: "Mutual funds offer diversification and professional management by pooling money from multiple investors, while individual stocks represent ownership in a single company, offering potential for higher returns but higher volatility."
+  utter_market_capitalization:
+  - text: "Market capitalization is the total value of a publicly traded company's outstanding shares, determined by multiplying the stock price by the total number of shares outstanding, categorizing companies by size in the market."
+  utter_intepret_stock_market_indices:
+  - text: "Stock market indices like the S&P 500 track the performance of a group of stocks, reflecting overall market sentiment and economic conditions, helping investors gauge trends and make decisions."
 
 
 
 
+
+  
 actions:
   - get_latest_stock_price
   - get_older_stock_price

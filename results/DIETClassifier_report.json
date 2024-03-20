@@ -1,9 +1,9 @@
 {
-  "time_period": {
+  "stock_name": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 12,
+    "support": 71,
     "confused_with": {}
   },
   "info": {
@@ -13,18 +13,18 @@
     "support": 6,
     "confused_with": {}
   },
-  "stock_name": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 71,
-    "confused_with": {}
-  },
   "region": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 10,
+    "confused_with": {}
+  },
+  "time_period": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 12,
     "confused_with": {}
   },
   "micro avg": {
