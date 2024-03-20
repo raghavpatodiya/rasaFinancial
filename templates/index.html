@@ -113,6 +113,8 @@
           </button>
         </div>
       </div>
+      <div id="loc-counter" class="text-muted">LOC: Loading...</div>
+      <!-- Counter for LOC -->
     </div>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -192,6 +194,25 @@
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
         }
+        // Function to update LOC counter
+        function updateLocCounter() {
+          $.ajax({
+            type: "GET",
+            url: "/loc", // Endpoint to fetch LOC value
+            success: function (data) {
+              $("#loc-counter").text("LOC: " + data.loc); // Update counter with LOC value
+            },
+            error: function () {
+              $("#loc-counter").text("LOC: Error fetching LOC"); // Handle error if needed
+            },
+          });
+        }
+
+        // Call updateLocCounter function initially
+        updateLocCounter();
+
+        // Set interval to periodically update LOC counter (every 5 seconds)
+        setInterval(updateLocCounter, 5000); // Adjust interval as needed
       });
     </script>
   </body>
