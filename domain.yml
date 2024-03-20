@@ -45,6 +45,10 @@ intents:
   - ask_mutual_funds_individual_stocks
   - ask_market_capitalization
   - ask_intepret_stock_market_indices
+  - ask_advantage_disadvantage_day_trading
+  - ask_spot_market_bubbles
+  - ask_corporate_earnings_reports_affect
+  - ask_significance_insider_trading
 entities:
   - stock_name
   - time_period
@@ -145,10 +149,14 @@ responses:
   - text: "Market capitalization is the total value of a publicly traded company's outstanding shares, determined by multiplying the stock price by the total number of shares outstanding, categorizing companies by size in the market."
   utter_intepret_stock_market_indices:
   - text: "Stock market indices like the S&P 500 track the performance of a group of stocks, reflecting overall market sentiment and economic conditions, helping investors gauge trends and make decisions."
-
-
-
-
+  utter_advantage_disadvantage_day_trading:
+  - text: "Offers quick profits and flexibility but requires significant time, skill, and emotional discipline. It involves higher transaction costs, increased risk, and potential losses due to market volatility."
+  utter_spot_market_bubbles:
+  - text: "Look for rapid asset price growth, excessive speculation, high valuations relative to fundamentals, and widespread investor euphoria. Identifying bubbles is challenging, and timing their impact is uncertain."
+  utter_corporate_earnings_reports_affect:
+  - text: "Positive earnings often boost investor confidence and stock prices, while negative earnings can lead to price declines as expectations adjust based on a company's financial health and performance."
+  utter_significance_insider_trading:
+  - text: "Illegal and unethical, it involves trading based on non-public, material information, giving insiders an unfair advantage. Regulators closely monitor and prosecute insider trading to maintain market integrity and fairness."
 
 
 actions:

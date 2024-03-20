@@ -470,3 +470,38 @@ nlu:
     - Could you explain how I should interpret stock market indices such as the FTSE 100?
     - I'm curious about interpreting stock market indices such as the Nikkei 225. Can you help?
     - can you tell me how to intepret stock market indices ?
+
+- intent: ask_advantage_disadvantage_day_trading
+  examples: |
+    - What are the advantages and disadvantages of day trading?
+    - Can you explain the advantages and disadvantages of day trading?
+    - What are the key benefits and drawbacks of day trading?
+    - What are the advantages and disadvantages of investing in stocks on a day-to-day basis?
+    - What are the key benefits and drawbacks of investing in stocks on a daily basis?
+
+- intent: ask_spot_market_bubbles
+  examples: |
+    - How do I spot potential market bubbles?
+    - What are the signs of a market bubble forming?
+    - Could you explain how to spot potential market bubbles?
+    - What indicators should I look for to recognize a market bubble?
+    - Can you provide guidance on detecting market bubbles?
+    - What strategies can I use to identify a market bubble?
+
+- intent: ask_corporate_earnings_reports_affect
+  examples: |
+    - Do corporate earnings reports affect the stock market?
+    - Can you explain the impact of corporate earnings reports on stock prices?
+    - Do corporate earnings reports influence market trends?
+    - How do corporate earnings reports impact investor behavior?
+    - What role do corporate earnings reports play in shaping stock market movements?
+    - Can you discuss how corporate earnings reports affect company valuations?
+    - Are there any studies illustrating the correlation between corporate earnings reports and stock performance?
+
+- intent: ask_significance_insider_trading
+  examples: |
+    - What is the significance of insider trading in the stock market?
+    - How does insider trading impact the financial markets?
+    - Can you explain why insider trading is significant in stock trading?
+    - What are the implications of insider trading on market integrity?
+    - Why is insider trading considered a serious issue in finance?

@@ -175,3 +175,23 @@ rules:
   steps:
   - intent: ask_intepret_stock_market_indices
   - action: utter_intepret_stock_market_indices
+
+- rule: advantage disadvantage of day trading
+  steps:
+  - intent: ask_advantage_disadvantage_day_trading
+  - action: utter_advantage_disadvantage_day_trading
+
+- rule: how to spot potential market bubbles
+  steps:
+  - intent: ask_spot_market_bubbles
+  - action: utter_spot_market_bubbles
+
+- rule: effect of corporate earnings reports  
+  steps:
+  - intent: ask_corporate_earnings_reports_affect
+  - action: utter_corporate_earnings_reports_affect
+
+- rule: significance of insider trading
+  steps:
+  - intent: ask_significance_insider_trading
+  - action: utter_significance_insider_trading
