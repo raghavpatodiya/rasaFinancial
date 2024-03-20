@@ -197,6 +197,7 @@ nlu:
     - go and predict the stock price of [canoo](stock_name)
     - i want you to use some model to make predictions about [zentex](stock_name)'s stock !
     - what will be the day close price of [microsoft](stock_name)
+    - can you tell me future stock price of [adobe](stock_name) ?
 
 - intent: ask_buy_sell_hold
   examples: |
