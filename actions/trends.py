@@ -5,6 +5,9 @@ import pandas as pd
 import yfinance as yf
 from actions.ticker_mapping import get_ticker_mapping
 import json
+
+# here we use results after stock price predictions 
+
 class ActionGetStockTrend(Action):
     def name(self) -> Text:
         return "get_stock_trend"

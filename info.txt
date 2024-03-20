@@ -87,3 +87,5 @@ with open('stock_data.json', 'r') as file:
 
 
 once price predicted - buysellhold, trend, volatality
+
+other - gainers, losers, specifc info, general info, market sentiment, market status, latest price, older price

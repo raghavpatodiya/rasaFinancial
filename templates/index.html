@@ -102,6 +102,12 @@
             placeholder="Type your message..."
           />
         </div>
+        <!-- Add reset button -->
+        <div class="chat-widget-footer">
+          <button id="reset-conversation" class="btn btn-danger">
+            Reset Conversation
+          </button>
+        </div>
       </div>
     </div>
     <!-- jQuery -->
@@ -116,6 +122,17 @@
         $("#chat-widget-close-button").on("click", function () {
           $("#chat-widget").addClass("d-none");
         });
+
+        // Reset conversation function
+        function resetConversation() {
+          $("#chat-widget-messages").empty(); // Clear messages
+        }
+
+        // Event handler for reset button
+        $("#reset-conversation").on("click", function () {
+          resetConversation(); // Call reset conversation function
+        });
+
         // Handle user input in the chat box
         $("#chat-widget-input").keypress(function (event) {
           if (event.which == 13) {
@@ -146,6 +163,7 @@
             });
           }
         });
+
         // Function to escape HTML characters
         function escapeHtml(text) {
           return text
