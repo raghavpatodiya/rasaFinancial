@@ -200,7 +200,7 @@
             type: "GET",
             url: "/loc", // Endpoint to fetch LOC value
             success: function (data) {
-              $("#loc-counter").text("LOC: " + data.loc); // Update counter with LOC value
+              $("#loc-counter").text("LOC Counter: " + data.loc); // Update counter with LOC value
             },
             error: function () {
               $("#loc-counter").text("LOC: Error fetching LOC"); // Handle error if needed
