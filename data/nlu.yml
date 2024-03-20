@@ -543,3 +543,35 @@ nlu:
     - I'm curious about the distinct characteristics of stock options versus stock futures.
     - Could you outline the main features distinguishing stock options from stock futures?
     - What specific attributes differentiate stock options from stock futures?
+  
+- intent: ask_competitive_positioning
+  examples: |
+    - How do I analyze a company's competitive positioning within its industry?
+    - How do I evaluate the competitive positioning of a business within its market?
+    - Can you explain methods for assessing a company's competitive position relative to its competitors?
+    - What factors should I consider when determining a company's competitive standing in its industry?
+
+- intent: ask_high_frequency_trading
+  examples: |
+    - What are the implications of high-frequency trading on stock markets?
+    - Can you explain how high-frequency trading affects stock market dynamics?
+    - How does high-frequency trading impact market liquidity?
+    - What advantages does high-frequency trading offer in the stock market?
+    - Are there any risks associated with high-frequency trading in financial markets?
+
+- intent: ask_quantitative_easing_role
+  examples: |
+    - Can you explain the role of quantitative easing in influencing stock prices?
+    - Can you elaborate on how quantitative easing affects inflation rates?
+    - What impact does quantitative easing have on currency exchange rates?
+    - How does quantitative easing influence interest rates in the economy?
+    - Could you discuss the role of quantitative easing in stimulating economic growth?
+    - What are the potential risks associated with implementing quantitative easing policies?
+
+- intent: ask_portfolio_dividend_stock
+  examples: |
+    - How do I build a diversified portfolio of dividend-paying stocks?
+    - What are some strategies for investing in dividend stocks to create a diversified portfolio?
+    - Can you provide guidance on constructing a portfolio primarily composed of dividend-paying stocks?
+    - I'm interested in creating a portfolio with a focus on dividend stocks. How should I go about it?
+    - What factors should I consider when selecting dividend stocks for my investment portfolio?

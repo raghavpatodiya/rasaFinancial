@@ -54,6 +54,10 @@ intents:
   - ask_esg_criteria
   - ask_fair_value
   - ask_stock_options_features
+  - ask_competitive_positioning
+  - ask_high_frequency_trading
+  - ask_quantitative_easing_role
+  - ask_portfolio_dividend_stock
 entities:
   - stock_name
   - time_period
@@ -170,6 +174,23 @@ responses:
   - text: "Fundamental analysis, discounted cash flow, and comparables valuation methods help estimate a stock's intrinsic worth based on financial metrics, growth prospects, and market conditions."
   utter_stock_options_features:
   - text: "Options offer the right to buy/sell a stock at a set price within a timeframe, while futures obligate buying/selling at a predetermined price on a future date. Options provide flexibility, while futures involve contractual obligations."
+  utter_competitive_positioning:
+  - text: "Assess market share, product differentiation, pricing strategies, and competitive advantages to determine a company's standing within its industry."
+  utter_high_frequency_trading:
+  - text: "High-frequency trading enhances market liquidity but can also increase volatility and pose challenges for traditional investors."
+  utter_quantitative_easing_role:
+  - text: "QE stimulates economic growth by injecting liquidity into the financial system, often leading to higher stock prices, but it can also distort market fundamentals and increase the risk of asset bubbles."
+  utter_portfolio_dividend_stock:
+  - text: "Select dividend-paying stocks with strong financials and sustainable business models across various sectors to balance income and growth. Regularly review and adjust your portfolio for diversification and risk management."
+
+
+
+
+
+
+
+
+
 
 actions:
   - get_latest_stock_price

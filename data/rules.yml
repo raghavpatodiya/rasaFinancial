@@ -220,3 +220,23 @@ rules:
   steps:
   - intent: ask_stock_options_features
   - action: utter_stock_options_features
+
+- rule: company's competitive positioning
+  steps:
+  - intent: ask_competitive_positioning
+  - action: utter_competitive_positioning
+
+- rule: implications of high frequency trading
+  steps: 
+  - intent: ask_high_frequency_trading
+  - action: utter_high_frequency_trading
+
+- rule: role of quantitative easing
+  steps:
+  - intent: ask_quantitative_easing_role
+  - action: utter_quantitative_easing_role
+
+- rule: build a diversified portfolio of dividend-paying stocks 
+  steps:
+  - intent: ask_portfolio_dividend_stock
+  - action: utter_portfolio_dividend_stock
