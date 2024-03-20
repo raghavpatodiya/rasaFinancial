@@ -102,6 +102,7 @@ nlu:
     - how's it going ?
     - how are you doing ?
     - how are you ?
+    - what are you doing ?
 
 - intent: abusive_user
   examples: |
@@ -130,6 +131,12 @@ nlu:
     - what time is it ?
     - can  you tell me the current time ?
     - please tell me the time !
+
+- intent: ask_thanks
+  examples: |
+    - thanks
+    - thank you
+    - thnx
 
 - intent: ask_latest_stock_price
   examples: |

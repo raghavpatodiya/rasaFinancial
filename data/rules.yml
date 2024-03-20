@@ -26,6 +26,11 @@ rules:
   - intent: what_can_you_do
   - action: utter_what_can_you_do
 
+- rule: repond to thanks
+  steps:
+  - intent: ask_thanks
+  - action: utter_ask_any_else
+
 - rule: latest stock price
   steps:
   - intent: ask_latest_stock_price

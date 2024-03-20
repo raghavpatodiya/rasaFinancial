@@ -16,6 +16,7 @@ intents:
   - ask_specific_info
   - what_can_you_do
   - ask_time
+  - ask_thanks
   - ask_stock_predictions
   - ask_buy_sell_hold
   - ask_stock_trend
@@ -92,8 +93,8 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  # utter_ask_any_else:
-  # - text: "would you like to know anything else?"
+  utter_ask_any_else:
+  - text: "Would you like to know anything else?"
 
   utter_whats_up:
   - text: "Hey, i'm good ! How about you ?"

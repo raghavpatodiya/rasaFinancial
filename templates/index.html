@@ -107,6 +107,10 @@
           <button id="reset-conversation" class="btn btn-danger">
             Reset Conversation
           </button>
+          <!-- Add microphone icon button for voice input -->
+          <button id="voice-input" class="btn btn-info ml-2">
+            <i class="fas fa-microphone"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -115,6 +119,17 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+      // Function to handle voice input
+      function handleVoiceInput() {
+        const recognition = new webkitSpeechRecognition();
+        recognition.lang = "en-US";
+        recognition.onresult = function (event) {
+          const userMessage = event.results[0][0].transcript;
+          $("#chat-widget-input").val(userMessage);
+          $("#chat-widget-input").focus();
+        };
+        recognition.start();
+      }
       $(document).ready(function () {
         $("#chat-widget-button").on("click", function () {
           $("#chat-widget").toggleClass("d-none");
@@ -123,6 +138,10 @@
           $("#chat-widget").addClass("d-none");
         });
 
+        // Attach event handler for voice input button
+        $("#voice-input").on("click", function () {
+          handleVoiceInput();
+        });
         // Reset conversation function
         function resetConversation() {
           $("#chat-widget-messages").empty(); // Clear messages

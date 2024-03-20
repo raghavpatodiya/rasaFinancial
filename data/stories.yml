@@ -70,3 +70,10 @@ stories:
   steps:
   - intent: ask_volatility
   - action: get_volatility
+
+- story: deny
+  steps:
+  - intent: ask_thanks
+  - action: utter_ask_any_else
+  - intent: deny
+  - action: utter_goodbye
