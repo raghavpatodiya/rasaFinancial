@@ -512,3 +512,34 @@ nlu:
     - Can you explain why insider trading is significant in stock trading?
     - What are the implications of insider trading on market integrity?
     - Why is insider trading considered a serious issue in finance?
+
+- intent: ask_bear_bull_market
+  examples: |
+    - What are the differences between bear and bull markets?
+    - Can you explain the differences between bear and bull markets?
+    - What are the key differences between bull and bear markets?
+    - What are the key advantages of bull markets?
+    - What are the key disadvantages of bear markets?
+
+- intent: ask_esg_criteria
+  examples: |
+    - What are some common ESG (Environmental, Social, and Governance) criteria used by investors?
+    - Could you provide me with examples of ESG criteria typically considered by investors?
+    - I'm interested in learning about the ESG criteria commonly utilized by investors. Could you elaborate?
+    - What factors fall under ESG criteria that investors usually evaluate?
+    - Can you list some examples of ESG criteria that investors take into account when making decisions?
+
+- intent: ask_fair_value
+  examples: |
+    - How do I determine the fair value of a stock?
+    - Is there an easy way to calculate the fair value of a stock?
+    - Can you explain how to determine the fair value of a stock?
+    - What factors should be taken into account when calculating the fair value of a stock?
+
+- intent: ask_stock_options_features
+  examples: |
+    - What are the key differences between stock options and stock futures?
+    - Can you explain the features of stock options compared to stock futures?
+    - I'm curious about the distinct characteristics of stock options versus stock futures.
+    - Could you outline the main features distinguishing stock options from stock futures?
+    - What specific attributes differentiate stock options from stock futures?

@@ -200,3 +200,23 @@ rules:
   steps:
   - intent: ask_significance_insider_trading
   - action: utter_significance_insider_trading
+
+- rule: bear market vs bull market
+  steps:
+  - intent: ask_bear_bull_market
+  - action: utter_bear_bull_market
+
+- rule: esg criteria
+  steps: 
+  - intent: ask_esg_criteria
+  - action: utter_esg_criteria
+
+- rule: how to calculate fair value
+  steps: 
+  - intent: ask_fair_value
+  - action: utter_fair_value
+
+- rule: stock options vs stock features
+  steps:
+  - intent: ask_stock_options_features
+  - action: utter_stock_options_features

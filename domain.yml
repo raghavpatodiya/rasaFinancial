@@ -50,6 +50,10 @@ intents:
   - ask_spot_market_bubbles
   - ask_corporate_earnings_reports_affect
   - ask_significance_insider_trading
+  - ask_bear_bull_market
+  - ask_esg_criteria
+  - ask_fair_value
+  - ask_stock_options_features
 entities:
   - stock_name
   - time_period
@@ -158,7 +162,14 @@ responses:
   - text: "Positive earnings often boost investor confidence and stock prices, while negative earnings can lead to price declines as expectations adjust based on a company's financial health and performance."
   utter_significance_insider_trading:
   - text: "Illegal and unethical, it involves trading based on non-public, material information, giving insiders an unfair advantage. Regulators closely monitor and prosecute insider trading to maintain market integrity and fairness."
-
+  utter_bear_bull_market:
+  - text: "Bull markets see rising prices and investor optimism, while bear markets involve falling prices and pessimism. Monitoring trends and economic indicators helps recognize these phases."
+  utter_esg_criteria:
+  - text: "Common ESG criteria include carbon emissions, diversity, labor practices, board diversity, ethical behavior, waste management, and community engagement."
+  utter_fair_value:
+  - text: "Fundamental analysis, discounted cash flow, and comparables valuation methods help estimate a stock's intrinsic worth based on financial metrics, growth prospects, and market conditions."
+  utter_stock_options_features:
+  - text: "Options offer the right to buy/sell a stock at a set price within a timeframe, while futures obligate buying/selling at a predetermined price on a future date. Options provide flexibility, while futures involve contractual obligations."
 
 actions:
   - get_latest_stock_price
