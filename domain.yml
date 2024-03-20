@@ -37,6 +37,10 @@ intents:
   - ask_interest_rate_impact
   - ask_market_status
   - ask_market_sentiment
+  - ask_common_investing_mistakes
+  - ask_geological_unstability_affect
+  - ask_stock_market_guide
+  - ask_market_volatility_factors
 entities:
   - stock_name
   - time_period
@@ -117,7 +121,17 @@ responses:
   - text: "Diversification reduces portfolio risk by spreading investments across different asset classes, sectors, and regions, mitigating the impact of adverse events on overall returns."
   utter_interest_rate_impact:
   - text: "Interest rates influence stock prices inversely. Higher rates may reduce borrowing and consumer spending, impacting corporate profits, causing stock prices to fall. Conversely, lower rates stimulate economic growth, boosting stock prices."
-  
+  utter_common_investing_mistakes:
+  - text: "Neglecting research, letting emotions guide decisions, lack of diversification, attempting market timing, and ignoring risk management can lead to poor outcomes."
+  utter_geological_unstability_affect:
+  - text: "Geopolitical events can cause market uncertainty and volatility due to concerns over economic disruptions, trade tensions, and policy changes, influencing investor sentiment and market behavior."
+  utter_stock_market_guide:
+  - text: "Key terms include stock, market capitalization, dividend, P/E ratio, bull and bear markets, indexes, volatility, blue chip stocks, IPOs, providing foundational knowledge for newcomers."
+  utter_market_volatility_factors:
+  - text: "Economic indicators, interest rates, corporate earnings, investor sentiment, geopolitics, technology, liquidity, and regulatory changes are among the key drivers impacting market volatility."
+
+
+
 
 actions:
   - get_latest_stock_price

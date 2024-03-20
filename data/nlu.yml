@@ -407,3 +407,32 @@ nlu:
     - How do changes in interest rates affect the stock market?
     - Could you elaborate on how interest rate fluctuations influence stock prices?
     - I'm curious about the relationship between interest rates and stock market performance.
+
+- intent: ask_common_investing_mistakes
+  examples: |
+    - What are some common mistakes to avoid when investing in stocks?
+    - Can you list some typical errors people make when investing in stocks?
+    - What are the pitfalls one should watch out for when investing in the stock market?
+
+- intent: ask_geological_unstability_affect
+  examples: |
+    - How does geological unstability affect stock prices?
+    - Can you explain how geological unstability affects stock prices?
+    - What is the relationship between geological unstability and stock prices?
+    - Does geological unstability have a significant impact on stock prices?
+    - Could you explain how geological unstability affects stock prices?
+
+- intent: ask_stock_market_guide
+  examples: |
+    - Can you provide a beginner's guide to stock market terminology?
+    - I'm new to investing, could you offer a basic introduction to stock market concepts?
+    - What are some essential terms I should know before diving into the stock market?
+    - Could you explain common stock market jargon in simple terms?
+    - I'm unfamiliar with stock market terminology, can you give me a crash course?
+
+- intent: ask_market_volatility_factors
+  examples: |
+    - What are the factors influencing stock market volatility?
+    - Can you list some of the factors that affect stock market volatility?
+    - I'm curious about the elements that contribute to stock market volatility.
+    - What are the main drivers behind fluctuations in the stock market?

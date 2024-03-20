@@ -135,3 +135,23 @@ rules:
   steps: 
   - intent: ask_market_sentiment
   - action: get_market_sentiment
+
+- rule: common investing mistakes
+  steps: 
+  - intent: ask_common_investing_mistakes
+  - action: utter_common_investing_mistakes
+
+- rule: geological unstability affect
+  steps: 
+  - intent: ask_geological_unstability_affect
+  - action: utter_geological_unstability_affect
+
+- rule: stock market guide
+  steps: 
+  - intent: ask_stock_market_guide
+  - action: utter_stock_market_guide
+
+- rule: stock market volatility factors
+  steps: 
+  - intent: ask_market_volatility_factors
+  - action: utter_market_volatility_factors
