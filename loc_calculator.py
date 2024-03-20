@@ -33,7 +33,7 @@ def calculate_loc(root_dir):
     with open("loc.txt", "w") as f:
         f.write(str(total_loc))
 
-    print(f"Total LOC: {total_loc}")
+    # print(f"Total LOC: {total_loc}")
 
 if __name__ == "__main__":
     root_directory = "E:/Study2024/rasaFinancial"
@@ -41,4 +41,4 @@ if __name__ == "__main__":
     # Run continuously
     while True:
         calculate_loc(root_directory)
-        time.sleep(5)  # Delay in seconds before each execution
+        time.sleep(5)  
