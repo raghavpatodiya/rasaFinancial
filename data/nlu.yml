@@ -189,6 +189,7 @@ nlu:
     - what is the predicted price of [samsung](stock_name) stock ?
     - go and predict the stock price of [canoo](stock_name)
     - i want you to use some model to make predictions about [zentex](stock_name)'s stock !
+    - what will be the day close price of [microsoft](stock_name)
 
 - intent: ask_buy_sell_hold
   examples: |
@@ -468,3 +469,4 @@ nlu:
     - What's the best way to analyze stock market indices like the NASDAQ Composite Index?
     - Could you explain how I should interpret stock market indices such as the FTSE 100?
     - I'm curious about interpreting stock market indices such as the Nikkei 225. Can you help?
+    - can you tell me how to intepret stock market indices ?
