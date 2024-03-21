@@ -65,13 +65,21 @@ Test:
     only spacy, duckling, dietClassifier ?
 
 Incorporate:
+    use slot instead of dumping, always get stock_name from slot
     mappings in predicitions !!
     stock tickers from api ?
     list down all the things you can tell me ?
+    contact us, to report inconsistencies
+    login functionalities
+    by Raghav Patodiya and link to github
 
 Functionalities: 
     once price predicted - buysellhold, trend, volatality
     other - gainers, losers, specifc info, general info, market sentiment, market status, latest price, older price
+    answer stock related questions
+
+Error:
+    stock_info not displayed on bot interface
     
 Tool:
     add to git
@@ -80,5 +88,8 @@ Tool:
     tells users
 
 Commands: 
+    rasa run
+    rasa run actions
     python -u "e:\Study2024\rasaFinancial\app.py"  
-    python -u "e:\Study2024\rasaFinancial\loc_calculator.py"  
+    python -u "e:\Study2024\rasaFinancial\loc_calculator.py" 
+    docker run -p 8000:8000 rasa/duckling 

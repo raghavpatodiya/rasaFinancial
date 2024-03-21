@@ -115,6 +115,7 @@ nlu:
     - damn, you're stupid
     - bot motherfucker
     - wtf is wrong with you
+    - dumbass
 
 - intent: what_can_you_do
   examples: |

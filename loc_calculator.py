@@ -3,7 +3,7 @@ import time
 
 def count_lines_of_code(file_path):
     with open(file_path, 'r') as file:
-        return sum(1 for line in file if line.strip() and not line.strip().startswith('#'))
+        return sum(1 for line in file if line.strip() and not (line.strip().startswith('#') or line.strip().startswith('//') or line.strip().startswith('<!--') or line.strip().startswith('/*')))
 
 def calculate_loc(root_dir):
     total_loc = 0
