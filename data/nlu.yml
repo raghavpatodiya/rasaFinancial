@@ -154,6 +154,13 @@ nlu:
     - Tell me about the concept of stocks.
     - What are the basics of investing in stocks?
 
+- intent: ask_list_functionalities
+  examples: |
+    - list down all the things you can tell me ?
+    - what functionalities do you offer? List them
+    - could you provide a list of your capabilities?
+    - I'd like you to list what you're capable of.
+
 - intent: ask_latest_stock_price
   examples: |
     - give me stock price for [apple](stock_name)

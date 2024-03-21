@@ -26,6 +26,10 @@
         margin-top: 50px; /* Move the chat widget down */
       }
       .chat-sign-button {
+        position: fixed; /* Position the button fixed */
+        bottom: 20px; /* Adjust the distance from the bottom */
+        right: 20px; /* Adjust the distance from the right */
+        z-index: 9999; /* Set a higher z-index to ensure it appears above other elements */
         width: 50px;
         height: 50px;
         font-size: 24px;
@@ -36,11 +40,12 @@
         right: 20px;
         width: 400px;
         border-radius: 10px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         background-color: #222;
         border: none;
         color: #fff;
-        transition: all 0.3s ease; /* Add transition for smooth animation */
+        transition: all 0.3s ease;
+        z-index: 9998; /* Set a higher z-index value */
       }
       .chat-widget-header {
         background-color: #007bff;
@@ -87,6 +92,15 @@
       .bot-response {
         text-align: left;
         margin-bottom: 10px;
+      }
+      footer {
+        position: absolute; /* Position the footer absolutely */
+        bottom: 0; /* Align footer to the bottom */
+        left: 0; /* Align footer to the left */
+        width: 100%; /* Set footer width to full */
+        background-color: #333; /* Set footer background color */
+        color: #fff; /* Set footer text color */
+        padding: 20px; /* Add padding to the footer */
       }
     </style>
   </head>
@@ -140,6 +154,17 @@
         <span id="loc-counter" class="odometer">0</span>
       </div>
     </div>
+    <footer class="text-left">
+      <p>This chatbot was developed by Raghav Patodiya</p>
+      <p>
+        Check out the source code at
+        <a
+          href="https://github.com/raghavpatodiya/rasaFinancial"
+          target="_blank"
+          >my Github</a
+        >
+      </p>
+    </footer>
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- Bootstrap JS -->

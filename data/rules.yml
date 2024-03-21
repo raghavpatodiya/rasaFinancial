@@ -320,3 +320,8 @@ rules:
   steps: 
     - intent: ask_stock
     - action: utter_stock
+
+- rule: what are your functionalities
+  steps: 
+    - intent: ask_list_functionalities
+    - action: utter_list_functionalities

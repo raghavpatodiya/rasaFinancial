@@ -61,17 +61,13 @@ Test:
     integrate nlp ?
     try other models to make predicitions
     advanced nlu
-    instead of dumping into json file only after predicitions, can i dump as soon as i get a company name. and then dump later accordingly
     only spacy, duckling, dietClassifier ?
 
 Incorporate:
-    use slot instead of dumping, always get stock_name from slot
     mappings/charts in predicitions !!
     stock tickers from api ?
-    list down all the things you can tell me ?
     contact us, to report inconsistencies
     login functionalities
-    by Raghav Patodiya and link to github
 
 Functionalities: 
     once price predicted - buysellhold
@@ -82,10 +78,7 @@ Error:
     stock_info not displayed on bot interface
     
 Tool:
-    add to git
-    calculate LOC
-    from selected files
-    tells users
+    
 
 Commands: 
     rasa run

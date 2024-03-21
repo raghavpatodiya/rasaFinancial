@@ -74,6 +74,7 @@ intents:
   - ask_discounted_cash_flow
   - ask_tax_implications
   - ask_resources_stock_investing
+  - ask_list_functionalities
 entities:
   - stock_name
   - time_period
@@ -148,6 +149,9 @@ responses:
 
   utter_stock:
   - text: "Stocks are ownership shares in companies. Investors buy stocks with the expectation of earning a return. Companies raise capital by selling shares, and investors profit through stock value appreciation and dividends."
+
+  utter_list_functionalities:
+  - text: "I can retrieve prices, provide general information, analyze trends and sentiments, answer general inquiries, and even make predictions !!"
 
   utter_how_to_evaluate:
   - text: "Analyze financials, growth, competition, industry trends, and valuations before investing."

@@ -33,7 +33,7 @@ class ActionGetStockPredictions(Action):
 
                     self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
 
-                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}. Mean Squared Error: {mse:.2f}")
+                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}.")
                 else:
                     dispatcher.utter_message(text="Not enough data to build a predictive model.")
 
@@ -57,7 +57,7 @@ class ActionGetStockPredictions(Action):
 
                     self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
 
-                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}. Mean Squared Error: {mse:.2f}")
+                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}.")
                 else:
                     dispatcher.utter_message(text="Not enough data to build a predictive model.")
 

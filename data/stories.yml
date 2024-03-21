@@ -77,3 +77,10 @@ stories:
   - action: utter_ask_any_else
   - intent: deny
   - action: utter_goodbye
+
+- story: what the bot can do
+  steps:
+  - intent: what_can_you_do
+  - action: utter_what_can_you_do
+  - intent: ask_list_functionalities
+  - action: utter_list_functionalities
