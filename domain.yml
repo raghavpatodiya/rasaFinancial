@@ -94,6 +94,20 @@ slots:
       - type: from_entity
         entity: time
         intent: ask_time
+  stock_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: stock_name
+        intent: 
+          - ask_latest_stock_price
+          - ask_older_stock_price
+          - ask_general_info
+          - ask_specific_info
+          - ask_stock_predictions
+          - ask_stock_trend
+          - ask_volatility
+          - ask_market_sentiment
 
 
 responses:

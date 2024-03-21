@@ -74,8 +74,8 @@ Incorporate:
     by Raghav Patodiya and link to github
 
 Functionalities: 
-    once price predicted - buysellhold, trend, volatality
-    other - gainers, losers, specifc info, general info, market sentiment, market status, latest price, older price
+    once price predicted - buysellhold
+    other - gainers, losers, specifc info, general info, market sentiment, market status, latest price, older price, trend, volatality
     answer stock related questions
 
 Error:

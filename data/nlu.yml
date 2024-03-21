@@ -215,6 +215,9 @@ nlu:
     - i am selling my shares !
     - i am buying this stock !
     - i will do nothing and hold !
+    - should i buy the stock of [google](stock_name)
+    - i am gonna hold my stocks of  [Apple](stock_name)
+    - what should i do with my stocks of [microsoft](stock_name)
 
 - intent: ask_stock_trend
   examples: |
