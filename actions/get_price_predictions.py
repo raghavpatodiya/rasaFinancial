@@ -10,22 +10,68 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import yfinance as yf
 import json
 
-# import os # to get env
-# from dotenv import load_dotenv
-# load_dotenv() # taking environment variables from .env file
-# TWELVE_DATA_API_KEY = os.getenv("TWELVE_DATA_API_KEY")
-
-# here we predict the current day's closing stock price
 class ActionGetStockPredictions(Action):
     def name(self) -> Text:
         return "get_stock_predictions"
+    
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            entities = tracker.latest_message.get('entities', [])
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
+            ticker_mapping = get_ticker_mapping()
+
+            if company_name in ticker_mapping:
+                stock_ticker = ticker_mapping[company_name]
+                stock_data = yf.Ticker(stock_ticker)
+                current_price = stock_data.history(period='1d')['Close'].iloc[0]
+                df = self.fetch_historical_data(stock_ticker)
+                model, X_test, y_test = self.build_predictive_model(df)
+                mse = self.backtest_model(model, X_test, y_test)
+
+                if model:
+                    predicted_price = self.predict_stock_price(model, df)
+
+                    self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
+
+                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}. Mean Squared Error: {mse:.2f}")
+                else:
+                    dispatcher.utter_message(text="Not enough data to build a predictive model.")
+
+            else:
+                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+        
+        except Exception as e:
+            company_name = tracker.get_slot("stock_name").lower()
+            ticker_mapping = get_ticker_mapping()
+
+            if company_name in ticker_mapping:
+                stock_ticker = ticker_mapping[company_name]
+                stock_data = yf.Ticker(stock_ticker)
+                current_price = stock_data.history(period='1d')['Close'].iloc[0]
+                df = self.fetch_historical_data(stock_ticker)
+                model, X_test, y_test = self.build_predictive_model(df)
+                mse = self.backtest_model(model, X_test, y_test)
+
+                if model:
+                    predicted_price = self.predict_stock_price(model, df)
+
+                    self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
+
+                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}. Mean Squared Error: {mse:.2f}")
+                else:
+                    dispatcher.utter_message(text="Not enough data to build a predictive model.")
+
+            else:
+                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+
+        return []
+
     def fetch_historical_data(self, stock_ticker: str) -> pd.DataFrame:
         stock_data = yf.Ticker(stock_ticker)
         df = stock_data.history(period="max")  # Fetch historical data for all available dates
         print("Columns available in the DataFrame:")
         print(df.columns)
         return df
-
 
     def build_predictive_model(self, df: pd.DataFrame) -> LinearRegression:
         if not df.empty:
@@ -69,49 +115,20 @@ class ActionGetStockPredictions(Action):
         else:
             return float('inf')
 
-    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        try:
-            entities = tracker.latest_message.get('entities', [])
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
-            ticker_mapping = get_ticker_mapping()
+    def predict_stock_price(self, model: LinearRegression, df: pd.DataFrame) -> float:
+        current_data = df.iloc[-1]
+        predicted_price = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits']].values.reshape(1, -1))[0]
+        return predicted_price
 
-            if company_name in ticker_mapping:
-                stock_ticker = ticker_mapping[company_name]
-                stock_data = yf.Ticker(stock_ticker)
-                current_price = stock_data.history(period='1d')['Close'].iloc[0]
-                df = self.fetch_historical_data(stock_ticker)
-                model, X_test, y_test = self.build_predictive_model(df)
-                mse = self.backtest_model(model, X_test, y_test)
-
-                if model:
-                    current_data = df.iloc[-1]
-                    predicted_price = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits']].values.reshape(1, -1))[0]
-                    
-                    # # Store prediction and current_price in tracker
-                    # tracker.slots["predicted_price"] = predicted_price
-                    # tracker.slots["current_price"] = current_price
-
-                    # Store data in external storage (e.g., JSON file)
-                    data = {
-                        "company_name": company_name,
-                        "stock_ticker": stock_ticker,
-                        "predicted_price": predicted_price,
-                        "current_price": current_price
-                    }
-                    with open('stock_data.json', 'w') as file:
-                        json.dump(data, file)
-
-                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}. Mean Squared Error: {mse:.2f}")
-                else:
-                    dispatcher.utter_message(text="Not enough data to build a predictive model.")
-
-            else:
-                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
-        
-        except Exception as e:
-            dispatcher.utter_message(text=f"An error occurred: {e}")
-
-        return []
+    def store_prediction(self, company_name: str, stock_ticker: str, predicted_price: float, current_price: float) -> None:
+        data = {
+            "company_name": company_name,
+            "stock_ticker": stock_ticker,
+            "predicted_price": predicted_price,
+            "current_price": current_price
+        }
+        with open('stock_data.json', 'w') as file:
+            json.dump(data, file)
 
 class ActionBuySellHold(Action):
     def name(self) -> Text:

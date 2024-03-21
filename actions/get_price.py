@@ -17,8 +17,8 @@ class ActionGetStockPrice(Action):
             self.process_stock_price(dispatcher, company_name)
         
         except Exception as e:
-            company_name=tracker.get_slot("stock_name")
-            self.process_stock_price(dispatcher, company_name.lower())
+            company_name=tracker.get_slot("stock_name").lower()
+            self.process_stock_price(dispatcher, company_name)
 
         return []
 

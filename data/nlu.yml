@@ -223,6 +223,8 @@ nlu:
     - i want you to use some model to make predictions about [zentex](stock_name)'s stock !
     - what will be the day close price of [microsoft](stock_name)
     - can you tell me future stock price of [adobe](stock_name) ?
+    - predict stock price !
+    - can you tell me it's future stock price ?
 
 - intent: ask_buy_sell_hold
   examples: |
@@ -321,6 +323,7 @@ nlu:
     - What do you think about the market sentiment for [Nvidia](stock_name)?
     - tell me the sentiment for this stock
     - what is the overall sentiment for this company
+    - what do people think about it ?
     
 - intent: ask_worst_stock
   examples: |
@@ -334,6 +337,8 @@ nlu:
     - what are the worst stocks in the market?
     - provide the names of the worst performing stocks
     - could you tell me about the least performing stocks?
+    - get me top losers
+    - can you get me stocks that are biggest losers
     
 - intent: ask_how_to_evaluate
   examples: |

@@ -20,9 +20,9 @@ class ActionGetStockTrend(Action):
         
         except Exception as e:
             # Extract stock_name from the slot
-            company_name = tracker.get_slot("stock_name")
+            company_name = tracker.get_slot("stock_name").lower()
             print("Company name extracted from slot:", company_name)  # Debug statement
-            self.process_stock_trend(dispatcher, company_name.lower())
+            self.process_stock_trend(dispatcher, company_name)
 
         return []
 
@@ -69,9 +69,9 @@ class ActionGetStockVolatility(Action):
         
         except Exception as e:
             # Extract stock_name from the slot
-            company_name = tracker.get_slot("stock_name")
+            company_name = tracker.get_slot("stock_name").lower()
             print("Company name extracted from slot:", company_name)  # Debug statement
-            self.process_stock_volatility(dispatcher, company_name.lower())
+            self.process_stock_volatility(dispatcher, company_name)
 
         return []
 

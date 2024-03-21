@@ -22,7 +22,7 @@ class ActionGetMarketSentiment(Action):
             self.process_market_sentiment(dispatcher, company_name)
         
         except Exception as e:
-            company_name=tracker.get_slot("stock_name")
+            company_name=tracker.get_slot("stock_name").lower()
             self.process_market_sentiment(dispatcher, company_name)
 
         return []
