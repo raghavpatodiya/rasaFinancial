@@ -48,6 +48,8 @@ nlu:
     - don't like that
     - no way
     - not really
+    - nope
+    - nil
 
 - intent: mood_great
   examples: |
@@ -93,6 +95,7 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - hey, what are you ?
 - intent: whats_up
   examples: |
     - what are you doing right now ?
@@ -124,8 +127,9 @@ nlu:
     - what are your capabilities ?
     - what is your purpose ?
     - why should i use you ?
-    - can you  help me ?
+    - can you help me ?
     - what are your powers ?
+    - show me your ability
 
 - intent: ask_time
   examples: |
@@ -140,6 +144,15 @@ nlu:
     - thnx
     - okay
     - ok
+    - hmm
+- intent: ask_stock
+  examples: |
+    - what is a stock
+    - what is the meaning of stocks ?
+    - how does stock work ?
+    - Can you explain stocks to me?
+    - Tell me about the concept of stocks.
+    - What are the basics of investing in stocks?
 
 - intent: ask_latest_stock_price
   examples: |
@@ -160,6 +173,9 @@ nlu:
     - get me stock price of  [coca cola](stock_name)
     - stock price of [magnite](stock_name)
     - give me stock price of [zentex](stock_name)
+    - get me stock price
+    - so whats it's price ?
+    - can you tell me its market price
 
 - intent: ask_older_stock_price
   examples: |
@@ -169,6 +185,8 @@ nlu:
     - fetch the stock price of [amazon](stock_name) for the last [four weeks](time_period)
     - what was the [facebook](stock_name) stock price in the last [6 months](time_period)
     - what was [previous weeks](time_period) stock price of [atlassian](stock_name)
+    - get me its [2 months](time_period) stock price.
+    - can you tell me its  [1 month](time_period) stock price
 
 - intent: ask_general_info
   examples: |
@@ -180,6 +198,8 @@ nlu:
     - fetch some info of [amazon](stock_name)
     - please, tell me about [facebook](stock_name)
     - i need to know about [twitter](stock_name). Please provide its information
+    - give me some info about it
+    - some info ?
 
 - intent: ask_specific_info
   examples: |
@@ -189,6 +209,8 @@ nlu:
     - what is the [symbol](info) of [Microsoft](stock_name)?
     - can you fetch me [targetHighPrice](info) of [Nvidia](stock_name) ?
     - i need to know the [targetLowPrice](info) of [Amazon](stock_name) !
+    - get me its stock [symbol](info) !
+    - so, what is its [previousClose](info) ?
 
 - intent: ask_stock_predictions
   examples: |
@@ -283,6 +305,7 @@ nlu:
     - can you tell me the market status for [Mainland China](region)?
     - what is the current market status in [Spain](region)?
     - get me the market status
+    - what's the status of the market ?
 
 - intent: ask_market_sentiment
   examples: |
@@ -296,13 +319,9 @@ nlu:
     - What's the current market sentiment for [Netflix](stock_name)?
     - Can you provide insight into the market sentiment for [Alibaba](stock_name)?
     - What do you think about the market sentiment for [Nvidia](stock_name)?
-
-
-
-
-
-
-
+    - tell me the sentiment for this stock
+    - what is the overall sentiment for this company
+    
 - intent: ask_worst_stock
   examples: |
     - what is the worst performing stock ?

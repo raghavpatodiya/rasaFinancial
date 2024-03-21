@@ -17,6 +17,7 @@ intents:
   - what_can_you_do
   - ask_time
   - ask_thanks
+  - ask_stock
   - ask_stock_predictions
   - ask_buy_sell_hold
   - ask_stock_trend
@@ -144,6 +145,9 @@ responses:
 
   utter_time:
   - text: "It's {time}"
+
+  utter_stock:
+  - text: "Stocks are ownership shares in companies. Investors buy stocks with the expectation of earning a return. Companies raise capital by selling shares, and investors profit through stock value appreciation and dividends."
 
   utter_how_to_evaluate:
   - text: "Analyze financials, growth, competition, industry trends, and valuations before investing."

@@ -12,35 +12,42 @@ class ActionGetGeneralInfo(Action):
         try:
             company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
             print("Company name extracted:", company_name)  # Debug statement
-            ticker_mapping = get_ticker_mapping()
-            if company_name in ticker_mapping:
-                stock_ticker = ticker_mapping[company_name]
-                stock_info = yf.Ticker(stock_ticker)
-                info = stock_info.info
-                print(info)
-                info_message = f"Here are some important details about {company_name}:\n\n"
-                info_message += f"Website: {info['website']}\n"
-                info_message += f"Industry: {info['industry']}\n"
-                info_message += f"Sector: {info['sector']}\n"
-                info_message += f"Description: {info['longBusinessSummary']}\n"
-                info_message += f"Number of Employees: {info['fullTimeEmployees']}\n"
-                info_message += f"Leadership Team:\n"
-                for officer in info['companyOfficers']:
-                    info_message += f"- {officer['name']}, {officer['title']}\n"
-                info_message += f"Previous Close: {info['previousClose']}\n"
-                info_message += f"Open: {info['open']}\n"
-                info_message += f"Day Low: {info['dayLow']}\n"
-                info_message += f"Day High: {info['dayHigh']}\n"
-                info_message += f"Volume: {info['volume']}\n"
-                
-                dispatcher.utter_message(text=info_message)
-            else:
-                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+
+            self.process_info(dispatcher, company_name)
+
         except Exception as e:
-            print(f"An error occurred while fetching stock information: {e}")
-            dispatcher.utter_message(text="An error occurred while fetching stock information. Please try again later.")
+            company_name = tracker.get_slot("stock_name").lower()
+            print("Company name extracted:", company_name)  # Debug statement
+
+            self.process_info(dispatcher, company_name)
 
         return []
+
+    def process_info(self, dispatcher: CollectingDispatcher, company_name: str):
+        ticker_mapping = get_ticker_mapping()
+        if company_name in ticker_mapping:
+            stock_ticker = ticker_mapping[company_name]
+            stock_info = yf.Ticker(stock_ticker)
+            info = stock_info.info
+            print(info)
+            info_message = f"Here are some important details about {company_name}:\n\n"
+            info_message += f"Website: {info['website']}\n"
+            info_message += f"Industry: {info['industry']}\n"
+            info_message += f"Sector: {info['sector']}\n"
+            info_message += f"Description: {info['longBusinessSummary']}\n"
+            info_message += f"Number of Employees: {info['fullTimeEmployees']}\n"
+            info_message += f"Leadership Team:\n"
+            for officer in info['companyOfficers']:
+                info_message += f"- {officer['name']}, {officer['title']}\n"
+            info_message += f"Previous Close: {info['previousClose']}\n"
+            info_message += f"Open: {info['open']}\n"
+            info_message += f"Day Low: {info['dayLow']}\n"
+            info_message += f"Day High: {info['dayHigh']}\n"
+            info_message += f"Volume: {info['volume']}\n"
+            
+            dispatcher.utter_message(text=info_message)
+        else:
+            dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
 
 class ActionGetSpecificInfo(Action):
     def name(self) -> Text:
@@ -52,28 +59,34 @@ class ActionGetSpecificInfo(Action):
             print("Entities extracted:", entities)  # Debug statement
             
             # Extracting entity values from user message
-            info_type = next(tracker.get_latest_entity_values("info"), None)
             company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
-            print("Info type extracted:", info_type)  # Debug statement
+            info_type = next(tracker.get_latest_entity_values("info"), None)
             print("Company name extracted:", company_name)  # Debug statement
-            
-            # Retrieving ticker mapping
-            ticker_mapping = get_ticker_mapping()
-            if company_name in ticker_mapping:
-                stock_ticker = ticker_mapping[company_name]
-                stock_info = yf.Ticker(stock_ticker)
-                info = stock_info.info
-                
-                # Retrieving specific information requested by the user
-                if info_type in info:
-                    requested_info = info[info_type]
-                    dispatcher.utter_message(text=f"The {info_type} of {company_name} is: {requested_info}")
-                else:
-                    dispatcher.utter_message(text=f"Sorry, I couldn't find the requested information for {company_name}.")
-            else:
-                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+            print("Info type extracted:", info_type)  # Debug statement
+            self.process_info(dispatcher, company_name, info_type)
+
         except Exception as e:
-            print(f"An error occurred while fetching stock information: {e}")
-            dispatcher.utter_message(text="An error occurred while fetching stock information. Please try again later.")
+            company_name = tracker.get_slot("stock_name").lower()
+            print("Company name extracted:", company_name)  # Debug statement
+            info_type = next(tracker.get_latest_entity_values("info"), None)
+
+            self.process_info(dispatcher, company_name, info_type)
 
         return []
+
+    def process_info(self, dispatcher: CollectingDispatcher, company_name: str, info_type: str):
+        # Retrieving ticker mapping
+        ticker_mapping = get_ticker_mapping()
+        if company_name in ticker_mapping:
+            stock_ticker = ticker_mapping[company_name]
+            stock_info = yf.Ticker(stock_ticker)
+            info = stock_info.info
+            
+            # Retrieving specific information requested by the user
+            if info_type in info:
+                requested_info = info[info_type]
+                dispatcher.utter_message(text=f"The {info_type} of {company_name} is: {requested_info}")
+            else:
+                dispatcher.utter_message(text=f"Sorry, I couldn't find the requested information for {company_name}.")
+        else:
+            dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")

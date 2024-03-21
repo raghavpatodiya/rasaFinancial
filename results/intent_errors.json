@@ -1,10 +1,10 @@
 [
   {
-    "text": "what are you ?",
-    "intent": "bot_challenge",
+    "text": "what are you doing ?",
+    "intent": "whats_up",
     "intent_prediction": {
-      "name": "whats_up",
-      "confidence": 0.3870846629142761
+      "name": "what_can_you_do",
+      "confidence": 0.4687310755252838
     }
   }
 ]

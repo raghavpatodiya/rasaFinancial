@@ -66,7 +66,7 @@ Test:
 
 Incorporate:
     use slot instead of dumping, always get stock_name from slot
-    mappings in predicitions !!
+    mappings/charts in predicitions !!
     stock tickers from api ?
     list down all the things you can tell me ?
     contact us, to report inconsistencies

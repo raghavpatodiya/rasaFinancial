@@ -315,3 +315,8 @@ rules:
   steps: 
     - intent: ask_resources_stock_investing
     - action: utter_resources_stock_investing
+
+- rule: what are stocks
+  steps: 
+    - intent: ask_stock
+    - action: utter_stock
