@@ -137,6 +137,8 @@ nlu:
     - thanks
     - thank you
     - thnx
+    - okay
+    - ok
 
 - intent: ask_latest_stock_price
   examples: |

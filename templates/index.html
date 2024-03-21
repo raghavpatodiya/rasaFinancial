@@ -34,7 +34,7 @@
         position: fixed;
         bottom: 100px;
         right: 20px;
-        width: 300px;
+        width: 400px;
         border-radius: 10px;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); /* Add box shadow */
         background-color: #222;
@@ -77,6 +77,16 @@
       /* Odometer styling */
       .odometer {
         font-size: 24px;
+      }
+      /* Style for user messages */
+      .user-message {
+        text-align: right;
+        margin-bottom: 10px;
+      }
+      /* Style for bot responses */
+      .bot-response {
+        text-align: left;
+        margin-bottom: 10px;
       }
     </style>
   </head>
@@ -173,7 +183,9 @@
             $("#chat-widget-input").val("");
             // Append user's message to the chatbox
             $("#chat-widget-messages").append(
-              "<div><strong>You:</strong> " + escapeHtml(userMessage) + "</div>"
+              "<div class='user-message'><strong>You:</strong> " +
+                escapeHtml(userMessage) +
+                "</div>"
             );
             // Send user's message to the server and get bot's response
             $.ajax({
@@ -185,7 +197,7 @@
                 let botResponse = data.response;
                 // Append bot's response to the chatbox
                 $("#chat-widget-messages").append(
-                  "<div><strong>Bot:</strong> " +
+                  "<div class='bot-response'><strong>Bot:</strong> " +
                     escapeHtml(botResponse) +
                     "</div>"
                 );
