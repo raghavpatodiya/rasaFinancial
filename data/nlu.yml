@@ -641,3 +641,35 @@ nlu:
     - Can you provide techniques for identifying value traps in investments?
     - What indicators should I look for to detect value traps in stocks?
     - Are there any red flags that indicate a potential value trap in a company's stock?
+
+- intent: ask_implications_regulatory_changes
+  examples: |
+    - What are the implications of regulatory changes on specific industries and stocks?  
+    - Could you elaborate on how regulatory changes might impact certain sectors and individual companies?
+    - I'm curious about the effects of regulatory shifts on different industries and their corresponding stocks. Can you provide insights?
+    - How do regulatory updates affect the performance of different sectors and particular stocks in the market?
+    - Can you outline the ramifications of recent regulatory adjustments on various industries and specific investment opportunities?
+
+- intent: ask_analyze_debt_equity_ratio
+  examples: |
+    - How do I analyze the debt-to-equity ratio of a company?
+    - Can you explain the importance of debt-to-equity ratio in financial markets?
+    - What factors should I consider when analyzing debt-to-equity ratio?
+    - What is the relationship between debt and equity in a company?
+    - What is the relationship between debt and equity in a company?
+  
+- intent: ask_key_metrics_growth_potential
+  examples: |
+    - What are some key metrics to consider when evaluating a stock's growth potential?
+    - Can you provide me with key metrics that indicate a stock's growth potential?
+    - I'm interested in understanding the key metrics that signal a stock's growth potential. Could you help?
+    - Which metrics should I focus on to gauge a stock's growth potential?
+    - How can I identify a stock's growth potential through specific metrics?
+
+- intent: ask_sector_performance
+  examples: |
+    - Can you provide insights on the performance of different sectors in the stock market?
+    - Can you give me an overview of how various sectors are performing in the current market?
+    - I'm curious about the performance trends of different sectors in the stock market. Can you provide some insights?
+    - How are individual sectors faring in the stock market lately? Can you shed some light on their performance?
+    - What's the latest on sector performance in the stock market? Could you give me a rundown?

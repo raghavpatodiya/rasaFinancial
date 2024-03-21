@@ -66,6 +66,10 @@ intents:
   - ask_strategies_against_downturns
   - ask_impact_global_trends
   - ask_identify_value_traps
+  - ask_implications_regulatory_changes
+  - ask_analyze_debt_equity_ratio
+  - ask_key_metrics_growth_potential
+  - ask_sector_performance
 
 entities:
   - stock_name
@@ -207,6 +211,15 @@ responses:
   - text: "Monitor GDP growth, inflation, interest rates, and geopolitics for their influence on investor sentiment and market conditions."
   utter_identify_value_traps:
   - text: "Conduct thorough research, analyze financials, and assess competitive positioning to avoid stocks with underlying issues."
+  utter_implications_regulatory_changes:
+  - text: "Changes can impact industries and stocks by altering costs and market dynamics. Investors should assess effects on revenue, expenses, and competitiveness."
+  utter_analyze_debt_equity_ratio:
+  - text: "Calculate by dividing total liabilities by shareholder's equity. High ratios indicate higher risk, while lower ratios suggest a healthier balance sheet."
+  utter_key_metrics_growth_potential:
+  - text: "Consider revenue and earnings growth rates, return on equity, profit margins, and forward P/E ratio. Look for consistent growth trends and reasonable valuations."
+  utter_sector_performance:
+  - text: "Sectors vary based on economic conditions and investor sentiment. Analyze historical data to identify trends and manage portfolio risk."
+
 
 actions:
   - get_latest_stock_price

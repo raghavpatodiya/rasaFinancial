@@ -280,3 +280,23 @@ rules:
   steps: 
     - intent: ask_identify_value_traps
     - action: utter_identify_value_traps
+
+- rule: implications of regulatory changes
+  steps: 
+    - intent: ask_implications_regulatory_changes
+    - action: utter_implications_regulatory_changes
+
+- rule: how to analyze debt to quity ratio
+  steps:
+    - intent: ask_analyze_debt_equity_ratio
+    - action: utter_analyze_debt_equity_ratio
+
+- rule: key metrics while evaluating company's growth potential
+  steps: 
+    - intent: ask_key_metrics_growth_potential
+    - action: utter_key_metrics_growth_potential
+
+- rule: sector performance
+  steps: 
+    - intent: ask_sector_performance
+    - action: utter_sector_performance

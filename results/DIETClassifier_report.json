@@ -1,9 +1,9 @@
 {
-  "stock_name": {
+  "region": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 73,
+    "support": 10,
     "confused_with": {}
   },
   "time_period": {
@@ -20,11 +20,11 @@
     "support": 6,
     "confused_with": {}
   },
-  "region": {
+  "stock_name": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 10,
+    "support": 73,
     "confused_with": {}
   },
   "micro avg": {
