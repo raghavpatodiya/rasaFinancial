@@ -300,3 +300,18 @@ rules:
   steps: 
     - intent: ask_sector_performance
     - action: utter_sector_performance
+
+- rule: DCF
+  steps: 
+    - intent: ask_discounted_cash_flow
+    - action: utter_discounted_cash_flow
+
+- rule: tax implications
+  steps:  
+    - intent: ask_tax_implications
+    - action: utter_tax_implications
+
+- rule: resources for learning how to invest in stocks
+  steps: 
+    - intent: ask_resources_stock_investing
+    - action: utter_resources_stock_investing

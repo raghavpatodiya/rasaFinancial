@@ -70,7 +70,9 @@ intents:
   - ask_analyze_debt_equity_ratio
   - ask_key_metrics_growth_potential
   - ask_sector_performance
-
+  - ask_discounted_cash_flow
+  - ask_tax_implications
+  - ask_resources_stock_investing
 entities:
   - stock_name
   - time_period
@@ -219,8 +221,12 @@ responses:
   - text: "Consider revenue and earnings growth rates, return on equity, profit margins, and forward P/E ratio. Look for consistent growth trends and reasonable valuations."
   utter_sector_performance:
   - text: "Sectors vary based on economic conditions and investor sentiment. Analyze historical data to identify trends and manage portfolio risk."
-
-
+  utter_discounted_cash_flow:
+  - text: "Estimate future cash flows, discount them using a discount rate, and sum them to find the stock's intrinsic value."
+  utter_tax_implications:
+  - text: "Capital gains tax applies to profits from selling stocks, with rates based on holding period. Dividends are also taxed, with rates depending on income."
+  utter_resources_stock_investing:
+  - text: "Check out books like \"The Intelligent Investor\" and \"One Up On Wall Street,\" online platforms like Investopedia and The Motley Fool, and courses on Coursera or Udemy."
 actions:
   - get_latest_stock_price
   - get_older_stock_price

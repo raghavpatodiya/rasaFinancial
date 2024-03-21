@@ -4,7 +4,7 @@
     "intent": "bot_challenge",
     "intent_prediction": {
       "name": "whats_up",
-      "confidence": 0.4485396444797516
+      "confidence": 0.5011869072914124
     }
   }
 ]

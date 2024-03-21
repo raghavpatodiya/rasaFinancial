@@ -673,3 +673,28 @@ nlu:
     - I'm curious about the performance trends of different sectors in the stock market. Can you provide some insights?
     - How are individual sectors faring in the stock market lately? Can you shed some light on their performance?
     - What's the latest on sector performance in the stock market? Could you give me a rundown?
+
+- intent: ask_discounted_cash_flow
+  examples: |
+    - How do I calculate the intrinsic value of a stock using discounted cash flow analysis?
+    - Can you explain how discounted cash flow analysis works?
+    - What are the key steps involved in calculating intrinsic value of a stock?
+    - How can I determine the fair value of a company's stock using DCF analysis?
+    - Could you explain how discounted cash flow analysis is used to evaluate investment opportunities?
+    - What are the key components involved in discounted cash flow valuation?
+    - Can you walk me through the process of calculating DCF for a business?
+
+- intent: ask_tax_implications
+  examples: |
+    - What are the tax implications of buying and selling stocks?
+    - Can you explain the tax consequences of investing in mutual funds?
+    - I'm curious about the tax implications of renting out my property.
+    - How do I account for taxes when starting a small business?
+    - Could you clarify the tax implications of cryptocurrency transactions?
+
+- intent: ask_resources_stock_investing
+  examples: |
+    - Can you recommend resources for further learning about stock investing?
+    - What are some good books or websites to learn more about stock investing?
+    - I'm interested in diving deeper into stock investing. Any resources you'd suggest?
+    - Where can I find reliable information to educate myself on stock investing?
