@@ -187,6 +187,10 @@
                 escapeHtml(userMessage) +
                 "</div>"
             );
+            // Scroll to the bottom of the chat window
+            $("#chat-widget-messages").scrollTop(
+              $("#chat-widget-messages")[0].scrollHeight
+            );
             // Send user's message to the server and get bot's response
             $.ajax({
               type: "POST",
@@ -200,6 +204,10 @@
                   "<div class='bot-response'><strong>Bot:</strong> " +
                     escapeHtml(botResponse) +
                     "</div>"
+                );
+                // Scroll to the bottom of the chat window
+                $("#chat-widget-messages").scrollTop(
+                  $("#chat-widget-messages")[0].scrollHeight
                 );
               },
               error: function () {
