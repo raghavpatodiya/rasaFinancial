@@ -260,3 +260,23 @@ rules:
   steps: 
     - intent: ask_significance_stock_buybacks
     - action: utter_significance_stock_buybacks
+
+- rule: how to interpret analyst recommendations
+  steps: 
+    - intent: ask_interpret_analyst_recommendation
+    - action: utter_interpret_analyst_recommendation
+
+- rule: strategies for hedging against stock market downturns
+  steps: 
+    - intent: ask_strategies_against_downturns
+    - action: utter_strategies_against_downturns
+
+- rule: impact of global trends on market
+  steps: 
+    - intent: ask_impact_global_trends
+    - action: utter_impact_global_trends
+
+- rule: how to identify value traps
+  steps: 
+    - intent: ask_identify_value_traps
+    - action: utter_identify_value_traps

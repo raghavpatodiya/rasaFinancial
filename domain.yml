@@ -62,6 +62,11 @@ intents:
   - ask_management_influence
   - ask_emotional_management
   - ask_significance_stock_buybacks
+  - ask_interpret_analyst_recommendation
+  - ask_strategies_against_downturns
+  - ask_impact_global_trends
+  - ask_identify_value_traps
+
 entities:
   - stock_name
   - time_period
@@ -194,10 +199,14 @@ responses:
   - text: "Stick to a long-term investment strategy, focus on fundamentals, set realistic goals, diversify your portfolio, and avoid making impulsive decisions based on fear or greed."
   utter_significance_stock_buybacks:
   - text: "Buybacks signal management's confidence and can boost earnings per share (EPS) and share prices by reducing outstanding shares, but they can also indicate a lack of investment opportunities or financial engineering."
-
-
-
-
+  utter_interpret_analyst_recommendation:
+  - text: "Consider analyst track record, rationale, and alignment with investment goals."
+  utter_strategies_against_downturns:
+  - text: "Diversify, use options or futures, invest in defensive assets, and set stop-loss orders."
+  utter_impact_global_trends:
+  - text: "Monitor GDP growth, inflation, interest rates, and geopolitics for their influence on investor sentiment and market conditions."
+  utter_identify_value_traps:
+  - text: "Conduct thorough research, analyze financials, and assess competitive positioning to avoid stocks with underlying issues."
 
 actions:
   - get_latest_stock_price

@@ -607,3 +607,37 @@ nlu:
     - Can you explain the importance of stock buybacks in investing?
     - How do stock buybacks affect shareholders?
     - Why are stock buybacks considered important in financial markets?
+
+- intent: ask_interpret_analyst_recommendation
+  examples: |
+    - How do I interpret analyst recommendations on stocks?
+    - Can you explain how to understand analyst recommendations for investing?
+    - What factors should I consider when analyzing analyst recommendations for trading?
+    - Could you provide insights on deciphering analyst opinions on specific stocks?
+    - I'm confused about how to make sense of analyst recommendations; can you help?
+
+- intent: ask_strategies_against_downturns
+  examples: |
+    - What are some strategies for hedging against stock market downturns?
+    - Can you suggest ways to protect investments during economic downturns?
+    - How can I safeguard my portfolio from market downturns?
+    - What are effective strategies to mitigate losses during a market downturn?
+    - Could you provide advice on preparing for a potential economic downturn?
+
+- intent: ask_impact_global_trends
+  examples: |
+    - Can you explain the impact of global economic trends on stock markets?
+    - Can you elaborate on how global political trends influence international diplomacy?
+    - What are the effects of environmental trends on global sustainability efforts?
+    - Could you discuss the ramifications of technological advancements on global workforce dynamics?
+    - How do cultural trends impact global marketing strategies?
+    - What is the significance of demographic trends in shaping global healthcare policies?
+
+- intent: ask_identify_value_traps
+  examples: |
+    - How do I identify potential value traps in the stock market?
+    - How can I spot value traps when investing in stocks?
+    - What are some signs of value traps in the stock market?
+    - Can you provide techniques for identifying value traps in investments?
+    - What indicators should I look for to detect value traps in stocks?
+    - Are there any red flags that indicate a potential value trap in a company's stock?
