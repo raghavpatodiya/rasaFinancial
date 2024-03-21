@@ -78,3 +78,7 @@ Tool:
     calculate LOC
     from selected files
     tells users
+
+Commands: 
+    python -u "e:\Study2024\rasaFinancial\app.py"  
+    python -u "e:\Study2024\rasaFinancial\loc_calculator.py"  

@@ -240,3 +240,23 @@ rules:
   steps:
   - intent: ask_portfolio_dividend_stock
   - action: utter_portfolio_dividend_stock
+
+- rule: risks of investing in ipo's
+  steps: 
+    - intent: ask_risk_investing_ipo
+    - action: utter_risk_investing_ipo
+
+- rule: management influence on stock price
+  steps:  
+    - intent: ask_management_influence
+    - action: utter_management_influence
+
+- rule: how to manage emotions
+  steps: 
+    - intent: ask_emotional_management
+    - action: utter_emotional_management
+
+- rule: significance of stock buybacks for investers
+  steps: 
+    - intent: ask_significance_stock_buybacks
+    - action: utter_significance_stock_buybacks

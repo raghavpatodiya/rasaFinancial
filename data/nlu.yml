@@ -576,3 +576,32 @@ nlu:
     - Can you provide guidance on constructing a portfolio primarily composed of dividend-paying stocks?
     - I'm interested in creating a portfolio with a focus on dividend stocks. How should I go about it?
     - What factors should I consider when selecting dividend stocks for my investment portfolio?
+
+- intent: ask_risk_investing_ipo
+  examples: |
+    - What are the potential risks of investing in IPOs?
+    - Could you outline the risks associated with investing in IPOs?
+    - I'm considering investing in an IPO. What should I be cautious about?
+    - Are there any drawbacks or risks I should be aware of before investing in an IPO?
+
+- intent: ask_management_influence
+  examples: |
+    - How does company management influence stock performance?
+    - Can you explain the impact of management decisions on stock prices?
+    - What role does the management play in affecting the company's stock value?
+    - How do executive actions influence the company's stock performance?
+    - What effect does the leadership team have on the stock's movement?
+
+- intent: ask_emotional_management
+  examples: |
+    - Can you provide tips for managing emotions while investing in stocks?
+    - How can I control my emotions when trading cryptocurrencies?
+    - What strategies can I use to maintain emotional stability during market volatility?
+    - Could you suggest techniques for staying calm during high-pressure investment decisions?
+
+- intent: ask_significance_stock_buybacks
+  examples: |
+    - What is the significance of stock buybacks for investors?
+    - Can you explain the importance of stock buybacks in investing?
+    - How do stock buybacks affect shareholders?
+    - Why are stock buybacks considered important in financial markets?

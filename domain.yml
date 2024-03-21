@@ -58,6 +58,10 @@ intents:
   - ask_high_frequency_trading
   - ask_quantitative_easing_role
   - ask_portfolio_dividend_stock
+  - ask_risk_investing_ipo
+  - ask_management_influence
+  - ask_emotional_management
+  - ask_significance_stock_buybacks
 entities:
   - stock_name
   - time_period
@@ -182,11 +186,14 @@ responses:
   - text: "QE stimulates economic growth by injecting liquidity into the financial system, often leading to higher stock prices, but it can also distort market fundamentals and increase the risk of asset bubbles."
   utter_portfolio_dividend_stock:
   - text: "Select dividend-paying stocks with strong financials and sustainable business models across various sectors to balance income and growth. Regularly review and adjust your portfolio for diversification and risk management."
-
-
-
-
-
+  utter_risk_investing_ipo:
+  - text: "IPOs can be volatile and unpredictable due to limited historical data, high valuation expectations, lock-up periods, and potential underperformance."
+  utter_management_influence:
+  - text: "Competent and transparent management can inspire investor confidence and drive strategic decisions, positively impacting stock performance, while poor management decisions can lead to distrust and stock price declines."
+  utter_emotional_management:
+  - text: "Stick to a long-term investment strategy, focus on fundamentals, set realistic goals, diversify your portfolio, and avoid making impulsive decisions based on fear or greed."
+  utter_significance_stock_buybacks:
+  - text: "Buybacks signal management's confidence and can boost earnings per share (EPS) and share prices by reducing outstanding shares, but they can also indicate a lack of investment opportunities or financial engineering."
 
 
 
