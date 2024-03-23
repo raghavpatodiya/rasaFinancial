@@ -130,6 +130,7 @@ nlu:
     - can you help me ?
     - what are your powers ?
     - show me your ability
+    - what do you do
 
 - intent: ask_time
   examples: |

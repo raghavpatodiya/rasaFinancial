@@ -11,7 +11,9 @@ def calculate_loc(root_dir):
     folders = {
         ".py": "actions",
         ".yml": "data",
-        ".html": "templates"
+        ".html": "templates",
+        ".css": "static/css",
+        ".js": "static/js"
     }
     for ext, folder in folders.items():
         folder_path = os.path.join(root_dir, folder)
