@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from flask import redirect, url_for, flash
+from flask import redirect, url_for, flash, abort
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 import bcrypt
 from flask_sqlalchemy import SQLAlchemy
@@ -75,19 +75,27 @@ def signup():
     return render_template('signup.html')
 
 # Login route
+from flask import abort
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    error = None  # Initialize error variable
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
         user = User.query.filter_by(username=username).first()
-        if user and user.check_password(password):
-            login_user(user)
-            return redirect(url_for('index'))  # Redirect to the main route upon successful login
+        if user:
+            if user.check_password(password):
+                login_user(user)
+                return redirect(url_for('index'))  # Redirect to the main route upon successful login
+            else:
+                error = 'Invalid password'  # Set error message if password is incorrect
         else:
-            flash('Invalid username or password', 'error')
-            return render_template('login.html')  # Render login page again on failed login
-    return render_template('login.html')
+            error = 'User not found'  # Set error message if user does not exist
+            abort(401)  # Return 401 status code for unauthorized access
+    return render_template('login.html', error=error)  # Pass error message to template
+
+
 
 
 # Logout route
