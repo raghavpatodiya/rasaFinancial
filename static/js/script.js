@@ -10,6 +10,11 @@ function handleVoiceInput() {
 }
 
 $(document).ready(function () {
+    // Logout button click event
+    $(".logout-btn").on("click", function () {
+        // Redirect to the login page
+        window.location.href = "/login";
+    });
     $("#chat-widget-button").on("click", function () {
         $("#chat-widget").toggleClass("d-none");
     });

@@ -80,3 +80,17 @@ body {
     color: #fff; /* Set footer text color */
     padding: 20px; /* Add padding to the footer */
   }
+  .logout-btn {
+    background-color: #dc3545; /* Red color for logout button */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    margin-top: 20px; /* Add margin at the top */
+    cursor: pointer; /* Add pointer cursor on hover */
+    border-radius: 10px; /* Add rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red color on hover */
+}
