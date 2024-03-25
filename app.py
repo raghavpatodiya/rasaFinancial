@@ -9,7 +9,7 @@ from flask_login import LoginManager, UserMixin, login_user, logout_user, login_
 import bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-
+from flask import abort
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 
@@ -91,8 +91,6 @@ def signup():
     return render_template('signup.html')
 
 # Login route
-from flask import abort
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None  # Initialize error variable
@@ -106,13 +104,11 @@ def login():
                 return redirect(url_for('index'))  # Redirect to the main route upon successful login
             else:
                 error = 'Invalid password'  # Set error message if password is incorrect
+                abort(401)  # Return 401 status code for unauthorized access
         else:
             error = 'User not found'  # Set error message if user does not exist
             abort(401)  # Return 401 status code for unauthorized access
     return render_template('login.html', error=error)  # Pass error message to template
-
-
-
 
 # Logout route
 @app.route('/logout')
