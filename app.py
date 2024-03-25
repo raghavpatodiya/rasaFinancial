@@ -10,6 +10,9 @@ import bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
+from flask_mail import Mail, Message
+from itsdangerous import URLSafeTimedSerializer
+
 # URL of Rasa's server
 RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 ACTION_SERVER_URL = 'http://localhost:5055/webhook'
@@ -21,6 +24,19 @@ app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{os.getenv('DB_USERNAME')
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 db = SQLAlchemy(app)
 # migrate = Migrate(app, db)
+
+mail = Mail(app)
+# Initialize Flask-Mail
+app.config['MAIL_SERVER'] = 'smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.getenv('MAIL_PASSWORD')
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_DEFAULT_SENDER'] = os.getenv('MAIL_USERNAME')
+app.config['MAIL_SUPPRESS_SEND'] = False
+mail.init_app(app)
+serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
 
 # Initialize Flask-Login
 login_manager = LoginManager(app)
@@ -115,6 +131,59 @@ def protected():
 @login_required
 def index():
     return render_template('index.html')
+
+# Reset password route
+@app.route('/resetpassword', methods=['GET', 'POST'])
+def reset_password():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        user = User.query.filter_by(email=email).first()
+        if user:
+            # Generate a token for password reset
+            token = serializer.dumps(email, salt='reset-password')
+
+            # Send the reset password link via email
+            reset_link = url_for('new_password', token=token, _external=True)
+            message = Message('Reset Your Password', recipients=[email])
+            message.body = f'Click the link below to reset your password:\n{reset_link}'
+            mail.send(message)
+
+            flash('Password reset instructions sent to your email. Please check your inbox.', 'success')
+            return redirect(url_for('login'))
+        else:
+            flash('Email not found. Please enter a registered email address.', 'error')
+    return render_template('resetpassword.html')
+
+@app.route('/newpassword/<token>', methods=['GET', 'POST'])
+def new_password(token):
+    try:
+        email = serializer.loads(token, salt='reset-password', max_age=3600)  # Token expires in 1 hour
+    except:
+        flash('The reset link is invalid or expired. Please try again.', 'error')
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        user = User.query.filter_by(email=email).first()
+        if user:
+            password = request.form.get('password')
+            confirm_password = request.form.get('confirmPassword')
+            if password == confirm_password:
+                user.set_password(password)
+                try:
+                    db.session.commit()
+                    print("Password updated successfully.")
+                    flash('Password updated successfully. You can now login with your new password.', 'success')
+                    return redirect(url_for('login'))
+                except Exception as e:
+                    print("Error updating password in the database:", e)
+                    flash('An error occurred while updating your password. Please try again later.', 'error')
+            else:
+                flash('Passwords do not match. Please try again.', 'error')
+        else:
+            print("User not found for email:", email)
+            flash('User not found. Please try again.', 'error')
+
+    return render_template('newpassword.html', token=token)
 
 # Webhook route
 @app.route('/webhook', methods=['POST'])

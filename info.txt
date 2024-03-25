@@ -67,7 +67,6 @@ Incorporate:
     mappings/charts in predicitions !!
     stock tickers from api ?
     contact us, to report inconsistencies
-    login functionalities
 
 Functionalities: 
     once price predicted - buysellhold
@@ -76,6 +75,7 @@ Functionalities:
 
 Error:
     stock_info not displayed on bot interface
+    inputs like "agnakrgnlak" shouldn't work
     
 Tool:
     
