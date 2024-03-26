@@ -146,6 +146,19 @@ nlu:
     - okay
     - ok
     - hmm
+
+- intent: fallback
+  examples: |
+    - aehhfcnakjefkafk
+    - ngnvjftbn
+    - kkkkkkkkk
+    - whhfkawfjkwa
+    - aegnkvc caarimvv
+    - wqojwigimcvn
+    - alkgkeahjcnmcl
+    - lwlkjwkfncnhv
+    - qjkoeavnkmvck
+    
 - intent: ask_stock
   examples: |
     - what is a stock

@@ -1,5 +1,5 @@
-# to install requirements, run ' pip install -r requirements.txt '
-# to create your very own requirements file, run ' pip freeze > requirements.txt '
+# to install requirements, run ' pip install -r requirements.txt ' 
+# to create your very own requirements file, run ' pip freeze > requirements.txt ' 
 # also check the files that you require before actually installing
 
 absl-py==1.4.0
@@ -66,6 +66,7 @@ filelock==3.13.1
 fire==0.5.0
 Flask==3.0.2
 Flask-Login==0.6.3
+Flask-Mail==0.9.1
 Flask-Migrate==4.0.7
 Flask-SQLAlchemy==3.1.1
 flatbuffers==23.5.26

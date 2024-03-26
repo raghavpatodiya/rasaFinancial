@@ -75,6 +75,7 @@ intents:
   - ask_tax_implications
   - ask_resources_stock_investing
   - ask_list_functionalities
+  - fallback
 entities:
   - stock_name
   - time_period
@@ -147,6 +148,9 @@ responses:
   utter_time:
   - text: "It's {time}"
 
+  utter_default:
+    - text: "I'm sorry, I didn't understand. Can you please rephrase or ask something else?"
+  
   utter_stock:
   - text: "Stocks are ownership shares in companies. Investors buy stocks with the expectation of earning a return. Companies raise capital by selling shares, and investors profit through stock value appreciation and dividends."
 
