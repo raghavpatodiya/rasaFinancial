@@ -76,8 +76,10 @@ intents:
   - ask_resources_stock_investing
   - ask_list_functionalities
   - fallback
+  - ask_comparison
 entities:
   - stock_name
+  - stock_name2
   - time_period
   - info
   - time
@@ -111,7 +113,13 @@ slots:
           - ask_stock_trend
           - ask_volatility
           - ask_market_sentiment
-
+  stock_name2:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: stock_name2
+        intent: 
+          - ask_comparison
 
 responses:
   utter_greet:
@@ -266,6 +274,7 @@ actions:
   - get_worst_stock
   - get_market_status
   - get_market_sentiment
+  - get_comparison
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

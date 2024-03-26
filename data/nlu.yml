@@ -361,6 +361,14 @@ nlu:
     - get me top losers
     - can you get me stocks that are biggest losers
     
+- intent: ask_comparison
+  examples: |
+    - compare the [price](info) of [google](stock_name) and [microsoft](stock_name2)
+    - compare the [volatality](info) of [nvidia](stock_name) with [apple](stock_name2)
+    - how would you compare the market sentiment of [atlassian](stock_name) with [netflix](stock_name2) ?
+
+
+
 - intent: ask_how_to_evaluate
   examples: |
     - How do I evaluate a company's stock before investing?
