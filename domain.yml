@@ -113,6 +113,7 @@ slots:
           - ask_stock_trend
           - ask_volatility
           - ask_market_sentiment
+          - ask_comparison
   stock_name2:
     type: text
     mappings:

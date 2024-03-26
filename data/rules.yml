@@ -325,3 +325,8 @@ rules:
   steps: 
     - intent: ask_list_functionalities
     - action: utter_list_functionalities
+
+- rule: comparison
+  steps: 
+    - intent: ask_comparison
+    - action: get_comparison
