@@ -367,12 +367,21 @@ nlu:
     - compare the [volatility](info) of [nvidia](stock_name) with [apple](stock_name2)
     - how would you compare the [market sentiment](info) of [atlassian](stock_name) with [netflix](stock_name2) ?
     - compare the stock [trend](info) of [facebook](stock_name) to [tesla](stock_name2)
-    - now compare this, to stock [price](info) of [netflix](stock_name2)
     - compare the [market cap](info) of [Tesla](stock_name) and [General Motors](stock_name2)
     - compare the [revenue](info) of [Amazon](stock_name) with [Walmart](stock_name2)
     - how would you compare the [net income](info) of [Apple](stock_name) with [Samsung](stock_name2) ?
     - compare the [EPS](info) of [Netflix](stock_name) to [Disney](stock_name2)
     - now compare the [PE ratio](info) of [Facebook](stock_name) to [Twitter](stock_name2)
+    - compare the [gross margin](info) of [Intel](stock_name) and [AMD](stock_name2)
+    - compare the [PE ratio](info) of [Netflix](stock_name) with [Disney](stock_name2)
+    - how would you compare the [ROE](info) of [Visa](stock_name) with [Mastercard](stock_name2) ?
+    - compare the [dividend yield](info) of [IBM](stock_name) to [Oracle](stock_name2)
+    - now compare the [net income](info) of [Adobe](stock_name) to [Salesforce](stock_name2).
+    - compare the [market cap](info) of [Tesla](stock_name) and [Toyota](stock_name2)
+    - compare the [revenue](info) of [Netflix](stock_name) with [HBO](stock_name2)
+    - how would you compare the [net income](info) of [Google](stock_name) with [Amazon](stock_name2) ?
+    - compare the [volatility](info) of [Apple](stock_name) to [Microsoft](stock_name2)
+    - now compare the [trend](info) of [Facebook](stock_name) to [Twitter](stock_name2)
 
 
 
