@@ -19,12 +19,8 @@ class ActionGetComparison(Action):
         try:
             # Extracting entities
             entities = tracker.latest_message.get('entities', [])
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
-            company_name2 = next(tracker.get_latest_entity_values("stock_name2"), None)
-            if company_name is not None:
-                company_name = company_name.lower()
-            if company_name2 is not None:
-                company_name2 = company_name2.lower()
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
+            company_name2 = next(tracker.get_latest_entity_values("stock_name2"), None).lower()
 
             info = next(tracker.get_latest_entity_values("info"), None)
 
@@ -48,9 +44,26 @@ class ActionGetComparison(Action):
                 dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
         
         except Exception as e:
-            print("Exception occurred:", str(e))
-            dispatcher.utter_message(text="An error occurred while processing the comparison request.")
-
+            # print("Exception occurred:", str(e))
+            # dispatcher.utter_message(text="An error occurred while processing the comparison request.")
+            company_name = tracker.get_slot("stock_name").lower()
+            company_name2 = tracker.get_slot("stock_name2").lower()
+            print("Company names extracted:", company_name, company_name2)  # Debug statement
+            info = next(tracker.get_latest_entity_values("info"), None)
+            if info:
+                info = info.lower()
+                if info == "price":
+                    self.compare_stock_price(dispatcher, company_name, company_name2)
+                elif info == "market sentiment" or info == "sentiment":
+                    self.compare_market_sentiment(dispatcher, company_name, company_name2)
+                elif info == "volatility":
+                    self.compare_volatility(dispatcher, company_name, company_name2)
+                elif info == 'trend':
+                    self.compare_stock_trend(dispatcher, company_name, company_name2)
+                else:
+                    dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
+            else:
+                dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
 
         return []
 
