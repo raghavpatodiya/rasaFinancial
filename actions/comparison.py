@@ -59,6 +59,8 @@ class ActionGetComparison(Action):
             self.compare_market_cap(dispatcher, company_name, company_name2)
         elif info == "revenue" or info == "earnings" or info == "profit" or info == "income":
             self.compare_revenue(dispatcher, company_name, company_name2)
+        elif info == "eps" or info== "earnings per share" or info == "earning per share":
+            self.compare_eps(dispatcher, company_name, company_name2)
         else:
             dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
 
@@ -146,6 +148,20 @@ class ActionGetComparison(Action):
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve revenue data for one or both of the companies.")
 
+    def compare_eps(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
+        eps = self.process_eps(company_name)
+        eps2 = self.process_eps(company_name2)
+
+        if eps is not None and eps2 is not None:
+            if eps > eps2:
+                dispatcher.utter_message(text=f"The EPS of {company_name} (${eps}) is higher than {company_name2} (${eps2}).")
+            elif eps < eps2:
+                dispatcher.utter_message(text=f"The EPS of {company_name} (${eps}) is lower than {company_name2} (${eps2}).")
+            else:
+                dispatcher.utter_message(text=f"The EPSs of {company_name} and {company_name2} are equal (${eps}).")
+        else:
+            dispatcher.utter_message(text="Sorry, couldn't retrieve EPS data for one or both of the companies.")
+
     def process_stock_price(self, company_name: str) -> float:
         ticker_mapping = get_ticker_mapping()
         if company_name in ticker_mapping:
@@ -227,8 +243,16 @@ class ActionGetComparison(Action):
             return formatted_revenue
         else:
             return None
-
-
+        
+    def process_eps(self, company_name: str) -> float:
+        ticker_mapping = get_ticker_mapping()
+        if company_name in ticker_mapping:
+            stock_ticker = ticker_mapping[company_name]
+            stock_data = yf.Ticker(stock_ticker)
+            eps = stock_data.info['trailingEps']
+            return eps
+        else:
+            return None
 
     def format_amount(self, amount: str) -> str:
         if amount != 'N/A':

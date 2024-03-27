@@ -1,0 +1,10 @@
+[
+  {
+    "text": "Can you explain how market sentiment impacts the stock market?",
+    "intent": "ask_market_sentiment_affect",
+    "intent_prediction": {
+      "name": "ask_market_sentiment",
+      "confidence": 0.4295043349266052
+    }
+  }
+]

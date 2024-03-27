@@ -1,23 +1,16 @@
 {
+  "stock_name": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 97,
+    "confused_with": {}
+  },
   "region": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
     "support": 10,
-    "confused_with": {}
-  },
-  "info": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 37,
-    "confused_with": {}
-  },
-  "stock_name2": {
-    "precision": 1.0,
-    "recall": 1.0,
-    "f1-score": 1.0,
-    "support": 20,
     "confused_with": {}
   },
   "time_period": {
@@ -27,30 +20,37 @@
     "support": 16,
     "confused_with": {}
   },
-  "stock_name": {
+  "stock_name2": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 95,
+    "support": 22,
+    "confused_with": {}
+  },
+  "info": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 42,
     "confused_with": {}
   },
   "micro avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 178
+    "support": 187
   },
   "macro avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 178
+    "support": 187
   },
   "weighted avg": {
     "precision": 1.0,
     "recall": 1.0,
     "f1-score": 1.0,
-    "support": 178
+    "support": 187
   },
   "accuracy": 1.0
 }

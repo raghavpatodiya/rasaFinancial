@@ -68,6 +68,8 @@ Incorporate:
     contact us, to report inconsistencies
     search through tickers
     get_market_cap
+    get_revenue
+    get_eps
 
 Functionalities: 
     once price predicted - buysellhold

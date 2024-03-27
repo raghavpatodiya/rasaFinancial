@@ -383,6 +383,9 @@ nlu:
     - compare the [volatility](info) of [Apple](stock_name) to [Microsoft](stock_name2)
     - now compare the [trend](info) of [Facebook](stock_name) to [Twitter](stock_name2)
     - also compare their [market cap](info) !
+    - please compare the [market cap](info) of [beyond](stock_name) and [zentex](stock_name2)
+    - get me stock [price](info) comparison of [cadiz](stock_name) and [codexis](stock_name2)
+    - also perform [earnings per share] comparison
 
 
 
