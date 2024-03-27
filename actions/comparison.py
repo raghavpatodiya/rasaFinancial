@@ -18,54 +18,46 @@ class ActionGetComparison(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
             # Extracting entities
-            entities = tracker.latest_message.get('entities', [])
+            # entities = tracker.latest_message.get('entities', [])
             company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
             company_name2 = next(tracker.get_latest_entity_values("stock_name2"), None).lower()
-
             info = next(tracker.get_latest_entity_values("info"), None)
-
-            print("Entities extracted:", entities)  # Debug statement
             print("Company names extracted:", company_name, company_name2)  # Debug statement
             print("Info extracted:", info)  # Debug statement
             
             if info:
                 info = info.lower()
-                if info == "price":
-                    self.compare_stock_price(dispatcher, company_name, company_name2)
-                elif info == "market sentiment" or info == "sentiment":
-                    self.compare_market_sentiment(dispatcher, company_name, company_name2)
-                elif info == "volatility":
-                    self.compare_volatility(dispatcher, company_name, company_name2)
-                elif info == 'trend':
-                    self.compare_stock_trend(dispatcher, company_name, company_name2)
-                else:
-                    dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
+                self.process_comparison(dispatcher, company_name, company_name2, info)
             else:
                 dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
         
         except Exception as e:
-            # print("Exception occurred:", str(e))
-            # dispatcher.utter_message(text="An error occurred while processing the comparison request.")
             company_name = tracker.get_slot("stock_name").lower()
             company_name2 = tracker.get_slot("stock_name2").lower()
-            print("Company names extracted:", company_name, company_name2)  # Debug statement
+            print("Company names extracted from slot:", company_name, company_name2)  # Debug statement
             info = next(tracker.get_latest_entity_values("info"), None)
+            print("Info extracted:", info)  # Debug statement
             if info:
                 info = info.lower()
-                if info == "price":
-                    self.compare_stock_price(dispatcher, company_name, company_name2)
-                elif info == "market sentiment" or info == "sentiment":
-                    self.compare_market_sentiment(dispatcher, company_name, company_name2)
-                elif info == "volatility":
-                    self.compare_volatility(dispatcher, company_name, company_name2)
-                elif info == 'trend':
-                    self.compare_stock_trend(dispatcher, company_name, company_name2)
-                else:
-                    dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
+                self.process_comparison(dispatcher, company_name, company_name2, info)
             else:
                 dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
 
         return []
+
+    def process_comparison(self, dispatcher, company_name, company_name2, info):
+        if info == "price":
+            self.compare_stock_price(dispatcher, company_name, company_name2)
+        elif info == "market sentiment" or info == "sentiment":
+            self.compare_market_sentiment(dispatcher, company_name, company_name2)
+        elif info == "volatility":
+            self.compare_volatility(dispatcher, company_name, company_name2)
+        elif info == 'trend':
+            self.compare_stock_trend(dispatcher, company_name, company_name2)
+        elif info == "market cap" or info == "market capitalization" or  info == "mkt cap" or info == "capital":
+            self.compare_market_cap(dispatcher, company_name, company_name2)
+        else:
+            dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
 
     def compare_stock_price(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
         current_price = self.process_stock_price(company_name)
@@ -123,6 +115,19 @@ class ActionGetComparison(Action):
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve price trend data for one or both of the companies.")
 
+    def compare_market_cap(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
+        market_cap = self.process_market_cap(company_name)
+        market_cap2 = self.process_market_cap(company_name2)
+
+        if market_cap is not None and market_cap2 is not None:
+            if market_cap > market_cap2:
+                dispatcher.utter_message(text=f"The market cap of {company_name} ({market_cap}) is higher than {company_name2} ({market_cap2}).")
+            elif market_cap < market_cap2:
+                dispatcher.utter_message(text=f"The market cap of {company_name} ({market_cap}) is lower than {company_name2} ({market_cap2}).")
+            else:
+                dispatcher.utter_message(text=f"The market caps of {company_name} and {company_name2} are equal ({market_cap}).")
+        else:
+            dispatcher.utter_message(text="Sorry, couldn't retrieve market cap data for one or both of the companies.")
 
     def process_stock_price(self, company_name: str) -> float:
         ticker_mapping = get_ticker_mapping()
@@ -184,3 +189,29 @@ class ActionGetComparison(Action):
         else:
             return None
 
+    def process_market_cap(self, company_name: str) -> float:
+        ticker_mapping = get_ticker_mapping()
+        if company_name in ticker_mapping:
+            stock_ticker = ticker_mapping[company_name]
+            stock_data = yf.Ticker(stock_ticker)
+            market_cap = stock_data.info['marketCap']
+            def format_market_cap(market_cap):
+                if market_cap != 'N/A':
+                    market_cap_numeric = float(market_cap)
+                    if market_cap_numeric >= 1e12:
+                        # Convert to trillion
+                        formatted_market_cap = f"${market_cap_numeric / 1e12:.2f} trillion"
+                    elif market_cap_numeric >= 1e9:
+                        # Convert to billion
+                        formatted_market_cap = f"${market_cap_numeric / 1e9:.2f} billion"
+                    else:
+                        # Leave as is
+                        formatted_market_cap = f"${market_cap_numeric:.2f}"
+                else:
+                    formatted_market_cap = 'N/A'
+                return formatted_market_cap
+
+            formatted_market_cap = format_market_cap(market_cap)
+            return formatted_market_cap
+        else:
+            return None

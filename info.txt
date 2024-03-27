@@ -60,7 +60,6 @@ General:
 Test: 
     integrate nlp ?
     try other models to make predicitions
-    advanced nlu
     only spacy, duckling, dietClassifier ?
 
 Incorporate:
@@ -68,6 +67,7 @@ Incorporate:
     stock tickers from api ?
     contact us, to report inconsistencies
     search through tickers
+    get_market_cap
 
 Functionalities: 
     once price predicted - buysellhold
