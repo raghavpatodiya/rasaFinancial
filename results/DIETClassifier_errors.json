@@ -1,0 +1,84 @@
+[
+  {
+    "text": "who has a better [predicted price] ? facebook or [tesla]",
+    "entities": [
+      {
+        "start": 37,
+        "end": 45,
+        "value": "facebook",
+        "entity": "stock_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "stock_name",
+        "start": 37,
+        "end": 45,
+        "confidence_entity": 0.9999178647994995,
+        "value": "facebook",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "stock_name",
+        "start": 50,
+        "end": 55,
+        "confidence_entity": 0.9997813105583191,
+        "value": "Tesla",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "compare the trend of zentex to canoo",
+    "entities": [
+      {
+        "start": 12,
+        "end": 17,
+        "value": "trend",
+        "entity": "info"
+      },
+      {
+        "start": 21,
+        "end": 27,
+        "value": "zentex",
+        "entity": "stock_name"
+      },
+      {
+        "start": 31,
+        "end": 36,
+        "value": "canoo",
+        "entity": "stock_name2"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "stock_name",
+        "start": 21,
+        "end": 27,
+        "confidence_entity": 0.9304623007774353,
+        "value": "zentex",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "stock_name",
+        "start": 31,
+        "end": 36,
+        "confidence_entity": 0.8117073774337769,
+        "value": "canoo",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

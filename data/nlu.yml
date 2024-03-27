@@ -366,9 +366,14 @@ nlu:
     - compare the [price](info) of [google](stock_name) and [microsoft](stock_name2)
     - compare the [volatility](info) of [nvidia](stock_name) with [apple](stock_name2)
     - how would you compare the [market sentiment](info) of [atlassian](stock_name) with [netflix](stock_name2) ?
-    - who has a better [predicted price] ? [facebook](stock_name) or [tesla]
-    - compare the [trend](info) of [zentex](stock_name) to [canoo](stock_name2)
-    - now compare this, to stock [price](info) to that of [netflix](stock_name2)
+    - compare the stock [trend](info) of [facebook](stock_name) to [tesla](stock_name2)
+    - now compare this, to stock [price](info) of [netflix](stock_name2)
+    - compare the [market cap](info) of [Tesla](stock_name) and [General Motors](stock_name2)
+    - compare the [revenue](info) of [Amazon](stock_name) with [Walmart](stock_name2)
+    - how would you compare the [net income](info) of [Apple](stock_name) with [Samsung](stock_name2) ?
+    - compare the [EPS](info) of [Netflix](stock_name) to [Disney](stock_name2)
+    - now compare the [PE ratio](info) of [Facebook](stock_name) to [Twitter](stock_name2)
+
 
 
 
