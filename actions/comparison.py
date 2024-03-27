@@ -4,6 +4,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from actions.ticker_mapping import get_ticker_mapping
 import yfinance as yf
 import requests
+from datetime import datetime, timedelta
 
 import os  # to get env
 from dotenv import load_dotenv
@@ -46,7 +47,7 @@ class ActionGetComparison(Action):
         return []
 
     def process_comparison(self, dispatcher, company_name, company_name2, info):
-        if info == "price":
+        if info == "price" or info == "prices":
             self.compare_stock_price(dispatcher, company_name, company_name2)
         elif info == "market sentiment" or info == "sentiment":
             self.compare_market_sentiment(dispatcher, company_name, company_name2)
@@ -56,6 +57,8 @@ class ActionGetComparison(Action):
             self.compare_stock_trend(dispatcher, company_name, company_name2)
         elif info == "market cap" or info == "market capitalization" or  info == "mkt cap" or info == "capital":
             self.compare_market_cap(dispatcher, company_name, company_name2)
+        elif info == "revenue" or info == "earnings" or info == "profit" or info == "income":
+            self.compare_revenue(dispatcher, company_name, company_name2)
         else:
             dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
 
@@ -129,6 +132,20 @@ class ActionGetComparison(Action):
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve market cap data for one or both of the companies.")
 
+    def compare_revenue(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
+        revenue = self.process_revenue(company_name)
+        revenue2 = self.process_revenue(company_name2)
+
+        if revenue is not None and revenue2 is not None:
+            if revenue > revenue2:
+                dispatcher.utter_message(text=f"The revenue of {company_name} ({revenue}) is higher than {company_name2} ({revenue2}).")
+            elif revenue < revenue2:
+                dispatcher.utter_message(text=f"The revenue of {company_name} ({revenue}) is lower than {company_name2} ({revenue2}).")
+            else:
+                dispatcher.utter_message(text=f"The revenue of {company_name} and {company_name2} are equal ({revenue}).")
+        else:
+            dispatcher.utter_message(text="Sorry, couldn't retrieve revenue data for one or both of the companies.")
+
     def process_stock_price(self, company_name: str) -> float:
         ticker_mapping = get_ticker_mapping()
         if company_name in ticker_mapping:
@@ -195,23 +212,39 @@ class ActionGetComparison(Action):
             stock_ticker = ticker_mapping[company_name]
             stock_data = yf.Ticker(stock_ticker)
             market_cap = stock_data.info['marketCap']
-            def format_market_cap(market_cap):
-                if market_cap != 'N/A':
-                    market_cap_numeric = float(market_cap)
-                    if market_cap_numeric >= 1e12:
-                        # Convert to trillion
-                        formatted_market_cap = f"${market_cap_numeric / 1e12:.2f} trillion"
-                    elif market_cap_numeric >= 1e9:
-                        # Convert to billion
-                        formatted_market_cap = f"${market_cap_numeric / 1e9:.2f} billion"
-                    else:
-                        # Leave as is
-                        formatted_market_cap = f"${market_cap_numeric:.2f}"
-                else:
-                    formatted_market_cap = 'N/A'
-                return formatted_market_cap
-
-            formatted_market_cap = format_market_cap(market_cap)
+            formatted_market_cap = self.format_amount(market_cap)
             return formatted_market_cap
         else:
             return None
+
+    def process_revenue(self, company_name: str) -> float:
+        ticker_mapping = get_ticker_mapping()
+        if company_name in ticker_mapping:
+            stock_ticker = ticker_mapping[company_name]
+            stock_data = yf.Ticker(stock_ticker)
+            revenue = stock_data.info['totalRevenue']
+            formatted_revenue = self.format_amount(revenue)
+            return formatted_revenue
+        else:
+            return None
+
+
+
+    def format_amount(self, amount: str) -> str:
+        if amount != 'N/A':
+            amount_numeric = float(amount)
+            if amount_numeric >= 1e12:
+                # Convert to trillion
+                formatted_amount = f"${amount_numeric / 1e12:.2f} trillion"
+            elif amount_numeric >= 1e9:
+                # Convert to billion
+                formatted_amount = f"${amount_numeric / 1e9:.2f} billion"
+            elif amount_numeric >= 1e6:
+                # Convert to million
+                formatted_amount = f"${amount_numeric / 1e6:.2f} million"
+            else:
+                # Leave as is
+                formatted_amount = f"${amount_numeric:.2f}"
+        else:
+            formatted_amount = 'N/A'
+        return formatted_amount
