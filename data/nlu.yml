@@ -152,11 +152,11 @@ nlu:
     - aehhfcnakjefkafk
     - ngnvjftbn
     - kkkkkkkkk
-    - whhfkawfjkwa
+    - whhf kawfj kwa
     - aegnkvc caarimvv
     - wqojwigimcvn
     - alkgkeahjcnmcl
-    - lwlkjwkfncnhv
+    - lwlk jwk fn cnhv
     - qjkoeavnkmvck
     
 - intent: ask_stock
@@ -186,6 +186,7 @@ nlu:
     - can you tell me the [twitter](stock_name) stock price?
     - please fetch the [instagram](stock_name) stock price
     - what's the price for [canoo](stock_name)
+    - get me stock price of [MSFT](stock_name)
     - give me the current price for [uber](stock_name)
     - price of [lyft](stock_name) share
     - how much is [atlassian](stock_name) company's stock worth ?
@@ -193,10 +194,15 @@ nlu:
     - could you tell me the price for [walmart](stock_name) shares
     - get me stock price of  [coca cola](stock_name)
     - stock price of [magnite](stock_name)
+    - what is the stock price of [GOOGL](stock_name)
     - give me stock price of [zentex](stock_name)
     - get me stock price
     - so whats it's price ?
     - can you tell me its market price
+    - fetch me price of a share of [AAPL](stock_name)
+    - what is the cost per share for [NVDA](stock_name)?
+    - what is the cost of [ael](stock_name)
+    - then what is the price of this stock ?
 
 - intent: ask_older_stock_price
   examples: |
@@ -208,6 +214,7 @@ nlu:
     - what was [previous weeks](time_period) stock price of [atlassian](stock_name)
     - get me its [2 months](time_period) stock price.
     - can you tell me its  [1 month](time_period) stock price
+    - can you tell me the [1 month] price of [alks](stock_name)
 
 - intent: ask_general_info
   examples: |
@@ -219,9 +226,11 @@ nlu:
     - fetch some info of [amazon](stock_name)
     - please, tell me about [facebook](stock_name)
     - i need to know about [twitter](stock_name). Please provide its information
+    - need some info on [nvda](stock_name)
     - give me some info about it
     - some info ?
     - tell me about [atlassian](stock_name)
+    - company info of [TMO](stock_name)
 
 - intent: ask_specific_info
   examples: |
@@ -239,6 +248,7 @@ nlu:
     - can you tell me [pegRatio](info)
     - what would be the [returnOnEquity](info) of [alphabet](stock_name)
     - get me [financialCurrency](info) of [canoo](stock_name)
+    - what is the [dayHigh] of [aapl](stock_name)
 
 - intent: ask_stock_predictions
   examples: |
@@ -254,6 +264,7 @@ nlu:
     - predict stock price !
     - can you tell me it's future stock price ?
     - what would be the day close of this company ?
+    - predict the price for [msft](stock_name) share
 
 - intent: ask_buy_sell_hold
   examples: |
