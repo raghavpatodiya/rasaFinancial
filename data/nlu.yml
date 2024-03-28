@@ -221,6 +221,7 @@ nlu:
     - i need to know about [twitter](stock_name). Please provide its information
     - give me some info about it
     - some info ?
+    - tell me about [atlassian](stock_name)
 
 - intent: ask_specific_info
   examples: |
