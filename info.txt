@@ -64,7 +64,6 @@ Test:
 
 Incorporate:
     mappings/charts in predicitions !!
-    stock tickers from api ?
     contact us, to report inconsistencies
     search through tickers
     get_market_cap

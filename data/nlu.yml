@@ -232,6 +232,12 @@ nlu:
     - i need to know the [targetLowPrice](info) of [Amazon](stock_name) !
     - get me its stock [symbol](info) !
     - so, what is its [previousClose](info) ?
+    - get me [website](info) link of  [Netflix](stock_name).
+    - which type of [industry](info) does [meta](stock_name) belong to ?
+    - also tell me [trailingEps](info)
+    - can you tell me [pegRatio](info)
+    - what would be the [returnOnEquity](info) of [alphabet](stock_name)
+    - get me [financialCurrency](info) of [canoo](stock_name)
 
 - intent: ask_stock_predictions
   examples: |
@@ -246,6 +252,7 @@ nlu:
     - can you tell me future stock price of [adobe](stock_name) ?
     - predict stock price !
     - can you tell me it's future stock price ?
+    - what would be the day close of this company ?
 
 - intent: ask_buy_sell_hold
   examples: |
@@ -279,6 +286,7 @@ nlu:
     - what can you tell about the trend.
     - tell trend.
     - extract trend
+    - what do you think about the overall trend of this company
 
 - intent: ask_volatility
   examples: |
@@ -370,7 +378,11 @@ nlu:
     - compare the [market cap](info) of [Tesla](stock_name) and [General Motors](stock_name2)
     - compare the [revenue](info) of [Amazon](stock_name) with [Walmart](stock_name2)
     - how would you compare the [net income](info) of [Apple](stock_name) with [Samsung](stock_name2) ?
+    - how would you compare the [net income](info) of [canoo](stock_name) with [virtus](stock_name2) ?
+    - how would you compare the [market capitalization](info) of [acacia](stock_name) with [acme](stock_name2) ?
     - compare the [EPS](info) of [Netflix](stock_name) to [Disney](stock_name2)
+    - compare the [EPS](info) of [adagene](stock_name) to [adobe](stock_name2)
+    - compare the [pe ratio](info) of [willis towers](stock_name) to [united state steels](stock_name2)
     - now compare the [PE ratio](info) of [Facebook](stock_name) to [Twitter](stock_name2)
     - compare the [gross margin](info) of [Intel](stock_name) and [AMD](stock_name2)
     - compare the [PE ratio](info) of [Netflix](stock_name) with [Disney](stock_name2)
@@ -433,7 +445,7 @@ nlu:
 - intent: ask_market_sentiment_affect
   examples: | 
     - How does market sentiment affect stock prices?
-    - Can you explain how market sentiment impacts the stock market?
+    - Can you explain the impact of market sentiment on stock market?
     - What is the relationship between market sentiment and stock prices?
     - Does market sentiment have a significant influence on stock prices?
     - Could you elaborate on how changes in market sentiment affect investment decisions?
