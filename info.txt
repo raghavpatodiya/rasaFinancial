@@ -70,6 +70,7 @@ Incorporate:
     get_market_cap
     get_revenue
     get_eps
+    specific_info add examples
 
 Functionalities: 
     once price predicted - buysellhold

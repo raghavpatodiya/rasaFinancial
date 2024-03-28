@@ -1,20 +1,19 @@
 import pandas as pd
-import re
 
-# def preprocess_company_name(company_name):
-#     # Convert to lowercase
-#     company_name = company_name.lower()
-#     # Remove whitespaces, ',', '.', and '-'
-#     company_name = re.sub(r'[\s,.-]', '', company_name)
-#     return company_name
+def get_ticker_mapping():
+    df = pd.read_csv('stock_data/nasdaq_screener.csv')
+    ticker_mapping = {}
 
-# def get_ticker_mapping(): 
-#     df = pd.read_excel('stock_data/stock_tickers.xlsx')
-#     ticker_mapping = dict(zip(map(preprocess_company_name, df['Company Name']), df['Symbol']))
-#     return ticker_mapping
+    # Iterate through each row in the DataFrame
+    for index, row in df.iterrows():
+        # Convert company name to lowercase for case-insensitive comparison
+        company_name = row['Name'].lower()
 
-
-def get_ticker_mapping(): 
-    df = pd.read_excel('stock_data/stock_tickers.xlsx')
-    ticker_mapping = dict(zip(df['Company Name'].str.lower(), df['Symbol']))
+        # Iterate through each word in the user input
+        for word in company_name.split():
+            # Check if the word is contained within the company name
+            if word in company_name:
+                # If a partial match is found, add it to the mapping
+                ticker_mapping[word] = row['Symbol']
+    
     return ticker_mapping

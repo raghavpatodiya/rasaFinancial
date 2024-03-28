@@ -59,7 +59,7 @@ class ActionGetComparison(Action):
             self.compare_market_cap(dispatcher, company_name, company_name2)
         elif info == "revenue" or info == "earnings" or info == "profit" or info == "income":
             self.compare_revenue(dispatcher, company_name, company_name2)
-        elif info == "eps" or info== "earnings per share" or info == "earning per share":
+        elif info == "eps" or info== "earnings per share" or info == "earning per share" or info == "earn per share":
             self.compare_eps(dispatcher, company_name, company_name2)
         else:
             dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
