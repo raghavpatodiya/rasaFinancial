@@ -77,6 +77,7 @@ intents:
   - ask_list_functionalities
   - fallback
   - ask_comparison
+  - ask_graph
 entities:
   - stock_name
   - stock_name2
@@ -114,6 +115,7 @@ slots:
           - ask_volatility
           - ask_market_sentiment
           - ask_comparison
+          - ask_graph
   stock_name2:
     type: text
     mappings:
@@ -276,6 +278,7 @@ actions:
   - get_market_status
   - get_market_sentiment
   - get_comparison
+  - get_graph
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

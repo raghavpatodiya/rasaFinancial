@@ -330,3 +330,8 @@ rules:
   steps: 
     - intent: ask_comparison
     - action: get_comparison
+
+- rule: ask for mapping
+  steps: 
+    - intent: ask_graph
+    - action: get_graph

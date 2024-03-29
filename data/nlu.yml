@@ -411,6 +411,18 @@ nlu:
     - get me stock [price](info) comparison of [cadiz](stock_name) and [codexis](stock_name2)
     - also perform [earnings per share] comparison
 
+- intent: ask_graph
+  examples: |
+    - get me trend graph for [google](stock_name)
+    - show me the trend mapping for [microsoft](stock_name)
+    - get me trend graph for [Tesla](stock_name)
+    - display the trend mapping for [AAPL](stock_name)
+    - I want to see the trend graph for [Amazon](stock_name)
+    - Can you show me the trend graph for [Facebook](stock_name)?
+    - I'm interested in the trend mapping for [Netflix](stock_name).
+    - Get me the graph showing the trends for [Alphabet](stock_name).
+    - Could you provide the trend graph for [IBM](stock_name)?
+
 
 
 - intent: ask_how_to_evaluate
