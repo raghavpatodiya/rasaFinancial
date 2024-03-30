@@ -70,7 +70,7 @@ $(document).ready(function () {
             let userMessage = $("#chat-widget-input").val();
             $("#chat-widget-input").val("");
             $("#chat-widget-messages").append(
-                "<div class='user-message'><strong>You:</strong> " +
+                "<div class='user-message'><strong><span class='bot-label'>You:</span></strong> " +
                 escapeHtml(userMessage) +
                 "</div>"
             );
@@ -85,7 +85,7 @@ $(document).ready(function () {
                 success: function (data) {
                     let botResponse = data.response;
                     $("#chat-widget-messages").append(
-                        "<div class='bot-response'><strong>Bot:</strong> " +
+                        "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
                             escapeHtml(botResponse) +
                             "</div>"
                     );

@@ -94,3 +94,6 @@ body {
 .logout-btn:hover {
     background-color: #c82333; /* Darker red color on hover */
 }
+.bot-label {
+  color: red;
+}
