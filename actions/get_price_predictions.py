@@ -3,7 +3,7 @@ import pandas as pd
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from actions.ticker_mapping import get_ticker_mapping
+from actions.ticker_mapping import get_ticker
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
@@ -18,51 +18,39 @@ class ActionGetStockPredictions(Action):
         try:
             entities = tracker.latest_message.get('entities', [])
             company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
-            ticker_mapping = get_ticker_mapping()
+            stock_ticker = get_ticker(company_name)
+            stock_data = yf.Ticker(stock_ticker)
+            current_price = stock_data.history(period='1d')['Close'].iloc[0]
+            df = self.fetch_historical_data(stock_ticker)
+            model, X_test, y_test = self.build_predictive_model(df)
+            mse = self.backtest_model(model, X_test, y_test)
 
-            if company_name in ticker_mapping:
-                stock_ticker = ticker_mapping[company_name]
-                stock_data = yf.Ticker(stock_ticker)
-                current_price = stock_data.history(period='1d')['Close'].iloc[0]
-                df = self.fetch_historical_data(stock_ticker)
-                model, X_test, y_test = self.build_predictive_model(df)
-                mse = self.backtest_model(model, X_test, y_test)
+            if model:
+                predicted_price = self.predict_stock_price(model, df)
 
-                if model:
-                    predicted_price = self.predict_stock_price(model, df)
+                self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
 
-                    self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
-
-                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}.")
-                else:
-                    dispatcher.utter_message(text="Not enough data to build a predictive model.")
-
+                dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}.")
             else:
-                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+                dispatcher.utter_message(text="Not enough data to build a predictive model.")
         
         except Exception as e:
             company_name = tracker.get_slot("stock_name").lower()
-            ticker_mapping = get_ticker_mapping()
+            stock_ticker = get_ticker(company_name)
+            stock_data = yf.Ticker(stock_ticker)
+            current_price = stock_data.history(period='1d')['Close'].iloc[0]
+            df = self.fetch_historical_data(stock_ticker)
+            model, X_test, y_test = self.build_predictive_model(df)
+            mse = self.backtest_model(model, X_test, y_test)
 
-            if company_name in ticker_mapping:
-                stock_ticker = ticker_mapping[company_name]
-                stock_data = yf.Ticker(stock_ticker)
-                current_price = stock_data.history(period='1d')['Close'].iloc[0]
-                df = self.fetch_historical_data(stock_ticker)
-                model, X_test, y_test = self.build_predictive_model(df)
-                mse = self.backtest_model(model, X_test, y_test)
+            if model:
+                predicted_price = self.predict_stock_price(model, df)
 
-                if model:
-                    predicted_price = self.predict_stock_price(model, df)
+                self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
 
-                    self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
-
-                    dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}.")
-                else:
-                    dispatcher.utter_message(text="Not enough data to build a predictive model.")
-
+                dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}.")
             else:
-                dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+                dispatcher.utter_message(text="Not enough data to build a predictive model.")
 
         return []
 

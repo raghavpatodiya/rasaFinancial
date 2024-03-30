@@ -1,7 +1,7 @@
 from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from actions.ticker_mapping import get_ticker_mapping
+from actions.ticker_mapping import get_ticker
 import yfinance as yf
 import requests
 from datetime import datetime, timedelta
@@ -163,96 +163,74 @@ class ActionGetComparison(Action):
             dispatcher.utter_message(text="Sorry, couldn't retrieve EPS data for one or both of the companies.")
 
     def process_stock_price(self, company_name: str) -> float:
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            stock_data = yf.Ticker(stock_ticker)
-            if len(stock_data.history(period='1d')) > 0:
-                current_price = stock_data.history(period='1d')['Close'].iloc[0]
-                return current_price
-            else:
-                return None
-        else:
-            return None
-
-    def process_sentiment_score(self, company_name: str) -> float:
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            url = f'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers={stock_ticker}&apikey={ALPHA_VANTAGE_API_KEY}'
-            response = requests.get(url)
-            data = response.json()
-            if 'feed' in data:
-                sentiment_scores = [float(entry.get('overall_sentiment_score', 0)) for entry in data['feed']]
-                if sentiment_scores:
-                    average_sentiment = sum(sentiment_scores) / len(sentiment_scores)
-                    return average_sentiment
-                else:
-                    return None
-            else:
-                return None
-        else:
-            return None
-
-    def process_volatility(self, company_name: str) -> float:
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            stock_data = yf.Ticker(stock_ticker)
-            df = stock_data.history(period="1mo")
-            if not df.empty:
-                volatility = df['Close'].pct_change().std() * (252**0.5) 
-                return volatility
-            else:
-                return None
-        else:
-            return None
-
-    def process_stock_trend(self, company_name: str) -> float:
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            stock_data = yf.Ticker(stock_ticker)
-            df = stock_data.history(period="1wk")
-            if not df.empty:
-                price_change_percentage = (df['Close'].iloc[-1] - df['Close'].iloc[0]) / df['Close'].iloc[0] * 100
-                return price_change_percentage
-            else:
-                return None
-        else:
-            return None
-
-    def process_market_cap(self, company_name: str) -> float:
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            stock_data = yf.Ticker(stock_ticker)
-            market_cap = stock_data.info['marketCap']
-            formatted_market_cap = self.format_amount(market_cap)
-            return formatted_market_cap
-        else:
-            return None
-
-    def process_revenue(self, company_name: str) -> float:
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            stock_data = yf.Ticker(stock_ticker)
-            revenue = stock_data.info['totalRevenue']
-            formatted_revenue = self.format_amount(revenue)
-            return formatted_revenue
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        if len(stock_data.history(period='1d')) > 0:
+            current_price = stock_data.history(period='1d')['Close'].iloc[0]
+            return current_price
         else:
             return None
         
-    def process_eps(self, company_name: str) -> float:
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            stock_data = yf.Ticker(stock_ticker)
-            eps = stock_data.info['trailingEps']
-            return eps
+
+    def process_sentiment_score(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        url = f'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers={stock_ticker}&apikey={ALPHA_VANTAGE_API_KEY}'
+        response = requests.get(url)
+        data = response.json()
+        if 'feed' in data:
+            sentiment_scores = [float(entry.get('overall_sentiment_score', 0)) for entry in data['feed']]
+            if sentiment_scores:
+                average_sentiment = sum(sentiment_scores) / len(sentiment_scores)
+                return average_sentiment
+            else:
+                return None
         else:
             return None
+
+
+    def process_volatility(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        df = stock_data.history(period="1mo")
+        if not df.empty:
+            volatility = df['Close'].pct_change().std() * (252**0.5) 
+            return volatility
+        else:
+            return None
+
+
+    def process_stock_trend(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        df = stock_data.history(period="1wk")
+        if not df.empty:
+            price_change_percentage = (df['Close'].iloc[-1] - df['Close'].iloc[0]) / df['Close'].iloc[0] * 100
+            return price_change_percentage
+        else:
+            return None
+
+
+    def process_market_cap(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        market_cap = stock_data.info['marketCap']
+        formatted_market_cap = self.format_amount(market_cap)
+        return formatted_market_cap
+        
+
+    def process_revenue(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        revenue = stock_data.info['totalRevenue']
+        formatted_revenue = self.format_amount(revenue)
+        return formatted_revenue
+        
+        
+    def process_eps(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        eps = stock_data.info['trailingEps']
+        return eps
 
     def format_amount(self, amount: str) -> str:
         if amount != 'N/A':

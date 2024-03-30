@@ -3,7 +3,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import pandas as pd
 import yfinance as yf
-from actions.ticker_mapping import get_ticker_mapping
+from actions.ticker_mapping import get_ticker
 import json
 
 class ActionGetStockTrend(Action):
@@ -27,25 +27,20 @@ class ActionGetStockTrend(Action):
         return []
 
     def process_stock_trend(self, dispatcher: CollectingDispatcher, company_name: str):
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            stock_data = yf.Ticker(stock_ticker)
-            df = stock_data.history(period="1wk")  # Fetch historical data for all available dates
-            if not df.empty:
-                price_change_percentage = (df['Close'].iloc[-1] - df['Close'].iloc[0]) / df['Close'].iloc[0] * 100
-                if price_change_percentage > 0:
-                    dispatcher.utter_message(text=f"The stock price of {company_name} has increased by {price_change_percentage:.2f}%. Trend - Upwards")
-                elif price_change_percentage < 0:
-                    dispatcher.utter_message(text=f"The stock price of {company_name} has decreased by {price_change_percentage:.2f}%. Trend - Downwards")
-                else:
-                    dispatcher.utter_message(text=f"The stock price of {company_name} has remained unchanged. Trend - Stable")
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        df = stock_data.history(period="1wk")  # Fetch historical data for all available dates
+        if not df.empty:
+            price_change_percentage = (df['Close'].iloc[-1] - df['Close'].iloc[0]) / df['Close'].iloc[0] * 100
+            if price_change_percentage > 0:
+                dispatcher.utter_message(text=f"The stock price of {company_name} has increased by {price_change_percentage:.2f}%. Trend - Upwards")
+            elif price_change_percentage < 0:
+                dispatcher.utter_message(text=f"The stock price of {company_name} has decreased by {price_change_percentage:.2f}%. Trend - Downwards")
             else:
-                dispatcher.utter_message(text="Unable to analyze trend. No historical data available.")
+                dispatcher.utter_message(text=f"The stock price of {company_name} has remained unchanged. Trend - Stable")
         else:
-            dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
-
-
+            dispatcher.utter_message(text="Unable to analyze trend. No historical data available.")
+        
 # get time period from user, if not extracted take default as 1wk
 # or short-term, medium-term or long-term trends, by default short-term
 
@@ -76,17 +71,14 @@ class ActionGetStockVolatility(Action):
         return []
 
     def process_stock_volatility(self, dispatcher: CollectingDispatcher, company_name: str):
-        ticker_mapping = get_ticker_mapping()
-        if company_name in ticker_mapping:
-            stock_ticker = ticker_mapping[company_name]
-            stock_data = yf.Ticker(stock_ticker)
-            df = stock_data.history(period="1mo")  # Fetch historical data for the past month
-            if not df.empty:
-                volatility = df['Close'].pct_change().std() * (252**0.5)  # Annualized volatility
-                dispatcher.utter_message(text=f"The volatility of {company_name} stock is {volatility:.2f}%.")
-            else:
-                dispatcher.utter_message(text="Unable to analyze volatility. No historical data available.")
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        df = stock_data.history(period="1mo")  # Fetch historical data for the past month
+        if not df.empty:
+            volatility = df['Close'].pct_change().std() * (252**0.5)  # Annualized volatility
+            dispatcher.utter_message(text=f"The volatility of {company_name} stock is {volatility:.2f}%.")
         else:
-            dispatcher.utter_message(text="I couldn't identify the stock name. Please provide a valid stock name.")
+            dispatcher.utter_message(text="Unable to analyze volatility. No historical data available.")
+        
 
     
