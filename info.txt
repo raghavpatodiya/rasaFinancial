@@ -63,7 +63,7 @@ Test:
     only spacy, duckling, dietClassifier ?
 
 Incorporate:
-    mappings/charts in predicitions !!
+    mappings/charts in predicitions !! extract info, not just trend
     contact us, to report inconsistencies
     search through tickers
     get_market_cap

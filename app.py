@@ -23,7 +23,7 @@ app = Flask(__name__, static_url_path='/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{os.getenv('DB_USERNAME')}:{os.getenv('DB_PASSWORD')}@localhost/{os.getenv('DB_NAME')}"
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 db = SQLAlchemy(app)
-# migrate = Migrate(app, db)
+migrate = Migrate(app, db)
 
 mail = Mail(app)
 # Initialize Flask-Mail
@@ -55,6 +55,11 @@ class User(UserMixin, db.Model):
 
     def check_password(self, password):
         return bcrypt.checkpw(password.encode('utf-8'), self.password_hash.encode('utf-8'))
+
+class ReportedConversations(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_message = db.Column(db.String())
+    bot_response = db.Column(db.String())
 
 
 # Initialize Flask-Login
@@ -150,6 +155,7 @@ def reset_password():
             flash('Email not found. Please enter a registered email address.', 'error')
     return render_template('resetpassword.html')
 
+# New Password route
 @app.route('/newpassword/<token>', methods=['GET', 'POST'])
 def new_password(token):
     try:
@@ -180,6 +186,36 @@ def new_password(token):
             flash('User not found. Please try again.', 'error')
 
     return render_template('newpassword.html', token=token)
+
+# Report conversation route
+@app.route('/report-conversation', methods=['POST'])
+def report_conversation():
+    # Get user message and bot response from the request data
+    data = request.json
+    user_message = data.get('user_message')
+    bot_response = data.get('bot_response')
+
+    # Check if both user message and bot response are present
+    if user_message and bot_response:
+        try:
+            # Create a new instance of ReportedConversations model
+            reported_conversation = ReportedConversations(user_message=user_message, bot_response=bot_response)
+            
+            # Add and commit the new conversation to the database
+            db.session.add(reported_conversation)
+            db.session.commit()
+
+            # Return a success response
+            return jsonify({'message': 'Conversation reported successfully'}), 200
+        except Exception as e:
+            # Log the exception
+            print("Exception occurred:", e)
+            # If an error occurs, rollback the transaction
+            db.session.rollback()
+            return jsonify({'message': 'Failed to report conversation. Please try again later.'}), 500
+    else:
+        # If user message or bot response is missing, return a bad request response
+        return jsonify({'message': 'Both user message and bot response are required.'}), 400
 
 # Webhook route
 @app.route('/webhook', methods=['POST'])

@@ -282,6 +282,7 @@ nlu:
     - should i buy the stock of [google](stock_name)
     - i am gonna hold my stocks of  [Apple](stock_name)
     - what should i do with my stocks of [microsoft](stock_name)
+    - what should i do ?
 
 - intent: ask_stock_trend
   examples: |

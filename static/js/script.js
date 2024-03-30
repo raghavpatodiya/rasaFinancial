@@ -8,7 +8,35 @@ function handleVoiceInput() {
     };
     recognition.start();
 }
+function reportConversation() {
+    // Get the user message and bot response from the previous conversation
+    const userMessage = getLastUserMessage();
+    const botResponse = getLastBotResponse();
 
+    // Make an AJAX request to report the conversation
+    $.ajax({
+        type: "POST",
+        url: "/report-conversation",
+        contentType: "application/json",
+        data: JSON.stringify({ user_message: userMessage, bot_response: botResponse }),
+        success: function (response) {
+            alert(response.message);
+        },
+        error: function (error) {
+            alert("Failed to report conversation. Please try again later.");
+        }
+    });
+}
+
+// Function to get the last user message from the chat history
+function getLastUserMessage() {
+    return $(".user-message").last().text().replace("You:", "").trim();
+}
+
+// Function to get the last bot response from the chat history
+function getLastBotResponse() {
+    return $(".bot-response").last().text().replace("Bot:", "").trim();
+}
 $(document).ready(function () {
     // Logout button click event
     $(".logout-btn").on("click", function () {
@@ -32,6 +60,9 @@ $(document).ready(function () {
 
     $("#reset-conversation").on("click", function () {
         resetConversation();
+    });
+    $("#report-conversation").on("click", function () {
+        reportConversation();
     });
 
     $("#chat-widget-input").keypress(function (event) {
