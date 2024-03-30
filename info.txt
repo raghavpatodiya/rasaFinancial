@@ -79,6 +79,8 @@ Functionalities:
 
 Error:
     stock_info not displayed on bot interface
+    comparison of company_name(slot) with company_name2(extract)
+    comparison between name and symbol
     
 Tool:
     

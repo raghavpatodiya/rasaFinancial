@@ -41,7 +41,7 @@ class ActionGetStockTrendGraph(Action):
                 plt.xticks(rotation=45)
                 plt.grid(True)
                 # Save the plot as a file
-                graph_file = 'static/stock_graph.png'  # Save the graph in the static folder
+                graph_file = 'static/images/stock_graph.png'  # Save the graph in the static folder
                 plt.savefig(graph_file)
                 plt.close()
 
