@@ -282,7 +282,6 @@ nlu:
     - should i buy the stock of [google](stock_name)
     - i am gonna hold my stocks of  [Apple](stock_name)
     - what should i do with my stocks of [microsoft](stock_name)
-    - what should i do ?
 
 - intent: ask_stock_trend
   examples: |
@@ -414,17 +413,15 @@ nlu:
 
 - intent: ask_graph
   examples: |
-    - get me trend graph for [google](stock_name)
-    - show me the trend mapping for [microsoft](stock_name)
-    - get me trend graph for [Tesla](stock_name)
-    - display the trend mapping for [AAPL](stock_name)
-    - I want to see the trend graph for [Amazon](stock_name)
-    - Can you show me the trend graph for [Facebook](stock_name)?
-    - I'm interested in the trend mapping for [Netflix](stock_name).
-    - Get me the graph showing the trends for [Alphabet](stock_name).
-    - Could you provide the trend graph for [IBM](stock_name)?
-
-
+    - get me [trend](info) graph for [google](stock_name)
+    - show me the [volatility](info) mapping for [microsoft](stock_name)
+    - get me [price](info) graph for [Tesla](stock_name)
+    - display the [eps](info) mapping for [AAPL](stock_name)
+    - I want to see the [roe](info) graph for [Amazon](stock_name)
+    - Can you show me the [market cap](info) graph for [Facebook](stock_name)?
+    - I'm interested in the [revenue](info) mapping for [Netflix](stock_name).
+    - Get me the graph showing the [trends](info) for [Alphabet](stock_name).
+    - Could you provide the [net income](info) graph for [IBM](stock_name)?
 
 - intent: ask_how_to_evaluate
   examples: |
