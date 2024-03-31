@@ -114,3 +114,122 @@ class ActionGetStockTrendGraph(Action):
             dispatcher.utter_message(image=volume_plot_file)
         else:
             dispatcher.utter_message(text="Unable to retrieve volume data.")
+
+    def process_stock_rps_graph(self, dispatcher: CollectingDispatcher, company_name: str):
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        revenue_per_share_data = stock_data.history(period="1y").get('revenuePerShare')
+        if revenue_per_share_data is not None:
+            plt.plot(revenue_per_share_data.index, revenue_per_share_data.values)
+            plt.xlabel('Date')
+            plt.ylabel('Revenue Per Share')
+            plt.title(f'Revenue Per Share Trend for {company_name}')
+            plt.grid(True)
+            revenue_per_share_plot_file = 'static/images/stock_revenue_per_share.png'
+            plt.savefig(revenue_per_share_plot_file)
+            plt.close()
+            dispatcher.utter_message(image=revenue_per_share_plot_file)
+        else:
+            dispatcher.utter_message(text="Unable to retrieve Revenue Per Share data.")
+
+    def process_stock_roa_graph(self, dispatcher: CollectingDispatcher, company_name: str):
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        return_on_assets_data = stock_data.history(period="1y").get('returnOnAssets')
+        if return_on_assets_data is not None:
+            plt.plot(return_on_assets_data.index, return_on_assets_data.values)
+            plt.xlabel('Date')
+            plt.ylabel('Return on Assets')
+            plt.title(f'Return on Assets Trend for {company_name}')
+            plt.grid(True)
+            return_on_assets_plot_file = 'static/images/stock_return_on_assets.png'
+            plt.savefig(return_on_assets_plot_file)
+            plt.close()
+            dispatcher.utter_message(image=return_on_assets_plot_file)
+        else:
+            dispatcher.utter_message(text="Unable to retrieve Return on Assets data.")
+
+    def process_stock_eg_graph(self, dispatcher: CollectingDispatcher, company_name: str):
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        earnings_growth_data = stock_data.history(period="1y").get('earningsGrowth')
+        if earnings_growth_data is not None:
+            plt.plot(earnings_growth_data.index, earnings_growth_data.values)
+            plt.xlabel('Date')
+            plt.ylabel('Earnings Growth')
+            plt.title(f'Earnings Growth Trend for {company_name}')
+            plt.grid(True)
+            earnings_growth_plot_file = 'static/images/stock_earnings_growth.png'
+            plt.savefig(earnings_growth_plot_file)
+            plt.close()
+            dispatcher.utter_message(image=earnings_growth_plot_file)
+        else:
+            dispatcher.utter_message(text="Unable to retrieve Earnings Growth data.")
+
+    def process_stock_rg_graph(self, dispatcher: CollectingDispatcher, company_name: str):
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        revenue_growth_data = stock_data.history(period="1y").get('revenueGrowth')
+        if revenue_growth_data is not None:
+            plt.plot(revenue_growth_data.index, revenue_growth_data.values)
+            plt.xlabel('Date')
+            plt.ylabel('Revenue Growth')
+            plt.title(f'Revenue Growth Trend for {company_name}')
+            plt.grid(True)
+            revenue_growth_plot_file = 'static/images/stock_revenue_growth.png'
+            plt.savefig(revenue_growth_plot_file)
+            plt.close()
+            dispatcher.utter_message(image=revenue_growth_plot_file)
+        else:
+            dispatcher.utter_message(text="Unable to retrieve Revenue Growth data.")
+
+    def process_stock_gm_graph(self, dispatcher: CollectingDispatcher, company_name: str):
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        gross_margins_data = stock_data.history(period="1y").get('grossMargins')
+        if gross_margins_data is not None:
+            plt.plot(gross_margins_data.index, gross_margins_data.values)
+            plt.xlabel('Date')
+            plt.ylabel('Gross Margins')
+            plt.title(f'Gross Margins Trend for {company_name}')
+            plt.grid(True)
+            gross_margins_plot_file = 'static/images/stock_gross_margins.png'
+            plt.savefig(gross_margins_plot_file)
+            plt.close()
+            dispatcher.utter_message(image=gross_margins_plot_file)
+        else:
+            dispatcher.utter_message(text="Unable to retrieve Gross Margins data.")
+
+    def process_stock_em_graph(self, dispatcher: CollectingDispatcher, company_name: str):
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        ebitda_margins_data = stock_data.history(period="1y").get('ebitdaMargins')
+        if ebitda_margins_data is not None:
+            plt.plot(ebitda_margins_data.index, ebitda_margins_data.values)
+            plt.xlabel('Date')
+            plt.ylabel('EBITDA Margins')
+            plt.title(f'EBITDA Margins Trend for {company_name}')
+            plt.grid(True)
+            ebitda_margins_plot_file = 'static/images/stock_ebitda_margins.png'
+            plt.savefig(ebitda_margins_plot_file)
+            plt.close()
+            dispatcher.utter_message(image=ebitda_margins_plot_file)
+        else:
+            dispatcher.utter_message(text="Unable to retrieve EBITDA Margins data.")
+
+    def process_stock_om_graph(self, dispatcher: CollectingDispatcher, company_name: str):
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        operating_margins_data = stock_data.history(period="1y").get('operatingMargins')
+        if operating_margins_data is not None:
+            plt.plot(operating_margins_data.index, operating_margins_data.values)
+            plt.xlabel('Date')
+            plt.ylabel('Operating Margins')
+            plt.title(f'Operating Margins Trend for {company_name}')
+            plt.grid(True)
+            operating_margins_plot_file = 'static/images/stock_operating_margins.png'
+            plt.savefig(operating_margins_plot_file)
+            plt.close()
+            dispatcher.utter_message(image=operating_margins_plot_file)
+        else:
+            dispatcher.utter_message(text="Unable to retrieve Operating Margins data.")
