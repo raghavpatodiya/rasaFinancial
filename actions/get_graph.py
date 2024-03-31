@@ -31,6 +31,7 @@ class ActionGetStockTrendGraph(Action):
 
         return []
     
+    # check new info types, also update intents
     def check_info_type(self, dispatcher: CollectingDispatcher, company_name: str, info: str):
         if info in ["trend", "price", "stock price"]:
             self.process_stock_trend_graph(dispatcher, company_name)

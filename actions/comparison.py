@@ -47,20 +47,28 @@ class ActionGetComparison(Action):
         return []
 
     def process_comparison(self, dispatcher, company_name, company_name2, info):
-        if info == "price" or info == "prices":
+        if info in ["price", "prices"]:
             self.compare_stock_price(dispatcher, company_name, company_name2)
-        elif info == "market sentiment" or info == "sentiment":
+        elif info in ["market sentiment", "sentiment"]:
             self.compare_market_sentiment(dispatcher, company_name, company_name2)
-        elif info == "volatility":
+        elif info in ["volatility", "volatile"]:
             self.compare_volatility(dispatcher, company_name, company_name2)
-        elif info == 'trend':
+        elif info in ["trend", "trends"]:
             self.compare_stock_trend(dispatcher, company_name, company_name2)
-        elif info == "market cap" or info == "market capitalization" or  info == "mkt cap" or info == "capital":
+        elif info in ["market cap", "market capitalization", "mkt cap", "capital"]:
             self.compare_market_cap(dispatcher, company_name, company_name2)
-        elif info == "revenue" or info == "earnings" or info == "profit" or info == "income":
+        elif info in ["revenue", "earnings", "profit", "income"]:
             self.compare_revenue(dispatcher, company_name, company_name2)
-        elif info == "eps" or info== "earnings per share" or info == "earning per share" or info == "earn per share":
+        elif info in ["eps", "earnings per share", "earning per share", "earn per share"]:
             self.compare_eps(dispatcher, company_name, company_name2)
+        elif info in ["pe", "p/e", "price to earnings", "price to earning", "pe ratio", "p/e ratio"]:
+            self.compare_pe_ratio(dispatcher, company_name, company_name2)
+        elif info in ["roe", "return on equity"]:
+            self.compare_roe(dispatcher, company_name, company_name2)
+        elif info in ["gross margin", "margin", "gm", "gross margins", "margins"]:
+            self.compare_gross_margins(dispatcher, company_name, company_name2)
+        elif info in ["debt to equity", "dte ratio", "dte"]:
+            self.compare_dte_ratio(dispatcher, company_name, company_name2)
         else:
             dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
 
@@ -162,6 +170,66 @@ class ActionGetComparison(Action):
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve EPS data for one or both of the companies.")
 
+    def compare_pe_ratio(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
+        pe_ratio = self.process_pe_ratio(company_name)
+        pe_ratio2 = self.process_pe_ratio(company_name2)
+        pe_ratio = "{:.2f}".format(pe_ratio)
+        pe_ratio2 = "{:.2f}".format(pe_ratio2)
+        if pe_ratio is not None and pe_ratio2 is not None:
+            if pe_ratio > pe_ratio2:
+                dispatcher.utter_message(text=f"The PE ratio of {company_name} ({pe_ratio}) is higher than {company_name2} ({pe_ratio2}).")
+            elif pe_ratio < pe_ratio2:
+                dispatcher.utter_message(text=f"The PE ratio of {company_name} ({pe_ratio}) is lower than {company_name2} ({pe_ratio2}).")
+            else:
+                dispatcher.utter_message(text=f"The PE ratios of {company_name} and {company_name2} are equal ({pe_ratio}).")
+        else:
+            dispatcher.utter_message(text="Sorry, couldn't retrieve PE ratio data for one or both of the companies.")
+
+    def compare_roe(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
+        roe = self.process_roe(company_name)
+        roe2 = self.process_roe(company_name2)
+        roe = "{:.4f}".format(roe)
+        roe2 = "{:.4f}".format(roe2)
+        if roe is not None and roe2 is not None:
+            if roe > roe2:
+                dispatcher.utter_message(text=f"The ROE of {company_name} ({roe}) is higher than {company_name2} ({roe2}).")
+            elif roe < roe2:
+                dispatcher.utter_message(text=f"The ROE of {company_name} ({roe}) is lower than {company_name2} ({roe2}).")
+            else:
+                dispatcher.utter_message(text=f"The ROEs of {company_name} and {company_name2} are equal ({roe}).")
+        else:
+            dispatcher.utter_message(text="Sorry, couldn't retrieve ROE data for one or both of the companies.")
+
+    def compare_gross_margins(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
+        gross_margins = self.process_gross_margins(company_name)
+        gross_margins2 = self.process_gross_margins(company_name2)
+        gross_margins = "{:.4f}".format(gross_margins)
+        gross_margins2 = "{:.4f}".format(gross_margins2)
+        if gross_margins is not None and gross_margins2 is not None:
+            if gross_margins > gross_margins2:
+                dispatcher.utter_message(text=f"The gross margins of {company_name} ({gross_margins}) is higher than {company_name2} ({gross_margins2}).")
+            elif gross_margins < gross_margins2:
+                dispatcher.utter_message(text=f"The gross margins of {company_name} ({gross_margins}) is lower than {company_name2} ({gross_margins2}).")
+            else:
+                dispatcher.utter_message(text=f"The gross margins of {company_name} and {company_name2} are equal ({gross_margins}).")
+        else: 
+            dispatcher.utter_message(text="Sorry, couldn't retrieve gross margins data for one or both of the companies.")
+
+    def compare_dte_ratio(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
+        dte_ratio = self.process_dte_ratio(company_name)
+        dte_ratio2 = self.process_dte_ratio(company_name2)
+        dte_ratio = "{:.2f}".format(dte_ratio)
+        dte_ratio2 = "{:.2f}".format(dte_ratio2)
+        if dte_ratio is not None and dte_ratio2 is not None:
+            if dte_ratio > dte_ratio2:
+                dispatcher.utter_message(text=f"The DTE ratio of {company_name} ({dte_ratio}) is higher than {company_name2} ({dte_ratio2}).")
+            elif dte_ratio < dte_ratio2:
+                dispatcher.utter_message(text=f"The DTE ratio of {company_name} ({dte_ratio}) is lower than {company_name2} ({dte_ratio2}).")
+            else:
+                dispatcher.utter_message(text=f"The DTE ratios of {company_name} and {company_name2} are equal ({dte_ratio}).")
+        else:
+            dispatcher.utter_message(text="Sorry, couldn't retrieve DTE ratio data for one or both of the companies.")
+    
     def process_stock_price(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
@@ -171,7 +239,6 @@ class ActionGetComparison(Action):
         else:
             return None
         
-
     def process_sentiment_score(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         url = f'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers={stock_ticker}&apikey={ALPHA_VANTAGE_API_KEY}'
@@ -187,7 +254,6 @@ class ActionGetComparison(Action):
         else:
             return None
 
-
     def process_volatility(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
@@ -197,7 +263,6 @@ class ActionGetComparison(Action):
             return volatility
         else:
             return None
-
 
     def process_stock_trend(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
@@ -209,7 +274,6 @@ class ActionGetComparison(Action):
         else:
             return None
 
-
     def process_market_cap(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
@@ -217,20 +281,42 @@ class ActionGetComparison(Action):
         formatted_market_cap = self.format_amount(market_cap)
         return formatted_market_cap
         
-
     def process_revenue(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         revenue = stock_data.info['totalRevenue']
         formatted_revenue = self.format_amount(revenue)
         return formatted_revenue
-        
-        
+                
     def process_eps(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         eps = stock_data.info['trailingEps']
         return eps
+
+    def process_pe_ratio(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        pe_ratio = stock_data.info['trailingPE']
+        return pe_ratio
+    
+    def process_roe(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        roe = stock_data.info['returnOnEquity']
+        return roe
+
+    def process_gross_margins(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        gross_margins = stock_data.info['grossMargins']
+        return gross_margins
+
+    def process_dte_ratio(self, company_name: str) -> float:
+        stock_ticker = get_ticker(company_name)
+        stock_data = yf.Ticker(stock_ticker)
+        dte_ratio = stock_data.info['debtToEquity']
+        return dte_ratio
 
     def format_amount(self, amount: str) -> str:
         if amount != 'N/A':
