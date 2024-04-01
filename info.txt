@@ -63,6 +63,7 @@ Test:
     only spacy, duckling, dietClassifier ?
 
 Incorporate:
+    improve NLU
     before sending user message to rasa, remove any obvious typos
     mappings/charts in flask interface
     make intents to define all the Functionalities

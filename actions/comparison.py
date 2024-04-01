@@ -134,11 +134,11 @@ class ActionGetComparison(Action):
 
         if market_cap is not None and market_cap2 is not None:
             if market_cap > market_cap2:
-                dispatcher.utter_message(text=f"The market cap of {company_name} ({market_cap}) is higher than {company_name2} ({market_cap2}).")
+                dispatcher.utter_message(text=f"The market cap of {company_name} (${market_cap}) is higher than {company_name2} (${market_cap2}).")
             elif market_cap < market_cap2:
-                dispatcher.utter_message(text=f"The market cap of {company_name} ({market_cap}) is lower than {company_name2} ({market_cap2}).")
+                dispatcher.utter_message(text=f"The market cap of {company_name} (${market_cap}) is lower than {company_name2} (${market_cap2}).")
             else:
-                dispatcher.utter_message(text=f"The market caps of {company_name} and {company_name2} are equal ({market_cap}).")
+                dispatcher.utter_message(text=f"The market caps of {company_name} and {company_name2} are equal (${market_cap}).")
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve market cap data for one or both of the companies.")
 
@@ -148,11 +148,11 @@ class ActionGetComparison(Action):
 
         if revenue is not None and revenue2 is not None:
             if revenue > revenue2:
-                dispatcher.utter_message(text=f"The revenue of {company_name} ({revenue}) is higher than {company_name2} ({revenue2}).")
+                dispatcher.utter_message(text=f"The revenue of {company_name} (${revenue}) is higher than {company_name2} (${revenue2}).")
             elif revenue < revenue2:
-                dispatcher.utter_message(text=f"The revenue of {company_name} ({revenue}) is lower than {company_name2} ({revenue2}).")
+                dispatcher.utter_message(text=f"The revenue of {company_name} (${revenue}) is lower than {company_name2} (${revenue2}).")
             else:
-                dispatcher.utter_message(text=f"The revenue of {company_name} and {company_name2} are equal ({revenue}).")
+                dispatcher.utter_message(text=f"The revenue of {company_name} and {company_name2} are equal (${revenue}).")
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve revenue data for one or both of the companies.")
 
@@ -323,16 +323,16 @@ class ActionGetComparison(Action):
             amount_numeric = float(amount)
             if amount_numeric >= 1e12:
                 # Convert to trillion
-                formatted_amount = f"${amount_numeric / 1e12:.2f} trillion"
+                formatted_amount = f"{amount_numeric / 1e12:.2f} trillion"
             elif amount_numeric >= 1e9:
                 # Convert to billion
-                formatted_amount = f"${amount_numeric / 1e9:.2f} billion"
+                formatted_amount = f"{amount_numeric / 1e9:.2f} billion"
             elif amount_numeric >= 1e6:
                 # Convert to million
-                formatted_amount = f"${amount_numeric / 1e6:.2f} million"
+                formatted_amount = f"{amount_numeric / 1e6:.2f} million"
             else:
                 # Leave as is
-                formatted_amount = f"${amount_numeric:.2f}"
+                formatted_amount = f"{amount_numeric:.2f}"
         else:
             formatted_amount = 'N/A'
         return formatted_amount

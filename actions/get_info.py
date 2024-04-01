@@ -6,45 +6,7 @@ from actions.ticker_mapping import get_ticker
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
-# class ActionGetGeneralInfo(Action):
-#     def name(self) -> Text:
-#         return "get_general_info"
-
-#     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#         try:
-#             company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
-#             print("Company name extracted:", company_name)  # Debug statement
-
-#             self.process_info(dispatcher, company_name)
-
-#         except Exception as e:
-#             company_name = tracker.get_slot("stock_name").lower()
-#             print("Company name extracted:", company_name)  # Debug statement
-
-#             self.process_info(dispatcher, company_name)
-
-#         return []
-
-#     def process_info(self, dispatcher: CollectingDispatcher, company_name: str):
-#         stock_ticker = get_ticker(company_name)
-#         stock_info = yf.Ticker(stock_ticker)
-#         info = stock_info.info
-#         info_message = f"Here are some important details about {company_name}:\n\n"
-#         info_message += f"Website: {info['website']}\n"
-#         info_message += f"Industry: {info['industry']}\n"
-#         info_message += f"Sector: {info['sector']}\n"
-#         info_message += f"Description: {info['longBusinessSummary']}\n"
-#         info_message += f"Number of Employees: {info['fullTimeEmployees']}\n"
-#         info_message += f"Leadership Team:\n"
-#         for officer in info['companyOfficers']:
-#             info_message += f"- {officer['name']}, {officer['title']}\n"
-#         info_message += f"Previous Close: {info['previousClose']}\n"
-#         info_message += f"Open: {info['open']}\n"
-#         info_message += f"Day Low: {info['dayLow']}\n"
-#         info_message += f"Day High: {info['dayHigh']}\n"
-#         info_message += f"Volume: {info['volume']}\n"
-        
-#         dispatcher.utter_message(text=info_message)
+from datetime import datetime, timezone
 
 class ActionGetSpecificInfo(Action):
     def name(self) -> Text:
@@ -90,6 +52,15 @@ class ActionGetSpecificInfo(Action):
             formatted = 'N/A'
         return formatted
 
+    def epoch_to_date(epoch_timestamp):
+        try:
+            # Convert epoch timestamp to datetime object
+            date = datetime.fromtimestamp(epoch_timestamp, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+            return date
+        except Exception as e:
+            print(f"Error converting epoch timestamp: {e}")
+            return None
+
     def process_info(self, dispatcher: CollectingDispatcher, company_name: str, info_type: str):
         stock_ticker = get_ticker(company_name)
         stock_info = yf.Ticker(stock_ticker)
@@ -131,23 +102,25 @@ class ActionGetSpecificInfo(Action):
         
         elif info_type in ["market cap", "market capitalization", "capital"]:
             requested_info = info['marketCap']
-            dispatcher.utter_message(text=f"The market capitalization of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The market capitalization of {company_name} is: ${requested_info}")
 
         elif info_type in ["previous close"]:
             requested_info = info['previousClose']
-            dispatcher.utter_message(text=f"The previous close price of {company_name} was: {requested_info}")
+            dispatcher.utter_message(text=f"The previous close price of {company_name} was: ${requested_info}")
 
         elif info_type in ["open", "day open"]:
             requested_info = info['open']
-            dispatcher.utter_message(text=f"The opening price of {company_name} today was: {requested_info}")
+            dispatcher.utter_message(text=f"The opening price of {company_name} today was: ${requested_info}")
 
         elif info_type in ["day low"]:
             requested_info = info['dayLow']
-            dispatcher.utter_message(text=f"The lowest price of {company_name} today was: {requested_info}")
+            dispatcher.utter_message(text=f"The lowest price of {company_name} today was: ${requested_info}")
 
         elif info_type in ["day high"]:
             requested_info = info['dayHigh']
-            dispatcher.utter_message(text=f"The highest price of {company_name} today was: {requested_info}")
+            dispatcher.utter_message(text=f"The highest price of {company_name} today was: ${requested_info}")
+        
         elif info_type in ["audit risk"]:
             requested_info = info['auditRisk']
             dispatcher.utter_message(text=f"The audit risk of {company_name} is: {requested_info}")
@@ -170,67 +143,61 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["governance epoch date"]:
             requested_info = info['governanceEpochDate']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The governance epoch date of {company_name} is: {requested_info}")
 
         elif info_type in ["compensation as of epoch date"]:
             requested_info = info['compensationAsOfEpochDate']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The compensation as of epoch date of {company_name} is: {requested_info}")
 
         elif info_type in ["max age"]:
             requested_info = info['maxAge']
+            requested_info = self.epoch_to_date(requested_info) 
             dispatcher.utter_message(text=f"The max age of {company_name} is: {requested_info}")
 
         elif info_type in ["price hint"]:
             requested_info = info['priceHint']
             dispatcher.utter_message(text=f"The price hint of {company_name} is: {requested_info}")
 
-        elif info_type in ["regular market previous close"]:
-            requested_info = info['regularMarketPreviousClose']
-            dispatcher.utter_message(text=f"The regular market previous close price of {company_name} is: {requested_info}")
-
-        elif info_type in ["regular market open"]:
-            requested_info = info['regularMarketOpen']
-            dispatcher.utter_message(text=f"The regular market opening price of {company_name} is: {requested_info}")
-
-        elif info_type in ["regular market day low"]:
-            requested_info = info['regularMarketDayLow']
-            dispatcher.utter_message(text=f"The regular market lowest price of {company_name} today is: {requested_info}")
-
-        elif info_type in ["regular market day high"]:
-            requested_info = info['regularMarketDayHigh']
-            dispatcher.utter_message(text=f"The regular market highest price of {company_name} today is: {requested_info}")
-
         elif info_type in ["beta"]:
             requested_info = info['beta']
-            dispatcher.utter_message(text=f"The beta of {company_name} is: {requested_info}")
+            if requested_info < 1:
+                risk_level = "less volatile"
+            elif requested_info == 1:
+                risk_level = "in line with the market"
+            else:
+                risk_level = "more volatile"
+            dispatcher.utter_message(text=f"The beta of {company_name} is {requested_info}. This indicates that the stock is {risk_level} compared to the market.")
+
 
         elif info_type in ["trailing PE", "trailing pe", "pe ratio", "p/e ratio"]:
             requested_info = info['trailingPE']
-            dispatcher.utter_message(text=f"The trailing PE of {company_name} is: {requested_info}")
+            dispatcher.utter_message(text=f"The trailing PE ratio of {company_name} is: {requested_info}")
 
         elif info_type in ["forward PE"]:
             requested_info = info['forwardPE']
-            dispatcher.utter_message(text=f"The forward PE of {company_name} is: {requested_info}")
+            dispatcher.utter_message(text=f"The forward PE ratio of {company_name} is: {requested_info}")
 
         elif info_type in ["volume"]:
             requested_info = info['volume']
+            requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The volume of {company_name} is: {requested_info}")
 
         elif info_type in ["regular market volume"]:
             requested_info = info['regularMarketVolume']
+            requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The regular market volume of {company_name} is: {requested_info}")
 
         elif info_type in ["average volume"]:
             requested_info = info['averageVolume']
+            requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The average volume of {company_name} is: {requested_info}")
 
         elif info_type in ["average volume 10 days"]:
             requested_info = info['averageVolume10days']
+            requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The average volume of {company_name} for the last 10 days is: {requested_info}")
-
-        elif info_type in ["average daily volume 10 days"]:
-            requested_info = info['averageDailyVolume10Day']
-            dispatcher.utter_message(text=f"The average daily volume of {company_name} for the last 10 days is: {requested_info}")
 
         elif info_type in ["bid size"]:
             requested_info = info['bidSize']
@@ -240,29 +207,30 @@ class ActionGetSpecificInfo(Action):
             requested_info = info['askSize']
             dispatcher.utter_message(text=f"The ask size of {company_name} is: {requested_info}")
 
-        elif info_type in ["fifty two week low"]:
+        elif info_type in ["fifty two week low", "52 week low"]:
             requested_info = info['fiftyTwoWeekLow']
-            dispatcher.utter_message(text=f"The fifty two week low of {company_name} is: {requested_info}")
+            dispatcher.utter_message(text=f"The fifty two week low of {company_name} is: ${requested_info}")
 
-        elif info_type in ["fifty two week high"]:
+        elif info_type in ["fifty two week high", "52 week high"]:
             requested_info = info['fiftyTwoWeekHigh']
-            dispatcher.utter_message(text=f"The fifty two week high of {company_name} is: {requested_info}")
+            dispatcher.utter_message(text=f"The fifty two week high of {company_name} is: ${requested_info}")
 
         elif info_type in ["price to sales trailing 12 months"]:
             requested_info = info['priceToSalesTrailing12Months']
             dispatcher.utter_message(text=f"The price to sales trailing 12 months of {company_name} is: {requested_info}")
 
-        elif info_type in ["fifty day average"]:
+        elif info_type in ["fifty day average", "50 day average"]:
             requested_info = info['fiftyDayAverage']
-            dispatcher.utter_message(text=f"The fifty day average of {company_name} is: {requested_info}")
+            dispatcher.utter_message(text=f"The fifty day average of {company_name} is: ${requested_info}")
 
-        elif info_type in ["two hundred day average"]:
+        elif info_type in ["two hundred day average", "200 day average"]:
             requested_info = info['twoHundredDayAverage']
-            dispatcher.utter_message(text=f"The two hundred day average of {company_name} is: {requested_info}")
+            dispatcher.utter_message(text=f"The two hundred day average of {company_name} is: ${requested_info}")
 
         elif info_type in ["enterprise value"]:
             requested_info = info['enterpriseValue']
-            dispatcher.utter_message(text=f"The enterprise value of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The enterprise value of {company_name} is: ${requested_info}")
 
         elif info_type in ["profit margins"]:
             requested_info = info['profitMargins']
@@ -270,26 +238,32 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["float shares"]:
             requested_info = info['floatShares']
+            requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The float shares of {company_name} is: {requested_info}")
 
         elif info_type in ["shares outstanding"]:
             requested_info = info['sharesOutstanding']
+            requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The shares outstanding of {company_name} is: {requested_info}")
 
         elif info_type in ["shares short"]:
             requested_info = info['sharesShort']
+            requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The shares short of {company_name} is: {requested_info}")
 
         elif info_type in ["shares short prior month"]:
             requested_info = info['sharesShortPriorMonth']
+            requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The shares short prior month of {company_name} is: {requested_info}")
 
         elif info_type in ["shares short previous month date"]:
             requested_info = info['sharesShortPreviousMonthDate']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The shares short previous month date of {company_name} is: {requested_info}")
 
         elif info_type in ["date short interest"]:
             requested_info = info['dateShortInterest']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The date short interest of {company_name} is: {requested_info}")
 
         elif info_type in ["shares percent shares out"]:
@@ -322,14 +296,17 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["last fiscal year end"]:
             requested_info = info['lastFiscalYearEnd']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The last fiscal year end of {company_name} is: {requested_info}")
 
         elif info_type in ["next fiscal year end"]:
             requested_info = info['nextFiscalYearEnd']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The next fiscal year end of {company_name} is: {requested_info}")
 
         elif info_type in ["most recent quarter"]:
             requested_info = info['mostRecentQuarter']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The most recent quarter of {company_name} is: {requested_info}")
 
         elif info_type in ["earnings quarterly growth"]:
@@ -338,7 +315,8 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["net income to common"]:
             requested_info = info['netIncomeToCommon']
-            dispatcher.utter_message(text=f"The net income to common of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The net income to common of {company_name} is: ${requested_info}")
 
         elif info_type in ["trailing eps", "earning per share", "earnings per share"]:
             requested_info = info['trailingEps']
@@ -358,6 +336,7 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["last split date"]:
             requested_info = info['lastSplitDate']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The last split date of {company_name} is: {requested_info}")
 
         elif info_type in ["enterprise to revenue"]:
@@ -402,6 +381,7 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["first trade date epoch utc"]:
             requested_info = info['firstTradeDateEpochUtc']
+            requested_info = self.epoch_to_date(requested_info)
             dispatcher.utter_message(text=f"The first trade date epoch UTC of {company_name} is: {requested_info}")
 
         elif info_type in ["time zone full name"]:
@@ -420,10 +400,6 @@ class ActionGetSpecificInfo(Action):
             requested_info = info['messageBoardId']
             dispatcher.utter_message(text=f"The message board ID of {company_name} is: {requested_info}")
 
-        elif info_type in ["gmt offset milliseconds"]:
-            requested_info = info['gmtOffSetMilliseconds']
-            dispatcher.utter_message(text=f"The GMT offset milliseconds of {company_name} is: {requested_info}")
-
         elif info_type in ["recommendation mean"]:
             requested_info = info['recommendationMean']
             dispatcher.utter_message(text=f"The recommendation mean of {company_name} is: {requested_info}")
@@ -436,21 +412,24 @@ class ActionGetSpecificInfo(Action):
             requested_info = info['numberOfAnalystOpinions']
             dispatcher.utter_message(text=f"The number of analyst opinions for {company_name} is: {requested_info}")
 
-        elif info_type in ["total cash"]:
+        elif info_type in ["total cash", "cash"]:
             requested_info = info['totalCash']
-            dispatcher.utter_message(text=f"The total cash of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The total cash of {company_name} is: ${requested_info}")
 
         elif info_type in ["total cash per share"]:
             requested_info = info['totalCashPerShare']
-            dispatcher.utter_message(text=f"The total cash per share of {company_name} is: {requested_info}")
+            dispatcher.utter_message(text=f"The total cash per share of {company_name} is: ${requested_info}")
 
         elif info_type in ["ebitda"]:
             requested_info = info['ebitda']
-            dispatcher.utter_message(text=f"The EBITDA of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The EBITDA of {company_name} is: ${requested_info}")
 
-        elif info_type in ["total debt"]:
+        elif info_type in ["total debt", "debt"]:
             requested_info = info['totalDebt']
-            dispatcher.utter_message(text=f"The total debt of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The total debt of {company_name} is: ${requested_info}")
 
         elif info_type in ["quick ratio"]:
             requested_info = info['quickRatio']
@@ -462,7 +441,8 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["total revenue"]:
             requested_info = info['totalRevenue']
-            dispatcher.utter_message(text=f"The total revenue of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The total revenue of {company_name} is: ${requested_info}")
 
         elif info_type in ["debt to equity"]:
             requested_info = info['debtToEquity']
@@ -482,11 +462,13 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["free cashflow"]:
             requested_info = info['freeCashflow']
-            dispatcher.utter_message(text=f"The free cashflow of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The free cashflow of {company_name} is: ${requested_info}")
 
         elif info_type in ["operating cashflow"]:
             requested_info = info['operatingCashflow']
-            dispatcher.utter_message(text=f"The operating cashflow of {company_name} is: {requested_info}")
+            requested_info = self.format(requested_info)
+            dispatcher.utter_message(text=f"The operating cashflow of {company_name} is: ${requested_info}")
 
         elif info_type in ["earnings growth"]:
             requested_info = info['earningsGrowth']

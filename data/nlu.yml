@@ -216,30 +216,14 @@ nlu:
     - can you tell me its  [1 month](time_period) stock price
     - can you tell me the [1 month] price of [alks](stock_name)
 
-# - intent: ask_general_info
-#   examples: |
-#     - what is the [apple](stock_name)'s stock info
-#     - can you tell me about [google](stock_name)
-#     - provide details about [netflix](stock_name)
-#     - show me more information on [microsoft](stock_name)
-#     - get me the information on [lyft](stock_name)
-#     - fetch some info of [amazon](stock_name)
-#     - please, tell me about [facebook](stock_name)
-#     - i need to know about [twitter](stock_name). Please provide its information
-#     - need some info on [nvda](stock_name)
-#     - give me some info about it
-#     - some info ?
-#     - tell me about [atlassian](stock_name)
-#     - company info of [TMO](stock_name)
-
 - intent: ask_specific_info
   examples: |
     - tell me [address](info) of [google](stock_name)
     - fetch me [long Business Summary](info) of [atlassian](stock_name)
     - how many [full Time Employess](info) does [apple](stock_name) have ?
     - what is the [symbol](info) of [Microsoft](stock_name)?
-    - can you fetch me [targetHighPrice](info) of [Nvidia](stock_name) ?
-    - i need to know the [targetLowPrice](info) of [Amazon](stock_name) !
+    - can you fetch me [target High Price](info) of [Nvidia](stock_name) ?
+    - i need to know the [target Low Price](info) of [Amazon](stock_name) !
     - get me its stock [symbol](info) !
     - so, what is its [previousClose](info) ?
     - get me [website](info) link of  [Netflix](stock_name).
@@ -293,7 +277,11 @@ nlu:
     - what would be the [operating margins](info) of [Cisco](stock_name)?
     - get me the [total cash per share](info) of [General Electric](stock_name)
     - what is the [earnings quarterly growth](info) of [Walmart](stock_name)?
-
+    - what is the [max age](info)
+    - what would be the [governance Epoch Date](info)
+    - give me the [compensation As Of Epoch Date](info)
+    - get me [debt] of [msft]
+    - what is the [currency] of [team] share ?
 - intent: ask_stock_predictions
   examples: |
     - what will be the future price for [google](stock_name)  ?
