@@ -41,11 +41,6 @@ rules:
   - intent: ask_older_stock_price
   - action: get_older_stock_price
 
-- rule: general stock info
-  steps:
-  - intent: ask_general_info
-  - action: get_general_info
-
 - rule: specific stock info
   steps:
   - intent: ask_specific_info

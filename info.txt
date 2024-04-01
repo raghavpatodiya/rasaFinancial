@@ -59,17 +59,21 @@ General:
 
 Test: 
     integrate nlp ?
-    try other models to make predicitions
+    try other models to make predictions
     only spacy, duckling, dietClassifier ?
 
 Incorporate:
+    before sending user message to rasa, remove any obvious typos
     mappings/charts in flask interface
-    contact us, to report inconsistencies
-    get_market_cap
-    get_revenue
-    get_eps
-    specific_info add examples
     make intents to define all the Functionalities
+    speak out the results
+    light theme
+    language translation
+    help page, diplaying the Functionalities and limitations of the chatbot
+    for more - look here and there
+    hugging face nlp integration ?
+    more predictions
+    check all bot responses and generalize it
 
 Functionalities: 
     once price predicted - buysellhold
@@ -97,4 +101,4 @@ Commands:
 Comparison Metrics:
     Dividend Yield: The percentage of a company's stock price that is paid out as dividends to shareholders annually.
     
-    
+

@@ -12,7 +12,6 @@ intents:
   - bot_challenge
   - ask_latest_stock_price
   - ask_older_stock_price
-  - ask_general_info
   - ask_specific_info
   - what_can_you_do
   - ask_time
@@ -108,7 +107,6 @@ slots:
         intent: 
           - ask_latest_stock_price
           - ask_older_stock_price
-          - ask_general_info
           - ask_specific_info
           - ask_stock_predictions
           - ask_stock_trend
@@ -267,7 +265,6 @@ responses:
 actions:
   - get_latest_stock_price
   - get_older_stock_price
-  - get_general_info
   - get_specific_info
   - get_stock_predictions
   - get_buy_sell_hold
