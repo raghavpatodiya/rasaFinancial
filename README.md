@@ -9,6 +9,28 @@
 - `docker run -p 8000:8000 rasa/duckling`: To run Duckling on Docker.
 - run `app.py` with Flask's built-in server.
 - run `loc_calculator.py` to activate LOC Counter.
+- Set up PostgreSQL & PgAdmin4, then from the query tool run these queries:
+- `CREATE USER username WITH PASSWORD 'password';`
+- `CREATE DATABASE db_name;`
+- `GRANT ALL PRIVILEGES ON DATABASE db_name TO username;`
+- `GRANT ALL PRIVILEGES ON SCHEMA public TO username;`
+- To connect to Database from Flask app:
+- `flask db init`
+- `flask db migrate -m "Initial migration"`
+- `flask db upgrade`
+- To check if Database is connected:
+- `SELECT * FROM "user";`
+- `SELECT * FROM "reported_conversations";`
+
+## .env file format
+
+- `ALPHA_VANTAGE_API_KEY=your_alpha_vantage_api_key`
+- `DB_USERNAME=username`
+- `DB_PASSWORD=password`
+- `DB_NAME=db_name`
+- `SECRET_KEY=your_secret_key` get your secret key using this command `print(os.urandom(24))`
+- `MAIL_USERNAME=your_project_email_id`
+- `MAIL_PASSWORD=your_google_app_password` to get this, create a google app.
 
 ## General Commands
 
