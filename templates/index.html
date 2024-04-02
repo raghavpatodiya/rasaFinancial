@@ -19,15 +19,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/themes/odometer-theme-default.min.css"
     />
+    <!-- Default light theme -->
     <link
       rel="stylesheet"
-      href="{{ url_for('static', filename='css/style-light.css')
-    }}"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='css/style-dark.css')
-    }}"
+      id="theme"
+      href="{{ url_for('static', filename='css/style-dark.css') }}"
     />
   </head>
   <body>
@@ -119,5 +115,28 @@
       type="text/javascript"
       src="{{ url_for('static', filename='js/script.js')}}"
     ></script>
+    <script>
+      $(document).ready(function () {
+        let currentTheme = "dark"; // Track the current theme
+
+        // Function to toggle between light and dark themes
+        function toggleTheme() {
+          const themeLink = document.getElementById("theme");
+          if (currentTheme === "light") {
+            themeLink.href =
+              "{{ url_for('static', filename='css/style-dark.css') }}";
+            currentTheme = "dark";
+          } else {
+            themeLink.href =
+              "{{ url_for('static', filename='css/style-light.css') }}";
+            currentTheme = "light";
+          }
+        }
+        // Event handler for theme toggle button click
+        $("#theme-toggle").on("click", function () {
+          toggleTheme();
+        });
+      });
+    </script>
   </body>
 </html>

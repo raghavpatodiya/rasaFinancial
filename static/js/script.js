@@ -174,26 +174,5 @@ $(document).ready(function () {
     updateLocCounter();
     setInterval(updateLocCounter, 5000);
     
-    // Define a variable to track the current theme globally
-    let currentTheme = "dark";
-
-    // Function to toggle between light and dark themes
-    function toggleTheme() {
-        if (currentTheme === "light") {
-            // Switch to dark theme
-            $("link[href*='style-light.css']").attr("href", "{{ url_for('static', filename='css/style-dark.css') }}");
-            currentTheme = "dark";
-        } else {
-            // Switch to light theme
-            $("link[href*='style-dark.css']").attr("href", "{{ url_for('static', filename='css/style-light.css') }}");
-            currentTheme = "light";
-        }
-    }
-
-    // Event handler for theme toggle button click
-    $("#theme-toggle").on("click", function () {
-        toggleTheme();
-    });
-    
 });
 
