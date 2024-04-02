@@ -954,3 +954,51 @@ nlu:
     - What does Return on Equity signify in financial analysis?
     - Could you provide insight into how ROE reflects a company's performance?
     - What factors influence the calculation of Return on Equity?
+
+- intent: ask_audit_risk_meaning
+  examples: |
+    - what is audit risk.
+    - what do you mean by audit risk.
+    - Explain audit risk to me.
+    - Could you define audit risk?
+    - I'm unclear about audit risk. Can you elaborate?
+    - Can you give me some insights into audit risk?
+    - What factors contribute to audit risk?
+    - How is audit risk assessed?
+    - Is audit risk the same as inherent risk?
+
+- intent: ask_board_risk_meaning
+  examples: |
+    - what is board risk.
+    - what do you mean by board risk.
+    - Explain board risk to me.
+    - Could you define board risk?
+    - I'm unclear about board risk. Can you elaborate?
+    - Can you give me some insights into board risk?
+    - What factors contribute to board risk?
+    - How is board risk assessed?
+    - Is board risk the same as inherent risk?
+
+- intent: ask_compensation_risk_meaning
+  examples: |
+    - what is compensation risk.
+    - what do you mean by compensation risk.
+    - Explain compensation risk to me.
+    - Could you define compensation risk?
+    - I'm unclear about compensation risk. Can you elaborate?
+    - Can you give me some insights into compensation risk?
+    - What factors contribute to compensation risk?
+    - How is compensation risk assessed?
+    - Is compensation risk the same as inherent risk?
+
+- intent: ask_overall_risk_meaning
+  examples: |
+    - what is overall risk.
+    - what do you mean by overall risk.
+    - Explain overall risk to me.
+    - Could you define overall risk?
+    - I'm unclear about overall risk. Can you elaborate?
+    - Can you give me some insights into overall risk?
+    - What factors contribute to overall risk?
+    - How is overall risk assessed?
+    - Is overall risk the same as inherent risk?

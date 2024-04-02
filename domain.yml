@@ -78,6 +78,9 @@ intents:
   - ask_comparison
   - ask_graph
   - ask_roe_meaning
+  - ask_audit_risk_meaning
+  - ask_board_risk_meaning
+  - ask_compensation_risk_meaning
 entities:
   - stock_name
   - stock_name2
@@ -264,7 +267,21 @@ responses:
   utter_resources_stock_investing:
   - text: "Check out books like \"The Intelligent Investor\" and \"One Up On Wall Street,\" online platforms like Investopedia and The Motley Fool, and courses on Coursera or Udemy."
   utter_roe_meaning:
-  - text: "ROE (Return on Equity) measures a company's profitability by evaluating how effectively it generates profits from shareholders' equity. It's a key financial ratio."
+  - text: "ROE (Return on Equity) measures a company's profitability relative to shareholders' equity. It shows how effectively a company generates profits from shareholders' investments."
+  utter_audit_risk_meaning:
+  - text: "Audit risk refers to the possibility of errors or misstatements in financial statements going undetected during an audit process. It's influenced by inherent risk, control risk, and detection risk."
+  utter_board_risk_meaning:
+  - text: "Board risk refers to potential risks stemming from the decisions and actions of a company's board of directors. It encompasses governance, strategic, financial, and reputational risks."
+  utter_compensation_risk_meaning:
+  - text: "Compensation risk refers to potential risks associated with the compensation structures and policies within a company, impacting employee motivation, performance, and alignment with organizational objectives."
+  utter_overall_risk_meaning:
+  - text: "Overall risk encompasses all potential risks faced by a company, including financial, operational, strategic, and compliance risks, impacting its ability to achieve objectives."
+
+
+
+
+
+
 actions:
   - get_latest_stock_price
   - get_older_stock_price
