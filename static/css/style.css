@@ -97,3 +97,21 @@ body {
 .bot-label {
   color: #dc3545;
 }
+.speak-button {
+  background-color: #000; /* Black color */
+  color: #fff; /* White text color */
+  border: none; /* Remove border */
+  padding: 6px; /* Adjust padding to make it smaller */
+  margin-right: 5px; /* Adjust margin */
+  cursor: pointer; /* Add pointer cursor on hover */
+  border-radius: 5px; /* Add rounded edges */
+  font-size: 12px; /* Adjust font size */
+  line-height: 1; /* Set line height to 1 to center the icon vertically */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.speak-button:hover {
+  background-color: #333; /* Darker black color on hover */
+}
+
+

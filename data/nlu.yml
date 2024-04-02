@@ -363,6 +363,7 @@ nlu:
     - fetch me the [trailing peg ratio](info) of [Amazon](stock_name)
     - how many [number of analyst opinions](info) does [Google](stock_name) have?
     - what is the [total cash](info) of [Apple](stock_name)?
+    - get [officers] list
       
 - intent: ask_stock_predictions
   examples: |

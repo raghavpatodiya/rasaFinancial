@@ -8,6 +8,12 @@ function handleVoiceInput() {
     };
     recognition.start();
 }
+// Function to speak out text using Web Speech API
+function speakText(text) {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text);
+    synth.speak(utterance);
+}
 function reportConversation() {
     // Get the user message and bot response from the previous conversation
     const userMessage = getLastUserMessage();
@@ -64,7 +70,28 @@ $(document).ready(function () {
     $("#report-conversation").on("click", function () {
         reportConversation();
     });
-
+    function handleBotResponse(botResponse) {
+        // Display bot response in chat widget
+        const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
+                                escapeHtml(botResponse) +
+                                "</div>";
+        
+        // Append bot response
+        $("#chat-widget-messages").append(botResponseHtml);
+        $("#chat-widget-messages").scrollTop($("#chat-widget-messages")[0].scrollHeight);
+        
+        // Add speaker button to the latest bot response
+        const $botResponseElement = $("#chat-widget-messages").children().last();
+        const speakerButtonHtml = "<button class='speak-button'>🔈</button>";
+        $botResponseElement.append(speakerButtonHtml);
+        
+        // Event handler for speaking out the bot response
+        $botResponseElement.find('.speak-button').on('click', function() {
+            speakText(botResponse);
+        });
+    }
+    
+    // Event handler for chat widget input
     $("#chat-widget-input").keypress(function (event) {
         if (event.which == 13) {
             let userMessage = $("#chat-widget-input").val();
@@ -84,14 +111,8 @@ $(document).ready(function () {
                 data: JSON.stringify({ message: userMessage }),
                 success: function (data) {
                     let botResponse = data.response;
-                    $("#chat-widget-messages").append(
-                        "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
-                            escapeHtml(botResponse) +
-                            "</div>"
-                    );
-                    $("#chat-widget-messages").scrollTop(
-                        $("#chat-widget-messages")[0].scrollHeight
-                    );
+                    // Handle bot response
+                    handleBotResponse(botResponse);
                 },
                 error: function () {
                     // Handle error if needed
