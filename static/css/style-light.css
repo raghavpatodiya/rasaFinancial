@@ -1,0 +1,153 @@
+body {
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+    margin-top: 50px; /* Move the chat widget down */
+}
+
+.chat-sign-button {
+    position: fixed; /* Position the button fixed */
+    bottom: 20px; /* Adjust the distance from the bottom */
+    right: 20px; /* Adjust the distance from the right */
+    z-index: 9999; /* Set a higher z-index to ensure it appears above other elements */
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 50%; /* Make it a circle */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.chat-widget {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+    background-color: #f8f9fa; /* Light gray background */
+    border: none;
+    color: #333; /* Dark text color */
+    transition: all 0.3s ease;
+    z-index: 9998; /* Set a higher z-index value */
+}
+
+.chat-widget-header {
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 10px 10px 0 0; /* Rounded corners on top */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+.chat-widget-messages {
+    overflow-y: auto;
+    max-height: 300px;
+    padding: 10px;
+}
+
+.chat-widget-footer {
+    background-color: #e9ecef; /* Light gray background */
+    border-radius: 0 0 10px 10px; /* Rounded corners on bottom */
+    padding: 10px;
+}
+
+.form-control {
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+    border-color: #ccc; /* Light gray border */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.odometer {
+    font-size: 24px;
+    color: #007bff; /* Blue color */
+}
+
+.user-message {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+.bot-response {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa; /* Light gray background */
+    color: #333; /* Dark text color */
+    padding: 20px;
+}
+
+.logout-btn {
+    background-color: #dc3545; /* Red color for logout button */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: #c82333; /* Darker red color on hover */
+}
+
+.bot-label {
+    color: #dc3545;
+}
+
+.speak-button {
+    background-color: #007bff; /* Blue color */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 6px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+}
+
+.speak-button:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+.theme-toggle-btn {
+    position: fixed;
+    bottom: 90px; /* Adjust position as needed */
+    left: 20px;
+    z-index: 9999;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    background-color: #fff; /* White background */
+    color: #333; /* Dark text color */
+    border: none;
+    border-radius: 50%; /* Make it a circle */
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.theme-toggle-btn:hover {
+    background-color: #f8f9fa; /* Light gray background on hover */
+}
