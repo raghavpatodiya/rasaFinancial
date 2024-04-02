@@ -115,21 +115,18 @@ footer {
 .speak-button:hover {
     background-color: #0056b3; /* Darker blue color on hover */
 }
-.theme-toggle-btn {
-    position: fixed;
-    bottom: 90px; /* Adjust position as needed */
-    left: 20px;
-    z-index: 9999;
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text color */
-    border: none;
-    border-radius: 50%; /* Make it a circle */
-    cursor: pointer;
+/* Style for theme toggle button */
+#theme-toggle {
+    background-color: #6c757d; /* Gray color for toggle button */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    margin-top: 20px; /* Add margin at the top */
+    cursor: pointer; /* Add pointer cursor on hover */
+    border-radius: 10px; /* Add rounded corners */
     transition: background-color 0.3s ease; /* Smooth transition on hover */
-}
-.theme-toggle-btn:hover {
-    background-color: #f8f9fa; /* Light gray background on hover */
-}
+  }
+  
+  #theme-toggle:hover {
+    background-color: #5a6268; /* Darker gray color on hover */
+  }
