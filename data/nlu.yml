@@ -158,6 +158,7 @@ nlu:
     - alkgkeahjcnmcl
     - lwlk jwk fn cnhv
     - qjkoeavnkmvck
+    - fjaefa aegoajf gjaoegj angeojg
     
 - intent: ask_stock
   examples: |
@@ -230,7 +231,7 @@ nlu:
     - which type of [industry](info) does [meta](stock_name) belong to ?
     - also tell me [trailing Eps](info)
     - can you tell me [pegRatio](info)
-    - what would be the [return On Equity](info) of [alphabet](stock_name)
+    - what would be the [roe](info) of [alphabet](stock_name)
     - get me [financial Currency](info) of [canoo](stock_name)
     - what is the [day High] of [aapl](stock_name)
     - tell me the [board risk](info) of [Google](stock_name)
@@ -282,6 +283,87 @@ nlu:
     - give me the [compensation As Of Epoch Date](info)
     - get me [debt] of [msft]
     - what is the [currency] of [team] share ?
+    - tell me [address](info) of [Google](stock_name)
+    - fetch me [long Business Summary](info) of [Atlassian](stock_name)
+    - how many [full Time Employess](info) does [Apple](stock_name) have?
+    - what is the [symbol](info) of [Microsoft](stock_name)?
+    - can you fetch me [target High Price](info) of [Nvidia](stock_name)?
+    - i need to know the [target Low Price](info) of [Amazon](stock_name)!
+    - get me its stock [symbol](info)!
+    - so, what is its [previous close](info)?
+    - get me the [website](info) link of [Netflix](stock_name).
+    - which type of [industry](info) does [Meta](stock_name) belong to?
+    - also tell me the [trailing EPS](info)
+    - can you tell me the [PEG ratio](info)?
+    - what would be the [return on equity](info) of [Alphabet](stock_name)?
+    - get me the [financial currency](info) of [Canoo](stock_name)
+    - what is the [day high](info) of [AAPL](stock_name)?
+    - tell me the [beta](info) of [Google](stock_name)
+    - fetch me the [average volume](info) of [Atlassian](stock_name)
+    - how many [shares short](info) does [Apple](stock_name) have?
+    - what is the [enterprise value](info) of [Microsoft](stock_name)?
+    - can you fetch me the [book value](info) of [Nvidia](stock_name)?
+    - i need to know the [price to book](info) ratio of [Amazon](stock_name)!
+    - get me its [market cap](info)!
+    - so, what is its [EBITDA](info)?
+    - get me the [earnings growth](info) of [Netflix](stock_name).
+    - which is the [52-week change](info) of [Meta](stock_name)?
+    - also tell me the [gross margins](info)
+    - can you tell me the [short ratio](info) of [Alphabet](stock_name)?
+    - what would be the [return on assets](info) of [Canoo](stock_name)?
+    - get me the [free cash flow](info) of [AAPL](stock_name)
+    - what is the [operating cash flow](info) of [AAPL](stock_name)?
+    - tell me the [market cap](info) of [Tesla](stock_name)
+    - fetch me the [trailing PE](info) of [Facebook](stock_name)
+    - how many [shares outstanding](info) does [Netflix](stock_name) have?
+    - what is the [forward PE](info) of [Amazon](stock_name)?
+    - can you fetch me the [volume](info) of [Apple](stock_name)?
+    - i need to know the [price to sales trailing 12 months](info) ratio of [Google](stock_name)!
+    - get me the [fifty day average](info) of [Microsoft](stock_name)!
+    - so, what is its [two hundred day average](info)?
+    - get me the [net income to common](info) of [IBM](stock_name)
+    - which is the [revenue per share](info) of [Meta](stock_name)?
+    - also tell me the [peg ratio](info) of [Alibaba](stock_name)
+    - what would be the [operating margins](info) of [Cisco](stock_name)?
+    - get me the [total cash per share](info) of [General Electric](stock_name)
+    - what is the [earnings quarterly growth](info) of [Walmart](stock_name)?
+    - what is the [max age](info)
+    - what would be the [governance Epoch Date](info)
+    - give me the [compensation As Of Epoch Date](info)
+    - get me [debt](info) of [msft]
+    - what is the [currency](info) of [team] share?
+    - what is the [city](info) of [Amazon](stock_name)?
+    - fetch me the [website](info) link of [Tesla](stock_name)
+    - how many [full time employees](info) does [Google](stock_name) have?
+    - what is the [sector](info) of [Apple](stock_name)?
+    - can you fetch me the [overall risk](info) of [Microsoft](stock_name)?
+    - i need to know the [trailing PE](info) of [Amazon](stock_name)!
+    - get me the [day high](info) of [AAPL](stock_name)
+    - so, what is its [52 week high](info)?
+    - get me the [enterprise to revenue](info) of [Google](stock_name)
+    - tell me the [time zone full name](info) of [Tesla](stock_name)
+    - fetch me the [uuid](info) of [Amazon](stock_name)
+    - how many [number of analyst opinions](info) does [Google](stock_name) have?
+    - what is the [total cash](info) of [Apple](stock_name)?
+    - can you fetch me the [EBITDA](info) of [Microsoft](stock_name)?
+    - i need to know the [total debt](info) of [Amazon](stock_name)!
+    - get me the [quick ratio](info) of [AAPL](stock_name)
+    - so, what is its [current ratio](info)?
+    - get me the [total revenue](info) of [Google](stock_name)
+    - tell me the [debt to equity](info) of [Tesla](stock_name)
+    - fetch me the [revenue per share](info) of [Amazon](stock_name)
+    - how much is the [return on assets](info) of [Apple](stock_name)?
+    - what is the [return on equity](info) of [Google](stock_name)?
+    - can you fetch me the [free cashflow](info) of [Microsoft](stock_name)?
+    - i need to know the [earnings growth](info) of [Amazon](stock_name)!
+    - get me the [gross margins](info) of [Google](stock_name)
+    - so, what is its [ebitda margins](info)?
+    - get me the [operating margins](info) of [AAPL](stock_name)
+    - tell me the [financial currency](info) of [Tesla](stock_name)
+    - fetch me the [trailing peg ratio](info) of [Amazon](stock_name)
+    - how many [number of analyst opinions](info) does [Google](stock_name) have?
+    - what is the [total cash](info) of [Apple](stock_name)?
+      
 - intent: ask_stock_predictions
   examples: |
     - what will be the future price for [google](stock_name)  ?
