@@ -70,27 +70,50 @@ $(document).ready(function () {
     $("#report-conversation").on("click", function () {
         reportConversation();
     });
+
+    let utterance = null; // Initialize utterance variable to null
+
     function handleBotResponse(botResponse) {
+        // Cancel any ongoing speech if utterance is not null
+        if (utterance && window.speechSynthesis.speaking) {
+            window.speechSynthesis.cancel();
+        }
+
         // Display bot response in chat widget
         const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
-                                escapeHtml(botResponse) +
-                                "</div>";
-        
+            escapeHtml(botResponse) +
+            "</div>";
+
         // Append bot response
         $("#chat-widget-messages").append(botResponseHtml);
         $("#chat-widget-messages").scrollTop($("#chat-widget-messages")[0].scrollHeight);
-        
+
         // Add speaker button to the latest bot response
         const $botResponseElement = $("#chat-widget-messages").children().last();
         const speakerButtonHtml = "<button class='speak-button'>🔈</button>";
         $botResponseElement.append(speakerButtonHtml);
-        
-        // Event handler for speaking out the bot response
-        $botResponseElement.find('.speak-button').on('click', function() {
-            speakText(botResponse);
+
+        // Event handler for toggling speech synthesis
+        $botResponseElement.find('.speak-button').on('click', function () {
+            if (utterance && window.speechSynthesis.speaking) {
+                // If speech is currently speaking, cancel it
+                window.speechSynthesis.cancel();
+                $(this).text('🔈'); // Change button text to indicate speech synthesis is disabled
+            } else {
+                // If speech is not currently speaking, create utterance and start speaking
+                utterance = new SpeechSynthesisUtterance(botResponse);
+                window.speechSynthesis.speak(utterance);
+                $(this).text('🔊'); // Change button text to indicate speech synthesis is enabled
+            }
         });
+
+        // Immediately start speaking if the button is already clicked
+        if (utterance && window.speechSynthesis.speaking) {
+            utterance = new SpeechSynthesisUtterance(botResponse);
+            window.speechSynthesis.speak(utterance);
+        }
     }
-    
+
     // Event handler for chat widget input
     $("#chat-widget-input").keypress(function (event) {
         if (event.which == 13) {
