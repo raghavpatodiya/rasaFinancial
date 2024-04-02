@@ -25,7 +25,7 @@ body {
     width: 400px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Lighter shadow */
-    background-color: #f8f9fa; /* Light gray background */
+    background-color: #fcf8e3; /* Light gray background */
     border: none;
     color: #333; /* Dark text color */
     transition: all 0.3s ease;
@@ -44,9 +44,10 @@ body {
     overflow-y: auto;
     max-height: 300px;
     padding: 10px;
+    background-color: #fff3cd;
 }
 .chat-widget-footer {
-    background-color: #e9ecef; /* Light gray background */
+    background-color: #fff3cd; 
     border-radius: 0 0 10px 10px; /* Rounded corners on bottom */
     padding: 10px;
 }
@@ -70,10 +71,12 @@ body {
 .user-message {
     text-align: right;
     margin-bottom: 10px;
+    background-color: #fff3cd;
 }
 .bot-response {
     text-align: left;
     margin-bottom: 10px;
+    background-color: #fff3cd;
 }
 footer {
     position: absolute;
@@ -101,7 +104,7 @@ footer {
     color: #dc3545;
 }
 .speak-button {
-    background-color: #007bff; /* Blue color */
+    background-color: #fff3cd; /* Blue color */
     color: #fff; /* White text color */
     border: none;
     padding: 6px;
@@ -113,7 +116,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 .speak-button:hover {
-    background-color: #0056b3; /* Darker blue color on hover */
+    background-color: #b8860b; /* Darker blue color on hover */
 }
 /* Style for theme toggle button */
 #theme-toggle {

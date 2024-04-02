@@ -104,7 +104,7 @@ body {
   color: #dc3545;
 }
 .speak-button {
-  background-color: #000; /* Black color */
+  background-color: #222; /* Black color */
   color: #fff; /* White text color */
   border: none; /* Remove border */
   padding: 6px; /* Adjust padding to make it smaller */

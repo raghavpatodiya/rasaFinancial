@@ -330,3 +330,8 @@ rules:
   steps: 
     - intent: ask_graph
     - action: get_graph
+
+- rule: meaning of roe
+  steps:
+    - intent: ask_roe_meaning
+    - action: utter_roe_meaning

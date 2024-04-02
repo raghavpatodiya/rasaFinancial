@@ -88,7 +88,8 @@ nlu:
 - intent: bot_challenge
   examples: |
     - what are you ?
-    - who are you ?
+    - who are you ? 
+    - what are you made of ?
     - tell me about yourself !
     - can you introduce yourself ?
     - are you a bot?
@@ -96,6 +97,7 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
     - hey, what are you ?
+
 - intent: whats_up
   examples: |
     - what are you doing right now ?
@@ -119,6 +121,16 @@ nlu:
     - bot motherfucker
     - wtf is wrong with you
     - dumbass
+    - go die
+    - nobody likes you
+    - you're a waste of space
+    - get lost, idiot
+    - you're a piece of shit
+    - fuck off
+    - you're a disgrace
+    - you're pathetic
+    - worthless piece of garbage
+    - you make me sick
 
 - intent: what_can_you_do
   examples: |
@@ -146,6 +158,11 @@ nlu:
     - okay
     - ok
     - hmm
+    - appreciate it
+    - grateful
+    - much obliged
+    - cheers
+    - ta
 
 - intent: fallback
   examples: |
@@ -924,3 +941,16 @@ nlu:
     - What are some good books or websites to learn more about stock investing?
     - I'm interested in diving deeper into stock investing. Any resources you'd suggest?
     - Where can I find reliable information to educate myself on stock investing?
+
+- intent: ask_roe_meaning
+  examples: |
+    - What does ROE (Return on Equity) mean?
+    - Can you explain the meaning of ROE?
+    - What is the relationship between ROE and profitability?
+    - How can I use ROE to gauge my company's profitability?
+    - what is return on equity
+    - Please define ROE (Return on Equity).
+    - I'm unfamiliar with ROE, could you elaborate on it?
+    - What does Return on Equity signify in financial analysis?
+    - Could you provide insight into how ROE reflects a company's performance?
+    - What factors influence the calculation of Return on Equity?

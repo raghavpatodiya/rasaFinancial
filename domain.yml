@@ -77,6 +77,7 @@ intents:
   - fallback
   - ask_comparison
   - ask_graph
+  - ask_roe_meaning
 entities:
   - stock_name
   - stock_name2
@@ -262,6 +263,8 @@ responses:
   - text: "Capital gains tax applies to profits from selling stocks, with rates based on holding period. Dividends are also taxed, with rates depending on income."
   utter_resources_stock_investing:
   - text: "Check out books like \"The Intelligent Investor\" and \"One Up On Wall Street,\" online platforms like Investopedia and The Motley Fool, and courses on Coursera or Udemy."
+  utter_roe_meaning:
+  - text: "ROE (Return on Equity) measures a company's profitability by evaluating how effectively it generates profits from shareholders' equity. It's a key financial ratio."
 actions:
   - get_latest_stock_price
   - get_older_stock_price

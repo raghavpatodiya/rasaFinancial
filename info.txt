@@ -64,14 +64,11 @@ Test:
 
 Incorporate:
     improve NLU
-    before sending user message to rasa, remove any obvious typos
+    before sending user message to rasa, remove any obvious typos, hugging face nlp integration ?
     mappings/charts in flask interface
-    make intents to define all the Functionalities
-    light theme
     language translation
     help page, diplaying the Functionalities and limitations of the chatbot
-    for more - look here and there
-    hugging face nlp integration ?
+    for more - look here and there (FAQs)
     more predictions
     check all bot responses and generalize it
 
