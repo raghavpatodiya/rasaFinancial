@@ -65,7 +65,7 @@ body {
 }
 .odometer {
   font-size: 24px;
-  color: #666;
+  color: #fff;
 }
 .user-message {
   text-align: right;
@@ -147,7 +147,6 @@ footer {
 .faq-page-btn:hover {
   background-color: #138496; 
 }
-
-
-
-
+#stock-table {
+  color: #fff;
+}

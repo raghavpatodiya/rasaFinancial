@@ -1,8 +1,5 @@
 function fetchStockData() {
-    // Array of stock symbols
-    const symbols = ['AAPL', 'GOOGL', 'MSFT']; // Add more symbols if needed
-
-    // Fetch data for each stock symbol
+    const symbols = ['AAPL', 'GOOGL', 'MSFT']; 
     symbols.forEach(function(symbol) {
         yfinance.quote({
             symbol: symbol,
@@ -13,10 +10,7 @@ function fetchStockData() {
         });
     });
 }
-
-// Function to update the table with live stock data
 function updateTable(symbol, data) {
-    // Create a table row
     const row = `
         <tr>
             <td>${symbol}</td>
@@ -25,13 +19,7 @@ function updateTable(symbol, data) {
             <td>${data.changePercent}</td>
         </tr>
     `;
-
-    // Append the row to the table body
     $('#stock-table tbody').append(row);
 }
-
-// Fetch stock data initially
 fetchStockData();
-
-// Fetch stock data periodically (every 30 seconds in this example)
-setInterval(fetchStockData, 30000); // Adjust the interval as needed
+setInterval(fetchStockData, 5000); 

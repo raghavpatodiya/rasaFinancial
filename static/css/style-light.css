@@ -150,3 +150,6 @@ footer {
 .faq-page-btn:hover {
   background-color: #138496; 
 }
+#stock-table {
+    color: #007bff;
+}
