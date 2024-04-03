@@ -217,6 +217,18 @@ def report_conversation():
         # If user message or bot response is missing, return a bad request response
         return jsonify({'message': 'Both user message and bot response are required.'}), 400
 
+# faq route
+@app.route('/faq')
+@login_required
+def faq():
+    return render_template('faq.html')
+
+# contact us route
+@app.route('/contactus')
+@login_required
+def contactus():
+    return render_template('contactus.html')
+
 # Webhook route
 @app.route('/webhook', methods=['POST'])
 def webhook():

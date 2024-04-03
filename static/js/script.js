@@ -49,6 +49,10 @@ $(document).ready(function () {
         // Redirect to the login page
         window.location.href = "/login";
     });
+    $(".faq-page-btn").on("click", function () {
+        // Redirect to the FAQ page
+        window.location.href = "/faq";
+    });
     $("#chat-widget-button").on("click", function () {
         $("#chat-widget").toggleClass("d-none");
     });

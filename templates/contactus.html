@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #222;
+        color: #fff;
+        margin-top: 50px;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        margin-top: 50px;
+        max-width: 800px;
+        padding: 0 15px;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      form {
+        margin-top: 20px;
+      }
+
+      label {
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #555;
+        background-color: #333;
+        color: #fff;
+      }
+
+      input[type="submit"] {
+        background-color: #007bff;
+        border: none;
+        color: #fff;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+
+      a {
+        color: #007bff;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>
+        If you have any questions or inquiries, please feel free to contact us
+        using the form below.
+      </p>
+      <form id="contactForm">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#contactForm").submit(function (e) {
+          e.preventDefault();
+          var formData = $(this).serialize();
+          // Send form data using AJAX
+          $.ajax({
+            type: "POST",
+            url: "/contact",
+            data: formData,
+            success: function (response) {
+              // Handle success response, if needed
+              console.log(response);
+            },
+            error: function () {
+              // Handle error, if any
+              console.log("Error occurred while submitting the form.");
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

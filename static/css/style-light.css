@@ -135,7 +135,7 @@ footer {
 #theme-toggle:hover {
    background-color: #5a6268; 
 }
-#faq-page {
+.faq-page-btn {
     background-color: #17a2b8; 
     color: #fff; 
     border: none; 
@@ -147,6 +147,6 @@ footer {
     width: 150px; 
     text-align: center; 
   }
-#faq-page:hover {
+.faq-page-btn:hover {
   background-color: #138496; 
 }
