@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from flask import redirect, url_for, flash, abort
+from flask import redirect, url_for, flash, abort, get_flashed_messages
 from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
 import bcrypt
 from flask_sqlalchemy import SQLAlchemy
@@ -61,6 +61,11 @@ class ReportedConversations(UserMixin, db.Model):
     user_message = db.Column(db.String())
     bot_response = db.Column(db.String())
 
+class Queries(UserMixin, db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String())
+    email = db.Column(db.String())
+    message = db.Column(db.String())
 
 # Initialize Flask-Login
 @login_manager.user_loader
@@ -98,6 +103,9 @@ def signup():
 # Login route
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    # Clear flash messages from the session
+    for message in get_flashed_messages():
+        pass
     error = None  # Initialize error variable
     if request.method == 'POST':
         username = request.form['username']
@@ -224,9 +232,29 @@ def faq():
     return render_template('faq.html')
 
 # contact us route
-@app.route('/contactus')
+@app.route('/contactus', methods=['GET', 'POST'])
 @login_required
 def contactus():
+    if request.method == 'POST':
+        name = request.form.get('name')
+        email = request.form.get('email')
+        message = request.form.get('message')
+
+        # Create a new instance of Queries model
+        new_query = Queries(name=name, email=email, message=message)
+
+        try:
+            # Add and commit the new query to the database
+            db.session.add(new_query)
+            db.session.commit()
+        except Exception as e:
+            # Log the exception
+            print("Exception occurred while saving the query:", e)
+            # If an error occurs, rollback the transaction
+            db.session.rollback()
+            # Redirect the user back to the contact us page
+            return redirect(url_for('contactus'))
+
     return render_template('contactus.html')
 
 # Webhook route

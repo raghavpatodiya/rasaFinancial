@@ -31,8 +31,8 @@
       }
 
       .btn-primary {
-        background-color: #17a2b8;
-        border-color: #17a2b8;
+        background-color: #007bff;
+        border-color: #007bff;
         padding: 10px 20px;
         border-radius: 10px;
         color: #fff;
@@ -40,21 +40,89 @@
       }
 
       .btn-primary:hover {
-        background-color: #138496;
-        border-color: #138496;
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+      .back-btn {
+        background-color: #6c757d;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        width: 150px;
+        text-align: center;
       }
     </style>
   </head>
   <body>
     <div class="container">
+      <button class="back-btn position-fixed" style="top: 20px; right: 20px">
+        Back to Chatbot
+      </button>
       <h2>Frequently Asked Questions</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam suscipit
-        risus in dui sodales molestie. Nam ultrices maximus dui, non varius
-        nisi. Duis sed lorem ut tellus hendrerit suscipit.
+        Check out our FAQ below to see if your question has been answered. If
+        you can't find the answer you're looking for, feel free to Contact Us !
       </p>
+      <ul>
+        <li>
+          <h5>How do I start using the chatbot?</h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>What can the chatbot help me with?</h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>Is the chatbot available 24/7?</h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>How do I report an issue or give feedback about the chatbot?</h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>
+            Can the chatbot handle specific types of inquiries or requests?
+          </h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>What languages does the chatbot support?</h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>How do I change my preferences or settings in the chatbot?</h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>Is my data secure with the chatbot?</h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>Can I escalate to a human agent if needed?</h5>
+          <!-- Answer goes here -->
+        </li>
+        <li>
+          <h5>How do I end the conversation with the chatbot?</h5>
+          <!-- Answer goes here -->
+        </li>
+      </ul>
       <!-- Button to redirect to contactus.html -->
       <a href="contactus" class="btn btn-primary">Contact Us</a>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add event listener to the back button
+        var backButton = document.querySelector(".back-btn");
+        backButton.addEventListener("click", function () {
+          // Redirect to the index page
+          window.location.href = "/";
+        });
+      });
+    </script>
   </body>
 </html>

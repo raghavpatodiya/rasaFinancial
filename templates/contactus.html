@@ -104,15 +104,23 @@
           // Send form data using AJAX
           $.ajax({
             type: "POST",
-            url: "/contact",
+            url: "/contactus",
             data: formData,
             success: function (response) {
-              // Handle success response, if needed
+              // Handle success response
               console.log(response);
+              // Display a confirmation alert
+              alert("Your message has been successfully submitted.");
+              // Optionally, you can redirect the user to another page
+              window.location.href = "/faq";
             },
             error: function () {
               // Handle error, if any
               console.log("Error occurred while submitting the form.");
+              // Display an error alert
+              alert(
+                "An error occurred while submitting the form. Please try again later."
+              );
             },
           });
         });
