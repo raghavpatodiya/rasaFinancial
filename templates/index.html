@@ -98,9 +98,34 @@
         LOC Powering this Chatbot:
         <span id="loc-counter" class="odometer">0</span>
       </div>
+      <!-- Stock table -->
+      <table
+        id="stock-table"
+        class="table table-striped"
+        style="color: #c82333"
+      >
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Price</th>
+            <th>Change</th>
+            <th>% Change</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Stock data will be inserted here dynamically -->
+        </tbody>
+      </table>
     </div>
     <footer class="text-left">
-      <p>This chatbot was developed by Raghav Patodiya</p>
+      <p>
+        This chatbot was developed by
+        <a
+          href="https://www.linkedin.com/in/raghav-patodiya-a59347202/"
+          target="_blank"
+          >Raghav Patodiya</a
+        >
+      </p>
       <p>
         Check out the source code at
         <a
@@ -108,6 +133,7 @@
           target="_blank"
           >my Github</a
         >
+        & contact me through <a href="contactus">here</a>
       </p>
     </footer>
 
@@ -117,9 +143,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Odometer JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
+    <!-- yfinance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/yfinance/0.1.63/yfinance.min.js"></script>
     <script
       type="text/javascript"
       src="{{ url_for('static', filename='js/script.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/stockUpdate.js')}}"
     ></script>
     <script>
       $(document).ready(function () {

@@ -66,8 +66,9 @@ Incorporate:
     before sending user message to rasa, remove any obvious typos, hugging face nlp integration ?
     mappings/charts in flask interface
     language translation
-    help page, diplaying the Functionalities and limitations of the chatbot
-    for more - look here and there (FAQs)
+    odometer look to "welcome to my chatbot"
+    live stock updates
+    improve FAQ's
     more predictions
     check all bot responses and generalize it
     check every entent, action, response and rule
