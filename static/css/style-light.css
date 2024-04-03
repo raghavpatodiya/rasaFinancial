@@ -1,22 +1,22 @@
 body {
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text color */
-    margin-top: 50px; /* Move the chat widget down */
+    background-color: #fff; 
+    color: #333;
+    margin-top: 50px; 
 }
 .chat-sign-button {
-    position: fixed; /* Position the button fixed */
-    bottom: 20px; /* Adjust the distance from the bottom */
-    right: 20px; /* Adjust the distance from the right */
-    z-index: 9999; /* Set a higher z-index to ensure it appears above other elements */
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    z-index: 9999; 
     width: 50px;
     height: 50px;
     font-size: 24px;
-    background-color: #007bff; /* Blue color */
-    color: #fff; /* White text color */
-    border: none; /* Remove border */
-    border-radius: 50%; /* Make it a circle */
-    cursor: pointer; /* Add pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease; 
 }
 .chat-widget {
     position: fixed;
@@ -24,17 +24,17 @@ body {
     right: 20px;
     width: 400px;
     border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Lighter shadow */
-    background-color: #fcf8e3; /* Light gray background */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fcf8e3; 
     border: none;
-    color: #333; /* Dark text color */
+    color: #333; 
     transition: all 0.3s ease;
-    z-index: 9998; /* Set a higher z-index value */
+    z-index: 9998; 
 }
 .chat-widget-header {
     background-color: #007bff;
     color: #fff;
-    border-radius: 10px 10px 0 0; /* Rounded corners on top */
+    border-radius: 10px 10px 0 0; 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -48,13 +48,13 @@ body {
 }
 .chat-widget-footer {
     background-color: #fff3cd; 
-    border-radius: 0 0 10px 10px; /* Rounded corners on bottom */
+    border-radius: 0 0 10px 10px; 
     padding: 10px;
 }
 .form-control {
-    background-color: #fff; /* White background */
-    color: #333; /* Dark text color */
-    border-color: #ccc; /* Light gray border */
+    background-color: #fff; 
+    color: #333; 
+    border-color: #ccc; 
 }
 .btn-primary {
     background-color: #007bff;
@@ -66,7 +66,7 @@ body {
 }
 .odometer {
     font-size: 24px;
-    color: #007bff; /* Blue color */
+    color: #007bff; 
 }
 .user-message {
     text-align: right;
@@ -83,29 +83,31 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: #fff3cd; /* Light gray background */
-    color: #333; /* Dark text color */
+    background-color: #fff3cd; 
+    color: #333; 
     padding: 20px;
 }
 .logout-btn {
-    background-color: #dc3545; /* Red color for logout button */
-    color: #fff; /* White text color */
-    border: none; /* Remove border */
+    background-color: #dc3545; 
+    color: #fff; 
+    border: none; 
     padding: 10px 20px;
     margin-top: 20px;
     cursor: pointer;
     border-radius: 10px;
     transition: background-color 0.3s ease;
+    width: 150px; 
+    text-align: center; 
 }
 .logout-btn:hover {
-    background-color: #c82333; /* Darker red color on hover */
+    background-color: #c82333; 
 }
 .bot-label {
     color: #dc3545;
 }
 .speak-button {
-    background-color: #fff3cd; /* Blue color */
-    color: #fff; /* White text color */
+    background-color: #fff3cd; 
+    color: #fff; 
     border: none;
     padding: 6px;
     margin-right: 5px;
@@ -116,20 +118,35 @@ footer {
     transition: background-color 0.3s ease;
 }
 .speak-button:hover {
-    background-color: #b8860b; /* Darker blue color on hover */
+    background-color: #b8860b; 
 }
-/* Style for theme toggle button */
 #theme-toggle {
-    background-color: #6c757d; /* Gray color for toggle button */
-    color: #fff; /* White text color */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Add padding */
-    margin-top: 20px; /* Add margin at the top */
-    cursor: pointer; /* Add pointer cursor on hover */
-    border-radius: 10px; /* Add rounded corners */
-    transition: background-color 0.3s ease; /* Smooth transition on hover */
+    background-color: #6c757d; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px;
+    margin-top: 20px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    transition: background-color 0.3s ease; 
+    width: 150px; 
+    text-align: center; 
   }
-  
-  #theme-toggle:hover {
-    background-color: #5a6268; /* Darker gray color on hover */
+#theme-toggle:hover {
+   background-color: #5a6268; 
+}
+#faq-page {
+    background-color: #17a2b8; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    margin-top: 20px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    transition: background-color 0.3s ease; 
+    width: 150px; 
+    text-align: center; 
   }
+#faq-page:hover {
+  background-color: #138496; 
+}
