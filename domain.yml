@@ -82,6 +82,12 @@ intents:
   - ask_board_risk_meaning
   - ask_compensation_risk_meaning
   - ask_overall_risk_meaning
+  - ask_pe_ratio_meaning
+  - ask_volume_meaning
+  - ask_bid_ask_size_meaning
+  - ask_price_book_ratio_meaning
+  - ask_eps_meaning
+  - ask_peg_ratio_meaning
 entities:
   - stock_name
   - stock_name2
@@ -277,6 +283,18 @@ responses:
   - text: "Compensation risk refers to potential risks associated with the compensation structures and policies within a company, impacting employee motivation, performance, and alignment with organizational objectives."
   utter_overall_risk_meaning:
   - text: "Overall risk encompasses all potential risks faced by a company, including financial, operational, strategic, and compliance risks, impacting its ability to achieve objectives."
+  utter_pe_ratio_meaning:
+  - text: "PE ratio (Price-to-Earnings ratio) measures a company's stock price relative to its earnings per share, indicating its valuation and potential for investment."
+  utter_volume_meaning:
+  - text: "Volume in stock trading refers to the total number of shares bought and sold during a given period, indicating market activity and liquidity."
+  utter_bid_ask_size_meaning:
+  - text: "Bid size represents the total number of shares buyers are willing to purchase at a specific price, while ask size is the total number of shares sellers are offering for sale at a particular price."
+  utter_price_book_ratio_meaning:
+  - text: "Price-to-Book ratio (P/B ratio) compares a company's market value to its book value, indicating how the market values the company relative to its assets."
+  utter_eps_meaning:
+  - text: "EPS (Earnings Per Share) measures a company's profitability by dividing its net income by the total number of outstanding shares. EPS growth indicates the rate of increase in earnings per share over time."
+  utter_peg_ratio_meaning:
+  - text: "PEG ratio (Price/Earnings to Growth ratio) evaluates a stock's valuation by considering its P/E ratio relative to its earnings growth rate, helping assess if a stock is overvalued or undervalued."
 
 
 

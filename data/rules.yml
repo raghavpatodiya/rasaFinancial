@@ -355,3 +355,33 @@ rules:
   steps: 
     - intent: ask_overall_risk_meaning
     - action: utter_overall_risk_meaning
+
+- rule: meaning of pe ratio
+  steps: 
+    - intent: ask_pe_ratio_meaning
+    - action: utter_pe_ratio_meaning
+
+- rule: meaning of volume
+  steps: 
+    - intent: ask_volume_meaning
+    - action: utter_volume_meaning
+
+- rule: meaning of bid and ask size
+  steps: 
+    - intent: ask_bid_ask_size_meaning
+    - action: utter_bid_ask_size_meaning
+
+- rule: meaning of p/b ratio
+  steps:
+    - intent: ask_price_book_ratio_meaning
+    - action: utter_price_book_ratio_meaning
+
+- rule: meaning of eps
+  steps: 
+    - intent: ask_eps_meaning
+    - action: utter_eps_meaning
+
+- rule: meaning of peg ratio
+  steps: 
+    - intent: ask_peg_ratio_meaning
+    - action: utter_peg_ratio_meaning

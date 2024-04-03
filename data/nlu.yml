@@ -1002,3 +1002,69 @@ nlu:
     - What factors contribute to overall risk?
     - How is overall risk assessed?
     - Is overall risk the same as inherent risk?
+
+- intent: ask_pe_ratio_meaning
+  examples: |
+    - what is pe ratio.
+    - what do you mean by pe ratio.
+    - Explain pe ratio to me.
+    - Could you define pe ratio?
+    - I'm unclear about pe ratio. Can you elaborate?
+    - Can you give me some insights into pe ratio?
+    - What factors contribute to pe ratio?
+    - How is pe ratio assessed?
+    - what is price to earning 
+    - can you elaborate on what is price to earning ratio
+
+- intent: ask_volume_meaning
+  examples: |
+    - what is volume.
+    - what do you mean by volume.
+    - Explain volume to me.
+    - Could you define volume?
+    - I'm unclear about volume. Can you elaborate?
+    - Can you give me some insights into volume?
+    - What factors contribute to volume?
+    - How is volume assessed?
+    - what is total volume of a share
+
+- intent: ask_bid_ask_size_meaning
+  examples: |
+    - how does bid size compare to ask size
+    - what is bid size
+    - what do you mean by ask size
+    - bid size vs ask size of a share
+    - explain the difference between bid and ask size
+    - could you elaborate on bid and ask size?
+    - define bid size and ask size
+
+- intent: ask_price_book_ratio_meaning
+  examples: |
+    - what is price book ratio
+    - what do you mean by price book ratio
+    - explain price book ratio to me
+    - price book ratio vs price to book ratio
+    - explain the difference between price book ratio and price to book ratio
+    - could you elaborate on price book ratio and price to book ratio?
+    - define price book ratio and price to book ratio
+
+- intent: ask_eps_meaning
+  examples: |
+    - what is eps
+    - what do you mean by eps
+    - explain eps to me
+    - eps vs eps growth
+    - explain the difference between eps and eps growth
+    - could you elaborate on eps and eps growth?
+    - define eps and eps growth
+
+- intent: ask_peg_ratio_meaning
+  examples: |
+    - what is peg ratio
+    - what do you mean by peg ratio
+    - explain peg ratio to me
+    - peg ratio vs peg ratio growth
+    - explain the difference between peg ratio and peg ratio growth
+    - could you elaborate on peg ratio 
+    - define peg ratio 
+    - price to earning growth ratio
