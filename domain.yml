@@ -81,6 +81,7 @@ intents:
   - ask_audit_risk_meaning
   - ask_board_risk_meaning
   - ask_compensation_risk_meaning
+  - ask_overall_risk_meaning
 entities:
   - stock_name
   - stock_name2

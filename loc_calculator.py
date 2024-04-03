@@ -1,5 +1,7 @@
 import os
 import time
+from dotenv import load_dotenv
+load_dotenv()
 
 def count_lines_of_code(file_path):
     with open(file_path, 'r') as file:
@@ -38,7 +40,7 @@ def calculate_loc(root_dir):
     # print(f"Total LOC: {total_loc}")
 
 if __name__ == "__main__":
-    root_directory = "E:/Study2024/rasaFinancial"
+    root_directory = os.getenv("ROOT_DIRECTORY")
     
     # Run continuously
     while True:
