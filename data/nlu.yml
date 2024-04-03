@@ -1068,3 +1068,85 @@ nlu:
     - could you elaborate on peg ratio 
     - define peg ratio 
     - price to earning growth ratio
+
+- intent: ask_revenue_meaning
+  examples: |
+    - what is revenue
+    - what is the meaning of total revenue of a company
+    - can you explain the concept of revenue
+    - define revenue
+    - I'm not clear on what revenue signifies, could you elaborate?
+    - Please clarify what revenue entails
+    - Could you provide an explanation for revenue?
+    - What does the term "revenue" encompass?
+    - I'd like to understand the definition of revenue
+    - Can you shed some light on the concept of revenue?
+
+- intent: ask_ebitda_meaning
+  examples: |
+    - what is ebitda
+    - what is the meaning of ebitda of a company
+    - What does EBITDA stand for?
+    - Explain EBITDA to me.
+    - Define EBITDA.
+    - Could you clarify the meaning of EBITDA?
+    - What is the significance of EBITDA in finance?
+
+- intent: ask_debt_equity_meaning
+  examples: |
+    - what is debt to equity
+    - what is the meaning of debt to equity of a company
+    - explain debt to equity ratio
+    - could you clarify the concept of dte?
+    - define debt to equity ratio
+    - How do you calculate debt to equity?
+    - Please elaborate on the debt to equity ratio.
+    - What does the debt to equity ratio indicate?
+    - I'm unclear about the significance of debt to equity.
+    - Can you provide insight into the dte ratio?
+
+- intent: ask_roa_meaning
+  examples: |
+    - what is roa
+    - what is the meaning of return on assets of a company
+    - what does ROA stand for?
+    - explain ROA to me.
+    - could you define return on assests?
+    - what is the significance of return on assets?
+
+- intent: ask_etr_meaning
+  examples: |
+    - what is etr
+    - what is the meaning of enterprise to revenue of a company 
+    - what does ETR stand for?
+    - define ETR
+    - explain enterprise to revenue to me.
+    - can you tell me about ETR?
+    - ETR meaning
+    - enterprise to revenue meaning
+
+- intent: ask_ete_meaning
+  examples: |
+    - what is ete
+    - what is enterprise to EBITDA
+    - explain ETE
+    - define enterprise to EBITDA
+    - can you clarify ETE?
+    - Could you elaborate on enterprise to EBITDA?
+    - I'm not familiar with ETE. Can you explain?
+    - Define ETE, please.
+    - Can you give me some insights into enterprise to EBITDA?
+
+- intent: ask_profitability_margins
+  examples: |
+    - What are the gross margins?
+    - Tell me about the EBITDA margins.
+    - What are the operating margins?
+    - Can you provide insights into gross Margins, ebitda Margins, and operating Margins?
+    - Explain the significance of gross Margins, ebitda Margins, and operating Margins.
+    - I'm interested in learning about ebitda Margins.
+    - Could you elaborate on operating Margins?
+    - How do grossMargins, ebitda Margins, and operating Margins impact financial performance?
+    - Explain the relevance of gross Margins, ebitdaMargins, and operating Margins in financial analysis.
+    - types of profitability margins
+    - list the types of profitability margins

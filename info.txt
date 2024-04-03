@@ -63,7 +63,6 @@ Test:
     only spacy, duckling, dietClassifier ?
 
 Incorporate:
-    improve NLU
     before sending user message to rasa, remove any obvious typos, hugging face nlp integration ?
     mappings/charts in flask interface
     language translation
@@ -71,6 +70,7 @@ Incorporate:
     for more - look here and there (FAQs)
     more predictions
     check all bot responses and generalize it
+    check every entent, action, response and rule
 
 Functionalities: 
     once price predicted - buysellhold

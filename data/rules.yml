@@ -385,3 +385,39 @@ rules:
   steps: 
     - intent: ask_peg_ratio_meaning
     - action: utter_peg_ratio_meaning
+
+- rule: meaning of revenue
+  steps: 
+    - intent: ask_revenue_meaning
+    - action: utter_revenue_meaning
+
+- rule: meaning of ebitda
+  steps: 
+    - intent: ask_ebitda_meaning
+    - action: utter_ebitda_meaning
+
+- rule: meaning of debt to equity
+  steps:
+    - intent: ask_debt_equity_meaning
+    - action: utter_debt_equity_meaning
+
+- rule: meaning of roa
+  steps:
+    - intent: ask_roa_meaning
+    - action: utter_roa_meaning
+
+- rule: meaning of etr
+  steps: 
+    - intent: ask_etr_meaning
+    - action: utter_etr_meaning
+
+- rule: meaning of ete
+  steps: 
+    - intent: ask_ete_meaning
+    - action: utter_ete_meaning
+
+- rule: profitability margins
+  steps:
+    - intent: ask_profitability_margins
+    - action: utter_profitability_margins
+
