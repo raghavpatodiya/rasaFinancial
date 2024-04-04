@@ -195,6 +195,7 @@ $(document).ready(function () {
                             <td>${stock.price}</td>
                             <td>${stock.change}</td>
                             <td>${stock.percent_change}</td>
+                            <td>${stock.market_cap}</td>
                         </tr>`
                     );
                 });

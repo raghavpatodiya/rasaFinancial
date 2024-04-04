@@ -78,7 +78,8 @@ Functionalities:
     other - gainers, losers, specifc info, general info, market sentiment, market status, latest price, older price, trend, volatality
     answer stock related questions
     comparison between stocks
-    data mappings
+    search feature
+    dynamically update top 500 companies
 
 Error:
     stock_info not displayed on bot interface
