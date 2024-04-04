@@ -302,12 +302,13 @@ def get_stock_data():
     with open('stock_data.txt', 'r') as f:
         for line in f:
             symbol, price, change, percent_change = line.strip().split(',')
-            all_stock_data = {
+            stock_data = {
                 'symbol': symbol,
                 'price': price,
                 'change': change,
                 'percent_change': percent_change
             }
+            all_stock_data.append(stock_data)
     return all_stock_data
 
 if __name__ == "__main__":

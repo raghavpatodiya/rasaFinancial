@@ -2,7 +2,7 @@ import time
 import yfinance as yf
 
 def fetch_stock_data():
-    symbols = ['AAPL', 'GOOGL', 'MSFT']
+    symbols = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'TEAM', 'NVDA', 'TSLA']
     all_stock_data = []
     for symbol in symbols:
         try:
