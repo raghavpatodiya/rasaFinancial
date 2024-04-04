@@ -12,7 +12,7 @@ from flask_migrate import Migrate
 from flask import abort
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
-
+import yfinance as yf
 # URL of Rasa's server
 RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 ACTION_SERVER_URL = 'http://localhost:5055/webhook'
@@ -294,6 +294,21 @@ def loc():
     except Exception as e:
         print("An error occurred while fetching LOC:", e)
         return jsonify({'loc': 'Error fetching LOC'}), 500  # Return a 500 status code for internal server error
+
+# Route to fetch stock data
+@app.route('/stock_data', methods=['GET'])
+def get_stock_data():
+    all_stock_data = []
+    with open('stock_data.txt', 'r') as f:
+        for line in f:
+            symbol, price, change, percent_change = line.strip().split(',')
+            all_stock_data = {
+                'symbol': symbol,
+                'price': price,
+                'change': change,
+                'percent_change': percent_change
+            }
+    return all_stock_data
 
 if __name__ == "__main__":
     app.run(debug=True, port=3000)
