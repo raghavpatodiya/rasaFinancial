@@ -178,5 +178,33 @@ $(document).ready(function () {
     updateLocCounter();
     setInterval(updateLocCounter, 5000);
     
+
+    function updateStockData() {
+        // AJAX request to fetch stock data from the server
+        $.ajax({
+            type: "GET",
+            url: "/stock_data",
+            success: function (data) {
+                // Clear the existing table rows
+                $("#stock-table tbody").empty();
+                // Loop through the received data and append rows to the table
+                data.forEach(function (stock) {
+                    $("#stock-table tbody").append(
+                        `<tr>
+                            <td>${stock.symbol}</td>
+                            <td>${stock.price}</td>
+                            <td>${stock.change}</td>
+                            <td>${stock.percent_change}</td>
+                        </tr>`
+                    );
+                });
+            },
+            error: function () {
+                // Handle error if needed
+            },
+        });
+    }
+    updateStockData();
+    setInterval(updateStockData, 5000);
 });
 

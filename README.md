@@ -8,7 +8,6 @@
 - `rasa run actions`: Run custom actions defined in actions.py alongside your Rasa server.
 - `docker run -p 8000:8000 rasa/duckling`: To run Duckling on Docker.
 - run `app.py` with Flask's built-in server.
-- run `loc_calculator.py` to activate LOC Counter.
 - Set up PostgreSQL & PgAdmin4, then from the query tool run these queries:
 - `CREATE USER username WITH PASSWORD 'password';`
 - `CREATE DATABASE db_name;`

@@ -105,8 +105,8 @@
         <thead>
           <tr>
             <th>Symbol</th>
-            <th>Price</th>
-            <th>Change</th>
+            <th>$ Price</th>
+            <th>$ Change</th>
             <th>% Change</th>
           </tr>
         </thead>
@@ -147,15 +147,9 @@
       type="text/javascript"
       src="{{ url_for('static', filename='js/script.js')}}"
     ></script>
-    <script
-      type="text/javascript"
-      src="{{ url_for('static', filename='js/stockUpdate.js')}}"
-    ></script>
     <script>
       $(document).ready(function () {
-        let currentTheme = "dark"; // Track the current theme
-
-        // Function to toggle between light and dark themes
+        let currentTheme = "dark";
         function toggleTheme() {
           const themeLink = document.getElementById("theme");
           if (currentTheme === "light") {
@@ -168,7 +162,6 @@
             currentTheme = "light";
           }
         }
-        // Event handler for theme toggle button click
         $("#theme-toggle").on("click", function () {
           toggleTheme();
         });
