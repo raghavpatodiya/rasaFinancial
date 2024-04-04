@@ -21,7 +21,7 @@ def format(amount: str) -> str:
         return formatted
 
 def fetch_stock_data():
-    symbols = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'META', 'TEAM', 'NVDA', 'TSLA']
+    symbols = ['AAPL', 'GOOG', 'MSFT', 'AMZN', 'META', 'TEAM', 'NVDA', 'TSLA', 'V', 'LLY']
     all_stock_data = []
     for symbol in symbols:
         try:

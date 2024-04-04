@@ -439,7 +439,7 @@ class ActionGetSpecificInfo(Action):
             requested_info = info['currentRatio']
             dispatcher.utter_message(text=f"The current ratio of {company_name} is: {requested_info}")
 
-        elif info_type in ["total revenue"]:
+        elif info_type in ["total revenue", "revenue"]:
             requested_info = info['totalRevenue']
             requested_info = self.format(requested_info)
             dispatcher.utter_message(text=f"The total revenue of {company_name} is: ${requested_info}")
@@ -452,11 +452,11 @@ class ActionGetSpecificInfo(Action):
             requested_info = info['revenuePerShare']
             dispatcher.utter_message(text=f"The revenue per share of {company_name} is: {requested_info}")
 
-        elif info_type in ["return on assets"]:
+        elif info_type in ["return on assets", "roa"]:
             requested_info = info['returnOnAssets']
             dispatcher.utter_message(text=f"The return on assets of {company_name} is: {requested_info}")
 
-        elif info_type in ["return on equity"]:
+        elif info_type in ["return on equity", "roe"]:
             requested_info = info['returnOnEquity']
             dispatcher.utter_message(text=f"The return on equity of {company_name} is: {requested_info}")
 
