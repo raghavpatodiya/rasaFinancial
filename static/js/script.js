@@ -189,10 +189,11 @@ $(document).ready(function () {
                 $("#stock-table tbody").empty();
                 // Loop through the received data and append rows to the table
                 data.forEach(function (stock) {
+                    let trendSymbol = stock.change > 0 ? "<span style='color: green;'>▲</span>" : "<span style='color: red;'>▼</span>";
                     $("#stock-table tbody").append(
                         `<tr>
                             <td>${stock.symbol}</td>
-                            <td>${stock.price}</td>
+                            <td>${stock.price}${trendSymbol}</td>
                             <td>${stock.change}</td>
                             <td>${stock.percent_change}</td>
                             <td>${stock.market_cap}</td>

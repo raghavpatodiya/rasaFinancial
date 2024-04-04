@@ -80,6 +80,8 @@ Functionalities:
     comparison between stocks
     search feature
     dynamically update top 500 companies
+    predicted price, recommendation key
+    price odometer
 
 Error:
     stock_info not displayed on bot interface

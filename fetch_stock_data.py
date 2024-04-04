@@ -31,7 +31,7 @@ def fetch_stock_data():
                 'symbol': symbol,
                 'price': info['currentPrice'],
                 'change': round(info['previousClose'] - info['currentPrice'], 2),  # Rounded to 2 decimal points
-                'percent_change': round((info['previousClose'] - info['currentPrice']) / info['previousClose'] * 100, 2),  # Rounded to 2 decimal points
+                'percent_change': abs(round((info['previousClose'] - info['currentPrice']) / info['previousClose'] * 100, 2)),  # Rounded to 2 decimal points
                 'market_cap': format(info['marketCap'])
             }
             all_stock_data.append(stock_data)
