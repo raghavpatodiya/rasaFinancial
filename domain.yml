@@ -28,7 +28,6 @@ intents:
   - ask_dividend_investing
   - ask_key_indicators
   - ask_market_sentiment_affect
-  - ask_pe_ratio_significance
   - ask_identify_undervalued_stock
   - ask_growth_value_stock
   - ask_inflation_stock_market
@@ -194,8 +193,6 @@ responses:
   - text: "Key indicators in financial statements include revenue growth, profitability margins, debt levels, cash flow, and return on investment (ROI)."
   utter_market_sentiment_affect:
   - text: "Market sentiment influences stock prices by impacting investor behavior, driving buying or selling pressure based on emotions, news, and perceptions of market conditions."
-  utter_pe_ratio_significance:
-  - text: "The P/E ratio (Price-to-Earnings) helps assess a stock's valuation relative to its earnings, indicating how much investors are willing to pay per dollar of earnings."
   utter_identify_undervalued_stock:
   - text: "To identify undervalued stocks, analyze financial metrics like P/E ratio, PEG ratio, and compare them to industry peers, considering growth prospects and market sentiment."
   utter_growth_value_stock:
@@ -291,7 +288,7 @@ responses:
   utter_overall_risk_meaning:
   - text: "Overall risk encompasses all potential risks faced by a company, including financial, operational, strategic, and compliance risks, impacting its ability to achieve objectives."
   utter_pe_ratio_meaning:
-  - text: "PE ratio (Price-to-Earnings ratio) measures a company's stock price relative to its earnings per share, indicating its valuation and potential for investment."
+  - text: "PE ratio (Price-to-Earnings ratio) measures a company's stock price relative to its earnings per share, indicating its valuation and potential for investment. It helps assess a stock's valuation relative to its earnings, indicating how much investors are willing to pay per dollar of earnings."
   utter_volume_meaning:
   - text: "Volume in stock trading refers to the total number of shares bought and sold during a given period, indicating market activity and liquidity."
   utter_bid_ask_size_meaning:

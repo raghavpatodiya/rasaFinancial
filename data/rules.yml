@@ -86,11 +86,6 @@ rules:
   - intent: ask_market_sentiment_affect
   - action: utter_market_sentiment_affect
 
-- rule: pe ratio significance
-  steps:
-  - intent: ask_pe_ratio_significance
-  - action: utter_pe_ratio_significance
-
 - rule: identify undervalued stock
   steps:
   - intent: ask_identify_undervalued_stock

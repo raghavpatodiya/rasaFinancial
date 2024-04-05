@@ -193,6 +193,9 @@ nlu:
     - could you provide a list of your capabilities?
     - I'd like you to list what you're capable of.
 
+########################################################################################################
+# get info
+
 - intent: ask_latest_stock_price
   examples: |
     - give me stock price for [apple](stock_name)
@@ -221,6 +224,7 @@ nlu:
     - what is the cost per share for [NVDA](stock_name)?
     - what is the cost of [ael](stock_name)
     - then what is the price of this stock ?
+    - stock price ?
 
 - intent: ask_older_stock_price
   examples: |
@@ -246,38 +250,38 @@ nlu:
     - so, what is its [previousClose](info) ?
     - get me [website](info) link of  [Netflix](stock_name).
     - which type of [industry](info) does [meta](stock_name) belong to ?
-    - also tell me [trailing Eps](info)
-    - can you tell me [pegRatio](info)
+    - also tell me [trailing Eps](info) of [goev](stock_name)
+    - can you get me [pegRatio](info)
     - what would be the [roe](info) of [alphabet](stock_name)
     - get me [financial Currency](info) of [canoo](stock_name)
     - what is the [day High] of [aapl](stock_name)
     - tell me the [board risk](info) of [Google](stock_name)
     - fetch me the [compensation risk](info) of [Atlassian](stock_name)
-    - how many [full-time employees](info) does [Apple](stock_name) have?
-    - what is the [symbol](info) of [Microsoft](stock_name)?
-    - can you fetch me the [target high price](info) of [Nvidia](stock_name)?
-    - i need to know the [target low price](info) of [Amazon](stock_name)!
+    - how many [full-time employees](info) does [bumble](stock_name) have?
+    - what is the [symbol](info) of [popular](stock_name)?
+    - can you fetch me the [target high price](info) of [biote](stock_name)?
+    - i need to know the [target low price](info) of [nuburu](stock_name)!
     - get me its stock [symbol](info)!
     - so, what is its [previous close](info)?
-    - get me the [website](info) link of [Netflix](stock_name).
-    - which type of [industry](info) does [Meta](stock_name) belong to?
-    - also tell me the [trailing EPS](info)
-    - can you tell me the [PEG ratio](info)?
-    - what would be the [return on equity](info) of [Alphabet](stock_name)?
-    - get me the [financial currency](info) of [Canoo](stock_name)
-    - what is the [day high](info) of [AAPL](stock_name)?
-    - tell me the [beta](info) of [Google](stock_name)
-    - fetch me the [average volume](info) of [Atlassian](stock_name)
-    - how many [shares short](info) does [Apple](stock_name) have?
-    - what is the [enterprise value](info) of [Microsoft](stock_name)?
-    - can you fetch me the [book value](info) of [Nvidia](stock_name)?
-    - i need to know the [price to book](info) ratio of [Amazon](stock_name)!
+    - get me the [website](info) link of [blackstone](stock_name).
+    - which type of [industry](info) does [caleres](stock_name) belong to?
+    - also give me the [trailing EPS](info) 
+    - can you get me the [PEG ratio](info)?
+    - what would be the [return on equity](info) of [erasca](stock_name)?
+    - get me the [financial currency](info) of [captivision](stock_name)
+    - what is the [day high](info) of [chubb](stock_name)?
+    - fetch me the [beta](info) of [cameco](stock_name)
+    - fetch me the [average volume](info) of [corecard](stock_name)
+    - how many [shares short](info) does [championX](stock_name) have?
+    - what is the [enterprise value](info) of [dropbox](stock_name)?
+    - can you fetch me the [book value](info) of [deluxe](stock_name)?
+    - i need to know the [price to book](info) ratio of [duolingo](stock_name)!
     - get me its [market cap](info)!
     - so, what is its [EBITDA](info)?
-    - get me the [earnings growth](info) of [Netflix](stock_name).
-    - which is the [52-week change](info) of [Meta](stock_name)?
+    - get me the [earnings growth](info) of [ecolab](stock_name).
+    - which is the [52-week change](info) of [edgio](stock_name)?
     - also tell me the [gross margins](info)
-    - can you tell me the [short ratio](info) of [Alphabet](stock_name)?
+    - can you tell me the [short ratio](info) of [elevance health](stock_name)?
     - what would be the [return on assets](info) of [Canoo](stock_name)?
     - get me the [free cash flow](info) of [AAPL](stock_name)
     - what is the [operating cash flow](info) of [AAPL](stock_name)?
@@ -290,7 +294,7 @@ nlu:
     - get me the [fifty day average](info) of [Microsoft](stock_name)!
     - so, what is its [two hundred day average](info)?
     - get me the [net income to common](info) of [IBM](stock_name)
-    - which is the [revenue per share](info) of [Meta](stock_name)?
+    - what is the [revenue per share](info) of [euroseas](stock_name)?
     - also tell me the [peg ratio](info) of [Alibaba](stock_name)
     - what would be the [operating margins](info) of [Cisco](stock_name)?
     - get me the [total cash per share](info) of [General Electric](stock_name)
@@ -298,48 +302,48 @@ nlu:
     - what is the [max age](info)
     - what would be the [governance Epoch Date](info)
     - give me the [compensation As Of Epoch Date](info)
-    - get me [debt] of [msft]
+    - get me [debt] of [evergy]
     - what is the [currency] of [team] share ?
-    - tell me [address](info) of [Google](stock_name)
-    - fetch me [long Business Summary](info) of [Atlassian](stock_name)
-    - how many [full Time Employess](info) does [Apple](stock_name) have?
-    - what is the [symbol](info) of [Microsoft](stock_name)?
-    - can you fetch me [target High Price](info) of [Nvidia](stock_name)?
-    - i need to know the [target Low Price](info) of [Amazon](stock_name)!
+    - tell me [address](info) of [first community](stock_name)
+    - fetch me [long Business Summary](info) of [five9](stock_name)
+    - how many [full Time Employess](info) does [flywire](stock_name) have?
+    - what is the [symbol](info) of [formfactor](stock_name)?
+    - can you fetch me [target High Price](info) of [fitell](stock_name)?
+    - i need to know the [target Low Price](info) of [glatfelter](stock_name)!
     - get me its stock [symbol](info)!
     - so, what is its [previous close](info)?
-    - get me the [website](info) link of [Netflix](stock_name).
-    - which type of [industry](info) does [Meta](stock_name) belong to?
+    - get me the [website](info) link of [gamer pakistan](stock_name).
+    - which type of [industry](info) does [gri bio](stock_name) belong to?
     - also tell me the [trailing EPS](info)
     - can you tell me the [PEG ratio](info)?
-    - what would be the [return on equity](info) of [Alphabet](stock_name)?
-    - get me the [financial currency](info) of [Canoo](stock_name)
-    - what is the [day high](info) of [AAPL](stock_name)?
-    - tell me the [beta](info) of [Google](stock_name)
-    - fetch me the [average volume](info) of [Atlassian](stock_name)
-    - how many [shares short](info) does [Apple](stock_name) have?
-    - what is the [enterprise value](info) of [Microsoft](stock_name)?
-    - can you fetch me the [book value](info) of [Nvidia](stock_name)?
-    - i need to know the [price to book](info) ratio of [Amazon](stock_name)!
+    - what would be the [return on equity](info) of [ess tech](stock_name)?
+    - get me the [financial currency](info) of [hasbro](stock_name)
+    - what is the [day high](info) of [heico](stock_name)?
+    - tell me the [beta](info) of [holley](stock_name)
+    - fetch me the [average volume](info) of [hp](stock_name)
+    - how many [shares short](info) does [healthstream](stock_name) have?
+    - what is the [enterprise value](info) of [hershey](stock_name)?
+    - can you fetch me the [book value](info) of [icl](stock_name)?
+    - i need to know the [price to book](info) ratio of [illumina](stock_name)!
     - get me its [market cap](info)!
     - so, what is its [EBITDA](info)?
-    - get me the [earnings growth](info) of [Netflix](stock_name).
-    - which is the [52-week change](info) of [Meta](stock_name)?
+    - get me the [earnings growth](info) of [ipower](stock_name).
+    - which is the [52-week change](info) of [jefferies](stock_name)?
     - also tell me the [gross margins](info)
-    - can you tell me the [short ratio](info) of [Alphabet](stock_name)?
-    - what would be the [return on assets](info) of [Canoo](stock_name)?
-    - get me the [free cash flow](info) of [AAPL](stock_name)
-    - what is the [operating cash flow](info) of [AAPL](stock_name)?
-    - tell me the [market cap](info) of [Tesla](stock_name)
-    - fetch me the [trailing PE](info) of [Facebook](stock_name)
-    - how many [shares outstanding](info) does [Netflix](stock_name) have?
-    - what is the [forward PE](info) of [Amazon](stock_name)?
-    - can you fetch me the [volume](info) of [Apple](stock_name)?
-    - i need to know the [price to sales trailing 12 months](info) ratio of [Google](stock_name)!
-    - get me the [fifty day average](info) of [Microsoft](stock_name)!
+    - can you tell me the [short ratio](info) of [kaman](stock_name)?
+    - what would be the [return on assets](info) of [kirkland](stock_name)?
+    - get me the [free cash flow](info) of [kilroy](stock_name)
+    - what is the [operating cash flow](info) of [kura](stock_name)?
+    - tell me the [market cap](info) of [loews](stock_name)
+    - fetch me the [trailing PE](info) of [lendway](stock_name)
+    - how many [shares outstanding](info) does [lindsay](stock_name) have?
+    - what is the [forward PE](info) of [lavoro](stock_name)?
+    - can you fetch me the [volume](info) of [masco](stock_name)?
+    - i need to know the [price to sales trailing 12 months](info) ratio of [spectral](stock_name)!
+    - get me the [fifty day average](info) of [monster](stock_name)!
     - so, what is its [two hundred day average](info)?
-    - get me the [net income to common](info) of [IBM](stock_name)
-    - which is the [revenue per share](info) of [Meta](stock_name)?
+    - get me the [net income to common](info) of [ncr atleos](stock_name)
+    - which is the [revenue per share](info) of [neonode](stock_name)?
     - also tell me the [peg ratio](info) of [Alibaba](stock_name)
     - what would be the [operating margins](info) of [Cisco](stock_name)?
     - get me the [total cash per share](info) of [General Electric](stock_name)
@@ -347,40 +351,52 @@ nlu:
     - what is the [max age](info)
     - what would be the [governance Epoch Date](info)
     - give me the [compensation As Of Epoch Date](info)
-    - get me [debt](info) of [msft]
-    - what is the [currency](info) of [team] share?
-    - what is the [city](info) of [Amazon](stock_name)?
-    - fetch me the [website](info) link of [Tesla](stock_name)
-    - how many [full time employees](info) does [Google](stock_name) have?
-    - what is the [sector](info) of [Apple](stock_name)?
-    - can you fetch me the [overall risk](info) of [Microsoft](stock_name)?
-    - i need to know the [trailing PE](info) of [Amazon](stock_name)!
-    - get me the [day high](info) of [AAPL](stock_name)
+    - get me [debt](info) of [cloudfare]
+    - what is the [currency](info) of [nisource] share?
+    - what is the [city](info) of [novanta](stock_name)?
+    - fetch me the [website](info) link of [insperity](stock_name)
+    - how many [full time employees](info) does [oneok](stock_name) have?
+    - what is the [sector](info) of [opera](stock_name)?
+    - can you fetch me the [overall risk](info) of [otter tail](stock_name)?
+    - i need to know the [trailing PE](info) of [palisade](stock_name)!
+    - get me the [day high](info) of [uipath](stock_name)
     - so, what is its [52 week high](info)?
-    - get me the [enterprise to revenue](info) of [Google](stock_name)
-    - tell me the [time zone full name](info) of [Tesla](stock_name)
-    - fetch me the [uuid](info) of [Amazon](stock_name)
-    - how many [number of analyst opinions](info) does [Google](stock_name) have?
-    - what is the [total cash](info) of [Apple](stock_name)?
-    - can you fetch me the [EBITDA](info) of [Microsoft](stock_name)?
-    - i need to know the [total debt](info) of [Amazon](stock_name)!
-    - get me the [quick ratio](info) of [AAPL](stock_name)
+    - get me the [enterprise to revenue](info) of [precigen](stock_name)
+    - tell me the [time zone full name](info) of [polaris](stock_name)
+    - fetch me the [uuid](info) of [plexus](stock_name)
+    - how many [number of analyst opinions](info) does [philips](stock_name) have?
+    - what is the [total cash](info) of [quanterix](stock_name)?
+    - can you fetch me the [EBITDA](info) of [ready capital](stock_name)?
+    - i need to know the [total debt](info) of [redfin](stock_name)!
+    - get me the [quick ratio](info) of [regis](stock_name)
     - so, what is its [current ratio](info)?
-    - get me the [total revenue](info) of [Google](stock_name)
-    - tell me the [debt to equity](info) of [Tesla](stock_name)
-    - fetch me the [revenue per share](info) of [Amazon](stock_name)
-    - how much is the [return on assets](info) of [Apple](stock_name)?
-    - what is the [return on equity](info) of [Google](stock_name)?
-    - can you fetch me the [free cashflow](info) of [Microsoft](stock_name)?
-    - i need to know the [earnings growth](info) of [Amazon](stock_name)!
-    - get me the [gross margins](info) of [Google](stock_name)
+    - get me the [total revenue](info) of [rallybio](stock_name)
+    - tell me the [debt to equity](info) of [safe](stock_name)
+    - fetch me the [revenue per share](info) of [stepan](stock_name)
+    - how much is the [return on assets](info) of [seadrill](stock_name)?
+    - what is the [return on equity](info) of [shell](stock_name)?
+    - can you fetch me the [free cashflow](info) of [signet](stock_name)?
+    - i need to know the [earnings growth](info) of [teleflex](stock_name)!
+    - get me the [gross margins](info) of [unisys](stock_name)
     - so, what is its [ebitda margins](info)?
-    - get me the [operating margins](info) of [AAPL](stock_name)
-    - tell me the [financial currency](info) of [Tesla](stock_name)
-    - fetch me the [trailing peg ratio](info) of [Amazon](stock_name)
-    - how many [number of analyst opinions](info) does [Google](stock_name) have?
-    - what is the [total cash](info) of [Apple](stock_name)?
+    - get me the [operating margins](info) of [vivani](stock_name)
+    - tell me the [financial currency](info) of [vroom](stock_name)
+    - fetch me the [trailing peg ratio](info) of [winmark](stock_name)
+    - how many [number of analyst opinions](info) does [waste](stock_name) have?
+    - what is the [total cash](info) of [yunji](stock_name)?
     - get [officers] list
+    - get me [stock price] of [yeti](stock_name) holdings
+    - get me [stock price] of [reliance](stock_name) group
+    - get me [stock price] of [zebra](stock_name) technologies
+    - get me [stock price] of [jin medical](stock_name) international
+    - get me [stock price] of [acadia](stock_name) pharmaceuticals
+    - get me [stock price] of [advent](stock_name) holdings
+    - get me [stock price] of [altenergy](stock_name) acquisition
+    - get me [stock price] of [agco](stock_name) corporation
+    - get me [stock price] of [akso](stock_name) health group
+    - get me [stock price] of [aar](stock_name) corp.
+    - get me [stock price] of [ares](stock_name) management
+     
       
 - intent: ask_stock_predictions
   examples: |
@@ -555,134 +571,17 @@ nlu:
     - Get me the graph showing the [trends](info) for [Alphabet](stock_name).
     - Could you provide the [net income](info) graph for [IBM](stock_name)?
 
-- intent: ask_how_to_evaluate
-  examples: |
-    - How do I evaluate a company's stock before investing?
-    - What factors should i consider before investing in a company's stock's
-    - How can I assess the financial health of a potential investment?
-    - What criteria should I use to evaluate a startup before investing?
-    - What steps should I take to evaluate the sustainability of a company's business model?
-    - Can you give some pointers for evaluating the potential return on investment in a project?
-    - How do I evaluate the management team of a company before making an investment?
-    - What strategies can I use to assess the competitive landscape of an industry before investing?
-
-- intent: ask_penny_stock_risk
-  examples: |
-    - What are the risks associated with penny stocks?
-    - Risks I should consider before investing in penny stocks?
-    - Pitfalls of trading in penny stocks?
-    - I'm interested in penny stocks, but I want to understand the risks involved. Can you explain them?
-    - Before I delve into penny stocks, I want to know about the risks associated with them. Can you provide some insights?
-    - Dangers I should be aware of when dealing with penny stocks?
-    - Downsides or hazards of investing in penny stocks?
-
-- intent: ask_dividend_investing
-  examples: |
-    - Can you explain the concept of dividend investing?
-    - What are the benefits of dividend investing?
-    - How does dividend investing differ from other investment strategies?
-    - Could you provide some tips for successful dividend investing?
-    - What are some common misconceptions about dividend investing?
-    - Is dividend investing risky?
-    - Can you recommend any resources for beginners interested in dividend investing?
-    - How frequently are dividends typically paid out to investors?
-    - Could you explain the concept of dividend yield and its significance in dividend investing?
-
-- intent: ask_key_indicators
-  examples: |
-    - What are some key indicators to look for in a company's financial statements?
-    - Can you provide me with a list of important indicators to analyze in a company's financial reports?
-    - I'm interested in understanding the key metrics to assess when reviewing a company's financial statements. Could you elaborate on that?
-    - What are the main factors or metrics one should consider when evaluating the financial health of a business?
-    - Could you outline the crucial indicators that investors typically examine in a company's financial disclosures?
+########################################################################################################
+# info meanings
 
 - intent: ask_market_sentiment_affect
   examples: | 
     - How does market sentiment affect stock prices?
+    - what is the meaning of market sentiment
     - Can you explain the impact of market sentiment on stock market?
     - What is the relationship between market sentiment and stock prices?
     - Does market sentiment have a significant influence on stock prices?
     - Could you elaborate on how changes in market sentiment affect investment decisions?
-    
-- intent: ask_pe_ratio_significance
-  examples: |
-    - What is the significance of P/E ratio in stock analysis?
-    - Why is the P/E ratio important in analyzing stocks?
-    - Can you explain the significance of the P/E ratio in evaluating a company's stock?
-    - How does the P/E ratio contribute to understanding a company's financial health?
-    - What role does the P/E ratio play in determining investment decisions?
-
-- intent: ask_identify_undervalued_stock
-  examples: |
-    - How do I identify undervalued stocks?
-    - What are the techniques to find undervalued stocks?
-    - Can you suggest methods for identifying undervalued stocks?
-    - I'm interested in learning about spotting undervalued stocks. How can I do that?
-
-- intent: ask_growth_value_stock
-  examples: |
-    - Can you explain the difference between growth and value stocks?
-    - What are the main distinctions between growth stocks and value stocks?
-    - I'm trying to understand the concept of growth versus value stocks. Can you help?
-    - Could you provide some insights into how growth stocks differ from value stocks?
-    
-- intent: ask_inflation_stock_market
-  examples: |
-    - How does inflation impact stock market performance?
-    - Can you explain the relationship between inflation and stock market performance?
-    - What happens to the stock market during periods of high inflation?
-    - How do investors respond to inflationary pressures in the stock market?
-
-- intent: ask_benefits_index_funds
-  examples: |
-    - What are the potential benefits of investing in index funds?
-    - Can you outline the advantages of putting money into index funds?
-    - What are the pros of choosing index funds for investment?
-    - Could you explain why index funds might be beneficial compared to other investment options?
-    
-- intent: ask_determine_risk_tolerance
-  examples: |
-    - How do I determine my risk tolerance when investing in stocks?
-    - What factors should I consider to determine my risk tolerance for investing?
-    - Can you guide me on assessing my risk tolerance before making investment decisions?
-    
-
-- intent: ask_diversification_stock_portfolio
-  examples: |
-    - What is the role of diversification in a stock portfolio?
-    - How does diversification benefit a stock portfolio?
-    - Can you explain why diversifying a stock portfolio is important?
-    - What are the advantages of diversifying my stock investments?
-    - Could you elaborate on the concept of diversification in the context of stock portfolios?
-
-- intent: ask_interest_rate_impact
-  examples: |
-    - Can you explain the impact of interest rates on stock prices?
-    - How do changes in interest rates affect the stock market?
-    - Could you elaborate on how interest rate fluctuations influence stock prices?
-    - I'm curious about the relationship between interest rates and stock market performance.
-
-- intent: ask_common_investing_mistakes
-  examples: |
-    - What are some common mistakes to avoid when investing in stocks?
-    - Can you list some typical errors people make when investing in stocks?
-    - What are the pitfalls one should watch out for when investing in the stock market?
-
-- intent: ask_geological_unstability_affect
-  examples: |
-    - How does geological unstability affect stock prices?
-    - Can you explain how geological unstability affects stock prices?
-    - What is the relationship between geological unstability and stock prices?
-    - Does geological unstability have a significant impact on stock prices?
-    - Could you explain how geological unstability affects stock prices?
-
-- intent: ask_stock_market_guide
-  examples: |
-    - Can you provide a beginner's guide to stock market terminology?
-    - I'm new to investing, could you offer a basic introduction to stock market concepts?
-    - What are some essential terms I should know before diving into the stock market?
-    - Could you explain common stock market jargon in simple terms?
-    - I'm unfamiliar with stock market terminology, can you give me a crash course?
 
 - intent: ask_market_volatility_factors
   examples: |
@@ -690,22 +589,7 @@ nlu:
     - Can you list some of the factors that affect stock market volatility?
     - I'm curious about the elements that contribute to stock market volatility.
     - What are the main drivers behind fluctuations in the stock market?
-
-- intent: ask_use_technical_analysis
-  examples: |
-    - How can I use technical analysis to make better investment decisions?
-    - How can I utilize technical analysis to improve my investment strategies?
-    - What are the effective ways to apply technical analysis for better decision-making in investments?
-    - Could you provide guidance on employing technical analysis to enhance my investment decisions?
-    - In what ways can I incorporate technical analysis into my investment approach for better outcomes?
-
-- intent: ask_mutual_funds_individual_stocks
-  examples: |
-    - What are the differences between mutual funds and individual stocks?
-    - Mutual funds vs. individual stocks.
-    - Can you explain the distinctions between investing in mutual funds and individual stocks?
-    - I'm curious about the variances between mutual funds and individual stocks.
-    - Could you outline the disparities between mutual funds and individual stocks?
+    - what is the meaning of volatility
 
 - intent: ask_market_capitalization
   examples: |
@@ -715,6 +599,234 @@ nlu:
     - Could you provide some examples of companies with high market capitalization?
     - Why is market capitalization important for investors?
     - Is market capitalization the same as market value?
+    - what is the meaning of market capitalization
+
+- intent: ask_roe_meaning
+  examples: |
+    - What does ROE (Return on Equity) mean?
+    - Can you explain the meaning of ROE?
+    - What is the relationship between ROE and profitability?
+    - How can I use ROE to gauge my company's profitability?
+    - what is return on equity
+    - Please define ROE (Return on Equity).
+    - I'm unfamiliar with ROE, could you elaborate on it?
+    - What does Return on Equity signify in financial analysis?
+    - Could you provide insight into how ROE reflects a company's performance?
+    - What factors influence the calculation of Return on Equity?
+    - what is the meaning of roe
+
+- intent: ask_audit_risk_meaning
+  examples: |
+    - what is audit risk.
+    - what do you mean by audit risk.
+    - Explain audit risk to me.
+    - Could you define audit risk?
+    - I'm unclear about audit risk. Can you elaborate?
+    - Can you give me some insights into audit risk?
+    - What factors contribute to audit risk?
+    - How is audit risk assessed?
+    - Is audit risk the same as inherent risk?
+    - what is the meaning of audit risk
+
+- intent: ask_board_risk_meaning
+  examples: |
+    - what is board risk.
+    - what do you mean by board risk.
+    - Explain board risk to me.
+    - Could you define board risk?
+    - I'm unclear about board risk. Can you elaborate?
+    - Can you give me some insights into board risk?
+    - What factors contribute to board risk?
+    - How is board risk assessed?
+    - Is board risk the same as inherent risk?
+    - what is the meaning of board risk
+
+- intent: ask_compensation_risk_meaning
+  examples: |
+    - what is compensation risk.
+    - what do you mean by compensation risk.
+    - Explain compensation risk to me.
+    - Could you define compensation risk?
+    - I'm unclear about compensation risk. Can you elaborate?
+    - Can you give me some insights into compensation risk?
+    - What factors contribute to compensation risk?
+    - How is compensation risk assessed?
+    - Is compensation risk the same as inherent risk?
+    - what is the meaning of compensation risk
+
+- intent: ask_overall_risk_meaning
+  examples: |
+    - what is overall risk.
+    - what do you mean by overall risk.
+    - Explain overall risk to me.
+    - Could you define overall risk?
+    - I'm unclear about overall risk. Can you elaborate?
+    - Can you give me some insights into overall risk?
+    - What factors contribute to overall risk?
+    - How is overall risk assessed?
+    - Is overall risk the same as inherent risk?
+    - what is the meaning of overall risk
+
+- intent: ask_pe_ratio_meaning
+  examples: |
+    - what is pe ratio.
+    - what do you mean by pe ratio.
+    - Explain pe ratio to me.
+    - Could you define pe ratio?
+    - I'm unclear about pe ratio. Can you elaborate?
+    - Can you give me some insights into pe ratio?
+    - What factors contribute to pe ratio?
+    - How is pe ratio assessed?
+    - what is price to earning 
+    - can you elaborate on what is price to earning ratio
+    - What is the significance of P/E ratio in stock analysis?
+    - Why is the P/E ratio important in analyzing stocks?
+    - Can you explain the significance of the P/E ratio in evaluating a company's stock?
+    - How does the P/E ratio contribute to understanding a company's financial health?
+    - What role does the P/E ratio play in determining investment decisions?
+    - what is the meaning of pe ratio
+
+- intent: ask_volume_meaning
+  examples: |
+    - what is volume.
+    - what do you mean by volume.
+    - Explain volume to me.
+    - Could you define volume?
+    - I'm unclear about volume. Can you elaborate?
+    - Can you give me some insights into volume?
+    - What factors contribute to volume?
+    - How is volume assessed?
+    - what is total volume of a share
+    - what is the meaning of volume
+
+- intent: ask_bid_ask_size_meaning
+  examples: |
+    - how does bid size compare to ask size
+    - what is bid size
+    - what do you mean by ask size
+    - bid size vs ask size of a share
+    - explain the difference between bid and ask size
+    - could you elaborate on bid and ask size?
+    - define bid size and ask size
+    - what is the meaning of ask-bid size
+
+- intent: ask_price_book_ratio_meaning
+  examples: |
+    - what is price book ratio
+    - what do you mean by price book ratio
+    - explain price book ratio to me
+    - price book ratio vs price to book ratio
+    - explain the difference between price book ratio and price to book ratio
+    - could you elaborate on price book ratio and price to book ratio?
+    - define price book ratio and price to book ratio
+    - what is the meaning of p/b ratio
+
+- intent: ask_eps_meaning
+  examples: |
+    - what is eps
+    - what do you mean by eps
+    - explain eps to me
+    - eps vs eps growth
+    - explain the difference between eps and eps growth
+    - could you elaborate on eps and eps growth?
+    - define eps and eps growth
+    - what is the meaning of earnings per share
+
+- intent: ask_peg_ratio_meaning
+  examples: |
+    - what is peg ratio
+    - what do you mean by peg ratio
+    - explain peg ratio to me
+    - peg ratio vs peg ratio growth
+    - explain the difference between peg ratio and peg ratio growth
+    - could you elaborate on peg ratio 
+    - define peg ratio 
+    - price to earning growth ratio
+    - what is the meaning of Price-earnings-to-growth
+
+- intent: ask_revenue_meaning
+  examples: |
+    - what is revenue
+    - what is the meaning of total revenue of a company
+    - can you explain the concept of revenue
+    - define revenue
+    - I'm not clear on what revenue signifies, could you elaborate?
+    - Please clarify what revenue entails
+    - Could you provide an explanation for revenue?
+    - What does the term "revenue" encompass?
+    - I'd like to understand the definition of revenue
+    - Can you shed some light on the concept of revenue?
+
+- intent: ask_ebitda_meaning
+  examples: |
+    - what is ebitda
+    - what is the meaning of ebitda of a company
+    - What does EBITDA stand for?
+    - Explain EBITDA to me.
+    - Define EBITDA.
+    - Could you clarify the meaning of EBITDA?
+    - What is the significance of EBITDA in finance?
+
+- intent: ask_debt_equity_meaning
+  examples: |
+    - what is debt to equity
+    - what is the meaning of debt to equity of a company
+    - explain debt to equity ratio
+    - could you clarify the concept of dte?
+    - define debt to equity ratio
+    - How do you calculate debt to equity?
+    - Please elaborate on the debt to equity ratio.
+    - What does the debt to equity ratio indicate?
+    - I'm unclear about the significance of debt to equity.
+    - Can you provide insight into the dte ratio?
+
+- intent: ask_roa_meaning
+  examples: |
+    - what is roa
+    - what is the meaning of return on assets of a company
+    - what does ROA stand for?
+    - explain ROA to me.
+    - could you define return on assests?
+    - what is the significance of return on assets?
+
+- intent: ask_etr_meaning
+  examples: |
+    - what is etr
+    - what is the meaning of enterprise to revenue of a company 
+    - what does ETR stand for?
+    - define ETR
+    - explain enterprise to revenue to me.
+    - can you tell me about ETR?
+    - ETR meaning
+    - enterprise to revenue meaning
+
+- intent: ask_ete_meaning
+  examples: |
+    - what is ete
+    - what is enterprise to EBITDA
+    - explain ETE
+    - define enterprise to EBITDA
+    - can you clarify ETE?
+    - Could you elaborate on enterprise to EBITDA?
+    - I'm not familiar with ETE. Can you explain?
+    - Define ETE, please.
+    - Can you give me some insights into enterprise to EBITDA?
+
+- intent: ask_profitability_margins
+  examples: |
+    - What are the gross margins?
+    - Tell me about the EBITDA margins.
+    - What are the operating margins?
+    - Can you provide insights into gross Margins, ebitda Margins, and operating Margins?
+    - Explain the significance of gross Margins, ebitda Margins, and operating Margins.
+    - I'm interested in learning about ebitda Margins.
+    - Could you elaborate on operating Margins?
+    - How do grossMargins, ebitda Margins, and operating Margins impact financial performance?
+    - Explain the relevance of gross Margins, ebitdaMargins, and operating Margins in financial analysis.
+    - types of profitability margins
+    - list the types of profitability margins
+
+####################################################################################################################
 
 - intent: ask_intepret_stock_market_indices
   examples: |
@@ -942,211 +1054,130 @@ nlu:
     - I'm interested in diving deeper into stock investing. Any resources you'd suggest?
     - Where can I find reliable information to educate myself on stock investing?
 
-- intent: ask_roe_meaning
+- intent: ask_use_technical_analysis
   examples: |
-    - What does ROE (Return on Equity) mean?
-    - Can you explain the meaning of ROE?
-    - What is the relationship between ROE and profitability?
-    - How can I use ROE to gauge my company's profitability?
-    - what is return on equity
-    - Please define ROE (Return on Equity).
-    - I'm unfamiliar with ROE, could you elaborate on it?
-    - What does Return on Equity signify in financial analysis?
-    - Could you provide insight into how ROE reflects a company's performance?
-    - What factors influence the calculation of Return on Equity?
+    - How can I use technical analysis to make better investment decisions?
+    - How can I utilize technical analysis to improve my investment strategies?
+    - What are the effective ways to apply technical analysis for better decision-making in investments?
+    - Could you provide guidance on employing technical analysis to enhance my investment decisions?
+    - In what ways can I incorporate technical analysis into my investment approach for better outcomes?
 
-- intent: ask_audit_risk_meaning
+- intent: ask_mutual_funds_individual_stocks
   examples: |
-    - what is audit risk.
-    - what do you mean by audit risk.
-    - Explain audit risk to me.
-    - Could you define audit risk?
-    - I'm unclear about audit risk. Can you elaborate?
-    - Can you give me some insights into audit risk?
-    - What factors contribute to audit risk?
-    - How is audit risk assessed?
-    - Is audit risk the same as inherent risk?
+    - What are the differences between mutual funds and individual stocks?
+    - Mutual funds vs. individual stocks.
+    - Can you explain the distinctions between investing in mutual funds and individual stocks?
+    - I'm curious about the variances between mutual funds and individual stocks.
+    - Could you outline the disparities between mutual funds and individual stocks?
 
-- intent: ask_board_risk_meaning
+- intent: ask_identify_undervalued_stock
   examples: |
-    - what is board risk.
-    - what do you mean by board risk.
-    - Explain board risk to me.
-    - Could you define board risk?
-    - I'm unclear about board risk. Can you elaborate?
-    - Can you give me some insights into board risk?
-    - What factors contribute to board risk?
-    - How is board risk assessed?
-    - Is board risk the same as inherent risk?
+    - How do I identify undervalued stocks?
+    - What are the techniques to find undervalued stocks?
+    - Can you suggest methods for identifying undervalued stocks?
+    - I'm interested in learning about spotting undervalued stocks. How can I do that?
 
-- intent: ask_compensation_risk_meaning
+- intent: ask_growth_value_stock
   examples: |
-    - what is compensation risk.
-    - what do you mean by compensation risk.
-    - Explain compensation risk to me.
-    - Could you define compensation risk?
-    - I'm unclear about compensation risk. Can you elaborate?
-    - Can you give me some insights into compensation risk?
-    - What factors contribute to compensation risk?
-    - How is compensation risk assessed?
-    - Is compensation risk the same as inherent risk?
+    - Can you explain the difference between growth and value stocks?
+    - What are the main distinctions between growth stocks and value stocks?
+    - I'm trying to understand the concept of growth versus value stocks. Can you help?
+    - Could you provide some insights into how growth stocks differ from value stocks?
+    
+- intent: ask_inflation_stock_market
+  examples: |
+    - How does inflation impact stock market performance?
+    - Can you explain the relationship between inflation and stock market performance?
+    - What happens to the stock market during periods of high inflation?
+    - How do investors respond to inflationary pressures in the stock market?
 
-- intent: ask_overall_risk_meaning
+- intent: ask_benefits_index_funds
   examples: |
-    - what is overall risk.
-    - what do you mean by overall risk.
-    - Explain overall risk to me.
-    - Could you define overall risk?
-    - I'm unclear about overall risk. Can you elaborate?
-    - Can you give me some insights into overall risk?
-    - What factors contribute to overall risk?
-    - How is overall risk assessed?
-    - Is overall risk the same as inherent risk?
+    - What are the potential benefits of investing in index funds?
+    - Can you outline the advantages of putting money into index funds?
+    - What are the pros of choosing index funds for investment?
+    - Could you explain why index funds might be beneficial compared to other investment options?
+    
+- intent: ask_determine_risk_tolerance
+  examples: |
+    - How do I determine my risk tolerance when investing in stocks?
+    - What factors should I consider to determine my risk tolerance for investing?
+    - Can you guide me on assessing my risk tolerance before making investment decisions?
+    
+- intent: ask_diversification_stock_portfolio
+  examples: |
+    - What is the role of diversification in a stock portfolio?
+    - How does diversification benefit a stock portfolio?
+    - Can you explain why diversifying a stock portfolio is important?
+    - What are the advantages of diversifying my stock investments?
+    - Could you elaborate on the concept of diversification in the context of stock portfolios?
 
-- intent: ask_pe_ratio_meaning
+- intent: ask_interest_rate_impact
   examples: |
-    - what is pe ratio.
-    - what do you mean by pe ratio.
-    - Explain pe ratio to me.
-    - Could you define pe ratio?
-    - I'm unclear about pe ratio. Can you elaborate?
-    - Can you give me some insights into pe ratio?
-    - What factors contribute to pe ratio?
-    - How is pe ratio assessed?
-    - what is price to earning 
-    - can you elaborate on what is price to earning ratio
+    - Can you explain the impact of interest rates on stock prices?
+    - How do changes in interest rates affect the stock market?
+    - Could you elaborate on how interest rate fluctuations influence stock prices?
+    - I'm curious about the relationship between interest rates and stock market performance.
 
-- intent: ask_volume_meaning
+- intent: ask_common_investing_mistakes
   examples: |
-    - what is volume.
-    - what do you mean by volume.
-    - Explain volume to me.
-    - Could you define volume?
-    - I'm unclear about volume. Can you elaborate?
-    - Can you give me some insights into volume?
-    - What factors contribute to volume?
-    - How is volume assessed?
-    - what is total volume of a share
+    - What are some common mistakes to avoid when investing in stocks?
+    - Can you list some typical errors people make when investing in stocks?
+    - What are the pitfalls one should watch out for when investing in the stock market?
 
-- intent: ask_bid_ask_size_meaning
+- intent: ask_geological_unstability_affect
   examples: |
-    - how does bid size compare to ask size
-    - what is bid size
-    - what do you mean by ask size
-    - bid size vs ask size of a share
-    - explain the difference between bid and ask size
-    - could you elaborate on bid and ask size?
-    - define bid size and ask size
+    - How does geological unstability affect stock prices?
+    - Can you explain how geological unstability affects stock prices?
+    - What is the relationship between geological unstability and stock prices?
+    - Does geological unstability have a significant impact on stock prices?
+    - Could you explain how geological unstability affects stock prices?
 
-- intent: ask_price_book_ratio_meaning
+- intent: ask_stock_market_guide
   examples: |
-    - what is price book ratio
-    - what do you mean by price book ratio
-    - explain price book ratio to me
-    - price book ratio vs price to book ratio
-    - explain the difference between price book ratio and price to book ratio
-    - could you elaborate on price book ratio and price to book ratio?
-    - define price book ratio and price to book ratio
+    - Can you provide a beginner's guide to stock market terminology?
+    - I'm new to investing, could you offer a basic introduction to stock market concepts?
+    - What are some essential terms I should know before diving into the stock market?
+    - Could you explain common stock market jargon in simple terms?
+    - I'm unfamiliar with stock market terminology, can you give me a crash course?
 
-- intent: ask_eps_meaning
+- intent: ask_how_to_evaluate
   examples: |
-    - what is eps
-    - what do you mean by eps
-    - explain eps to me
-    - eps vs eps growth
-    - explain the difference between eps and eps growth
-    - could you elaborate on eps and eps growth?
-    - define eps and eps growth
+    - How do I evaluate a company's stock before investing?
+    - What factors should i consider before investing in a company's stock's
+    - How can I assess the financial health of a potential investment?
+    - What criteria should I use to evaluate a startup before investing?
+    - What steps should I take to evaluate the sustainability of a company's business model?
+    - Can you give some pointers for evaluating the potential return on investment in a project?
+    - How do I evaluate the management team of a company before making an investment?
+    - What strategies can I use to assess the competitive landscape of an industry before investing?
 
-- intent: ask_peg_ratio_meaning
+- intent: ask_penny_stock_risk
   examples: |
-    - what is peg ratio
-    - what do you mean by peg ratio
-    - explain peg ratio to me
-    - peg ratio vs peg ratio growth
-    - explain the difference between peg ratio and peg ratio growth
-    - could you elaborate on peg ratio 
-    - define peg ratio 
-    - price to earning growth ratio
+    - What are the risks associated with penny stocks?
+    - Risks I should consider before investing in penny stocks?
+    - Pitfalls of trading in penny stocks?
+    - I'm interested in penny stocks, but I want to understand the risks involved. Can you explain them?
+    - Before I delve into penny stocks, I want to know about the risks associated with them. Can you provide some insights?
+    - Dangers I should be aware of when dealing with penny stocks?
+    - Downsides or hazards of investing in penny stocks?
 
-- intent: ask_revenue_meaning
+- intent: ask_dividend_investing
   examples: |
-    - what is revenue
-    - what is the meaning of total revenue of a company
-    - can you explain the concept of revenue
-    - define revenue
-    - I'm not clear on what revenue signifies, could you elaborate?
-    - Please clarify what revenue entails
-    - Could you provide an explanation for revenue?
-    - What does the term "revenue" encompass?
-    - I'd like to understand the definition of revenue
-    - Can you shed some light on the concept of revenue?
+    - Can you explain the concept of dividend investing?
+    - What are the benefits of dividend investing?
+    - How does dividend investing differ from other investment strategies?
+    - Could you provide some tips for successful dividend investing?
+    - What are some common misconceptions about dividend investing?
+    - Is dividend investing risky?
+    - Can you recommend any resources for beginners interested in dividend investing?
+    - How frequently are dividends typically paid out to investors?
+    - Could you explain the concept of dividend yield and its significance in dividend investing?
 
-- intent: ask_ebitda_meaning
+- intent: ask_key_indicators
   examples: |
-    - what is ebitda
-    - what is the meaning of ebitda of a company
-    - What does EBITDA stand for?
-    - Explain EBITDA to me.
-    - Define EBITDA.
-    - Could you clarify the meaning of EBITDA?
-    - What is the significance of EBITDA in finance?
-
-- intent: ask_debt_equity_meaning
-  examples: |
-    - what is debt to equity
-    - what is the meaning of debt to equity of a company
-    - explain debt to equity ratio
-    - could you clarify the concept of dte?
-    - define debt to equity ratio
-    - How do you calculate debt to equity?
-    - Please elaborate on the debt to equity ratio.
-    - What does the debt to equity ratio indicate?
-    - I'm unclear about the significance of debt to equity.
-    - Can you provide insight into the dte ratio?
-
-- intent: ask_roa_meaning
-  examples: |
-    - what is roa
-    - what is the meaning of return on assets of a company
-    - what does ROA stand for?
-    - explain ROA to me.
-    - could you define return on assests?
-    - what is the significance of return on assets?
-
-- intent: ask_etr_meaning
-  examples: |
-    - what is etr
-    - what is the meaning of enterprise to revenue of a company 
-    - what does ETR stand for?
-    - define ETR
-    - explain enterprise to revenue to me.
-    - can you tell me about ETR?
-    - ETR meaning
-    - enterprise to revenue meaning
-
-- intent: ask_ete_meaning
-  examples: |
-    - what is ete
-    - what is enterprise to EBITDA
-    - explain ETE
-    - define enterprise to EBITDA
-    - can you clarify ETE?
-    - Could you elaborate on enterprise to EBITDA?
-    - I'm not familiar with ETE. Can you explain?
-    - Define ETE, please.
-    - Can you give me some insights into enterprise to EBITDA?
-
-- intent: ask_profitability_margins
-  examples: |
-    - What are the gross margins?
-    - Tell me about the EBITDA margins.
-    - What are the operating margins?
-    - Can you provide insights into gross Margins, ebitda Margins, and operating Margins?
-    - Explain the significance of gross Margins, ebitda Margins, and operating Margins.
-    - I'm interested in learning about ebitda Margins.
-    - Could you elaborate on operating Margins?
-    - How do grossMargins, ebitda Margins, and operating Margins impact financial performance?
-    - Explain the relevance of gross Margins, ebitdaMargins, and operating Margins in financial analysis.
-    - types of profitability margins
-    - list the types of profitability margins
+    - What are some key indicators to look for in a company's financial statements?
+    - Can you provide me with a list of important indicators to analyze in a company's financial reports?
+    - I'm interested in understanding the key metrics to assess when reviewing a company's financial statements. Could you elaborate on that?
+    - What are the main factors or metrics one should consider when evaluating the financial health of a business?
+    - Could you outline the crucial indicators that investors typically examine in a company's financial disclosures?
