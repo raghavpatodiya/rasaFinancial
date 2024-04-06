@@ -13,6 +13,7 @@ from flask import abort
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 import yfinance as yf
+from preprocess import preprocess_text
 # URL of Rasa's server
 RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 ACTION_SERVER_URL = 'http://localhost:5055/webhook'
@@ -263,6 +264,9 @@ def webhook():
     try:
         user_message = request.json.get('message', '')  # Safely get the message from JSON data
         print("User message:", user_message)
+
+        #preprocessed_message = preprocess_text(user_message) 
+        #print("Preprocessed user message:", preprocessed_message)
 
         # Send the user's message to RASA and get the bot's response
         rasa_response = requests.post(RASA_API_URL, json={'message': user_message})
