@@ -242,19 +242,19 @@ nlu:
   examples: |
     - tell me [address](info) of [google](stock_name)
     - fetch me [long Business Summary](info) of [atlassian](stock_name)
-    - how many [full Time Employess](info) does [apple](stock_name) have ?
+    - how many [full Time Employess](info) does [apple](stock_name) have?
     - what is the [symbol](info) of [Microsoft](stock_name)?
-    - can you fetch me [target High Price](info) of [Nvidia](stock_name) ?
-    - i need to know the [target Low Price](info) of [Amazon](stock_name) !
-    - get me its stock [symbol](info) !
-    - so, what is its [previousClose](info) ?
-    - get me [website](info) link of  [Netflix](stock_name).
-    - which type of [industry](info) does [meta](stock_name) belong to ?
+    - can you fetch me [target High Price](info) of [Nvidia](stock_name)?
+    - i need to know the [target Low Price](info) of [Amazon](stock_name)!
+    - get me its stock [symbol](info)!
+    - so, what is its [previousClose](info)?
+    - get me [website](info) link of [Netflix](stock_name).
+    - which type of [industry](info) does [meta](stock_name) belong to?
     - also tell me [trailing Eps](info) of [goev](stock_name)
-    - can you get me [pegRatio](info)
+    - can you get me [pegRatio](info)?
     - what would be the [roe](info) of [alphabet](stock_name)
     - get me [financial Currency](info) of [canoo](stock_name)
-    - what is the [day High] of [aapl](stock_name)
+    - what is the [day High](info) of [aapl](stock_name)
     - tell me the [board risk](info) of [Google](stock_name)
     - fetch me the [compensation risk](info) of [Atlassian](stock_name)
     - how many [full-time employees](info) does [bumble](stock_name) have?
@@ -265,7 +265,7 @@ nlu:
     - so, what is its [previous close](info)?
     - get me the [website](info) link of [blackstone](stock_name).
     - which type of [industry](info) does [caleres](stock_name) belong to?
-    - also give me the [trailing EPS](info) 
+    - also give me the [trailing EPS](info)
     - can you get me the [PEG ratio](info)?
     - what would be the [return on equity](info) of [erasca](stock_name)?
     - get me the [financial currency](info) of [captivision](stock_name)
@@ -302,8 +302,8 @@ nlu:
     - what is the [max age](info)
     - what would be the [governance Epoch Date](info)
     - give me the [compensation As Of Epoch Date](info)
-    - get me [debt] of [evergy]
-    - what is the [currency] of [team] share ?
+    - get me [debt](info) of [evergy]
+    - what is the [currency](info) of [team] share ?
     - tell me [address](info) of [first community](stock_name)
     - fetch me [long Business Summary](info) of [five9](stock_name)
     - how many [full Time Employess](info) does [flywire](stock_name) have?
@@ -531,34 +531,56 @@ nlu:
     
 - intent: ask_comparison
   examples: |
-    - compare the [price](info) of [google](stock_name) and [microsoft](stock_name2)
-    - compare the [volatility](info) of [nvidia](stock_name) with [apple](stock_name2)
-    - how would you compare the [market sentiment](info) of [atlassian](stock_name) with [netflix](stock_name2) ?
-    - compare the stock [trend](info) of [facebook](stock_name) to [tesla](stock_name2)
-    - compare the [market cap](info) of [Tesla](stock_name) and [General Motors](stock_name2)
-    - compare the [revenue](info) of [Amazon](stock_name) with [Walmart](stock_name2)
-    - how would you compare the [net income](info) of [Apple](stock_name) with [Samsung](stock_name2) ?
-    - how would you compare the [net income](info) of [canoo](stock_name) with [virtus](stock_name2) ?
-    - how would you compare the [market capitalization](info) of [acacia](stock_name) with [acme](stock_name2) ?
-    - compare the [EPS](info) of [Netflix](stock_name) to [Disney](stock_name2)
-    - compare the [EPS](info) of [adagene](stock_name) to [adobe](stock_name2)
-    - compare the [pe ratio](info) of [willis towers](stock_name) to [united state steels](stock_name2)
-    - now compare the [PE ratio](info) of [Facebook](stock_name) to [Twitter](stock_name2)
-    - compare the [gross margin](info) of [Intel](stock_name) and [AMD](stock_name2)
-    - compare the [PE ratio](info) of [Netflix](stock_name) with [Disney](stock_name2)
-    - how would you compare the [ROE](info) of [Visa](stock_name) with [Mastercard](stock_name2) ?
-    - compare the [dividend yield](info) of [IBM](stock_name) to [Oracle](stock_name2)
-    - now compare the [net income](info) of [Adobe](stock_name) to [Salesforce](stock_name2).
-    - compare the [market cap](info) of [Tesla](stock_name) and [Toyota](stock_name2)
-    - compare the [revenue](info) of [Netflix](stock_name) with [HBO](stock_name2)
-    - how would you compare the [net income](info) of [Google](stock_name) with [Amazon](stock_name2) ?
-    - compare the [volatility](info) of [Apple](stock_name) to [Microsoft](stock_name2)
-    - now compare the [trend](info) of [Facebook](stock_name) to [Twitter](stock_name2)
-    - also compare their [market cap](info) !
-    - please compare the [market cap](info) of [beyond](stock_name) and [zentex](stock_name2)
-    - get me stock [price](info) comparison of [cadiz](stock_name) and [codexis](stock_name2)
-    - also perform [earnings per share] comparison
+    - Compare the [price](info) of [google](stock_name) and [microsoft](stock_name2).
+    - Compare the [volatility](info) of [nvidia](stock_name) with [apple](stock_name2).
+    - How would you compare the [market sentiment](info) of [atlassian](stock_name) with [netflix](stock_name2) ?
+    - Compare the stock [trend](info) of [facebook](stock_name) to [tesla](stock_name2).
+    - Compare the [market cap](info) of [Tesla](stock_name) and [General Motors](stock_name2).
+    - Compare the [revenue](info) of [Amazon](stock_name) with [Walmart](stock_name2).
+    - How would you compare the [net income](info) of [Apple](stock_name) with [Samsung](stock_name2) ?
+    - How would you compare the [net income](info) of [canoo](stock_name) with [virtus](stock_name2) ?
+    - How would you compare the [market capitalization](info) of [acacia](stock_name) with [acme](stock_name2) ?
+    - Compare the [EPS](info) of [Netflix](stock_name) to [Disney](stock_name2).
+    - Compare the [EPS](info) of [adagene](stock_name) to [adobe](stock_name2).
+    - Compare the [pe ratio](info) of [willis towers](stock_name) to [united state steels](stock_name2).
+    - Now compare the [PE ratio](info) of [Facebook](stock_name) to [Twitter](stock_name2).
+    - Compare the [gross margin](info) of [Intel](stock_name) and [AMD](stock_name2).
+    - Compare the [PE ratio](info) of [Netflix](stock_name) with [Disney](stock_name2).
+    - How would you compare the [ROE](info) of [Visa](stock_name) with [Mastercard](stock_name2) ?
+    - Compare the [dividend yield](info) of [IBM](stock_name) to [Oracle](stock_name2).
+    - Now compare the [net income](info) of [Adobe](stock_name) to [Salesforce](stock_name2).
+    - Compare the [market cap](info) of [Tesla](stock_name) and [Toyota](stock_name2).
+    - Compare the [revenue](info) of [Netflix](stock_name) with [HBO](stock_name2).
+    - How would you compare the [net income](info) of [Google](stock_name) with [Amazon](stock_name2) ?
+    - Compare the [volatility](info) of [Apple](stock_name) to [Microsoft](stock_name2).
+    - Now compare the [trend](info) of [Facebook](stock_name) to [Twitter](stock_name2).
+    - Also compare their [market cap](info) !
+    - Please compare the [market cap](info) of [beyond](stock_name) and [zentex](stock_name2).
+    - Get me stock [price](info) comparison of [cadiz](stock_name) and [codexis](stock_name2).
+    - Also perform [earnings per share] comparison.
+    - Compare [price](info) of [goog](stock_name) and [msft](stock_name2).
+    - Compare the [price](info) of [AAPL](stock_name) and [AMZN](stock_name2).
+    - Compare the [price](info) of [GOOGL](stock_name) and [FB](stock_name2).
+    - Compare the [price](info) of [NFLX](stock_name) and [TSLA](stock_name2).
+    - Compare the [price](info) of [JPM](stock_name) and [WFC](stock_name2).
+    - Compare the [price](info) of [INTC](stock_name) and [AMD](stock_name2).
+    - Compare the [price](info) of [VZ](stock_name) and [Tesla](stock_name2).
+    - Compare the [price](info) of [BA](stock_name) and [LMT](stock_name2).
+    - Compare the [price](info) of [WMT](stock_name) and [TGT](stock_name2).
+    - Compare the [price](info) of [AAPL](stock_name) and [MSFT](stock_name2).
+    - Compare the [price](info) of [DIS](stock_name) and [NFLX](stock_name2).
+    - Compare the [price](info) of [GOOGL](stock_name) and [AAPL](stock_name2).
+    - Compare the [price](info) of [AMZN](stock_name) and [WMT](stock_name2).
+    - Compare the [price](info) of [MSFT](stock_name) and [GOOGL](stock_name2).
+    - Compare the [price](info) of [TSLA](stock_name) and [AAPL](stock_name2).
+    - Compare the [price](info) of [NVDA](stock_name) and [AMD](stock_name2).
+    - Compare the [price](info) of [CSCO](stock_name) and [INTC](stock_name2).
+    - Compare the [price](info) of [V](stock_name) and [MA](stock_name2).
+    - Compare the [price](info) of [KO](stock_name) and [PEP](stock_name2).
+    - Compare the [price](info) of [JNJ](stock_name) and [PFE](stock_name2).
+    - Compare the [price](info) of [MCD](stock_name) and [SBUX](stock_name2).
 
+    
 - intent: ask_graph
   examples: |
     - get me [trend](info) graph for [google](stock_name)
@@ -577,7 +599,7 @@ nlu:
 - intent: ask_market_sentiment_affect
   examples: | 
     - How does market sentiment affect stock prices?
-    - what is the meaning of market sentiment
+    - what is the meaning of market sentiment of a stock / share ?
     - Can you explain the impact of market sentiment on stock market?
     - What is the relationship between market sentiment and stock prices?
     - Does market sentiment have a significant influence on stock prices?
