@@ -66,8 +66,6 @@ Incorporate:
     before sending user message to rasa, remove any obvious typos, hugging face nlp integration ?
     mappings/charts in flask interface
     language translation
-    odometer look to "welcome to my chatbot"
-    live stock updates
     improve FAQ's
     more predictions
     check all bot responses and generalize it
@@ -88,6 +86,7 @@ Functionalities:
     other - gainers, losers, specifc info, general info, market sentiment, market status, latest price, older price, trend, volatality
     answer stock related questions
     comparison between stocks
+    get graphs on historical stock data
 
 
 Error:
