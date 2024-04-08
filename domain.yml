@@ -172,7 +172,7 @@ responses:
   - text: "I can help you with anything related to stocks and more !!"
 
   utter_time:
-  - text: "It's {time}"
+  - text: "It's time."
 
   utter_default:
     - text: "I'm sorry, I didn't understand. Can you please rephrase or ask something else?"
