@@ -91,10 +91,10 @@ Functionalities:
 
 
 Error:
-    stock_info not displayed on bot interface
     comparison of company_name(slot) with company_name2(extract)
     graph data retrieval 
     stock listing table - header fix
+    check indian company's tickers
 
 
 Tool:
