@@ -48,14 +48,14 @@ pipeline:
   ambiguity_threshold: 0.1
 
 # ducklingEntityExtractor
-- name: DucklingEntityExtractor
-  # url of the running duckling server
-  url: "http://localhost:8000"
-  # dimensions to extract
-  dimensions: ["time"]
-  locale: "En_IN"
-  timezone: "India Standard Time"
-  timeout : 10
+# - name: DucklingEntityExtractor
+#   # url of the running duckling server
+#   url: "http://localhost:8000"
+#   # dimensions to extract
+#   dimensions: ["time"]
+#   locale: "En_IN"
+#   timezone: "India Standard Time"
+#   timeout : 10
 
 # synonym mapper
 - name: EntitySynonymMapper

@@ -112,7 +112,7 @@
       "
     >
       <table id="stock-table" class="table table-striped">
-        <thead>
+        <thead style="position: sticky; top: 0; z-index: 1">
           <tr>
             <th>Symbol</th>
             <th>$ Price</th>
@@ -121,7 +121,7 @@
             <th>$ Market Cap</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="padding-top: 40px">
           {% for line in stock_data %} {% set columns = line.strip().split(',')
           %}
           <tr>
