@@ -83,13 +83,20 @@ $(document).ready(function () {
             window.speechSynthesis.cancel();
         }
 
-        // Display bot response in chat widget
-        const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
-            escapeHtml(botResponse) +
-            "</div>";
+        // Check if the bot response is an image URL
+        if (botResponse.startsWith('static/images/')) {
+            // If it's an image URL, append an <img> tag
+            const botResponseHtml = "<div class='bot-response'><img src='" + botResponse + "'></div>";
+            $("#chat-widget-messages").append(botResponseHtml);
+        } else {
+            // If it's a text response, append the text
+            const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
+                escapeHtml(botResponse) +
+                "</div>";
 
-        // Append bot response
-        $("#chat-widget-messages").append(botResponseHtml);
+            // Append bot response
+            $("#chat-widget-messages").append(botResponseHtml);
+        }
         $("#chat-widget-messages").scrollTop($("#chat-widget-messages")[0].scrollHeight);
 
         // Add speaker button to the latest bot response

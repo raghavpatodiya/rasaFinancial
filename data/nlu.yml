@@ -225,6 +225,31 @@ nlu:
     - what is the cost of [ael](stock_name)
     - then what is the price of this stock ?
     - stock price ?
+    - stock price of [reliance](stock_name)
+    - stock price of [tata](stock_name)
+    - stock price of [hdfc bank](stock_name)
+    - stock price of [icici bank](stock_name)
+    - stock price of [SBIN.NS](stock_name)
+    - stock price of [infosys](stock_name)
+    - stock price of [bharti airtel](stock_name)
+    - stock price of [bajaj finance](stock_name)
+    - stock price of [tata motors](stock_name)
+    - stock price of [adani port](stock_name)
+    - stock price of [mahindra](stock_name)
+    - stock price of [jio finance](stock_name)
+    - stock price of [grasim](stock_name) industries limited
+    - stock price of [ltimindtree](stock_name)
+    - stock price of [PNB.NS](stock_name)
+    - stock price of [cipla](stock_name)
+    - stock price of [canara bank](stock_name)
+    - stock price of [bosch limited](stock_name)
+    - stock price of [oracle](stock_name)
+    - stock price of [uco bank](stock_name)
+    - stock price of [jindal](stock_name)
+    - stock price of [adani wilmar](stock_name) limited
+    - stock price of [voltas](stock_name)
+    - stock price of [fortis](stock_name)
+    - stock price of [idfc](stock_name)
 
 - intent: ask_older_stock_price
   examples: |
@@ -849,6 +874,7 @@ nlu:
     - list the types of profitability margins
 
 ####################################################################################################################
+# general queries
 
 - intent: ask_intepret_stock_market_indices
   examples: |
