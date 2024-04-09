@@ -14,9 +14,6 @@ from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 import yfinance as yf
 from preprocess import preprocess_text, correct_typos
-import base64
-from io import BytesIO
-from PIL import Image
 # URL of Rasa's server
 RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 ACTION_SERVER_URL = 'http://localhost:5055/webhook'
@@ -261,12 +258,6 @@ def contactus():
 
     return render_template('contactus.html')
 
-# Function to encode image file to base64
-def encode_image(image_path):
-    with open(image_path, "rb") as img_file:
-        encoded_string = base64.b64encode(img_file.read()).decode('utf-8')
-    return f"data:image/png;base64,{encoded_string}"
-
 # Webhook route
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -276,6 +267,7 @@ def webhook():
 
         # preprocessed_message = preprocess_text(user_message) 
         # print("Preprocessed user message:", preprocessed_message)
+
         # corrected_message = correct_typos(user_message)
         # print("Corrected user message:", corrected_message)
 
@@ -285,15 +277,7 @@ def webhook():
         rasa_response_json = rasa_response.json()
 
         print("Rasa Response:", rasa_response_json)
-        
-        if rasa_response_json and 'image' in rasa_response_json[0]:
-            # If the bot response contains an image, encode the image to base64
-            image_path = rasa_response_json[0]['image']
-            encoded_image = encode_image(image_path)
-            bot_response = encoded_image
-        else:
-            # If the bot response does not contain an image, get the text response
-            bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
+        bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
 
     except requests.exceptions.RequestException as e:
         # Handle connection errors, timeout errors, etc.
@@ -337,6 +321,5 @@ def get_stock_data():
 
 if __name__ == "__main__":
     app.run(debug=True, port=3000)
-
 
 
