@@ -267,7 +267,6 @@ def webhook():
 
         # preprocessed_message = preprocess_text(user_message) 
         # print("Preprocessed user message:", preprocessed_message)
-
         # corrected_message = correct_typos(user_message)
         # print("Corrected user message:", corrected_message)
 
@@ -277,15 +276,15 @@ def webhook():
         rasa_response_json = rasa_response.json()
 
         print("Rasa Response:", rasa_response_json)
-        if rasa_response_json and 'image' in rasa_response_json[0]:
-            image_path = "static/images/stock_graph.png"
-            return send_file(image_path, mimetype='image/png')
-        
+        if 'image' in rasa_response_json[0]:
+            print("Image Found")
+            bot_response = rasa_response_json[0]['image']
+            return send_file(bot_response, mimetype='image/png')
+
         else:
             bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
 
     except requests.exceptions.RequestException as e:
-        # Handle connection errors, timeout errors, etc.
         print("An error occurred while sending the request to Rasa:", e)
         bot_response = 'Sorry, I am currently unable to process your request. Please try again later.'
 
