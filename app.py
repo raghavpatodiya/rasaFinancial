@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_file
 import requests
 import os
 from dotenv import load_dotenv
@@ -277,7 +277,12 @@ def webhook():
         rasa_response_json = rasa_response.json()
 
         print("Rasa Response:", rasa_response_json)
-        bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
+        if rasa_response_json and 'image' in rasa_response_json[0]:
+            image_path = "static/images/stock_graph.png"
+            return send_file(image_path, mimetype='image/png')
+        
+        else:
+            bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
 
     except requests.exceptions.RequestException as e:
         # Handle connection errors, timeout errors, etc.
