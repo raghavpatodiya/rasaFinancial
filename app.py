@@ -280,7 +280,6 @@ def webhook():
             print("Image Found")
             bot_response = rasa_response_json[0]['image']
             return send_file(bot_response, mimetype='image/png')
-
         else:
             bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
 

@@ -95,6 +95,7 @@ Error:
     stock listing table - header fix
     check indian company's tickers
     graph display on flask ! check rasa response, and path. if rasa response image, using send_file send the image through flask
+    so if the bot response from the flask app is an image, handle it accordingly in the js
 
 Tool:
     
