@@ -94,6 +94,7 @@ Error:
     graph data retrieval 
     stock listing table - header fix
     check indian company's tickers
+    for stock tickers that end with .NS, convert to dollar or return in inr
 
 Tool:
     

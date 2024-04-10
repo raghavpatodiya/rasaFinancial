@@ -315,7 +315,7 @@ responses:
   utter_profitability_margins:
   - text: "Gross margins reflect profitability after accounting for cost of goods sold. EBITDA margins show earnings before interest, taxes, depreciation, and amortization. Operating margins depict profitability from operations."
   utter_start_over:
-  - text: "This conversation will reset in 5 seconds."
+  - text: "This conversation will reset in 3 seconds."
 
 
 

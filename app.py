@@ -279,7 +279,7 @@ def webhook():
         if 'image' in rasa_response_json[0]:
             print("Image Found")
             bot_response = rasa_response_json[0]['image'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
-        elif rasa_response_json[0]['text'] == "This conversation will reset in 5 seconds.":
+        elif rasa_response_json[0]['text'] == "This conversation will reset in 3 seconds.":
             print("Reset Command Found")
             bot_response = rasa_response_json[0]['text']
         else:

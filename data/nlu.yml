@@ -144,6 +144,7 @@ nlu:
     - what are your powers ?
     - show me your ability
     - what do you do
+    - yeah
 
 - intent: ask_time
   examples: |
@@ -633,6 +634,24 @@ nlu:
     - I'm interested in the [revenue](info) mapping for [Netflix](stock_name).
     - Get me the graph showing the [trends](info) for [Alphabet](stock_name).
     - Could you provide the [net income](info) graph for [IBM](stock_name)?
+    - get me [price](info) graph for [yuken.ns](stock_name)
+    - get me [price](info) graph for [satia.ns](stock_name)
+    - get me [price](info) graph for [roto](stock_name)
+    - get me [price](info) graph for [asian energy](stock_name)
+    - get me [price](info) graph for [saurashtra](stock_name)
+    - get me [price](info) graph for [punjab chemicals](stock_name)
+    - get me [price](info) graph for [steelcas.ns](stock_name)
+    - get me [price](info) graph for [controlpr.ns](stock_name)
+    - get me [price](info) graph for [everest kanto]](stock_name)
+    - get me [price](info) graph for [agro tech](stock_name)
+    - get me [price](info) graph for [vssl.ns](stock_name)
+    - get me [price](info) graph for [jindal drilling](stock_name)
+    - get me [price](info) graph for [orient green](stock_name)
+    - get me [price](info) graph for [signpost](stock_name)
+    - get me [price](info) graph for [vishnu.ns](stock_name)
+    - get me [price](info) graph for [SUVEN.NS](stock_name)
+    - get me [price](info) graph for [HUHTAMAKI.NS](stock_name)
+    - get me [price](info) graph for [INDOSTAR.NS](stock_name)
 
 ########################################################################################################
 # info meanings
