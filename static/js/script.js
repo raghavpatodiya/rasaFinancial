@@ -84,10 +84,9 @@ $(document).ready(function () {
         }
         // console.log(typeof botResponse);
         // blob (image response)
-        if (botResponse instanceof Blob) {
-            const imageUrl = URL.createObjectURL(botResponse);
+        if (botResponse.startsWith("static")) {
             const imgElement = document.createElement('img');
-            imgElement.src = imageUrl;
+            imgElement.src = botResponse;
             const botResponseContainer = document.createElement('div');
             botResponseContainer.classList.add('bot-response');
             botResponseContainer.appendChild(imgElement);

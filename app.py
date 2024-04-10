@@ -278,9 +278,10 @@ def webhook():
         print("Rasa Response:", rasa_response_json)
         if 'image' in rasa_response_json[0]:
             print("Image Found")
-            bot_response = rasa_response_json[0]['image']
-            return send_file(bot_response, mimetype='image/png')
+            bot_response = rasa_response_json[0]['image'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
+            # return send_file(bot_response, mimetype='image/png')
         else:
+            print("Text Found")
             bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
 
     except requests.exceptions.RequestException as e:
@@ -292,6 +293,7 @@ def webhook():
         print("An error occurred:", e)
         bot_response = 'An unexpected error occurred while processing your request.'
 
+    print(bot_response)
     return jsonify({'response': bot_response})
 
 @app.route('/loc', methods=['GET'])
