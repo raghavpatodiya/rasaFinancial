@@ -83,14 +83,16 @@ $(document).ready(function () {
             window.speechSynthesis.cancel();
         }
         // console.log(typeof botResponse);
-        // blob (image response)
         if (botResponse.startsWith("static")) {
             const imgElement = document.createElement('img');
             imgElement.src = botResponse;
+            // Inside the handleBotResponse function
+            imgElement.style.width = "350px"; // Set the width of the image
+            imgElement.style.height = "auto"; // Maintain aspect ratio by setting height to "auto"
             const botResponseContainer = document.createElement('div');
             botResponseContainer.classList.add('bot-response');
             botResponseContainer.appendChild(imgElement);
-            $("#chat-widget-messages").append("<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> Here is the requested graph</div>");
+            $("#chat-widget-messages").append("<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> Here is the requested graph: </div>");
             $("#chat-widget-messages").append(botResponseContainer);                  
         } else {
             const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
