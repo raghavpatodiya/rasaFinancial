@@ -279,7 +279,9 @@ def webhook():
         if 'image' in rasa_response_json[0]:
             print("Image Found")
             bot_response = rasa_response_json[0]['image'] if rasa_response_json else 'Sorry, I didn\'t understand that.'
-            # return send_file(bot_response, mimetype='image/png')
+        elif rasa_response_json[0]['text'] == "This conversation will reset in 5 seconds.":
+            print("Reset Command Found")
+            bot_response = rasa_response_json[0]['text']
         else:
             print("Text Found")
             bot_response = rasa_response_json[0]['text'] if rasa_response_json else 'Sorry, I didn\'t understand that.'

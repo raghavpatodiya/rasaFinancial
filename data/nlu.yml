@@ -16,6 +16,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - yo
 
 - intent: goodbye
   examples: |
@@ -192,6 +193,21 @@ nlu:
     - what functionalities do you offer? List them
     - could you provide a list of your capabilities?
     - I'd like you to list what you're capable of.
+
+- intent: ask_start_over
+  examples: |
+    - lets start over
+    - begin again from scratch
+    - reset this conversation
+    - end this conversation
+    - end conversation
+    - end chat
+    - restart chat
+    - can we start fresh
+    - start from the beginning
+    - can we reset
+    - start anew
+    - renew this chat
 
 ########################################################################################################
 # get info

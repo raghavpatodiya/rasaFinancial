@@ -94,7 +94,15 @@ $(document).ready(function () {
             botResponseContainer.appendChild(imgElement);
             $("#chat-widget-messages").append("<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> Here is the requested graph: </div>");
             $("#chat-widget-messages").append(botResponseContainer);                  
-        } else {
+        }
+        else if(botResponse === "This conversation will reset in 5 seconds.") {
+            const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
+                escapeHtml(botResponse) +
+                "</div>";
+            $("#chat-widget-messages").append(botResponseHtml);
+            setTimeout(resetConversation, 5000);
+        }
+        else {
             const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
                 escapeHtml(botResponse) +
                 "</div>";

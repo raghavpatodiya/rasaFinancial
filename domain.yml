@@ -94,6 +94,7 @@ intents:
   - ask_etr_meaning
   - ask_ete_meaning
   - ask_profitability_margins
+  - ask_start_over
 entities:
   - stock_name
   - stock_name2
@@ -313,7 +314,8 @@ responses:
   - text: "ETE (Enterprise-to-EBITDA ratio) compares a company's enterprise value to its EBITDA, providing a measure of its valuation relative to its earnings before interest, taxes, depreciation, and amortization."
   utter_profitability_margins:
   - text: "Gross margins reflect profitability after accounting for cost of goods sold. EBITDA margins show earnings before interest, taxes, depreciation, and amortization. Operating margins depict profitability from operations."
-
+  utter_start_over:
+  - text: "This conversation will reset in 5 seconds."
 
 
 

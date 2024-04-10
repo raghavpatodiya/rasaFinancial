@@ -416,3 +416,7 @@ rules:
     - intent: ask_profitability_margins
     - action: utter_profitability_margins
 
+- rule: start over chat
+  steps: 
+    - intent: ask_start_over
+    - action: utter_start_over

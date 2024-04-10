@@ -64,7 +64,6 @@ Test:
 
 Incorporate:
     before sending user message to rasa, remove any obvious typos, hugging face nlp integration ?
-    mappings/charts in flask interface
     language translation
     improve FAQ's
     more predictions
@@ -80,6 +79,7 @@ Incorporate:
     add a python script automation to scrape data and train a model ?
     add ticker of nasdaq, nifty 500 etc ?
     add name column in listings
+    create a model that predicts prices for next month ? and then a graph that plots it w.r.to the current price, also update the nlu to incorporate this 
 
 Functionalities: 
     once price predicted - buysellhold
@@ -94,8 +94,6 @@ Error:
     graph data retrieval 
     stock listing table - header fix
     check indian company's tickers
-    graph display on flask ! check rasa response, and path. if rasa response image, using send_file send the image through flask
-    so if the bot response from the flask app is an image, handle it accordingly in the js
 
 Tool:
     
