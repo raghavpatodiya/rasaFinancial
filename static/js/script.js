@@ -82,7 +82,7 @@ $(document).ready(function () {
         if (utterance && window.speechSynthesis.speaking) {
             window.speechSynthesis.cancel();
         }
-  
+        // console.log(typeof botResponse);
         // blob (image response)
         if (botResponse instanceof Blob) {
             const imageUrl = URL.createObjectURL(botResponse);
@@ -91,17 +91,17 @@ $(document).ready(function () {
             const botResponseContainer = document.createElement('div');
             botResponseContainer.classList.add('bot-response');
             botResponseContainer.appendChild(imgElement);
-            $("#chat-widget-messages").append(botResponseContainer);
+            $("#chat-widget-messages").append("<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> Here is the requested graph</div>");
+            $("#chat-widget-messages").append(botResponseContainer);                  
         } else {
             const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
                 escapeHtml(botResponse) +
                 "</div>";
-            $("#chat-widget-messages").append(botResponseHtml);
+            $("#chat-widget-messages").append(botResponseHtml);      
         }
 
         $("#chat-widget-messages").scrollTop($("#chat-widget-messages")[0].scrollHeight);
 
-        // Add speaker button to the latest bot response
         const $botResponseElement = $("#chat-widget-messages").children().last();
         const speakerButtonHtml = "<button class='speak-button'>🔈</button>";
         $botResponseElement.append(speakerButtonHtml);

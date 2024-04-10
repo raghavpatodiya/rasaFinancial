@@ -103,9 +103,9 @@ Tool:
 Commands: 
     rasa run
     rasa run actions
-    python -u "e:\Study2024\rasaFinancial\app.py"  
-    python -u "e:\Study2024\rasaFinancial\loc_calculator.py"
-    python -u "e:\Study2024\rasaFinancial\fetch_stock_data.py" 
+    python app.py
+    python loc_calculator.py
+    python fetch_stock_data.py 
     docker run -p 8000:8000 rasa/duckling 
 
 
