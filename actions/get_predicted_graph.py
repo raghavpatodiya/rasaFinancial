@@ -35,14 +35,15 @@ def train_model(df):
     return model
 
 def plot_predicted_prices(model, df):
-    future_dates = pd.date_range(start=df.index[-1], periods=30)
+    last_30_days = df[-30:]  # Selecting only the last 30 days of historical data
+    future_dates = pd.date_range(start=last_30_days.index[-1], periods=30, freq='B')  # Business days
     future_dates = future_dates.tz_convert(df.index.tz)
-    future_features = np.repeat(df.iloc[-1][:-1].values.reshape(1, -1), 30, axis=0) 
+    future_features = np.repeat(last_30_days.iloc[-1][:-1].values.reshape(1, -1), 30, axis=0) 
     future_prices = model.predict(future_features)
     
     plt.figure(figsize=(12, 6))
-    plt.plot(df.index, df['Close'], label='Actual Prices')
-    plt.plot(future_dates, future_prices, label='Predicted Prices')
+    plt.plot(last_30_days.index, last_30_days['Close'], label='Last 30 Days Prices', color='blue')
+    plt.plot(future_dates, future_prices, label='Predicted Prices', color='orange')  # Plot predicted prices
     plt.xlabel('Date')
     plt.ylabel('Close Price in $')
     plt.title('Predicted Stock Prices for the Next 30 Days')
@@ -50,6 +51,7 @@ def plot_predicted_prices(model, df):
     plt.xticks(rotation=45)
     plt.grid(True)
     plt.show()
+
 
 def main():
     symbol = 'AAPL'
