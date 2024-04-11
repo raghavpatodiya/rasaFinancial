@@ -80,6 +80,7 @@ Incorporate:
     add ticker of nasdaq, nifty 500 etc ?
     add name column in listings
     create a model that predicts prices for next month ? and then a graph that plots it w.r.to the current price, also update the nlu to incorporate this 
+    xgboost model ? check from data which variables will the model require ? data from alpha vantage ?
 
 Functionalities: 
     once price predicted - buysellhold

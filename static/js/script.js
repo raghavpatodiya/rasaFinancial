@@ -83,7 +83,7 @@ $(document).ready(function () {
             window.speechSynthesis.cancel();
         }
         // console.log(typeof botResponse);
-        if (botResponse.startsWith("static")) {
+        if (botResponse === "static/images/stock_graph.png") {
             const imgElement = document.createElement('img');
             imgElement.src = botResponse;
             // Inside the handleBotResponse function
