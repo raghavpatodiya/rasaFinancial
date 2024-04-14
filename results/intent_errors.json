@@ -4,15 +4,15 @@
     "intent": "bot_challenge",
     "intent_prediction": {
       "name": "whats_up",
-      "confidence": 0.30218812823295593
+      "confidence": 0.3322852551937103
     }
   },
   {
-    "text": "what are you doing ?",
-    "intent": "whats_up",
+    "text": "what is the meaning of market capitalization",
+    "intent": "ask_market_capitalization",
     "intent_prediction": {
-      "name": "what_can_you_do",
-      "confidence": 0.3625577986240387
+      "name": "ask_eps_meaning",
+      "confidence": 0.16544996201992035
     }
   }
 ]

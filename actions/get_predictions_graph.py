@@ -11,47 +11,40 @@ from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
 # Add the new action class here
-class ActionGetStockTrendGraph(Action):
+class ActionGetPredictionsGraph(Action):
     def name(self) -> Text:
-        return "get_predictions_graph"
+        return "get_predictions_graph" 
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            entities = tracker.latest_message.get('entities', [])
-            print("Entities extracted:", entities)  # Debug statement
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
-            info = next(tracker.get_latest_entity_values("info"), None).lower()
+            # entities = tracker.latest_message.get('entities', [])
+            # print("Entities extracted:", entities)  # Debug statement
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            if company_name:
+                company_name = company_name.lower()
+            else:
+                company_name = tracker.get_slot("stock_name").lower()
             print("Company name extracted:", company_name)  # Debug statement
-            print(info)
             stock_ticker = get_ticker(company_name)
             stock_data = yf.Ticker(stock_ticker)
             df = stock_data.history(period="max")
             df = self.preprocess_data(df)
             model = self.train_model(df)
-            self.plot_predicted_prices(model, df)
+            self.plot_predicted_prices(model, df, dispatcher)
         
         except Exception as e:
-            # Extract stock_name from the slot
-            company_name = tracker.get_slot("stock_name").lower()
-            info = next(tracker.get_latest_entity_values("info"), None).lower()
-            print("Company name extracted from slot:", company_name)  # Debug statement
-            print(info)
-            stock_ticker = get_ticker(company_name)
-            stock_data = yf.Ticker(stock_ticker)
-            df = stock_data.history(period="max")
-            df = self.preprocess_data(df)
-            model = self.train_model(df)
-            self.plot_predicted_prices(model, df)
+            print(f"Error: {e}")
+            dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
 
         return []
 
-    def preprocess_data(df):
+    def preprocess_data(self, df):
         df.dropna(inplace=True)
         features = ['Open', 'High', 'Low', 'Volume', 'Close']
         df = df[features]
         return df
 
-    def train_model(df):
+    def train_model(self, df):
         df['Target'] = df['Close'].shift(-30)
         df.dropna(inplace=True)
         X = df.drop(columns=['Target'])
@@ -69,7 +62,7 @@ class ActionGetStockTrendGraph(Action):
         
         return model
 
-    def plot_predicted_prices(model, df):
+    def plot_predicted_prices(self, model, df, dispatcher: CollectingDispatcher):
         last_30_days = df[-30:]  # Selecting only the last 30 days of historical data
         future_dates = pd.date_range(start=last_30_days.index[-1], periods=30, freq='B')  # Business days
         future_dates = future_dates.tz_convert(df.index.tz)
@@ -85,4 +78,7 @@ class ActionGetStockTrendGraph(Action):
         plt.legend()
         plt.xticks(rotation=45)
         plt.grid(True)
-        plt.show()
+        predictions_plot_file = 'static/images/predicted_stock_graph.png'
+        plt.savefig(predictions_plot_file)
+        plt.close()
+        dispatcher.utter_message(image=predictions_plot_file)

@@ -675,6 +675,9 @@ nlu:
     - I'm interested in the predicted price graph of [Twitter](stock_name).
     - Show me the price predictions graph for [AMD](stock_name).
     - Can you provide the predicted graph for [NVIDIA](stock_name)?
+    - get stock predictions graph
+    - predict the price of this stock over the next 7 days and then map it
+    - mapping of [tsla](stock_name) stock prices for the next week
 
 ########################################################################################################
 # info meanings
