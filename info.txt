@@ -95,7 +95,9 @@ Error:
     graph data retrieval 
     stock listing table - header fix
     check indian company's tickers
-    for stock tickers that end with .NS, convert to dollar or return in inr
+    get user location and on the basis of that, use different currencies
+    instead of using slot in except block, use it in try block with the help of if-else
+    improve graph readability
 
 Tool:
     
