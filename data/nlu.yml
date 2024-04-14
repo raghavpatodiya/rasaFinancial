@@ -653,6 +653,29 @@ nlu:
     - get me [price](info) graph for [HUHTAMAKI.NS](stock_name)
     - get me [price](info) graph for [INDOSTAR.NS](stock_name)
 
+- intent: ask_predictions_graph
+  examples: |
+    - can you get me the price predictions graph of [canoo](stock_name)?
+    - please get me the predicted graph of [goog](stock_name)
+    - price predictions graph of [aapl](stock_name)
+    - predictions graph of [msft](stock_name)
+    - predicted price of graph of [team](stock_name)
+    - can you provide the price predictions graph for [Tesla](stock_name)?
+    - I'd like to see the predicted graph for [Amazon](stock_name), please.
+    - Show me the price predictions graph for [Netflix](stock_name).
+    - Could you get the predicted graph for [Facebook](stock_name)?
+    - I'm interested in the predicted price graph of [Twitter](stock_name).
+    - Show me the predicted price graph for [Alphabet](stock_name).
+    - Can you fetch the price predictions graph for [Microsoft](stock_name)?
+    - I'm curious about the predicted graph for [Apple](stock_name), please.
+    - Please provide the predictions graph for [Tesla](stock_name).
+    - I'd like to see the predicted price graph for [Amazon](stock_name), please.
+    - Show me the predicted graph for [Netflix](stock_name).
+    - Could you fetch the predicted graph for [Facebook](stock_name)?
+    - I'm interested in the predicted price graph of [Twitter](stock_name).
+    - Show me the price predictions graph for [AMD](stock_name).
+    - Can you provide the predicted graph for [NVIDIA](stock_name)?
+
 ########################################################################################################
 # info meanings
 

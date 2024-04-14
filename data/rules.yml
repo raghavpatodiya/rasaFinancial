@@ -420,3 +420,8 @@ rules:
   steps: 
     - intent: ask_start_over
     - action: utter_start_over
+
+- rule: get predictions graph
+  steps:
+    - intent: ask_predictions_graph
+    - action: get_predictions_graph

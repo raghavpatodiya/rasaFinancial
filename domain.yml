@@ -95,6 +95,7 @@ intents:
   - ask_ete_meaning
   - ask_profitability_margins
   - ask_start_over
+  - ask_predictions_graph
 entities:
   - stock_name
   - stock_name2
@@ -333,6 +334,7 @@ actions:
   - get_market_sentiment
   - get_comparison
   - get_graph
+  - get_predictions_graph
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
