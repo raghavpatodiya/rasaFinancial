@@ -3,6 +3,7 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import yfinance as yf
 from actions.ticker_mapping import get_ticker
+from convert_currency import inr_to_usd
 import requests
 class ActionGetStockPrice(Action):
     def name(self) -> Text:
@@ -26,14 +27,28 @@ class ActionGetStockPrice(Action):
 
         return []
 
+    # def process_stock_price(self, dispatcher: CollectingDispatcher, company_name: str):
+    #     stock_ticker = get_ticker(company_name)        
+    #     stock_data = yf.Ticker(stock_ticker)
+    #     if len(stock_data.history(period='1d')) > 0:
+    #         current_price = stock_data.history(period='1d')['Close'].iloc[0]
+    #         dispatcher.utter_message(text=f"The current stock price of {company_name} is ${current_price:.2f}")
+    #     else:
+    #         dispatcher.utter_message(text=f"No data found for the company {company_name}. Please enter a valid company name .")
+    
     def process_stock_price(self, dispatcher: CollectingDispatcher, company_name: str):
-        stock_ticker = get_ticker(company_name)        
-        stock_data = yf.Ticker(stock_ticker)
-        if len(stock_data.history(period='1d')) > 0:
-            current_price = stock_data.history(period='1d')['Close'].iloc[0]
+        stock_ticker = get_ticker(company_name)   
+        stock_data = yf.Ticker(stock_ticker)     
+
+        if stock_ticker.endswith(".NS"):
+            current_price = inr_to_usd(stock_data.history(period='1d')['Close'].iloc[0])
             dispatcher.utter_message(text=f"The current stock price of {company_name} is ${current_price:.2f}")
         else:
-            dispatcher.utter_message(text=f"No data found for the company {company_name}. Please enter a valid company name .")
+            if len(stock_data.history(period='1d')) > 0:
+                current_price = stock_data.history(period='1d')['Close'].iloc[0]
+                dispatcher.utter_message(text=f"The current stock price of {company_name} is ${current_price:.2f}")
+            else:
+                dispatcher.utter_message(text=f"No data found for the company {company_name}. Please enter a valid company name.")
 
 
 class ActionGetOlderStockPrice(Action):

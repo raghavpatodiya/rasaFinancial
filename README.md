@@ -31,7 +31,8 @@
 - `SECRET_KEY=your_secret_key` get your secret key using this command `print(os.urandom(24))`
 - `MAIL_USERNAME=your_project_email_id`
 - `MAIL_PASSWORD=your_google_app_password` to get this, create a google app.
-- `ROOT_DIRECTORY=path_to_your_root_directory` for LOC Counter
+- `ROOT_DIRECTORY=path_to_your_root_directory` for LOC Counter.
+- `EXCHANGE_RATE_API_KEY=your_exchange_rate_api_key` for currency conversion.
 
 ## General Commands
 
