@@ -1,5 +1,6 @@
 import time
 import yfinance as yf
+from convert_currency import inr_to_usd
 
 def format(amount: str) -> str:
         if amount != 'N/A':
@@ -25,14 +26,20 @@ def fetch_stock_data():
     all_stock_data = []
     for symbol in symbols:
         try:
-            stock_info = yf.Ticker(symbol)
-            info = stock_info.info
+            if symbol.endswith(".NS"):
+                current_price = inr_to_usd(yf.Ticker(symbol).history(period='1d')['Close'].iloc[0])
+                previous_close = inr_to_usd(yf.Ticker(symbol).info['previousClose'])
+                market_cap = inr_to_usd(yf.Ticker(symbol).info['marketCap'])
+            else:
+                current_price = yf.Ticker(symbol).info['currentPrice']
+                previous_close = yf.Ticker(symbol).info['previousClose']
+                market_cap = yf.Ticker(symbol).info['marketCap']
             stock_data = {
                 'symbol': symbol,
-                'price': info['currentPrice'],
-                'change': round(info['previousClose'] - info['currentPrice'], 2),  # Rounded to 2 decimal points
-                'percent_change': abs(round((info['previousClose'] - info['currentPrice']) / info['previousClose'] * 100, 2)),  # Rounded to 2 decimal points
-                'market_cap': format(info['marketCap'])
+                'price': current_price,
+                'change': round(previous_close - current_price, 2),
+                'percent_change': abs(round((previous_close - current_price) / previous_close * 100, 2)),
+                'market_cap': format(market_cap)
             }
             all_stock_data.append(stock_data)
         except Exception as e:
