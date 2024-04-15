@@ -20,11 +20,20 @@ def inr_to_usd(amount_in_inr):
     exchange_rate = get_exchange_rate()
     if exchange_rate is not None:
         amount_in_usd = amount_in_inr * exchange_rate
-        return amount_in_usd
+        return round(amount_in_usd, 2)
     else:
         return None
     
-# amount_in_inr = 1000  # Replace with your desired amount in INR
-# amount_in_usd = inr_to_usd(amount_in_inr)
-# if amount_in_usd is not None:
-#     print(f"{amount_in_inr} INR is equal to {amount_in_usd:.2f} USD")
+def usd_to_inr(amount_in_usd):
+    exchange_rate = get_exchange_rate()
+    if exchange_rate is not None:
+        amount_in_inr = amount_in_usd / exchange_rate
+        return round(amount_in_inr, 2)
+    else:
+        return None
+    
+# amount_in_inr = 1000 
+# print(inr_to_usd(amount_in_inr))
+
+# amount_in_usd = 10
+# print(usd_to_inr(amount_in_usd))
