@@ -17,7 +17,11 @@ class ActionGetStockPredictions(Action):
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
             entities = tracker.latest_message.get('entities', [])
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            if company_name:
+                company_name = company_name.lower()
+            else:
+                company_name = tracker.get_slot("stock_name").lower()
             stock_ticker = get_ticker(company_name)
             stock_data = yf.Ticker(stock_ticker)
             current_price = stock_data.history(period='1d')['Close'].iloc[0]
@@ -35,22 +39,8 @@ class ActionGetStockPredictions(Action):
                 dispatcher.utter_message(text="Not enough data to build a predictive model.")
         
         except Exception as e:
-            company_name = tracker.get_slot("stock_name").lower()
-            stock_ticker = get_ticker(company_name)
-            stock_data = yf.Ticker(stock_ticker)
-            current_price = stock_data.history(period='1d')['Close'].iloc[0]
-            df = self.fetch_historical_data(stock_ticker)
-            model, X_test, y_test = self.build_predictive_model(df)
-            mse = self.backtest_model(model, X_test, y_test)
-
-            if model:
-                predicted_price = self.predict_stock_price(model, df)
-
-                self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
-
-                dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}.")
-            else:
-                dispatcher.utter_message(text="Not enough data to build a predictive model.")
+            print(f"Error: {e}")
+            dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
 
         return []
 

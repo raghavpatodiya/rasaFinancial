@@ -18,12 +18,16 @@ class ActionGetMarketSentiment(Action):
         try:
             entities = tracker.latest_message.get('entities', [])
             print("Entities extracted:", entities)  # Debug statement
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            if company_name:
+                company_name = company_name.lower()
+            else:
+                company_name = tracker.get_slot("stock_name").lower()
             self.process_market_sentiment(dispatcher, company_name)
         
         except Exception as e:
-            company_name=tracker.get_slot("stock_name").lower()
-            self.process_market_sentiment(dispatcher, company_name)
+            print(f"Error: {e}")
+            dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
 
         return []
 

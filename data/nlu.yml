@@ -621,6 +621,8 @@ nlu:
     - Compare the [price](info) of [KO](stock_name) and [PEP](stock_name2).
     - Compare the [price](info) of [JNJ](stock_name) and [PFE](stock_name2).
     - Compare the [price](info) of [MCD](stock_name) and [SBUX](stock_name2).
+    - compare this with stock [price](info) of [msft](stock_name2)
+    - also compare their [revenue](info)
 
     
 - intent: ask_graph

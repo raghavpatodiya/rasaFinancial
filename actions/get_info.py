@@ -18,18 +18,19 @@ class ActionGetSpecificInfo(Action):
             print("Entities extracted:", entities)  # Debug statement
             
             # Extracting entity values from user message
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            if company_name:
+                company_name = company_name.lower()
+            else:
+                company_name = tracker.get_slot("stock_name").lower()
             info_type = next(tracker.get_latest_entity_values("info"), None).lower()
             print("Company name extracted:", company_name)  # Debug statement
             print("Info type extracted:", info_type)  # Debug statement
             self.process_info(dispatcher, company_name, info_type)
 
         except Exception as e:
-            company_name = tracker.get_slot("stock_name").lower()
-            print("Company name extracted:", company_name)  # Debug statement
-            info_type = next(tracker.get_latest_entity_values("info"), None)
-
-            self.process_info(dispatcher, company_name, info_type)
+            print(f"Error: {e}")
+            dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
 
         return []
     

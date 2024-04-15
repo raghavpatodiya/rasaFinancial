@@ -15,19 +15,19 @@ class ActionGetStockTrendGraph(Action):
         try:
             entities = tracker.latest_message.get('entities', [])
             print("Entities extracted:", entities)  # Debug statement
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            if company_name:
+                company_name = company_name.lower()
+            else:
+                company_name = tracker.get_slot("stock_name").lower()
             info = next(tracker.get_latest_entity_values("info"), None).lower()
             print("Company name extracted:", company_name)  # Debug statement
             print(info)
             self.check_info_type(dispatcher, company_name, info)
         
         except Exception as e:
-            # Extract stock_name from the slot
-            company_name = tracker.get_slot("stock_name").lower()
-            info = next(tracker.get_latest_entity_values("info"), None).lower()
-            print("Company name extracted from slot:", company_name)  # Debug statement
-            print(info)
-            self.check_info_type(dispatcher, company_name, info)
+            print(f"Error: {e}")
+            dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
 
         return []
     

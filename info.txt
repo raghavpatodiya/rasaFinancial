@@ -65,7 +65,6 @@ Test:
 Incorporate:
     before sending user message to rasa, remove any obvious typos, hugging face nlp integration ?
     language translation
-    improve FAQ's
     more predictions
     check all bot responses and generalize it
     check every intent, action, response and rule
@@ -79,8 +78,7 @@ Incorporate:
     add a python script automation to scrape data and train a model ?
     add ticker of nasdaq, nifty 500 etc ?
     add name column in listings
-    create a model that predicts prices for next month ? and then a graph that plots it w.r.to the current price, also update the nlu to incorporate this 
-    xgboost model ? check from data which variables will the model require ? data from alpha vantage ?
+    xgboost model ? check from data which variables will the model require ? data from alpha vantage like market sentiment 
 
 Functionalities: 
     once price predicted - buysellhold
@@ -91,13 +89,13 @@ Functionalities:
 
 
 Error:
-    comparison of company_name(slot) with company_name2(extract)
-    graph data retrieval 
+    graph data retrieval
     stock listing table - header fix
-    check indian company's tickers
-    get user location and on the basis of that, use different currencies
+    check indian company's tickers and use a base currency
+    get user location and on the basis of that, use different currencies. if not granted use $
     instead of using slot in except block, use it in try block with the help of if-else
     improve graph readability
+    fix comparision try except blocks
 
 Tool:
     
