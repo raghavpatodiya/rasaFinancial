@@ -75,7 +75,6 @@ class ActionGetComparison(Action):
     def compare_stock_price(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
         current_price = self.process_stock_price(company_name)
         current_price2 = self.process_stock_price(company_name2)
-        
         if current_price is not None and current_price2 is not None:
             if current_price > current_price2:
                 dispatcher.utter_message(text=f"The current stock price of {company_name} (${current_price:.2f}) is higher than {company_name2} (${current_price2:.2f}).")
