@@ -49,9 +49,11 @@ class ActionGetStockTrendGraph(Action):
         stock_data = yf.Ticker(stock_ticker)
         df = stock_data.history(period="1wk")  # Fetch historical data for all available dates
         if not df.empty:
+            info = stock_data.info
+            currency = info['currency']
             plt.plot(df.index, df['Close'])
             plt.xlabel('Date')
-            plt.ylabel('Closing Price in $')
+            plt.ylabel(f'Closing Price in {currency}')
             plt.title(f'Stock Trend for {company_name}')
             plt.xticks(rotation=45)
             plt.grid(True)
@@ -87,9 +89,11 @@ class ActionGetStockTrendGraph(Action):
         stock_data = yf.Ticker(stock_ticker)
         revenue_data = stock_data.history(period="1y").get('revenue')
         if revenue_data is not None:
+            info = stock_data.info
+            currency = info['currency']
             plt.plot(revenue_data.index, revenue_data.values)
             plt.xlabel('Date')
-            plt.ylabel('Revenue')
+            plt.ylabel(f'Revenue in {currency}')
             plt.title(f'Revenue Trend for {company_name}')
             plt.grid(True)
             revenue_plot_file = 'static/images/stock_graph.png'

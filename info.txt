@@ -96,6 +96,8 @@ Error:
     fix comparison try except blocks
     fix comparison currency
     standardize code 
+    graph response incorrect
+    fix predicted graph currency
 
 Tool:
     

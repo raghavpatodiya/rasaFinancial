@@ -66,6 +66,7 @@ class ActionGetSpecificInfo(Action):
         stock_ticker = get_ticker(company_name)
         stock_info = yf.Ticker(stock_ticker)
         info = stock_info.info
+        currency=info['currency']
         
         # Retrieving specific information requested by the user
         if info_type in ["number of employee", "number of employees", "total employees", "total employee", "full time employee", "full time employees", "full-time employees"]:
@@ -104,23 +105,23 @@ class ActionGetSpecificInfo(Action):
         elif info_type in ["market cap", "market capitalization", "capital"]:
             requested_info = info['marketCap']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The market capitalization of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The market capitalization of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["previous close"]:
             requested_info = info['previousClose']
-            dispatcher.utter_message(text=f"The previous close price of {company_name} was: ${requested_info}")
+            dispatcher.utter_message(text=f"The previous close price of {company_name} was: {requested_info} {currency}")
 
         elif info_type in ["open", "day open"]:
             requested_info = info['open']
-            dispatcher.utter_message(text=f"The opening price of {company_name} today was: ${requested_info}")
+            dispatcher.utter_message(text=f"The opening price of {company_name} today was: {requested_info} {currency}")
 
         elif info_type in ["day low"]:
             requested_info = info['dayLow']
-            dispatcher.utter_message(text=f"The lowest price of {company_name} today was: ${requested_info}")
+            dispatcher.utter_message(text=f"The lowest price of {company_name} today was: {requested_info} {currency}")
 
         elif info_type in ["day high"]:
             requested_info = info['dayHigh']
-            dispatcher.utter_message(text=f"The highest price of {company_name} today was: ${requested_info}")
+            dispatcher.utter_message(text=f"The highest price of {company_name} today was: {requested_info} {currency}")
         
         elif info_type in ["audit risk"]:
             requested_info = info['auditRisk']
@@ -210,11 +211,11 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["fifty two week low", "52 week low"]:
             requested_info = info['fiftyTwoWeekLow']
-            dispatcher.utter_message(text=f"The fifty two week low of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The fifty two week low of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["fifty two week high", "52 week high"]:
             requested_info = info['fiftyTwoWeekHigh']
-            dispatcher.utter_message(text=f"The fifty two week high of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The fifty two week high of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["price to sales trailing 12 months"]:
             requested_info = info['priceToSalesTrailing12Months']
@@ -222,16 +223,16 @@ class ActionGetSpecificInfo(Action):
 
         elif info_type in ["fifty day average", "50 day average"]:
             requested_info = info['fiftyDayAverage']
-            dispatcher.utter_message(text=f"The fifty day average of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The fifty day average of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["two hundred day average", "200 day average"]:
             requested_info = info['twoHundredDayAverage']
-            dispatcher.utter_message(text=f"The two hundred day average of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The two hundred day average of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["enterprise value"]:
             requested_info = info['enterpriseValue']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The enterprise value of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The enterprise value of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["profit margins"]:
             requested_info = info['profitMargins']
@@ -317,7 +318,7 @@ class ActionGetSpecificInfo(Action):
         elif info_type in ["net income to common"]:
             requested_info = info['netIncomeToCommon']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The net income to common of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The net income to common of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["trailing eps", "earning per share", "earnings per share"]:
             requested_info = info['trailingEps']
@@ -416,21 +417,21 @@ class ActionGetSpecificInfo(Action):
         elif info_type in ["total cash", "cash"]:
             requested_info = info['totalCash']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The total cash of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The total cash of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["total cash per share"]:
             requested_info = info['totalCashPerShare']
-            dispatcher.utter_message(text=f"The total cash per share of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The total cash per share of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["ebitda"]:
             requested_info = info['ebitda']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The EBITDA of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The EBITDA of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["total debt", "debt"]:
             requested_info = info['totalDebt']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The total debt of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The total debt of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["quick ratio"]:
             requested_info = info['quickRatio']
@@ -443,7 +444,7 @@ class ActionGetSpecificInfo(Action):
         elif info_type in ["total revenue", "revenue"]:
             requested_info = info['totalRevenue']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The total revenue of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The total revenue of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["debt to equity"]:
             requested_info = info['debtToEquity']
@@ -464,12 +465,12 @@ class ActionGetSpecificInfo(Action):
         elif info_type in ["free cashflow"]:
             requested_info = info['freeCashflow']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The free cashflow of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The free cashflow of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["operating cashflow"]:
             requested_info = info['operatingCashflow']
             requested_info = self.format(requested_info)
-            dispatcher.utter_message(text=f"The operating cashflow of {company_name} is: ${requested_info}")
+            dispatcher.utter_message(text=f"The operating cashflow of {company_name} is: {requested_info} {currency}")
 
         elif info_type in ["earnings growth"]:
             requested_info = info['earningsGrowth']

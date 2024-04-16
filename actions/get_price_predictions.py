@@ -24,6 +24,8 @@ class ActionGetStockPredictions(Action):
                 company_name = tracker.get_slot("stock_name").lower()
             stock_ticker = get_ticker(company_name)
             stock_data = yf.Ticker(stock_ticker)
+            info = stock_data.info
+            currency = info['currency']
             current_price = stock_data.history(period='1d')['Close'].iloc[0]
             df = self.fetch_historical_data(stock_ticker)
             model, X_test, y_test = self.build_predictive_model(df)
@@ -32,9 +34,9 @@ class ActionGetStockPredictions(Action):
             if model:
                 predicted_price = self.predict_stock_price(model, df)
 
-                self.store_prediction(company_name, stock_ticker, predicted_price, current_price)
+                self.store_prediction(company_name, stock_ticker, predicted_price, current_price, currency)
 
-                dispatcher.utter_message(text=f"The predicted stock price for {company_name} is ${predicted_price:.2f}.")
+                dispatcher.utter_message(text=f"The predicted stock price for {company_name} is {predicted_price:.2f} {currency}.")
             else:
                 dispatcher.utter_message(text="Not enough data to build a predictive model.")
         
@@ -98,12 +100,13 @@ class ActionGetStockPredictions(Action):
         predicted_price = model.predict(current_data[['Open', 'High', 'Low', 'Volume', 'Dividends', 'Stock Splits']].values.reshape(1, -1))[0]
         return predicted_price
 
-    def store_prediction(self, company_name: str, stock_ticker: str, predicted_price: float, current_price: float) -> None:
+    def store_prediction(self, company_name: str, stock_ticker: str, predicted_price: float, current_price: float, currency: str) -> None:
         data = {
             "company_name": company_name,
             "stock_ticker": stock_ticker,
             "predicted_price": predicted_price,
-            "current_price": current_price
+            "current_price": current_price,
+            "currency": currency
         }
         with open('stock_data.json', 'w') as file:
             json.dump(data, file)
