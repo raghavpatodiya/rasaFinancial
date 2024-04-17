@@ -1,0 +1,19 @@
+[
+  {
+    "text": "What effect does the leadership team have on the stock's movement?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "stock_name",
+        "start": 32,
+        "end": 36,
+        "confidence_entity": 0.776529848575592,
+        "value": "team",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

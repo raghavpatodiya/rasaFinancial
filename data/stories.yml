@@ -85,3 +85,13 @@ stories:
   steps:
   - intent: fallback
   - action: utter_default
+
+- story: comparison after info
+  steps: 
+  - intent: ask_specific_info
+  - action: get_specific_info
+  - intent: ask_latest_stock_price
+  - action: get_latest_stock_price
+  - intent: ask_comparison
+  - action: get_comparison
+  

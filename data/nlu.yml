@@ -611,19 +611,28 @@ nlu:
     - Compare the [price](info) of [WMT](stock_name) and [TGT](stock_name2).
     - Compare the [price](info) of [AAPL](stock_name) and [MSFT](stock_name2).
     - Compare the [price](info) of [DIS](stock_name) and [NFLX](stock_name2).
-    - Compare the [price](info) of [GOOGL](stock_name) and [AAPL](stock_name2).
-    - Compare the [price](info) of [AMZN](stock_name) and [WMT](stock_name2).
-    - Compare the [price](info) of [MSFT](stock_name) and [GOOGL](stock_name2).
-    - Compare the [price](info) of [TSLA](stock_name) and [AAPL](stock_name2).
+    - Compare the [market cap](info) of [GOOGL](stock_name) and [AAPL](stock_name2).
+    - Compare the [roe](info) of [AMZN](stock_name) and [WMT](stock_name2).
+    - Compare the [dte](info) of [MSFT](stock_name) and [GOOGL](stock_name2).
+    - Compare the [pe ratio](info) of [TSLA](stock_name) and [AAPL](stock_name2).
     - Compare the [price](info) of [NVDA](stock_name) and [AMD](stock_name2).
     - Compare the [price](info) of [CSCO](stock_name) and [INTC](stock_name2).
-    - Compare the [price](info) of [V](stock_name) and [MA](stock_name2).
+    - Compare the [margin](info) of [V](stock_name) and [MA](stock_name2).
     - Compare the [price](info) of [KO](stock_name) and [PEP](stock_name2).
     - Compare the [price](info) of [JNJ](stock_name) and [PFE](stock_name2).
     - Compare the [price](info) of [MCD](stock_name) and [SBUX](stock_name2).
-    - compare this with stock [price](info) of [msft](stock_name2)
+    - compare this with [stock price](info) of [msft](stock_name2)
+    - now compare the [revenue](info) of this (stock_name) with that of [apple](stock_name2)
     - also compare their [revenue](info)
     - compare [market cap](info) of [goog](stock_name) and [infy.ns](stock_name2)
+    - compare this with [price](info) of [team](stock_name2)
+    - compare this with [revenue](info) of [caoo]](stock_name2)
+    - compare this with [profit](info) of [bumble](stock_name2)
+    - compare this with [margins](info) of [tinder](stock_name2)
+    - compare this with [roe](info) of [reliance.ns](stock_name2)
+    - compare this with [dte](info) of [wipro](stock_name2)
+    - compare this with [pe ratio](info) of [nvidia]](stock_name2)
+    - compare this with [market cap](info) of [goog](stock_name2)
 
     
 - intent: ask_graph

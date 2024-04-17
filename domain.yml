@@ -109,6 +109,8 @@ entities:
   # - PERSON
   # - DATE
   # - NORP
+  # - EVENT
+  # - ORDINAL
 
 # slots to store use info
 slots:

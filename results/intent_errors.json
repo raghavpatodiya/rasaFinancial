@@ -1,0 +1,26 @@
+[
+  {
+    "text": "what is the meaning of p/b ratio",
+    "intent": "ask_price_book_ratio_meaning",
+    "intent_prediction": {
+      "name": "ask_pe_ratio_meaning",
+      "confidence": 0.4265925884246826
+    }
+  },
+  {
+    "text": "Why are stock buybacks considered important in financial markets?",
+    "intent": "ask_significance_stock_buybacks",
+    "intent_prediction": {
+      "name": "ask_predictions_graph",
+      "confidence": 0.14670702815055847
+    }
+  },
+  {
+    "text": "What is the relationship between debt and equity in a company?",
+    "intent": "ask_analyze_debt_equity_ratio",
+    "intent_prediction": {
+      "name": "ask_debt_equity_meaning",
+      "confidence": 0.34343865513801575
+    }
+  }
+]

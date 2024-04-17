@@ -21,9 +21,19 @@ class ActionGetComparison(Action):
         try:
             # Extracting entities
             # entities = tracker.latest_message.get('entities', [])
-            company_name = next(tracker.get_latest_entity_values("stock_name"), None).lower()
-            company_name2 = next(tracker.get_latest_entity_values("stock_name2"), None).lower()
-            info = next(tracker.get_latest_entity_values("info"), None)
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            if company_name:
+                company_name = company_name.lower()
+            else:
+                company_name = tracker.get_slot("stock_name")
+
+            company_name2 = next(tracker.get_latest_entity_values("stock_name2"), None)
+            if company_name2:
+                company_name2 = company_name2.lower()
+            else:
+                company_name2 = tracker.get_slot("stock_name2")
+
+            info = next(tracker.get_latest_entity_values("info"), None).lower()
             print("Company names extracted:", company_name, company_name2)  # Debug statement
             print("Info extracted:", info)  # Debug statement
             
@@ -34,16 +44,18 @@ class ActionGetComparison(Action):
                 dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
         
         except Exception as e:
-            company_name = tracker.get_slot("stock_name")
-            company_name2 = tracker.get_slot("stock_name2")
-            print("Company names extracted from slot:", company_name, company_name2)  # Debug statement
-            info = next(tracker.get_latest_entity_values("info"), None)
-            print("Info extracted:", info)  # Debug statement
-            if info:
-                info = info.lower()
-                self.process_comparison(dispatcher, company_name, company_name2, info)
-            else:
-                dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
+            print(f"Error: {e}")
+            dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
+            # company_name = tracker.get_slot("stock_name")
+            # company_name2 = tracker.get_slot("stock_name2")
+            # print("Company names extracted from slot:", company_name, company_name2)  # Debug statement
+            # info = next(tracker.get_latest_entity_values("info"), None)
+            # print("Info extracted:", info)  # Debug statement
+            # if info:
+            #     info = info.lower()
+            #     self.process_comparison(dispatcher, company_name, company_name2, info)
+            # else:
+            #     dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
 
         return []
 
