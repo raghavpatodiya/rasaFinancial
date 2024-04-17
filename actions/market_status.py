@@ -17,8 +17,8 @@ class ActionGetMarketStatus(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            entities = tracker.latest_message.get('entities', [])
-            print("Entities extracted:", entities)  # debug statement
+            # entities = tracker.latest_message.get('entities', [])
+            # print("Entities extracted:", entities)  # debug statement
             region = next(tracker.get_latest_entity_values("region"), None).lower()
             print(region) # debug statement
             url = f"https://www.alphavantage.co/query?function=MARKET_STATUS&apikey={ALPHA_VANTAGE_API_KEY}"

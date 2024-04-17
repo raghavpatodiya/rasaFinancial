@@ -34,8 +34,8 @@ class ActionGetComparison(Action):
                 dispatcher.utter_message(text="Sorry, I couldn't understand the comparison metric.")
         
         except Exception as e:
-            company_name = tracker.get_slot("stock_name").lower()
-            company_name2 = tracker.get_slot("stock_name2").lower()
+            company_name = tracker.get_slot("stock_name")
+            company_name2 = tracker.get_slot("stock_name2")
             print("Company names extracted from slot:", company_name, company_name2)  # Debug statement
             info = next(tracker.get_latest_entity_values("info"), None)
             print("Info extracted:", info)  # Debug statement

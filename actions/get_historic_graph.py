@@ -13,8 +13,8 @@ class ActionGetStockTrendGraph(Action):
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            entities = tracker.latest_message.get('entities', [])
-            print("Entities extracted:", entities)  # Debug statement
+            # entities = tracker.latest_message.get('entities', [])
+            # print("Entities extracted:", entities)  # Debug statement
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             if company_name:
                 company_name = company_name.lower()

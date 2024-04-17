@@ -14,8 +14,8 @@ class ActionGetSpecificInfo(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            entities = tracker.latest_message.get('entities', [])
-            print("Entities extracted:", entities)  # Debug statement
+            # entities = tracker.latest_message.get('entities', [])
+            # print("Entities extracted:", entities)  # Debug statement
             
             # Extracting entity values from user message
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
@@ -39,13 +39,13 @@ class ActionGetSpecificInfo(Action):
             amount_numeric = float(amount)
             if amount_numeric >= 1e12:
                 # Convert to trillion
-                formatted = f"{amount_numeric / 1e12:.2f} trillion"
+                formatted = f"{amount_numeric / 1e12:.2f} T"
             elif amount_numeric >= 1e9:
                 # Convert to billion
-                formatted = f"{amount_numeric / 1e9:.2f} billion"
+                formatted = f"{amount_numeric / 1e9:.2f} B"
             elif amount_numeric >= 1e6:
                 # Convert to million
-                formatted = f"{amount_numeric / 1e6:.2f} million"
+                formatted = f"{amount_numeric / 1e6:.2f} M"
             else:
                 # Leave as is
                 formatted = f"{amount_numeric:.2f}"

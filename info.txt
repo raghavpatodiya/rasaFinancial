@@ -81,6 +81,7 @@ Incorporate:
     recommend next questions
     newsletter
     add company name in predictions graph
+    comparison graphs
 
 Functionalities: 
     once price predicted - buysellhold

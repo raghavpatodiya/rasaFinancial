@@ -73,7 +73,7 @@ class ActionGetPredictionsGraph(Action):
         plt.plot(last_30_days.index, last_30_days['Close'], label='Last 30 Days Prices', color='blue')
         plt.plot(future_dates, future_prices, label='Predicted Prices', color='red')  # Plot predicted prices
         plt.xlabel('Date')
-        plt.ylabel('Close Price in $')
+        plt.ylabel('Close Price in USD')
         plt.title('Predicted Stock Prices for the Next 30 Days')
         plt.legend()
         plt.xticks(rotation=45)
