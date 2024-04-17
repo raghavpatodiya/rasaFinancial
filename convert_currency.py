@@ -2,7 +2,7 @@ import requests
 import os 
 from dotenv import load_dotenv
 
-load_dotenv()  # taking environment variables from .env file
+load_dotenv()
 EXCHANGE_RATE_API_KEY=os.getenv("EXCHANGE_RATE_API_KEY")
 
 def get_exchange_rate():

@@ -73,12 +73,14 @@ Incorporate:
     predicted price, recommendation key
     price, change, % change odometer
     answer factual questions using some api ?
-    implement loc_calculator and fetch_stock_data in app
     answer normal queries like time, weather, etc
     add a python script automation to scrape data and train a model ?
     add ticker of nasdaq, nifty 500 etc ?
     add name column in listings
     xgboost model ? check from data which variables will the model require ? data from alpha vantage like market sentiment 
+    recommend next questions
+    newsletter
+    add company name in predictions graph
 
 Functionalities: 
     once price predicted - buysellhold

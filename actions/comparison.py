@@ -5,6 +5,7 @@ from actions.ticker_mapping import get_ticker
 import yfinance as yf
 import requests
 from datetime import datetime, timedelta
+from convert_currency  import inr_to_usd
 
 import os  # to get env
 from dotenv import load_dotenv
@@ -47,7 +48,7 @@ class ActionGetComparison(Action):
         return []
 
     def process_comparison(self, dispatcher, company_name, company_name2, info):
-        if info in ["price", "prices"]:
+        if info in ["price", "prices", "stock price"]:
             self.compare_stock_price(dispatcher, company_name, company_name2)
         elif info in ["market sentiment", "sentiment"]:
             self.compare_market_sentiment(dispatcher, company_name, company_name2)
@@ -57,7 +58,7 @@ class ActionGetComparison(Action):
             self.compare_stock_trend(dispatcher, company_name, company_name2)
         elif info in ["market cap", "market capitalization", "mkt cap", "capital"]:
             self.compare_market_cap(dispatcher, company_name, company_name2)
-        elif info in ["revenue", "earnings", "profit", "income"]:
+        elif info in ["revenue", "earnings", "profit", "income", "net income", "net profit"]:
             self.compare_revenue(dispatcher, company_name, company_name2)
         elif info in ["eps", "earnings per share", "earning per share", "earn per share"]:
             self.compare_eps(dispatcher, company_name, company_name2)
@@ -77,11 +78,11 @@ class ActionGetComparison(Action):
         current_price2 = self.process_stock_price(company_name2)
         if current_price is not None and current_price2 is not None:
             if current_price > current_price2:
-                dispatcher.utter_message(text=f"The current stock price of {company_name} (${current_price:.2f}) is higher than {company_name2} (${current_price2:.2f}).")
+                dispatcher.utter_message(text=f"The current stock price of {company_name} ({current_price:.2f}) USD is higher than {company_name2} ({current_price2:.2f}) USD.")
             elif current_price < current_price2:
-                dispatcher.utter_message(text=f"The current stock price of {company_name} (${current_price:.2f}) is lower than {company_name2} (${current_price2:.2f}).")
+                dispatcher.utter_message(text=f"The current stock price of {company_name} ({current_price:.2f}) USD is lower than {company_name2} ({current_price2:.2f}) USD.")
             else:
-                dispatcher.utter_message(text=f"The current stock prices of {company_name} and {company_name2} are equal (${current_price:.2f}).")
+                dispatcher.utter_message(text=f"The current stock prices of {company_name} and {company_name2} are equal ({current_price:.2f}) USD.")
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve stock price data for one or both of the companies.")
 
@@ -130,28 +131,31 @@ class ActionGetComparison(Action):
     def compare_market_cap(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
         market_cap = self.process_market_cap(company_name)
         market_cap2 = self.process_market_cap(company_name2)
-
+        formatted_market_cap = self.format_amount(market_cap)
+        formatted_market_cap2 = self.format_amount(market_cap2)
         if market_cap is not None and market_cap2 is not None:
             if market_cap > market_cap2:
-                dispatcher.utter_message(text=f"The market cap of {company_name} (${market_cap}) is higher than {company_name2} (${market_cap2}).")
+                dispatcher.utter_message(text=f"The market cap of {company_name} ({formatted_market_cap} USD) is higher than {company_name2} ({formatted_market_cap2} USD).")
             elif market_cap < market_cap2:
-                dispatcher.utter_message(text=f"The market cap of {company_name} (${market_cap}) is lower than {company_name2} (${market_cap2}).")
+                dispatcher.utter_message(text=f"The market cap of {company_name} ({formatted_market_cap} USD) is lower than {company_name2} ({formatted_market_cap2} USD).")
             else:
-                dispatcher.utter_message(text=f"The market caps of {company_name} and {company_name2} are equal (${market_cap}).")
+                dispatcher.utter_message(text=f"The market caps of {company_name} and {company_name2} are equal ({formatted_market_cap} USD).")
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve market cap data for one or both of the companies.")
 
     def compare_revenue(self, dispatcher: CollectingDispatcher, company_name: str, company_name2: str):
         revenue = self.process_revenue(company_name)
         revenue2 = self.process_revenue(company_name2)
+        formatted_revenue = self.format_amount(revenue)
+        formatted_revenue2 = self.format_amount(revenue2)
 
         if revenue is not None and revenue2 is not None:
             if revenue > revenue2:
-                dispatcher.utter_message(text=f"The revenue of {company_name} (${revenue}) is higher than {company_name2} (${revenue2}).")
+                dispatcher.utter_message(text=f"The revenue of {company_name} ({formatted_revenue} USD) is higher than {company_name2} ({formatted_revenue2} USD).")
             elif revenue < revenue2:
-                dispatcher.utter_message(text=f"The revenue of {company_name} (${revenue}) is lower than {company_name2} (${revenue2}).")
+                dispatcher.utter_message(text=f"The revenue of {company_name} ({formatted_revenue} USD) is lower than {company_name2} ({formatted_revenue2} USD).")
             else:
-                dispatcher.utter_message(text=f"The revenue of {company_name} and {company_name2} are equal (${revenue}).")
+                dispatcher.utter_message(text=f"The revenue of {company_name} and {company_name2} are equal ({formatted_revenue} USD).")
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve revenue data for one or both of the companies.")
 
@@ -161,11 +165,11 @@ class ActionGetComparison(Action):
 
         if eps is not None and eps2 is not None:
             if eps > eps2:
-                dispatcher.utter_message(text=f"The EPS of {company_name} (${eps}) is higher than {company_name2} (${eps2}).")
+                dispatcher.utter_message(text=f"The EPS of {company_name} ({eps} USD) is higher than {company_name2} ({eps2} USD).")
             elif eps < eps2:
-                dispatcher.utter_message(text=f"The EPS of {company_name} (${eps}) is lower than {company_name2} (${eps2}).")
+                dispatcher.utter_message(text=f"The EPS of {company_name} ({eps} USD) is lower than {company_name2} ({eps2} USD).")
             else:
-                dispatcher.utter_message(text=f"The EPSs of {company_name} and {company_name2} are equal (${eps}).")
+                dispatcher.utter_message(text=f"The EPSs of {company_name} and {company_name2} are equal ({eps} USD).")
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve EPS data for one or both of the companies.")
 
@@ -232,8 +236,11 @@ class ActionGetComparison(Action):
     def process_stock_price(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
+        # Convert INR to USD if ticker ends with ".NS"
         if len(stock_data.history(period='1d')) > 0:
             current_price = stock_data.history(period='1d')['Close'].iloc[0]
+            if stock_ticker.endswith(".NS"):
+                current_price = inr_to_usd(current_price)
             return current_price
         else:
             return None
@@ -277,20 +284,24 @@ class ActionGetComparison(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         market_cap = stock_data.info['marketCap']
-        formatted_market_cap = self.format_amount(market_cap)
-        return formatted_market_cap
+        if stock_ticker.endswith(".NS"):
+                market_cap = inr_to_usd(market_cap)
+        return market_cap
         
     def process_revenue(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         revenue = stock_data.info['totalRevenue']
-        formatted_revenue = self.format_amount(revenue)
-        return formatted_revenue
+        if stock_ticker.endswith(".NS"):
+                revenue = inr_to_usd(revenue)
+        return revenue
                 
     def process_eps(self, company_name: str) -> float:
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         eps = stock_data.info['trailingEps']
+        if stock_ticker.endswith(".NS"):
+                eps = inr_to_usd(eps)
         return eps
 
     def process_pe_ratio(self, company_name: str) -> float:
@@ -322,13 +333,13 @@ class ActionGetComparison(Action):
             amount_numeric = float(amount)
             if amount_numeric >= 1e12:
                 # Convert to trillion
-                formatted_amount = f"{amount_numeric / 1e12:.2f} trillion"
+                formatted_amount = f"{amount_numeric / 1e12:.2f} T"
             elif amount_numeric >= 1e9:
                 # Convert to billion
-                formatted_amount = f"{amount_numeric / 1e9:.2f} billion"
+                formatted_amount = f"{amount_numeric / 1e9:.2f} B"
             elif amount_numeric >= 1e6:
                 # Convert to million
-                formatted_amount = f"{amount_numeric / 1e6:.2f} million"
+                formatted_amount = f"{amount_numeric / 1e6:.2f} M"
             else:
                 # Leave as is
                 formatted_amount = f"{amount_numeric:.2f}"

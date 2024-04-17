@@ -623,6 +623,7 @@ nlu:
     - Compare the [price](info) of [MCD](stock_name) and [SBUX](stock_name2).
     - compare this with stock [price](info) of [msft](stock_name2)
     - also compare their [revenue](info)
+    - compare [market cap](info) of [goog](stock_name) and [infy.ns](stock_name2)
 
     
 - intent: ask_graph
