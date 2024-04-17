@@ -10,13 +10,11 @@ class ActionGetStockPrice(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            # entities = tracker.latest_message.get('entities', [])
-            # print("Entities extracted:", entities)  # Debug statement
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             if company_name:
                 company_name = company_name.lower()
             else:
-                company_name = tracker.get_slot("stock_name").lower()
+                company_name = tracker.get_slot("stock_name")
             print("Company name extracted:", company_name)  # Debug statement
             self.process_stock_price(dispatcher, company_name)
         
@@ -31,6 +29,7 @@ class ActionGetStockPrice(Action):
         stock_data = yf.Ticker(stock_ticker)
         info=stock_data.info
         currency = info['currency']
+
         if len(stock_data.history(period='1d')) > 0:
             current_price = stock_data.history(period='1d')['Close'].iloc[0]
             dispatcher.utter_message(text=f"The current stock price of {company_name} is {current_price:.2f} {currency}.")
@@ -43,13 +42,12 @@ class ActionGetOlderStockPrice(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            # entities = tracker.latest_message.get('entities', [])
-            # print("Entities extracted:", entities)  # Debug statement
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             if company_name:
                 company_name = company_name.lower()
             else:
                 company_name = tracker.get_slot("stock_name").lower()
+
             time_period = next(tracker.get_latest_entity_values("time_period"), None)
             print("Company name extracted:", company_name)  # Debug statement
             print("Time period extracted:", time_period)  # Debug statement

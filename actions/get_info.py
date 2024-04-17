@@ -14,15 +14,12 @@ class ActionGetSpecificInfo(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            # entities = tracker.latest_message.get('entities', [])
-            # print("Entities extracted:", entities)  # Debug statement
-            
-            # Extracting entity values from user message
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             if company_name:
                 company_name = company_name.lower()
             else:
                 company_name = tracker.get_slot("stock_name").lower()
+
             info_type = next(tracker.get_latest_entity_values("info"), None).lower()
             print("Company name extracted:", company_name)  # Debug statement
             print("Info type extracted:", info_type)  # Debug statement
@@ -38,16 +35,12 @@ class ActionGetSpecificInfo(Action):
         if amount != 'N/A':
             amount_numeric = float(amount)
             if amount_numeric >= 1e12:
-                # Convert to trillion
                 formatted = f"{amount_numeric / 1e12:.2f} T"
             elif amount_numeric >= 1e9:
-                # Convert to billion
                 formatted = f"{amount_numeric / 1e9:.2f} B"
             elif amount_numeric >= 1e6:
-                # Convert to million
                 formatted = f"{amount_numeric / 1e6:.2f} M"
             else:
-                # Leave as is
                 formatted = f"{amount_numeric:.2f}"
         else:
             formatted = 'N/A'
@@ -55,7 +48,6 @@ class ActionGetSpecificInfo(Action):
 
     def epoch_to_date(epoch_timestamp):
         try:
-            # Convert epoch timestamp to datetime object
             date = datetime.fromtimestamp(epoch_timestamp, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
             return date
         except Exception as e:
@@ -68,7 +60,6 @@ class ActionGetSpecificInfo(Action):
         info = stock_info.info
         currency=info['currency']
         
-        # Retrieving specific information requested by the user
         if info_type in ["number of employee", "number of employees", "total employees", "total employee", "full time employee", "full time employees", "full-time employees"]:
             requested_info = info['fullTimeEmployees']
             dispatcher.utter_message(text=f"The number of employees at {company_name} is: {requested_info}")
@@ -79,9 +70,6 @@ class ActionGetSpecificInfo(Action):
         
         elif info_type in ["website", "url", "link"]:
             requested_info = info['website']
-            # html_page = urlopen(requested_info)
-            # soup = BeautifulSoup(html_page, 'html.parser')
-            # for link in soup.findAll('a'):print(link.get('href'))
             dispatcher.utter_message(text=f"The website of {company_name} is: {requested_info}")
         
         elif info_type in ["industry"]:
@@ -97,7 +85,7 @@ class ActionGetSpecificInfo(Action):
             dispatcher.utter_message(text=f"The summary of {company_name}: {requested_info}")
         
         elif info_type in ["leadership team", "leadership", "team", "officers"]:
-            requested_info = ""  # Initialize requested_info
+            requested_info = ""
             for officer in info['companyOfficers']:
                 requested_info += f"- {officer['name']}, {officer['title']}\n"
             dispatcher.utter_message(text=f"The leadership team of {company_name}:\n{requested_info}")
@@ -171,7 +159,6 @@ class ActionGetSpecificInfo(Action):
             else:
                 risk_level = "more volatile"
             dispatcher.utter_message(text=f"The beta of {company_name} is {requested_info}. This indicates that the stock is {risk_level} compared to the market.")
-
 
         elif info_type in ["trailing PE", "trailing pe", "pe ratio", "p/e ratio"]:
             requested_info = info['trailingPE']

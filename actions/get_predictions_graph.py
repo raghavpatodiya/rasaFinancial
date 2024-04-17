@@ -10,21 +10,19 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
 
-# Add the new action class here
 class ActionGetPredictionsGraph(Action):
     def name(self) -> Text:
         return "get_predictions_graph" 
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            # entities = tracker.latest_message.get('entities', [])
-            # print("Entities extracted:", entities)  # Debug statement
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             if company_name:
                 company_name = company_name.lower()
             else:
                 company_name = tracker.get_slot("stock_name").lower()
-            print("Company name extracted:", company_name)  # Debug statement
+
+            print("Company name extracted:", company_name)
             stock_ticker = get_ticker(company_name)
             stock_data = yf.Ticker(stock_ticker)
             df = stock_data.history(period="max")

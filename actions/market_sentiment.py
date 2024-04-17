@@ -4,10 +4,10 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from actions.ticker_mapping import get_ticker
 
-import os  # to get env
+import os
 from dotenv import load_dotenv
 
-load_dotenv()  # taking environment variables from .env file
+load_dotenv()
 ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY")
 
 class ActionGetMarketSentiment(Action):
@@ -16,8 +16,6 @@ class ActionGetMarketSentiment(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            # entities = tracker.latest_message.get('entities', [])
-            # print("Entities extracted:", entities)  # Debug statement
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             if company_name:
                 company_name = company_name.lower()
@@ -32,10 +30,9 @@ class ActionGetMarketSentiment(Action):
         return []
 
     def process_market_sentiment(self, dispatcher: CollectingDispatcher, company_name: str):
-            # Get the stock ticker symbol using ticker mapping
         stock_ticker = get_ticker(company_name)
+        
         if stock_ticker:    
-            # Query Alpha Vantage API for news sentiment data
             url = f'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers={stock_ticker}&apikey={ALPHA_VANTAGE_API_KEY}'
             response = requests.get(url)
             data = response.json()

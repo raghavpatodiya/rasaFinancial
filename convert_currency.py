@@ -31,11 +31,5 @@ def usd_to_inr(amount_in_usd):
         return round(amount_in_inr, 2)
     else:
         return None
-    
-# amount_in_inr = 1000 
-# print(inr_to_usd(amount_in_inr))
-
-# amount_in_usd = 10
-# print(usd_to_inr(amount_in_usd))
 
 # call get_exchange_rate every 3 hrs

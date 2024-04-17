@@ -9,7 +9,6 @@ def count_lines_of_code(file_path):
 
 def calculate_loc(root_dir):
     total_loc = 0
-    # Define folders for each file extension
     folders = {
         ".py": "actions",
         ".yml": "data",
@@ -26,23 +25,19 @@ def calculate_loc(root_dir):
                     loc = count_lines_of_code(file_path)
                     total_loc += loc
     
-    # Include .py and .yml files in the root directory
     for file_name in os.listdir(root_dir):
         if file_name.endswith(".py") or file_name.endswith(".yml"):
             file_path = os.path.join(root_dir, file_name)
             loc = count_lines_of_code(file_path)
             total_loc += loc
             
-    # Write total_loc to loc.txt file
     with open("loc.txt", "w") as f:
         f.write(str(total_loc))
 
-    # print(f"Total LOC: {total_loc}")
 
 if __name__ == "__main__":
     root_directory = os.getenv("ROOT_DIRECTORY")
     
-    # Run continuously
     while True:
         calculate_loc(root_directory)
         time.sleep(5)  

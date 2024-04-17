@@ -11,10 +11,9 @@ class ActionBuySellHold(Action):
 
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            # Retrieve data from external storage
             with open('stock_data.json', 'r') as file:
                 data = json.load(file)
-            # Extract predicted and current prices
+
             predicted_price = data.get("predicted_price")
             current_price = data.get("current_price")
             currency = data.get("currency")

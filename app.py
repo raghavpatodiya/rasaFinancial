@@ -241,19 +241,14 @@ def contactus():
         email = request.form.get('email')
         message = request.form.get('message')
 
-        # Create a new instance of Queries model
         new_query = Queries(name=name, email=email, message=message)
 
         try:
-            # Add and commit the new query to the database
             db.session.add(new_query)
             db.session.commit()
         except Exception as e:
-            # Log the exception
             print("Exception occurred while saving the query:", e)
-            # If an error occurs, rollback the transaction
             db.session.rollback()
-            # Redirect the user back to the contact us page
             return redirect(url_for('contactus'))
 
     return render_template('contactus.html')
@@ -262,7 +257,7 @@ def contactus():
 @app.route('/webhook', methods=['POST'])
 def webhook():
     try:
-        user_message = request.json.get('message', '')  # Safely get the message from JSON data
+        user_message = request.json.get('message', '')
         print("User message:", user_message)
 
         # preprocessed_message = preprocess_text(user_message) 

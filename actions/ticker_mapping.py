@@ -2,7 +2,6 @@ import pandas as pd
 
 def get_ticker(company_name):
     df = pd.read_csv('stock_data/nasdaq_screener.csv')
-    # Iterate through each row in the DataFrame
     for index, row in df.iterrows():
         ticker = row['Symbol']
         name = row['Name'].lower()

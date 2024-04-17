@@ -21,7 +21,8 @@ class ActionGetStockPredictions(Action):
             if company_name:
                 company_name = company_name.lower()
             else:
-                company_name = tracker.get_slot("stock_name").lower()
+                company_name = tracker.get_slot("stock_name")
+
             stock_ticker = get_ticker(company_name)
             stock_data = yf.Ticker(stock_ticker)
             info = stock_data.info
@@ -48,7 +49,7 @@ class ActionGetStockPredictions(Action):
 
     def fetch_historical_data(self, stock_ticker: str) -> pd.DataFrame:
         stock_data = yf.Ticker(stock_ticker)
-        df = stock_data.history(period="max")  # Fetch historical data for all available dates
+        df = stock_data.history(period="max")
         print("Columns available in the DataFrame:")
         print(df.columns)
         return df

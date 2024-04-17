@@ -1,4 +1,3 @@
-# Add the following imports at the top of your script
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 from actions.ticker_mapping import get_ticker
@@ -6,22 +5,20 @@ from typing import Any, Text, Dict, List
 import yfinance as yf
 import matplotlib.pyplot as plt
 
-# Add the new action class here
 class ActionGetStockTrendGraph(Action):
     def name(self) -> Text:
         return "get_graph"
     
     def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
         try:
-            # entities = tracker.latest_message.get('entities', [])
-            # print("Entities extracted:", entities)  # Debug statement
             company_name = next(tracker.get_latest_entity_values("stock_name"), None)
             if company_name:
                 company_name = company_name.lower()
             else:
                 company_name = tracker.get_slot("stock_name").lower()
+
             info = next(tracker.get_latest_entity_values("info"), None).lower()
-            print("Company name extracted:", company_name)  # Debug statement
+            print("Company name extracted:", company_name)
             print(info)
             self.check_info_type(dispatcher, company_name, info)
         
@@ -46,7 +43,8 @@ class ActionGetStockTrendGraph(Action):
     def process_stock_trend_graph(self, dispatcher: CollectingDispatcher, company_name: str):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
-        df = stock_data.history(period="1wk")  # Fetch historical data for all available dates
+        df = stock_data.history(period="1wk")
+
         if not df.empty:
             info = stock_data.info
             currency = info['currency']
@@ -56,12 +54,9 @@ class ActionGetStockTrendGraph(Action):
             plt.title(f'Stock Trend for {company_name}')
             plt.xticks(rotation=45)
             plt.grid(True)
-            # Save the plot as a file
-            graph_file = 'static/images/stock_graph.png'  # Save the graph in the static folder
+            graph_file = 'static/images/stock_graph.png' 
             plt.savefig(graph_file)
             plt.close()
-
-            # Send the graph file as a response
             dispatcher.utter_message(image=graph_file)
         else:
             dispatcher.utter_message(text="Unable to analyze trend. No historical data available.")
@@ -70,6 +65,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         roe_data = stock_data.history(period="1y").get('returnOnEquity')
+
         if roe_data is not None:
             plt.plot(roe_data.index, roe_data.values)
             plt.xlabel('Date')
@@ -87,6 +83,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         revenue_data = stock_data.history(period="1y").get('revenue')
+
         if revenue_data is not None:
             info = stock_data.info
             currency = info['currency']
@@ -106,6 +103,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         volume_data = stock_data.history(period="1y").get('volume')
+
         if volume_data is not None:
             plt.plot(volume_data.index, volume_data.values)
             plt.xlabel('Date')
@@ -123,6 +121,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         revenue_per_share_data = stock_data.history(period="1y").get('revenuePerShare')
+
         if revenue_per_share_data is not None:
             plt.plot(revenue_per_share_data.index, revenue_per_share_data.values)
             plt.xlabel('Date')
@@ -140,6 +139,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         return_on_assets_data = stock_data.history(period="1y").get('returnOnAssets')
+
         if return_on_assets_data is not None:
             plt.plot(return_on_assets_data.index, return_on_assets_data.values)
             plt.xlabel('Date')
@@ -157,6 +157,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         earnings_growth_data = stock_data.history(period="1y").get('earningsGrowth')
+
         if earnings_growth_data is not None:
             plt.plot(earnings_growth_data.index, earnings_growth_data.values)
             plt.xlabel('Date')
@@ -174,6 +175,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         revenue_growth_data = stock_data.history(period="1y").get('revenueGrowth')
+
         if revenue_growth_data is not None:
             plt.plot(revenue_growth_data.index, revenue_growth_data.values)
             plt.xlabel('Date')
@@ -191,6 +193,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         gross_margins_data = stock_data.history(period="1y").get('grossMargins')
+
         if gross_margins_data is not None:
             plt.plot(gross_margins_data.index, gross_margins_data.values)
             plt.xlabel('Date')
@@ -208,6 +211,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         ebitda_margins_data = stock_data.history(period="1y").get('ebitdaMargins')
+
         if ebitda_margins_data is not None:
             plt.plot(ebitda_margins_data.index, ebitda_margins_data.values)
             plt.xlabel('Date')
@@ -225,6 +229,7 @@ class ActionGetStockTrendGraph(Action):
         stock_ticker = get_ticker(company_name)
         stock_data = yf.Ticker(stock_ticker)
         operating_margins_data = stock_data.history(period="1y").get('operatingMargins')
+        
         if operating_margins_data is not None:
             plt.plot(operating_margins_data.index, operating_margins_data.values)
             plt.xlabel('Date')

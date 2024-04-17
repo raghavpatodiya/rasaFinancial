@@ -4,12 +4,10 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
-
-# check out https://www.alphavantage.co/documentation/#
-
-import os # to get env
+import os 
 from dotenv import load_dotenv
-load_dotenv() # taking environment variables from .env file
+
+load_dotenv()
 ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY")
 
 class ActionGetTopStocks(Action):
@@ -22,7 +20,6 @@ class ActionGetTopStocks(Action):
             response = requests.get(url)
             data = response.json()
 
-            # extract the top-performing stocks from the response
             if 'top_gainers' in data:
                 top_gainers = data['top_gainers']
                 top_5_gainers = top_gainers[:5]
