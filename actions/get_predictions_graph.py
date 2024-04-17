@@ -80,3 +80,31 @@ class ActionGetPredictionsGraph(Action):
         plt.savefig(predictions_plot_file)
         plt.close()
         dispatcher.utter_message(image=predictions_plot_file)
+
+# Historical Stock Data: Historical price data is essential for training the prediction model. This includes open, high, low, close prices, and trading volume.
+
+# Macroeconomic Indicators: Factors such as interest rates, inflation rates, GDP growth, unemployment rates, and consumer confidence can impact stock prices.
+
+# Market Sentiment: Sentiment analysis of news articles, social media, and other sources can provide insights into investor sentiment, which affects stock prices.
+
+# Industry Trends: Understanding trends and developments within the industry the company operates in can help predict future performance.
+
+# Company Fundamentals: Financial metrics such as earnings per share (EPS), revenue, profit margins, debt levels, and cash flow are crucial indicators of a company's health and can influence its stock price.
+
+# Technical Indicators: Technical analysis indicators such as moving averages, relative strength index (RSI), and Bollinger Bands can provide insights into stock price patterns and trends.
+
+# Market Volatility: Measures of market volatility such as the VIX index can affect stock prices and should be considered in the prediction model.
+
+# External Events: External events such as geopolitical tensions, natural disasters, regulatory changes, and company-specific events like product launches or mergers can impact stock prices.
+
+# Seasonality: Some stocks exhibit seasonal patterns influenced by factors like holidays, weather, or industry-specific events.
+
+# Liquidity and Trading Volume: Liquidity and trading volume can impact stock price movements, as higher trading volume may indicate increased investor interest or speculation.
+
+# Currency Exchange Rates: For multinational companies, changes in exchange rates can affect revenues and profitability, influencing stock prices.
+
+# Risk Factors: Consideration of risks associated with the stock, including market risk, liquidity risk, credit risk, and operational risk, is essential for accurate prediction.
+
+# Machine Learning Models: Using advanced machine learning techniques like recurrent neural networks (RNNs), long short-term memory (LSTM) networks, or transformers can capture complex patterns in stock price data and improve prediction accuracy.
+
+# Ensemble Methods: Combining predictions from multiple models using ensemble methods like bagging or boosting can further enhance prediction performance.
