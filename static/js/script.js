@@ -93,7 +93,9 @@ $(document).ready(function () {
             botResponseContainer.classList.add('bot-response');
             botResponseContainer.appendChild(imgElement);
             $("#chat-widget-messages").append("<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> Here is the requested graph: </div>");
-            $("#chat-widget-messages").append(botResponseContainer);                  
+            $("#chat-widget-messages").append(botResponseContainer);  
+            // Adding a timestamp as a query parameter to force browser to fetch a fresh copy of the image    
+            imgElement.src = botResponse + '?t=' + new Date().getTime();           
         }
         else if(botResponse === "This conversation will reset in 3 seconds.") {
             const botResponseHtml = "<div class='bot-response'><strong><span class='bot-label'>Bot:</span></strong> " +
