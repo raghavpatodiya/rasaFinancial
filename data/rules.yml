@@ -425,3 +425,8 @@ rules:
   steps:
     - intent: ask_predictions_graph
     - action: get_predictions_graph
+
+- rule: get date and Time
+  steps: 
+    - intent: ask_date_time
+    - action: get_date_time

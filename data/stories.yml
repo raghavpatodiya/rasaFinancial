@@ -45,11 +45,6 @@ stories:
   - intent: ask_specific_info
   - action: get_specific_info
 
-- story: ask time
-  steps:
-  - intent: ask_time
-  - action: utter_time
-
 - story: predictions
   steps: 
   - intent: ask_stock_predictions

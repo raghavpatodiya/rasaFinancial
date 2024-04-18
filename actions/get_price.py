@@ -46,7 +46,7 @@ class ActionGetOlderStockPrice(Action):
             if company_name:
                 company_name = company_name.lower()
             else:
-                company_name = tracker.get_slot("stock_name").lower()
+                company_name = tracker.get_slot("stock_name")
 
             time_period = next(tracker.get_latest_entity_values("time_period"), None)
             print("Company name extracted:", company_name)  # Debug statement

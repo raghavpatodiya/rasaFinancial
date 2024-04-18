@@ -14,7 +14,7 @@ intents:
   - ask_older_stock_price
   - ask_specific_info
   - what_can_you_do
-  - ask_time
+  - ask_date_time
   - ask_thanks
   - ask_stock
   - ask_stock_predictions
@@ -114,12 +114,6 @@ entities:
 
 # slots to store use info
 slots:
-  time:
-    type: any
-    mappings:
-      - type: from_entity
-        entity: time
-        intent: ask_time
   stock_name:
     type: text
     mappings:
@@ -135,6 +129,7 @@ slots:
           - ask_market_sentiment
           - ask_comparison
           - ask_graph
+          - ask_predictions_graph
   stock_name2:
     type: text
     mappings:
@@ -174,9 +169,6 @@ responses:
 
   utter_what_can_you_do:
   - text: "I can help you with anything related to stocks and more !!"
-
-  utter_time:
-  - text: "It's time."
 
   utter_default:
     - text: "I'm sorry, I didn't understand. Can you please rephrase or ask something else?"
@@ -337,6 +329,7 @@ actions:
   - get_comparison
   - get_graph
   - get_predictions_graph
+  - get_date_time
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

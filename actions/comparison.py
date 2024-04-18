@@ -5,7 +5,7 @@ from actions.ticker_mapping import get_ticker
 import yfinance as yf
 import requests
 from datetime import datetime, timedelta
-from convert_currency  import inr_to_usd
+from automation_script  import inr_to_usd
 
 import os 
 from dotenv import load_dotenv
@@ -48,7 +48,7 @@ class ActionGetComparison(Action):
         return []
 
     def process_comparison(self, dispatcher, company_name, company_name2, info):
-        if info in ["price", "prices", "stock price"]:
+        if info in ["price", "prices", "stock price", "stock"]:
             self.compare_stock_price(dispatcher, company_name, company_name2)
         elif info in ["market sentiment", "sentiment"]:
             self.compare_market_sentiment(dispatcher, company_name, company_name2)

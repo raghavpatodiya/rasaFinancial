@@ -146,11 +146,13 @@ nlu:
     - what do you do
     - yeah
 
-- intent: ask_time
+- intent: ask_date_time
   examples: |
     - what time is it ?
     - can  you tell me the current time ?
     - please tell me the time !
+    - what is the date today
+    - get me data and time
 
 - intent: ask_thanks
   examples: |

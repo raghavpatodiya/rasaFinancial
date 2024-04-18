@@ -1,14 +1,46 @@
 [
   {
-    "text": "What effect does the leadership team have on the stock's movement?",
-    "entities": [],
+    "text": "I'm interested in the revenue mapping for Netflix.",
+    "entities": [
+      {
+        "start": 22,
+        "end": 29,
+        "value": "revenue",
+        "entity": "info"
+      },
+      {
+        "start": 42,
+        "end": 49,
+        "value": "Netflix",
+        "entity": "stock_name"
+      }
+    ],
     "predicted_entities": [
       {
+        "entity": "info",
+        "start": 4,
+        "end": 14,
+        "confidence_entity": 0.8456999063491821,
+        "value": "interested",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "info",
+        "start": 22,
+        "end": 29,
+        "confidence_entity": 0.999822199344635,
+        "value": "revenue",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
         "entity": "stock_name",
-        "start": 32,
-        "end": 36,
-        "confidence_entity": 0.776529848575592,
-        "value": "team",
+        "start": 42,
+        "end": 49,
+        "confidence_entity": 0.979314923286438,
+        "value": "netflix",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"

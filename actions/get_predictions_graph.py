@@ -20,7 +20,7 @@ class ActionGetPredictionsGraph(Action):
             if company_name:
                 company_name = company_name.lower()
             else:
-                company_name = tracker.get_slot("stock_name").lower()
+                company_name = tracker.get_slot("stock_name")
 
             print("Company name extracted:", company_name)
             stock_ticker = get_ticker(company_name)
