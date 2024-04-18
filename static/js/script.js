@@ -75,7 +75,7 @@ $(document).ready(function () {
         reportConversation();
     });
 
-    let utterance = null; // Initialize utterance variable to null
+    let utterance = null;
 
     function handleBotResponse(botResponse) {
         // Cancel any ongoing speech if utterance is not null
@@ -87,8 +87,8 @@ $(document).ready(function () {
             const imgElement = document.createElement('img');
             imgElement.src = botResponse;
             // Inside the handleBotResponse function
-            imgElement.style.width = "350px"; // Set the width of the image
-            imgElement.style.height = "auto"; // Maintain aspect ratio by setting height to "auto"
+            imgElement.style.width = "350px"; 
+            imgElement.style.height = "auto"; 
             const botResponseContainer = document.createElement('div');
             botResponseContainer.classList.add('bot-response');
             botResponseContainer.appendChild(imgElement);
@@ -117,7 +117,6 @@ $(document).ready(function () {
         const speakerButtonHtml = "<button class='speak-button'>🔈</button>";
         $botResponseElement.append(speakerButtonHtml);
 
-        // Event handler for toggling speech synthesis
         $botResponseElement.find('.speak-button').on('click', function () {
             if (utterance && window.speechSynthesis.speaking) {
                 // If speech is currently speaking, cancel it
@@ -130,15 +129,12 @@ $(document).ready(function () {
                 $(this).text('🔊'); // Change button text to indicate speech synthesis is enabled
             }
         });
-
-        // Immediately start speaking if the button is already clicked
         if (utterance && window.speechSynthesis.speaking) {
             utterance = new SpeechSynthesisUtterance(botResponse);
             window.speechSynthesis.speak(utterance);
         }
     }
 
-    // Event handler for chat widget input
     $("#chat-widget-input").keypress(function (event) {
         if (event.which == 13) {
             let userMessage = $("#chat-widget-input").val();
@@ -158,7 +154,6 @@ $(document).ready(function () {
                 data: JSON.stringify({ message: userMessage }),
                 success: function (data) {
                     let botResponse = data.response;
-                    // Handle bot response
                     handleBotResponse(botResponse);
                 },
                 error: function () {
@@ -200,7 +195,6 @@ $(document).ready(function () {
     
 
     function updateStockData() {
-        // AJAX request to fetch stock data from the server
         $.ajax({
             type: "GET",
             url: "/stock_data",
@@ -228,4 +222,37 @@ $(document).ready(function () {
     }
     updateStockData();
     setInterval(updateStockData, 5000);
+
+    // Function to prompt the user for location access
+    function promptForLocationAccess() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    storeLocation(position.coords.latitude, position.coords.longitude);
+                },
+                function(error) {
+                    console.error("Error getting user's location:", error);
+                    alert("Error: Please allow location access to use this feature.");
+                }
+            );
+        } else {
+            alert("Error: Geolocation is not supported by your browser.");
+        }
+    }
+    function storeLocation(latitude, longitude) {
+        $.ajax({
+            type: "POST",
+            url: "/store-location",
+            contentType: "application/json",
+            data: JSON.stringify({ latitude: latitude, longitude: longitude }),
+            success: function (response) {
+                console.log("Location stored successfully:", response);
+            },
+            error: function (error) {
+                console.error("Failed to store location:", error);
+            }
+        });
+    }
+    promptForLocationAccess();
+
 });

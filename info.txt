@@ -83,6 +83,8 @@ Incorporate:
     add company name in predictions graph
     comparison graphs
     an indepth report page
+    get user location - then get weather info, time, etc
+    user times-out after some time, after every time out ask for user location
 
 Functionalities: 
     once price predicted - buysellhold
@@ -97,8 +99,6 @@ Error:
     check indian company's tickers and use a base currency, endswith .NS
     get user location and on the basis of that, use different currencies. if not granted use USD
     improve graph readability
-    standardize code 
-    graph response incorrect
     fix predicted graph currency
 
 Tool:
@@ -108,9 +108,7 @@ Commands:
     rasa run
     rasa run actions
     python app.py
-    python loc_calculator.py
-    python fetch_stock_data.py 
-    docker run -p 8000:8000 rasa/duckling 
+    python automation_script.py
 
 
 Comparison Metrics:

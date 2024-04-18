@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, jsonify, send_file, send_from_directory
+from flask import Flask, render_template, request, jsonify
 import requests
 import os
 from dotenv import load_dotenv
 load_dotenv()
 
 from flask import redirect, url_for, flash, abort, get_flashed_messages
-from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
+from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required, current_user
 import bcrypt
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -67,6 +67,12 @@ class Queries(UserMixin, db.Model):
     name = db.Column(db.String())
     email = db.Column(db.String())
     message = db.Column(db.String())
+
+class UserLocation(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    latitude = db.Column(db.Float)
+    longitude = db.Column(db.Float)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 # Initialize Flask-Login
 @login_manager.user_loader
@@ -286,7 +292,6 @@ def webhook():
         bot_response = 'Sorry, I am currently unable to process your request. Please try again later.'
 
     except Exception as e:
-        # Handle other exceptions gracefully
         print("An error occurred:", e)
         bot_response = 'An unexpected error occurred while processing your request.'
 
@@ -296,7 +301,6 @@ def webhook():
 @app.route('/loc', methods=['GET'])
 def loc():
     try:
-        # Read the LOC value from the loc.txt file
         with open("loc.txt", "r") as f:
             loc = f.read()
             return jsonify({'loc': loc})
@@ -320,6 +324,27 @@ def get_stock_data():
             }
             all_stock_data.append(stock_data)
     return all_stock_data
+
+# Route for location access
+@app.route('/store-location', methods=['POST'])
+def store_location():
+    data = request.json
+    latitude = data.get('latitude')
+    longitude = data.get('longitude')
+
+    # Retrieve the current user from the Flask-Login session
+    user = current_user 
+
+    # Create a new UserLocation instance and associate it with the current user
+    new_location = UserLocation(latitude=latitude, longitude=longitude, user_id=user.id)
+
+    try:
+        db.session.add(new_location)
+        db.session.commit()
+        return jsonify({'message': 'Location stored successfully'}), 200
+    except Exception as e:
+        print("Error storing location:", e)
+        return jsonify({'message': 'Failed to store location'}), 500
 
 if __name__ == "__main__":
     app.run(debug=True, port=3000)

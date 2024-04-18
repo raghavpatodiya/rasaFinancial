@@ -7,7 +7,7 @@
 - `rasa shell`: Test your trained model in the command-line shell as well as interact with your model via Flask.
 - `rasa run actions`: Run custom actions defined in actions.py alongside your Rasa server.
 - run `python app.py` with Flask's built-in server.
-- run `python automation_script` to run all other scripts that interact with the running Flask server.
+- run `python automation_script.py` to run all other scripts that interact with the running Flask server.
 - Set up PostgreSQL & PgAdmin4, then from the query tool run these queries:
 - `CREATE USER username WITH PASSWORD 'password';`
 - `CREATE DATABASE db_name;`
