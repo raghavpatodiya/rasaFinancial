@@ -14,6 +14,7 @@ from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 import yfinance as yf
 from automation_script import preprocess_text, correct_typos
+from actions.ticker_mapping import get_ticker
 # URL of Rasa's server
 RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 ACTION_SERVER_URL = 'http://localhost:5055/webhook'
@@ -351,6 +352,24 @@ def store_location():
     except Exception as e:
         print("Error storing location:", e)
         return jsonify({'message': 'Failed to store location'}), 500
+
+# stock news route
+@app.route('/stock_news', methods=['POST'])
+def get_stock_news():
+    company_name = request.form.get('company_name')
+    print(company_name)
+    ticker_symbol = get_ticker(company_name)
+    news_data = yf.Ticker(ticker_symbol).news
+    formatted_news = []
+    for news_item in news_data:
+        formatted_news.append({
+            'title': news_item['title'],
+            'publisher': news_item['publisher'],
+            'link': news_item['link'],
+            'published_date': news_item['providerPublishTime'],
+            'thumbnail_url': news_item['thumbnail']['resolutions'][0]['url'] if 'thumbnail' in news_item else None
+        })
+    return jsonify(formatted_news)
 
 if __name__ == "__main__":
     app.run(debug=True, port=3000)

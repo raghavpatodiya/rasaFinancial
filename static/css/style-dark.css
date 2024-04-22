@@ -165,3 +165,27 @@ footer {
 .about-page-btn:hover {
   background-color: #0056b3; 
 }
+.table-container {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.news-card {
+  background-color: black; /* Background color for the news card */
+  color: white; /* Text color for the news card */
+}
+.news-card-body {
+  background-color: black; /* Background color for the news card body */
+}
+.news-card-title {
+  color: white; /* Text color for the news card title */
+}
+.news-card-text {
+  color: white; /* Text color for the news card text */
+}
+.news-btn {
+  background-color: #007bff; /* Background color for the news button */
+  border-color: #007bff; /* Border color for the news button */
+  color: white; /* Text color for the news button */
+}

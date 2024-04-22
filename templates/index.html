@@ -118,7 +118,7 @@
       "
     >
       <table id="stock-table" class="table table-striped">
-        <thead style="position: sticky; top: 0; z-index: 1">
+        <thead style="top: 0; z-index: 1">
           <tr>
             <th>Symbol</th>
             <th>$ Price</th>
@@ -141,7 +141,30 @@
         </tbody>
       </table>
     </div>
-    <footer class="text-left">
+    <!-- Input field for entering company name -->
+    <div class="input-group mb-3" style="margin-left: 50px; margin-right: 50px">
+      <input
+        type="text"
+        class="form-control"
+        id="company-name-input"
+        placeholder="Enter company name"
+        style="max-width: 200px"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" id="search-news-button">
+          Search News
+        </button>
+      </div>
+    </div>
+
+    <!-- Section for displaying news related to the entered company -->
+    <div id="news-section" class="table-container">
+      <h2>Company News</h2>
+      <div id="news-content">
+        <!-- News articles will be appended here -->
+      </div>
+    </div>
+    <!-- <footer class="text-left">
       <p>
         This chatbot was developed by
         <a
@@ -159,7 +182,7 @@
         >
         & contact me through <a href="contactus">here</a>
       </p>
-    </footer>
+    </footer> -->
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -172,6 +195,10 @@
     <script
       type="text/javascript"
       src="{{ url_for('static', filename='js/script.js')}}"
+    ></script>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='js/page-script.js')}}"
     ></script>
     <script>
       $(document).ready(function () {

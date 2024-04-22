@@ -71,7 +71,6 @@ Incorporate:
     search feature
     dynamically update top 500 companies
     predicted price, recommendation key
-    price, change, % change odometer
     answer factual questions using some api ?
     answer normal queries like time, weather, etc
     add a python script automation to scrape data and train a model ?
@@ -84,6 +83,13 @@ Incorporate:
     comparison graphs
     get user location - then get weather info, time, etc
     get general info
+    Portfolio Tracking
+    interactive charts
+    live news feed
+    personalized watchlists of stocks they are interested in and set up price alerts for specific stocks
+    Market Sentiment Indicators
+    Market Heat Maps
+    Offer interactive tools like stock screeners, options calculators, or retirement planning calculators.
 
 Functionalities: 
     once price predicted - buysellhold
