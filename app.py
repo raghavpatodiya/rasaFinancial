@@ -238,6 +238,12 @@ def report_conversation():
 def faq():
     return render_template('faq.html')
 
+# about route
+@app.route('/about')
+@login_required
+def about():
+    return render_template('about.html')
+
 # contact us route
 @app.route('/contactus', methods=['GET', 'POST'])
 @login_required

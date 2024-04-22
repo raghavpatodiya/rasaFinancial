@@ -53,6 +53,9 @@ $(document).ready(function () {
         // Redirect to the FAQ page
         window.location.href = "/faq";
     });
+    $(".about-page-btn").on("click", function () {
+        window.location.href = "/about";
+    });
     $("#chat-widget-button").on("click", function () {
         $("#chat-widget").toggleClass("d-none");
     });
@@ -255,4 +258,10 @@ $(document).ready(function () {
     }
     promptForLocationAccess();
 
+    function autoLogout() {
+        setTimeout(function () {
+            window.location.href = "/login";
+        }, 3 * 60 * 60 * 1000); 
+    }
+    autoLogout();
 });

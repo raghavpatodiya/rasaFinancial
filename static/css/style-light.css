@@ -153,3 +153,18 @@ footer {
 #stock-table {
     color: #007bff;
 }
+.about-page-btn {
+    background-color: #007bff; 
+    color: #fff; 
+    border: none; 
+    padding: 10px 20px; 
+    margin-top: 20px; 
+    cursor: pointer; 
+    border-radius: 10px; 
+    transition: background-color 0.3s ease; 
+    width: 150px;
+    text-align: center;
+  }
+  .about-page-btn:hover {
+    background-color: #0056b3; 
+  }

@@ -84,7 +84,6 @@ Incorporate:
     comparison graphs
     an indepth report page
     get user location - then get weather info, time, etc
-    user times-out after some time, after every time out ask for user location
 
 Functionalities: 
     once price predicted - buysellhold
@@ -99,6 +98,7 @@ Error:
     get user location and on the basis of that, use different currencies. if not granted use USD
     improve graph readability
     fix predicted graph currency
+    user not authenticated while getting time
 
 Tool:
     
