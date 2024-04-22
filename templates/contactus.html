@@ -69,9 +69,29 @@
       a:hover {
         text-decoration: none;
       }
+      .back-btn {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        width: 150px;
+        text-align: center;
+      }
+      .back-btn:hover {
+        background-color: #c82333;
+      }
     </style>
   </head>
   <body>
+    <div class="container-buttons" style="margin-top: 20px">
+      <button class="back-btn position-fixed" style="top: 20px; right: 20px">
+        Back to Chatbot
+      </button>
+    </div>
     <div class="container">
       <h2>Contact Us</h2>
       <p>
@@ -112,7 +132,8 @@
               // Display a confirmation alert
               alert("Your message has been successfully submitted.");
               // Optionally, you can redirect the user to another page
-              window.location.href = "/faq";
+              // window.location.href = "/faq";
+              $("#contactForm")[0].reset();
             },
             error: function () {
               // Handle error, if any
@@ -123,6 +144,16 @@
               );
             },
           });
+        });
+      });
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add event listener to the back button
+        var backButton = document.querySelector(".back-btn");
+        backButton.addEventListener("click", function () {
+          // Redirect to the index page
+          window.location.href = "/";
         });
       });
     </script>

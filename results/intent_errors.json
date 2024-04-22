@@ -1,90 +1,10 @@
 [
   {
-    "text": "What is the relationship between ROE and profitability?",
-    "intent": "ask_roe_meaning",
+    "text": "Can you recommend resources for further learning about stock investing?",
+    "intent": "ask_resources_stock_investing",
     "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.1045822948217392
-    }
-  },
-  {
-    "text": "I'm unclear about audit risk. Can you elaborate?",
-    "intent": "ask_audit_risk_meaning",
-    "intent_prediction": {
-      "name": "ask_significance_insider_trading",
-      "confidence": 0.03299682214856148
-    }
-  },
-  {
-    "text": "I'm unclear about board risk. Can you elaborate?",
-    "intent": "ask_board_risk_meaning",
-    "intent_prediction": {
-      "name": "ask_bid_ask_size_meaning",
-      "confidence": 0.10024592280387878
-    }
-  },
-  {
-    "text": "what is debt to equity",
-    "intent": "ask_debt_equity_meaning",
-    "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.8098728060722351
-    }
-  },
-  {
-    "text": "what is the meaning of debt to equity of a company",
-    "intent": "ask_debt_equity_meaning",
-    "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.7601767778396606
-    }
-  },
-  {
-    "text": "explain debt to equity ratio",
-    "intent": "ask_debt_equity_meaning",
-    "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.7303013205528259
-    }
-  },
-  {
-    "text": "define debt to equity ratio",
-    "intent": "ask_debt_equity_meaning",
-    "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.7086138725280762
-    }
-  },
-  {
-    "text": "How do you calculate debt to equity?",
-    "intent": "ask_debt_equity_meaning",
-    "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.42835503816604614
-    }
-  },
-  {
-    "text": "Please elaborate on the debt to equity ratio.",
-    "intent": "ask_debt_equity_meaning",
-    "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.5330302715301514
-    }
-  },
-  {
-    "text": "What does the debt to equity ratio indicate?",
-    "intent": "ask_debt_equity_meaning",
-    "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.7502973079681396
-    }
-  },
-  {
-    "text": "I'm unclear about the significance of debt to equity.",
-    "intent": "ask_debt_equity_meaning",
-    "intent_prediction": {
-      "name": "ask_analyze_debt_equity_ratio",
-      "confidence": 0.38658174872398376
+      "name": "ask_significance_stock_buybacks",
+      "confidence": 0.07715857774019241
     }
   }
 ]

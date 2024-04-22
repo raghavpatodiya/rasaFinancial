@@ -1,46 +1,35 @@
 [
   {
-    "text": "I'm interested in the revenue mapping for Netflix.",
+    "text": "can you fetch me target High Price of fitell?",
     "entities": [
       {
-        "start": 22,
-        "end": 29,
-        "value": "revenue",
+        "start": 17,
+        "end": 34,
+        "value": "target High Price",
         "entity": "info"
       },
       {
-        "start": 42,
-        "end": 49,
-        "value": "Netflix",
+        "start": 38,
+        "end": 44,
+        "value": "fitell",
         "entity": "stock_name"
       }
     ],
     "predicted_entities": [
       {
         "entity": "info",
-        "start": 4,
-        "end": 14,
-        "confidence_entity": 0.8456999063491821,
-        "value": "interested",
+        "start": 17,
+        "end": 37,
+        "confidence_entity": 0.7766978740692139,
+        "value": "target High Price of",
         "extractor": "DIETClassifier"
       },
       {
-        "entity": "info",
-        "start": 22,
-        "end": 29,
-        "confidence_entity": 0.999822199344635,
-        "value": "revenue",
-        "extractor": "DIETClassifier",
-        "processors": [
-          "EntitySynonymMapper"
-        ]
-      },
-      {
         "entity": "stock_name",
-        "start": 42,
-        "end": 49,
-        "confidence_entity": 0.979314923286438,
-        "value": "netflix",
+        "start": 38,
+        "end": 44,
+        "confidence_entity": 0.9996496438980103,
+        "value": "fitell",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"

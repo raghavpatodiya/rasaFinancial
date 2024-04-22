@@ -212,6 +212,7 @@ nlu:
     - start anew
     - renew this chat
     - reset
+    - clear
 
 ########################################################################################################
 # get info
@@ -458,6 +459,7 @@ nlu:
     - can you tell me it's future stock price ?
     - what would be the day close of this company ?
     - predict the price for [msft](stock_name) share
+    - and what is the predicted price ?
 
 - intent: ask_buy_sell_hold
   examples: |
