@@ -3,100 +3,159 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Chatbot</title>
+    <title>About</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
     <style>
-      /* Dark theme styles */
       body {
         background-color: #222;
         color: #fff;
+        margin-top: 50px;
         font-family: Arial, sans-serif;
+      }
+
+      .container {
+        margin-top: 50px;
+        max-width: 800px;
+        padding: 0 15px;
+      }
+
+      h2 {
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        padding: 10px 20px;
+        border-radius: 10px;
+        color: #fff;
+        text-decoration: none;
+      }
+
+      .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+      }
+      .back-btn {
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+        border-radius: 10px;
+        transition: background-color 0.3s ease;
+        width: 150px;
+        text-align: center;
+      }
+      .back-btn:hover {
+        background-color: #c82333;
+      }
+
+      /* Code flow styles */
+      /* .code-flow {
+        background-color: #333;
+        padding: 20px;
+        margin-top: 30px;
+      }
+
+      .code-flow h3 {
+        color: #fff;
+        margin-bottom: 15px;
+      }
+
+      .code-flow p {
+        color: #fff;
+        margin-bottom: 10px;
+      }
+
+      .code-flow .code-example {
+        background-color: #444;
+        color: #fff;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+
+      .code-flow .code-example pre {
         margin: 0;
-        padding: 0;
-      }
-
-      header {
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-      }
-
-      main {
-        padding: 20px;
-      }
-
-      section {
-        margin-bottom: 30px;
-      }
-
-      h1,
-      h2,
-      h3 {
-        color: #fff;
-      }
-
-      ul {
-        list-style-type: disc;
-        padding-left: 20px;
-      }
-
-      footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 10px 0;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-      }
+      } */
     </style>
   </head>
   <body>
-    <header>
-      <h1>About Chatbot</h1>
-    </header>
-    <main>
-      <section id="introduction">
-        <h2>Introduction</h2>
+    <div class="container-buttons" style="margin-top: 20px">
+      <button class="back-btn position-fixed" style="top: 20px; right: 20px">
+        Back to Chatbot
+      </button>
+    </div>
+    <div class="container" style="margin-top: 100px">
+      <h2>About Chatbot</h2>
+      <p>
+        Here, you can provide a brief overview of your chatbot, its purpose, and
+        its key features.
+      </p>
+
+      <h3>Key Features</h3>
+      <ul>
+        <li>Feature 1: Description of feature 1.</li>
+        <li>Feature 2: Description of feature 2.</li>
+        <li>Feature 3: Description of feature 3.</li>
+      </ul>
+
+      <h3>How It Works</h3>
+      <p>
+        Describe how your chatbot functions, including any underlying
+        technologies or algorithms it uses.
+      </p>
+
+      <h3>Usage</h3>
+      <p>
+        Provide instructions on how users can interact with the chatbot,
+        including examples of commands or queries they can use.
+      </p>
+
+      <!-- <div class="code-flow">
+        <h3>Interactive Code Flow</h3>
         <p>
-          This section provides an introduction to the chatbot. You can explain
-          its purpose, functionality, and how users can interact with it.
+          Below is an interactive code flow demonstrating how users can interact
+          with your chatbot:
         </p>
-      </section>
-      <section id="features">
-        <h2>Features</h2>
-        <p>Here, you can list the features of the chatbot, such as:</p>
-        <ul>
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <li>Feature 3</li>
-          <!-- Add more features as needed -->
-        </ul>
-      </section>
-      <section id="how-it-works">
-        <h2>How It Works</h2>
+
+        <div class="code-example">
+          <pre>
+            <code>
+              $ chatbot = new Chatbot();
+              $ response = $ chatbot->ask("How can I help you?");
+              echo $ response;
+            </code>
+          </pre>
+        </div>
+
         <p>
-          Explain how the chatbot functions, including any underlying
-          technologies or algorithms it uses.
+          Users can interact with the chatbot by sending messages and receiving
+          responses based on the provided code example.
         </p>
-      </section>
-      <section id="usage">
-        <h2>Usage</h2>
-        <p>
-          Provide instructions on how users can interact with the chatbot,
-          including examples of commands or queries they can use.
-        </p>
-      </section>
-      <section id="contact">
-        <h2>Contact</h2>
-        <p>
-          If users have questions or feedback, provide information on how they
-          can contact you or your team.
-        </p>
-      </section>
-    </main>
-    <footer>
-      <p>&copy; 2024 Your Chatbot Company. All rights reserved.</p>
-    </footer>
+      </div> -->
+
+      <!-- Button to redirect to contactus.html -->
+      <a href="contactus" class="btn btn-primary">Contact Us</a>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add event listener to the back button
+        var backButton = document.querySelector(".back-btn");
+        backButton.addEventListener("click", function () {
+          // Redirect to the index page
+          window.location.href = "/";
+        });
+      });
+    </script>
   </body>
 </html>
