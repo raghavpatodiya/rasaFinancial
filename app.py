@@ -13,7 +13,7 @@ from flask import abort
 from flask_mail import Mail, Message
 from itsdangerous import URLSafeTimedSerializer
 import yfinance as yf
-from preprocess import preprocess_text, correct_typos
+from automation_script import preprocess_text, correct_typos
 # URL of Rasa's server
 RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 ACTION_SERVER_URL = 'http://localhost:5055/webhook'

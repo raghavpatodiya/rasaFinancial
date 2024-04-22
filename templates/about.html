@@ -98,54 +98,160 @@
     <div class="container" style="margin-top: 100px">
       <h2>About Chatbot</h2>
       <p>
-        Here, you can provide a brief overview of your chatbot, its purpose, and
-        its key features.
+        This chatbot is built using Rasa, Python Flask, HTML, CSS, and
+        JavaScript technologies. It combines machine learning and web
+        development to deliver a robust and interactive experience.
       </p>
-
-      <h3>Key Features</h3>
+      <h3>Chatbot Components</h3>
       <ul>
-        <li>Feature 1: Description of feature 1.</li>
-        <li>Feature 2: Description of feature 2.</li>
-        <li>Feature 3: Description of feature 3.</li>
+        <li>Rasa Model & Actions</li>
+        <li>Flask Application</li>
+        <li>Templates ( HTML, CSS & JS )</li>
+        <li>Flask Migrations & PostgreSQL - PGAdmin4</li>
+        <li>Python Automation Scripts</li>
+        <li>requirements.txt</li>
+        <li>Rasa Model Test Results</li>
       </ul>
-
-      <h3>How It Works</h3>
+      <h3>Chatbot Features</h3>
+      <ul>
+        <li>
+          Compare stock price, market sentiment, volatility, stock trend, market
+          cap, revenue, EPS, PE ratio, ROE, gross margins, DTE ratio
+        </li>
+        <li>Get market top gainers and losers</li>
+        <li>
+          Process stock trend graph, ROE graph, revenue graph, volume graph,
+          revenue per share graph, return on assets graph, earnings growth
+          graph, revenue growth graph, gross margins graph, EBITDA margins
+          graph, operating margins graph
+        </li>
+        <li>
+          Retrieve stock currency, number of employees, location, website,
+          industry, sector, description, leadership team, market cap, previous
+          close, day open, day low, day high, audit risk, board risk,
+          compensation risk, shareholders risk, overall risk, governance epoch
+          date, compensation as of epoch date, max age, price hint, beta, PE
+          ratio, volume, bid size, ask size, 52 weeks low, 52 weeks high, 50-day
+          average, 200-day average, enterprise value, profit margins, float
+          shares, shares outstanding, shares short, book value, price to book,
+          etc.
+        </li>
+        <li>Price format functions, epoch to date functions</li>
+        <li>
+          Price predictions for the next 7 days using time series XGBoost model
+        </li>
+        <li>Use linear regression to predict day close of a stock</li>
+        <li>Get stock price as well as older stock price</li>
+        <li>Retrieve market sentiment of a stock</li>
+        <li>Retrieve market status</li>
+        <li>Post predictions, buy sell or hold</li>
+        <li>Map functions to get stock ticker from company name / ticker</li>
+        <li>Get stock trend, like price trends, volatility</li>
+        <li>Answer factual questions on stocks</li>
+        <li>
+          Rasa NLU, stories, rules, domain, config, credentials, endpoints,
+          slots, entities, and model, test results
+        </li>
+      </ul>
+      <h3>Javascript Features</h3>
+      <ul>
+        <li>Handle voice input for chatbot</li>
+        <li>Text to speech to speak out bot responses</li>
+        <li>Report conversations of undesired bot response</li>
+        <li>Logout button</li>
+        <li>FAQ page button</li>
+        <li>About page button</li>
+        <li>Chatbox buttons</li>
+        <li>Reset conversation function that clears chatbox</li>
+        <li>Handling bot response both text and image</li>
+        <li>Reset conversation chat command</li>
+        <li>Auto scroll chatbox</li>
+        <li>Lines of code calculator with odometer effect</li>
+        <li>Update stock data</li>
+        <li>Asking user location access</li>
+        <li>Storing user location</li>
+        <li>Auto logout</li>
+      </ul>
+      <h3>APIs</h3>
+      <ul>
+        <li>yfinance</li>
+        <li>Alpha Vantage</li>
+        <li>Google App</li>
+        <li>Exchange rate API</li>
+      </ul>
+      <h3>Flask App</h3>
+      <ul>
+        <li>Database connection</li>
+        <li>Flask migrations</li>
+        <li>Flask login</li>
+        <li>
+          Database models (table: user, reported conversation, queries, user
+          location)
+        </li>
+        <li>Initialize Flask login</li>
+        <li>Sign up route</li>
+        <li>Login route</li>
+        <li>Logout route</li>
+        <li>Protected route</li>
+        <li>Index route</li>
+        <li>Reset password route</li>
+        <li>New password route</li>
+        <li>Report conversation route</li>
+        <li>FAQ route</li>
+        <li>About page route</li>
+        <li>Contact us route</li>
+        <li>Rasa webhook route</li>
+        <li>LOC calculator route</li>
+        <li>Get live stock data route</li>
+        <li>Store location route</li>
+      </ul>
+      <h3>Automation Script</h3>
+      <ul>
+        <li>Count lines of code function (every 5 sec)</li>
+        <li>Formatting function (into M, B, and T)</li>
+        <li>Fetching live stock data function (every 5 sec)</li>
+        <li>Get exchange rate function</li>
+        <li>INR to USD function</li>
+        <li>USD to INR function</li>
+        <li>Preprocess text function</li>
+        <li>Correct typos function</li>
+      </ul>
+      <h3>Tools</h3>
+      <ul>
+        <li>VSCode</li>
+        <li>Command Line Interface</li>
+        <li>Postgres and PgAdmin</li>
+        <li>Developer console</li>
+      </ul>
+      <h3>Libraries</h3>
       <p>
-        Describe how your chatbot functions, including any underlying
-        technologies or algorithms it uses.
+        <a
+          href="https://github.com/raghavpatodiya/rasaFinancial/blob/main/requirements.txt"
+          target="_blank"
+          >requirements.txt file</a
+        >
       </p>
-
-      <h3>Usage</h3>
+      <h3>Domains and Languages</h3>
       <p>
-        Provide instructions on how users can interact with the chatbot,
-        including examples of commands or queries they can use.
+        Full stack development and ML developer using Python, HTML, CSS, and
+        JavaScript.
       </p>
-
-      <!-- <div class="code-flow">
-        <h3>Interactive Code Flow</h3>
-        <p>
-          Below is an interactive code flow demonstrating how users can interact
-          with your chatbot:
-        </p>
-
-        <div class="code-example">
-          <pre>
-            <code>
-              $ chatbot = new Chatbot();
-              $ response = $ chatbot->ask("How can I help you?");
-              echo $ response;
-            </code>
-          </pre>
-        </div>
-
-        <p>
-          Users can interact with the chatbot by sending messages and receiving
-          responses based on the provided code example.
-        </p>
-      </div> -->
-
-      <!-- Button to redirect to contactus.html -->
-      <a href="contactus" class="btn btn-primary">Contact Us</a>
+      <h3>Github Repository</h3>
+      <p>
+        <a
+          href="https://github.com/raghavpatodiya/rasaFinancial"
+          target="_blank"
+          >RasaFinancial GitHub Repository</a
+        >
+      </p>
+      <h3>Visualizations</h3>
+      <p>
+        <a
+          href="https://github.com/raghavpatodiya/rasaFinancial/tree/main/results"
+          target="_blank"
+          >Rasa Model test results</a
+        >
+      </p>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
