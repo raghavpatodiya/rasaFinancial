@@ -149,6 +149,7 @@ footer {
 }
 #stock-table {
   color: #fff;
+  background-color: #1d1c1c;
 }
 .about-page-btn {
   background-color: #007bff; 
@@ -172,11 +173,11 @@ footer {
   margin-right: 50px;
 }
 .news-card {
-  background-color: black; /* Background color for the news card */
+  background-color: #1d1c1c; /* Background color for the news card */
   color: white; /* Text color for the news card */
 }
 .news-card-body {
-  background-color: black; /* Background color for the news card body */
+  background-color: #1d1c1c; /* Background color for the news card body */
 }
 .news-card-title {
   color: white; /* Text color for the news card title */
