@@ -9,7 +9,7 @@ from urllib.request import urlopen
 from datetime import datetime, timezone
 from automation_script import format, epoch_to_date
 
-class ActionGetSpecificInfo(Action):
+class ActionGetGeneralInfo(Action):
     def name(self) -> Text:
         return "get_general_info"
 

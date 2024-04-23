@@ -1,10 +1,10 @@
 [
   {
-    "text": "Can you recommend resources for further learning about stock investing?",
-    "intent": "ask_resources_stock_investing",
+    "text": "what are you ?",
+    "intent": "bot_challenge",
     "intent_prediction": {
-      "name": "ask_significance_stock_buybacks",
-      "confidence": 0.07715857774019241
+      "name": "whats_up",
+      "confidence": 0.35462939739227295
     }
   }
 ]

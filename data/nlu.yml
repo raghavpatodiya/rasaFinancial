@@ -588,6 +588,24 @@ nlu:
     - What's the scoop on [nflx](stock_name)?
     - Can you give me insights on [crm](stock_name)?
     - Tell me about [sbux](stock_name), please.
+    - tell me about [infy.ns](stock_name)
+    - tell me about [google](stock_name)
+    - tell me about [team](stock_name)
+    - tell me about [atlassian](stock_name)
+    - tell me about [bumble](stock_name)
+    - tell me about [msft](stock_name)
+    - tell me about [reliance.ns](stock_name)
+    - tell me about [jindal](stock_name)
+    - give me general info on [aapl](stock_name)
+    - give me general info on [netflix](stock_name)
+    - give me general info on [disney](stock_name)
+    - give me general info on [intel](stock_name)
+    - give me general info on [beyond](stock_name)
+    - give me general info on [cadiz](stock_name)
+    - give me general info on [fb](stock_name)
+    - give me general info on [amzn](stock_name)
+    - give me general info on [googl](stock_name)
+    - give me general info on [tcs](stock_name)
 
 - intent: ask_comparison
   examples: |
