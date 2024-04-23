@@ -50,13 +50,11 @@ $(document).ready(function() {
       }
     });
   }
-
   // Event listener for adding stock to watchlist
   $('#add-watchlist-button').click(function() {
     var companyName = $('#watchlist-input').val();
     addToWatchlist(companyName);
   });
-
   // Function to update the watchlist table
   function updateWatchlistTable() {
     $.ajax({
@@ -66,10 +64,10 @@ $(document).ready(function() {
         console.log('Watchlist data:', response); // Log the response
         $('#watchlist-table tbody').empty();
         // Append each stock to the watchlist table
-        response.forEach(function(stock) {
+        response.watchlist.forEach(function(symbol) {
           var row = '<tr>';
-          row += '<td>' + stock.symbol + '</td>';
-          row += '<td><button class="btn btn-danger remove-watchlist-btn" data-symbol="' + stock.symbol + '">Remove</button></td>';
+          row += '<td>' + symbol + '</td>';
+          row += '<td><button class="btn btn-danger remove-watchlist-btn" data-symbol="' + symbol + '">Remove</button></td>';
           row += '</tr>';
           $('#watchlist-table tbody').append(row);
         });

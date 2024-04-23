@@ -15,6 +15,7 @@ from itsdangerous import URLSafeTimedSerializer
 import yfinance as yf
 from automation_script import preprocess_text, correct_typos
 from actions.ticker_mapping import get_ticker
+from sqlalchemy.dialects.postgresql import ARRAY
 # URL of Rasa's server
 RASA_API_URL = 'http://localhost:5005/webhooks/rest/webhook'
 ACTION_SERVER_URL = 'http://localhost:5055/webhook'
@@ -75,6 +76,27 @@ class UserLocation(db.Model):
     longitude = db.Column(db.Float)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
+class Watchlist(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    ticker_symbols = db.Column(ARRAY(db.String(10)), nullable=False)
+
+    def add_ticker_symbol(self, ticker_symbol):
+        if len(self.ticker_symbols) < 10:
+            self.ticker_symbols.append(ticker_symbol)
+            db.session.commit()
+            return True
+        else:
+            return False
+
+    def remove_ticker_symbol(self, ticker_symbol):
+        if ticker_symbol in self.ticker_symbols:
+            self.ticker_symbols.remove(ticker_symbol)
+            db.session.commit()
+            return True
+        else:
+            return False
+        
 # Initialize Flask-Login
 @login_manager.user_loader
 def load_user(user_id):
@@ -371,22 +393,33 @@ def get_stock_news():
         })
     return jsonify(formatted_news)
 
-# add to watchlist route
 @app.route('/add_to_watchlist', methods=['POST'])
 @login_required
 def add_to_watchlist():
     company_name = request.form.get('company_name')
-    print(company_name)
     ticker_symbol = get_ticker(company_name)
-    print(f'Stock added to watchlist: {ticker_symbol}')
+    
+    watchlist = Watchlist.query.filter_by(user_id=current_user.id).first()
+    if not watchlist:
+        # If the user doesn't have a watchlist yet, create one
+        watchlist = Watchlist(user_id=current_user.id, ticker_symbols=[ticker_symbol])
+        db.session.add(watchlist)
+    else:
+        # Otherwise, add the ticker symbol to the existing watchlist
+        if not watchlist.add_ticker_symbol(ticker_symbol):
+            return jsonify({'message': 'Maximum limit of 10 ticker symbols reached'}), 400
+    
     return jsonify({'message': 'Stock added to watchlist'}), 200    
 
-# get watchlist route
 @app.route('/get_watchlist', methods=['GET'])
 @login_required
 def get_watchlist():
-    watchlist_data = []
-    return jsonify(watchlist_data)
+    watchlist = Watchlist.query.filter_by(user_id=current_user.id).first()
+    if watchlist:
+        return jsonify({'watchlist': watchlist.ticker_symbols}), 200
+    else:
+        return jsonify({'watchlist': []}), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True, port=3000)
