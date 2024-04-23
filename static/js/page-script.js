@@ -16,7 +16,7 @@ $(document).ready(function() {
             newsHtml += '<div class="card-body news-card-body">';
             newsHtml += '<h5 class="card-title news-card-title">' + newsItem.title + '</h5>';
             newsHtml += '<p class="card-text news-card-text">' + newsItem.publisher + '</p>';
-            newsHtml += '<a href="' + newsItem.link + '" class="btn btn-primary news-btn">Read More</a>';
+            newsHtml += '<a href="' + newsItem.link + '" class="btn btn-primary news-btn" target="_blank">Read More</a>';
             newsHtml += '</div></div>';
             $('#news-content').append(newsHtml);
           });
@@ -27,7 +27,6 @@ $(document).ready(function() {
         }
       });
     }
-  
     // Event listener for the search news button
     $('#search-news-button').click(function() {
       searchNews();
