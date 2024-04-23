@@ -576,6 +576,19 @@ nlu:
     - get me top losers
     - can you get me stocks that are biggest losers
     
+
+- intent: ask_general_info
+  examples: |
+    - tell me about [goog](stock_name)
+    - what can you tell me about [infosys](stock_name)
+    - get me  more information on [tsco](stock_name)
+    - I want to know about [nvda](stock_name)
+    - Could you provide information on [tsla](stock_name)?
+    - Give me details about [fb](stock_name)
+    - What's the scoop on [nflx](stock_name)?
+    - Can you give me insights on [crm](stock_name)?
+    - Tell me about [sbux](stock_name), please.
+
 - intent: ask_comparison
   examples: |
     - Compare the [price](info) of [google](stock_name) and [microsoft](stock_name2).
@@ -638,6 +651,7 @@ nlu:
     - compare this with [dte](info) of [wipro](stock_name2)
     - compare this with [pe ratio](info) of [nvidia]](stock_name2)
     - compare this with [market cap](info) of [goog](stock_name2)
+    - compare [market sentiment](info) of [nvidia](stock_name) and [team](stock_name2)
 
     
 - intent: ask_graph

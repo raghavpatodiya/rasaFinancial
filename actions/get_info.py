@@ -7,6 +7,59 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from datetime import datetime, timezone
+from automation_script import format, epoch_to_date
+
+class ActionGetSpecificInfo(Action):
+    def name(self) -> Text:
+        return "get_general_info"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+        try:
+            company_name = next(tracker.get_latest_entity_values("stock_name"), None)
+            if company_name:
+                company_name = company_name.lower()
+            else:
+                company_name = tracker.get_slot("stock_name")
+            print("Company name extracted:", company_name)  # Debug statement
+            self.process_info(dispatcher, company_name)
+
+        except Exception as e:
+            print(f"Error: {e}")
+            dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
+
+        return []
+    
+    def process_info(self, dispatcher: CollectingDispatcher, company_name: str):
+        try:
+            stock_ticker = get_ticker(company_name)
+            stock_info = yf.Ticker(stock_ticker)
+            info = stock_info.info
+            country = info['country']
+            website = info['website']
+            industry = info['industry']
+            full_time_employees = info['fullTimeEmployees']
+            for officer in info['companyOfficers']:
+                if 'CEO' in officer['title']:
+                    ceo = officer['name']
+            current_price = info['currentPrice']
+            currency = info['currency']
+            market_cap = format(info['marketCap'])
+            audit_risk = info['auditRisk']
+            board_risk = info['boardRisk']
+            compensation_risk = info['compensationRisk']
+            shareholder_rights_risk = info['shareHolderRightsRisk']
+            overall_risk = info['overallRisk']
+            governance_epoch_date = epoch_to_date(info['governanceEpochDate'])
+
+            response = f"{company_name.capitalize()} is a {industry} company based in {country}. It has {full_time_employees} full-time employees. The CEO is {ceo}. The current stock price is {current_price} {currency} with a market capitalization of {market_cap} {currency}. The company's website is {website}. Audit risk is {audit_risk}, board risk is {board_risk}, compensation risk is {compensation_risk}, shareholder rights risk is {shareholder_rights_risk}, and the overall risk is {overall_risk}. Governance epoch date is {governance_epoch_date}."
+
+            # Sending response to the user
+            dispatcher.utter_message(text=response)
+
+        except Exception as e:
+            print(f"Error: {e}")
+            dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
+
 
 class ActionGetSpecificInfo(Action):
     def name(self) -> Text:

@@ -96,6 +96,7 @@ intents:
   - ask_profitability_margins
   - ask_start_over
   - ask_predictions_graph
+  - ask_general_info
 entities:
   - stock_name
   - stock_name2
@@ -130,6 +131,7 @@ slots:
           - ask_comparison
           - ask_graph
           - ask_predictions_graph
+          - ask_general_info
   stock_name2:
     type: text
     mappings:
@@ -330,6 +332,7 @@ actions:
   - get_graph
   - get_predictions_graph
   - get_date_time
+  - get_general_info
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true

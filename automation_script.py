@@ -5,6 +5,7 @@ import requests
 from dotenv import load_dotenv
 import spacy
 from spellchecker import SpellChecker
+from datetime import datetime, timezone
 
 load_dotenv()
 
@@ -131,6 +132,14 @@ def usd_to_inr(amount_in_usd):
         return round(amount_in_inr, 2)
     else:
         return None
+    
+def epoch_to_date(epoch_timestamp):
+        try:
+            date = datetime.fromtimestamp(epoch_timestamp, tz=timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+            return date
+        except Exception as e:
+            print(f"Error converting epoch timestamp: {e}")
+            return None
 
 if __name__ == "__main__":
     root_directory = os.getenv("ROOT_DIRECTORY")

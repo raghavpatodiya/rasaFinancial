@@ -412,7 +412,22 @@ def add_to_watchlist():
             return jsonify({'message': 'Maximum limit of 10 ticker symbols reached'}), 400
     
     db.session.commit()  # Commit changes to the database
-    return jsonify({'message': 'Stock added to watchlist'}), 200  
+    return jsonify({'message': 'Stock added to watchlist'}), 200    
+
+# Add a route to handle removing a stock from the watchlist
+@app.route('/remove_from_watchlist', methods=['POST'])
+@login_required
+def remove_from_watchlist():
+    ticker_symbol = request.form.get('ticker_symbol')
+    watchlist = Watchlist.query.filter_by(user_id=current_user.id).first()
+    if watchlist:
+        if watchlist.remove_ticker_symbol(ticker_symbol):
+            db.session.commit()  # Commit changes to the database
+            return jsonify({'message': 'Stock removed from watchlist'}), 200
+        else:
+            return jsonify({'message': 'Stock not found in watchlist'}), 400
+    else:
+        return jsonify({'message': 'Watchlist not found'}), 404  
   
 @app.route('/get_watchlist', methods=['GET'])
 @login_required

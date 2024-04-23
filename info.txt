@@ -105,7 +105,8 @@ Error:
     user not authenticated while getting time
     give default news, after search news pressed clear input field, same with watchlist field
     save email preferences, only for the very first time user logs in, it is set to yes, not every time he logs in 
-
+    set z index of news card
+    if user_id exists just update the location and not create new rows for it
 
 Tool:
     

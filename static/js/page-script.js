@@ -102,4 +102,26 @@ $(document).ready(function() {
     toggleEmailService();
   });
 
+  function removeFromWatchlist(symbol) {
+    $.ajax({
+      url: '/remove_from_watchlist',
+      method: 'POST',
+      data: {ticker_symbol: symbol},
+      success: function(response) {
+        console.log('Stock removed from watchlist:', response);
+        // Update the watchlist table
+        updateWatchlistTable();
+      },
+      error: function(xhr, status, error) {
+        console.error('Error removing stock from watchlist:', error);
+      }
+    });
+}
+
+// Event listener for removing stock from watchlist
+$(document).on('click', '.remove-watchlist-btn', function() {
+    var symbol = $(this).data('symbol');
+    removeFromWatchlist(symbol);
+});
+
 });

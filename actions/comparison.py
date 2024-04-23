@@ -50,7 +50,7 @@ class ActionGetComparison(Action):
     def process_comparison(self, dispatcher, company_name, company_name2, info):
         if info in ["price", "prices", "stock price", "stock"]:
             self.compare_stock_price(dispatcher, company_name, company_name2)
-        elif info in ["market sentiment", "sentiment"]:
+        elif info in ["market sentiment", "sentiment", "sentiments", "market sentiments"]:
             self.compare_market_sentiment(dispatcher, company_name, company_name2)
         elif info in ["volatility", "volatile"]:
             self.compare_volatility(dispatcher, company_name, company_name2)
@@ -79,11 +79,11 @@ class ActionGetComparison(Action):
 
         if current_price is not None and current_price2 is not None:
             if current_price > current_price2:
-                dispatcher.utter_message(text=f"The current stock price of {company_name} ({current_price:.2f}) USD is higher than {company_name2} ({current_price2:.2f}) USD.")
+                dispatcher.utter_message(text=f"The current stock price of {company_name} ({current_price:.2f} USD) is higher than {company_name2} ({current_price2:.2f} USD).")
             elif current_price < current_price2:
-                dispatcher.utter_message(text=f"The current stock price of {company_name} ({current_price:.2f}) USD is lower than {company_name2} ({current_price2:.2f}) USD.")
+                dispatcher.utter_message(text=f"The current stock price of {company_name} ({current_price:.2f} USD) is lower than {company_name2} ({current_price2:.2f} USD).")
             else:
-                dispatcher.utter_message(text=f"The current stock prices of {company_name} and {company_name2} are equal ({current_price:.2f}) USD.")
+                dispatcher.utter_message(text=f"The current stock prices of {company_name} and {company_name2} are equal ({current_price:.2f} USD).")
         else:
             dispatcher.utter_message(text="Sorry, couldn't retrieve stock price data for one or both of the companies.")
 
