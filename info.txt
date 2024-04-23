@@ -89,6 +89,7 @@ Incorporate:
     Market Sentiment Indicators
     Market Heat Maps
     Offer interactive tools like stock screeners, options calculators, or retirement planning calculators.
+    get user location and on the basis of that, use different currencies. if not granted use USD
 
 Functionalities: 
     once price predicted - buysellhold
@@ -99,12 +100,10 @@ Functionalities:
 
 Error:
     graph data retrieval
-    stock listing table - header fix
-    get user location and on the basis of that, use different currencies. if not granted use USD
     improve graph readability
     fix predicted graph currency
     user not authenticated while getting time
-    give default news
+    give default news, after search news pressed clear input field
 
 Tool:
     
