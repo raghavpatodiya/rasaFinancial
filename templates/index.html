@@ -147,7 +147,7 @@
         type="text"
         class="form-control"
         id="company-name-input"
-        placeholder="Enter company name"
+        placeholder="Enter stock name"
         style="max-width: 200px"
       />
       <div class="input-group-append">
@@ -164,6 +164,39 @@
         <!-- News articles will be appended here -->
       </div>
     </div>
+
+    <!-- Input field for adding stocks to watchlist -->
+    <div class="input-group mb-3" style="margin-left: 50px; margin-right: 50px">
+      <input
+        type="text"
+        class="form-control"
+        id="watchlist-input"
+        placeholder="Enter stock name"
+        style="max-width: 200px"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-primary" type="button" id="add-watchlist-button">
+          Add to Watchlist
+        </button>
+      </div>
+    </div>
+
+    <!-- Watchlist table container -->
+    <div class="table-container" style="margin-top: 20px">
+      <h2>My Watchlist</h2>
+      <table id="watchlist-table" class="table table-striped">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Watchlist stocks will be appended here dynamically -->
+        </tbody>
+      </table>
+    </div>
+
     <!-- <footer class="text-left">
       <p>
         This chatbot was developed by

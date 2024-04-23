@@ -371,6 +371,23 @@ def get_stock_news():
         })
     return jsonify(formatted_news)
 
+# add to watchlist route
+@app.route('/add_to_watchlist', methods=['POST'])
+@login_required
+def add_to_watchlist():
+    company_name = request.form.get('company_name')
+    print(company_name)
+    ticker_symbol = get_ticker(company_name)
+    print(f'Stock added to watchlist: {ticker_symbol}')
+    return jsonify({'message': 'Stock added to watchlist'}), 200    
+
+# get watchlist route
+@app.route('/get_watchlist', methods=['GET'])
+@login_required
+def get_watchlist():
+    watchlist_data = []
+    return jsonify(watchlist_data)
+
 if __name__ == "__main__":
     app.run(debug=True, port=3000)
 

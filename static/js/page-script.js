@@ -31,4 +31,56 @@ $(document).ready(function() {
     $('#search-news-button').click(function() {
       searchNews();
     });
+
+  // Function to add a stock to the watchlist
+  function addToWatchlist(companyName) {
+    $.ajax({
+      url: '/add_to_watchlist',
+      method: 'POST',
+      data: {company_name: companyName},
+      success: function(response) {
+        // Handle success
+        console.log('Stock added to watchlist:', response);
+        // Update the watchlist table
+        updateWatchlistTable();
+      },
+      error: function(xhr, status, error) {
+        // Handle error
+        console.error('Error adding stock to watchlist:', error);
+      }
+    });
+  }
+
+  // Event listener for adding stock to watchlist
+  $('#add-watchlist-button').click(function() {
+    var companyName = $('#watchlist-input').val();
+    addToWatchlist(companyName);
   });
+
+  // Function to update the watchlist table
+  function updateWatchlistTable() {
+    $.ajax({
+      url: '/get_watchlist',
+      method: 'GET',
+      success: function(response) {
+        console.log('Watchlist data:', response); // Log the response
+        $('#watchlist-table tbody').empty();
+        // Append each stock to the watchlist table
+        response.forEach(function(stock) {
+          var row = '<tr>';
+          row += '<td>' + stock.symbol + '</td>';
+          row += '<td><button class="btn btn-danger remove-watchlist-btn" data-symbol="' + stock.symbol + '">Remove</button></td>';
+          row += '</tr>';
+          $('#watchlist-table tbody').append(row);
+        });
+      },
+      error: function(xhr, status, error) {
+        // Handle error
+        console.error('Error fetching watchlist:', error);
+      }
+    });
+  }
+
+  // Initial update of the watchlist table
+  updateWatchlistTable();
+});
