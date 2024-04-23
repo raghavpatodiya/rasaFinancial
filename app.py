@@ -80,7 +80,7 @@ class Watchlist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     ticker_symbols = db.Column(ARRAY(db.String(10)), nullable=False)
-    email_service_enabled = db.Column(db.Boolean, default=False)
+    email_service_status = db.Column(db.Boolean, default=True)
 
     def add_ticker_symbol(self, ticker_symbol):
         if len(self.ticker_symbols) < 10:
@@ -97,10 +97,6 @@ class Watchlist(db.Model):
             return True
         else:
             return False
-
-    def toggle_email_service(self):
-        self.email_service_enabled = not self.email_service_enabled
-        db.session.commit()
 
         
 # Initialize Flask-Login
@@ -407,15 +403,16 @@ def add_to_watchlist():
     
     watchlist = Watchlist.query.filter_by(user_id=current_user.id).first()
     if not watchlist:
-        # If the user doesn't have a watchlist yet, create one
-        watchlist = Watchlist(user_id=current_user.id, ticker_symbols=[ticker_symbol])
+        # If the user doesn't have a watchlist yet, create one with email service set to "on"
+        watchlist = Watchlist(user_id=current_user.id, ticker_symbols=[ticker_symbol], email_service_status=True)
         db.session.add(watchlist)
     else:
         # Otherwise, add the ticker symbol to the existing watchlist
         if not watchlist.add_ticker_symbol(ticker_symbol):
             return jsonify({'message': 'Maximum limit of 10 ticker symbols reached'}), 400
     
-    return jsonify({'message': 'Stock added to watchlist'}), 200
+    db.session.commit()  # Commit changes to the database
+    return jsonify({'message': 'Stock added to watchlist'}), 200  
   
 @app.route('/get_watchlist', methods=['GET'])
 @login_required
@@ -431,7 +428,9 @@ def get_watchlist():
 def toggle_email_service():
     watchlist = Watchlist.query.filter_by(user_id=current_user.id).first()
     if watchlist:
-        watchlist.toggle_email_service()
+        # Toggle the email service status
+        watchlist.email_service_status = not watchlist.email_service_status
+        db.session.commit()  # Commit changes to the database
         return jsonify({'message': 'Email service toggled successfully'}), 200
     else:
         return jsonify({'message': 'Watchlist not found'}), 404

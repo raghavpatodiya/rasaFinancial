@@ -103,7 +103,9 @@ Error:
     improve graph readability
     fix predicted graph currency
     user not authenticated while getting time
-    give default news, after search news pressed clear input field
+    give default news, after search news pressed clear input field, same with watchlist field
+    save email preferences, only for the very first time user logs in, it is set to yes, not every time he logs in 
+
 
 Tool:
     

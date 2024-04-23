@@ -192,9 +192,18 @@
     <div class="table-container" style="margin-top: 20px">
       <h2>My Watchlist</h2>
       <!-- Button to toggle email service -->
-      <button class="btn btn-primary" id="toggle-email-service-btn">
-        Toggle Email Service
-      </button>
+      <!-- Toggle switch for email service -->
+      <div class="custom-control custom-switch">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="email-service-toggle"
+          checked
+        />
+        <label class="custom-control-label" for="email-service-toggle"
+          >Email Updates</label
+        >
+      </div>
       <table id="watchlist-table" class="table table-striped">
         <thead>
           <tr>
