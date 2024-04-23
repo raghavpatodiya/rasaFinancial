@@ -80,6 +80,7 @@ class Watchlist(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     ticker_symbols = db.Column(ARRAY(db.String(10)), nullable=False)
+    email_service_enabled = db.Column(db.Boolean, default=False)
 
     def add_ticker_symbol(self, ticker_symbol):
         if len(self.ticker_symbols) < 10:
@@ -96,6 +97,11 @@ class Watchlist(db.Model):
             return True
         else:
             return False
+
+    def toggle_email_service(self):
+        self.email_service_enabled = not self.email_service_enabled
+        db.session.commit()
+
         
 # Initialize Flask-Login
 @login_manager.user_loader
@@ -409,8 +415,8 @@ def add_to_watchlist():
         if not watchlist.add_ticker_symbol(ticker_symbol):
             return jsonify({'message': 'Maximum limit of 10 ticker symbols reached'}), 400
     
-    return jsonify({'message': 'Stock added to watchlist'}), 200    
-
+    return jsonify({'message': 'Stock added to watchlist'}), 200
+  
 @app.route('/get_watchlist', methods=['GET'])
 @login_required
 def get_watchlist():
@@ -420,6 +426,15 @@ def get_watchlist():
     else:
         return jsonify({'watchlist': []}), 200
 
+@app.route('/toggle_email_service', methods=['POST'])
+@login_required
+def toggle_email_service():
+    watchlist = Watchlist.query.filter_by(user_id=current_user.id).first()
+    if watchlist:
+        watchlist.toggle_email_service()
+        return jsonify({'message': 'Email service toggled successfully'}), 200
+    else:
+        return jsonify({'message': 'Watchlist not found'}), 404
 
 if __name__ == "__main__":
     app.run(debug=True, port=3000)

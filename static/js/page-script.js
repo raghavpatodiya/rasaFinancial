@@ -81,4 +81,25 @@ $(document).ready(function() {
 
   // Initial update of the watchlist table
   updateWatchlistTable();
+
+  // Function to toggle the email service status
+  function toggleEmailService() {
+    $.ajax({
+      url: '/toggle_email_service',
+      method: 'POST',
+      success: function(response) {
+        console.log('Email service toggled successfully:', response);
+        // You can update UI here if needed
+      },
+      error: function(xhr, status, error) {
+        console.error('Error toggling email service:', error);
+      }
+    });
+  }
+
+  // Event listener for toggling email service
+  $('#toggle-email-service-btn').click(function() {
+    toggleEmailService();
+  });
+
 });
