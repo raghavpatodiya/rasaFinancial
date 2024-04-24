@@ -192,3 +192,10 @@ footer {
     border-color: #007bff; /* Border color for the news button */
     color: white; /* Text color for the news button */
 }
+#watchlist-table {
+    background-color: white;
+    color: #333;
+}
+.container-buttons {
+    z-index: 9999; /* Adjust as needed */
+}

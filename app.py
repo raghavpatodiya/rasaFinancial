@@ -84,21 +84,22 @@ class Watchlist(db.Model):
 
     def add_ticker_symbol(self, ticker_symbol):
         if len(self.ticker_symbols) < 10:
-            self.ticker_symbols.append(ticker_symbol)
-            db.session.commit()
-            return True
+            # Check if the ticker symbol is already in the list
+            if ticker_symbol not in self.ticker_symbols:
+                self.ticker_symbols.append(ticker_symbol)
+                return True
+            else:
+                return False, "Ticker symbol already exists in the watchlist"
         else:
-            return False
+            return False, "Maximum limit of 10 ticker symbols reached"
 
     def remove_ticker_symbol(self, ticker_symbol):
         if ticker_symbol in self.ticker_symbols:
             self.ticker_symbols.remove(ticker_symbol)
-            db.session.commit()
             return True
         else:
             return False
-
-        
+  
 # Initialize Flask-Login
 @login_manager.user_loader
 def load_user(user_id):
@@ -403,16 +404,15 @@ def add_to_watchlist():
     
     watchlist = Watchlist.query.filter_by(user_id=current_user.id).first()
     if not watchlist:
-        # If the user doesn't have a watchlist yet, create one with email service set to "on"
         watchlist = Watchlist(user_id=current_user.id, ticker_symbols=[ticker_symbol], email_service_status=True)
         db.session.add(watchlist)
     else:
-        # Otherwise, add the ticker symbol to the existing watchlist
         if not watchlist.add_ticker_symbol(ticker_symbol):
             return jsonify({'message': 'Maximum limit of 10 ticker symbols reached'}), 400
     
-    db.session.commit()  # Commit changes to the database
-    return jsonify({'message': 'Stock added to watchlist'}), 200    
+    db.session.commit() 
+    return jsonify({'message': 'Stock added to watchlist'}), 200
+  
 
 # Add a route to handle removing a stock from the watchlist
 @app.route('/remove_from_watchlist', methods=['POST'])

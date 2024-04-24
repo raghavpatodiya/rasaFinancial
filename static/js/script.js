@@ -194,7 +194,7 @@ $(document).ready(function () {
         });
     }
     updateLocCounter();
-    setInterval(updateLocCounter, 5000);
+    setInterval(updateLocCounter, 10000);
     
 
     function updateStockData() {
@@ -224,7 +224,7 @@ $(document).ready(function () {
         });
     }
     updateStockData();
-    setInterval(updateStockData, 5000);
+    setInterval(updateStockData, 10000);
 
     // Function to prompt the user for location access
     function promptForLocationAccess() {

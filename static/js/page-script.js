@@ -118,10 +118,10 @@ $(document).ready(function() {
     });
 }
 
-// Event listener for removing stock from watchlist
-$(document).on('click', '.remove-watchlist-btn', function() {
-    var symbol = $(this).data('symbol');
-    removeFromWatchlist(symbol);
-});
+  // Event listener for removing stock from watchlist
+  $(document).on('click', '.remove-watchlist-btn', function() {
+      var symbol = $(this).data('symbol');
+      removeFromWatchlist(symbol);
+  });
 
 });

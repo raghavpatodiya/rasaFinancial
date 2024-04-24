@@ -148,4 +148,4 @@ if __name__ == "__main__":
         calculate_loc(root_directory)
         stock_data = fetch_stock_data()
         write_to_file(stock_data)
-        time.sleep(5)
+        time.sleep(10)

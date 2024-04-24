@@ -190,3 +190,10 @@ footer {
   border-color: #007bff; /* Border color for the news button */
   color: white; /* Text color for the news button */
 }
+#watchlist-table {
+  background-color: #1d1c1c;
+  color: #fff;
+}
+.container-buttons {
+  z-index: 9999; /* Adjust as needed */
+}
