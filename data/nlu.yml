@@ -442,6 +442,10 @@ nlu:
     - get me [stock price] of [akso](stock_name) health group
     - get me [stock price] of [aar](stock_name) corp.
     - get me [stock price] of [ares](stock_name) management
+    - what is the [name](info) of [msft](stock_name)
+    - get me [company name](info) of [goog](stock_name)
+    - what is the [full name](info) of [team](stock_name)
+    - get me [official name](info) of [tsla](stock_name)
      
       
 - intent: ask_stock_predictions

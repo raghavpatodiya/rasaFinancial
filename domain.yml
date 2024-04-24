@@ -104,14 +104,14 @@ entities:
   - info
   - time
   - region
-  # - ORG
-  # - GPE
-  # - TIME
-  # - PERSON
-  # - DATE
-  # - NORP
-  # - EVENT
-  # - ORDINAL
+  - ORG
+  - GPE
+  - TIME
+  - PERSON
+  - DATE
+  - NORP
+  - EVENT
+  - ORDINAL
 
 # slots to store use info
 slots:

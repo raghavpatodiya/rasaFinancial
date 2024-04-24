@@ -413,14 +413,6 @@ class ActionGetSpecificInfo(Action):
             requested_info = info['underlyingSymbol']
             dispatcher.utter_message(text=f"The underlying symbol of {company_name} is: {requested_info}")
 
-        elif info_type in ["short name"]:
-            requested_info = info['shortName']
-            dispatcher.utter_message(text=f"The short name of {company_name} is: {requested_info}")
-
-        elif info_type in ["long name"]:
-            requested_info = info['longName']
-            dispatcher.utter_message(text=f"The long name of {company_name} is: {requested_info}")
-
         elif info_type in ["first trade date epoch utc"]:
             requested_info = info['firstTradeDateEpochUtc']
             requested_info = self.epoch_to_date(requested_info)
@@ -539,6 +531,10 @@ class ActionGetSpecificInfo(Action):
         elif info_type in ["trailing peg ratio"]:
             requested_info = info['trailingPegRatio']
             dispatcher.utter_message(text=f"The trailing PEG ratio of {company_name} is: {requested_info}")
+
+        elif info_type in ["company name", "name", "official name", "full name", "legal name", "long name", "short name"]:
+            requested_info = info['longName']
+            dispatcher.utter_message(text=f"The long name of {company_name} is: {requested_info}")
 
         else:
             dispatcher.utter_message(text=f"Sorry, I couldn't find the requested information for {company_name}.")

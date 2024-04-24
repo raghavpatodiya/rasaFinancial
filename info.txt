@@ -102,8 +102,7 @@ Error:
     save email preferences, only for the very first time user logs in, it is set to yes, not every time he logs in 
     if user_id exists just update the location and not create new rows for it
     fix watchlist and enable email updates
-    after getting user locatin enable time, weather, currency, etc
-    get company name in specific info 
+    after getting user location enable time, weather, currency, etc
 
 Tool: 
     

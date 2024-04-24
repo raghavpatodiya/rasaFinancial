@@ -435,3 +435,9 @@ rules:
   steps: 
     - intent: ask_general_info
     - action: get_general_info
+
+- rule: fallback rule
+  steps:
+    - intent: fallback
+    - action: utter_default
+  

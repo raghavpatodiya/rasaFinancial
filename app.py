@@ -291,6 +291,17 @@ def contactus():
 
     return render_template('contactus.html')
 
+# Function to handle unexpected errors using Stack Exchange API
+def handle_unexpected_error(user_message):
+    try:
+        bot_response = "An unexpected error occurred. Please try again later."
+
+    except Exception as e:
+        print("An unexpected error occurred:", e)
+        bot_response = "An unexpected error occurred while processing your request."
+
+    return bot_response
+
 # Webhook route
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -325,7 +336,7 @@ def webhook():
 
     except Exception as e:
         print("An error occurred:", e)
-        bot_response = 'An unexpected error occurred while processing your request.'
+        bot_response = handle_unexpected_error(user_message)
 
     print(bot_response)
     return jsonify({'response': bot_response})

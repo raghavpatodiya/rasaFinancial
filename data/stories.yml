@@ -76,11 +76,6 @@ stories:
   - intent: ask_list_functionalities
   - action: utter_list_functionalities
 
-- story: Fallback path
-  steps:
-  - intent: fallback
-  - action: utter_default
-
 - story: comparison after info
   steps: 
   - intent: ask_specific_info
