@@ -72,28 +72,23 @@ Incorporate:
     dynamically update top 500 companies
     predicted price, recommendation key
     answer factual questions using some api ?
-    answer normal queries like time, weather, etc
     add a python script automation to scrape data and train a model ?
-    add ticker of nasdaq, nifty 500 etc ?
     add name column in listings
     xgboost model ? check from data which variables will the model require ? data from alpha vantage like market sentiment 
     recommend next questions
-    newsletter
     add company name in predictions graph
     comparison graphs
-    get user location - then get weather info, time, etc
-    get general info
     Portfolio Tracking
     interactive charts
     personalized watchlists of stocks they are interested in and set up price alerts for specific stocks
     Market Sentiment Indicators
     Market Heat Maps
     Offer interactive tools like stock screeners, options calculators, or retirement planning calculators.
-    get user location and on the basis of that, use different currencies. if not granted use USD
+    if bot response "An unexpected error occurred while processing your request.", use some api to answer
 
 Functionalities: 
     once price predicted - buysellhold
-    other - gainers, losers, specifc info, general info, market sentiment, market status, latest price, older price, trend, volatality
+    other - gainers, losers, specific info, general info, market sentiment, market status, latest price, older price, trend, volatality
     answer stock related questions
     comparison between stocks
     get graphs on historical stock data
@@ -105,10 +100,12 @@ Error:
     user not authenticated while getting time
     give default news, after search news pressed clear input field, same with watchlist field
     save email preferences, only for the very first time user logs in, it is set to yes, not every time he logs in 
-    set z index of news card
     if user_id exists just update the location and not create new rows for it
+    fix watchlist and enable email updates
+    after getting user locatin enable time, weather, currency, etc
+    get company name in specific info 
 
-Tool:
+Tool: 
     
 
 Commands: 

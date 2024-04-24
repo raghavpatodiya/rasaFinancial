@@ -42,7 +42,7 @@ body {
 }
 .chat-widget-messages {
     overflow-y: auto;
-    max-height: 300px;
+    max-height: 350px;
     padding: 10px;
     background-color: #eeeeee;
 }
