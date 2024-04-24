@@ -4,7 +4,15 @@
     "intent": "bot_challenge",
     "intent_prediction": {
       "name": "whats_up",
-      "confidence": 0.35462939739227295
+      "confidence": 0.4870680272579193
+    }
+  },
+  {
+    "text": "hey, what are you ?",
+    "intent": "bot_challenge",
+    "intent_prediction": {
+      "name": "whats_up",
+      "confidence": 0.3294984698295593
     }
   }
 ]

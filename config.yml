@@ -15,12 +15,12 @@ pipeline:
 
 # pip install spacy
 # python -m spacy download en_core_web_sm
-- name: SpacyNLP
-  model: en_core_web_md
+# - name: SpacyNLP
+#   model: en_core_web_md
 
 # tokenization
-# - name: WhitespaceTokenizer
-- name: SpacyTokenizer
+- name: WhitespaceTokenizer
+# - name: SpacyTokenizer
 
 # featurization
 - name: RegexFeaturizer
@@ -31,7 +31,7 @@ pipeline:
   max_ngram: 4
 
 # entity extraction
-- name: SpacyEntityExtractor
+# - name: SpacyEntityExtractor
 # - name: CRFEntityExtractor
 - name: DIETClassifier   # for entity extraction
   epochs: 100
