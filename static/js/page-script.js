@@ -20,6 +20,7 @@ $(document).ready(function() {
             newsHtml += '</div></div>';
             $('#news-content').append(newsHtml);
           });
+          $('#company-name-input').val('');
         },
         error: function(xhr, status, error) {
           // Handle error
@@ -43,6 +44,7 @@ $(document).ready(function() {
         console.log('Stock added to watchlist:', response);
         // Update the watchlist table
         updateWatchlistTable();
+        $('#watchlist-input').val('');
       },
       error: function(xhr, status, error) {
         // Handle error

@@ -98,11 +98,12 @@ Error:
     improve graph readability
     fix predicted graph currency
     user not authenticated while getting time
-    give default news, after search news pressed clear input field, same with watchlist field
+    give default news
     save email preferences, only for the very first time user logs in, it is set to yes, not every time he logs in 
     if user_id exists just update the location and not create new rows for it
     fix watchlist and enable email updates
     after getting user location enable time, weather, currency, etc
+    include market sentiment in general info
 
 Tool: 
     
