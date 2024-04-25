@@ -20,7 +20,7 @@ class ActionGetMarketSentiment(Action):
             if company_name:
                 company_name = company_name.lower()
             else:
-                company_name = tracker.get_slot("stock_name").lower()
+                company_name = tracker.get_slot("stock_name")
             self.process_market_sentiment(dispatcher, company_name)
         
         except Exception as e:

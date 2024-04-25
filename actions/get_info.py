@@ -8,6 +8,11 @@ from bs4 import BeautifulSoup
 from urllib.request import urlopen
 from datetime import datetime, timezone
 from automation_script import format, epoch_to_date
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY")
 
 class ActionGetGeneralInfo(Action):
     def name(self) -> Text:
@@ -29,29 +34,57 @@ class ActionGetGeneralInfo(Action):
 
         return []
     
+    def process_market_sentiment(self, stock_ticker):
+        if stock_ticker:    
+            url = f'https://www.alphavantage.co/query?function=NEWS_SENTIMENT&tickers={stock_ticker}&apikey={ALPHA_VANTAGE_API_KEY}'
+            response = requests.get(url)
+            data = response.json()
+            if 'feed' in data:
+                sentiment_scores = [float(entry.get('overall_sentiment_score', 0)) for entry in data['feed']]
+                if sentiment_scores:
+                    average_sentiment = sum(sentiment_scores) / len(sentiment_scores)
+                    sentiment_label = self.get_sentiment_label(average_sentiment)
+                    return sentiment_label
+        
+        return "Not Available"
+
+    def get_sentiment_label(self, sentiment_score: float) -> str:
+        if sentiment_score <= -0.35:
+            return 'Bearish'
+        elif -0.35 < sentiment_score <= -0.15:
+            return 'Somewhat-Bearish'
+        elif -0.15 < sentiment_score < 0.15:
+            return 'Neutral'
+        elif 0.15 <= sentiment_score < 0.35:
+            return 'Somewhat-Bullish'
+        else:
+            return 'Bullish'
+        
     def process_info(self, dispatcher: CollectingDispatcher, company_name: str):
         try:
             stock_ticker = get_ticker(company_name)
             stock_info = yf.Ticker(stock_ticker)
             info = stock_info.info
-            country = info['country']
-            website = info['website']
-            industry = info['industry']
-            full_time_employees = info['fullTimeEmployees']
-            for officer in info['companyOfficers']:
-                if 'CEO' in officer['title']:
-                    ceo = officer['name']
-            current_price = info['currentPrice']
-            currency = info['currency']
-            market_cap = format(info['marketCap'])
-            audit_risk = info['auditRisk']
-            board_risk = info['boardRisk']
-            compensation_risk = info['compensationRisk']
-            shareholder_rights_risk = info['shareHolderRightsRisk']
-            overall_risk = info['overallRisk']
-            governance_epoch_date = epoch_to_date(info['governanceEpochDate'])
+            country = info.get('country', 'Not Available')
+            website = info.get('website', 'Not Available')
+            industry = info.get('industry', 'Not Available')
+            full_time_employees = info.get('fullTimeEmployees', 'Not Available')
+            ceo = "Not Available"
+            for officer in info.get('companyOfficers', []):
+                if 'CEO' in officer.get('title', ''):
+                    ceo = officer.get('name', 'Not Available')
+            current_price = info.get('currentPrice', 'Not Available')
+            currency = info.get('currency', 'Not Available')
+            market_cap = format(info.get('marketCap', 'Not Available'))
+            audit_risk = info.get('auditRisk', 'Not Available')
+            board_risk = info.get('boardRisk', 'Not Available')
+            compensation_risk = info.get('compensationRisk', 'Not Available')
+            shareholder_rights_risk = info.get('shareHolderRightsRisk', 'Not Available')
+            overall_risk = info.get('overallRisk', 'Not Available')
+            governance_epoch_date = epoch_to_date(info.get('governanceEpochDate', 'Not Available'))
+            market_sentiment = self.process_market_sentiment(stock_ticker)
 
-            response = f"{company_name.capitalize()} is a {industry} company based in {country}. It has {full_time_employees} full-time employees. The CEO is {ceo}. The current stock price is {current_price} {currency} with a market capitalization of {market_cap} {currency}. The company's website is {website}. Audit risk is {audit_risk}, board risk is {board_risk}, compensation risk is {compensation_risk}, shareholder rights risk is {shareholder_rights_risk}, and the overall risk is {overall_risk}. Governance epoch date is {governance_epoch_date}."
+            response = f"{company_name.capitalize()} is a {industry} company based in {country}. It has {full_time_employees} full-time employees. The CEO is {ceo}. The current stock price is {current_price} {currency} with a market capitalization of {market_cap} {currency}. The company's website is {website}. Market Sentiment is {market_sentiment}. Audit risk is {audit_risk}, board risk is {board_risk}, compensation risk is {compensation_risk}, shareholder rights risk is {shareholder_rights_risk}, and the overall risk is {overall_risk}. Governance epoch date is {governance_epoch_date}."
 
             # Sending response to the user
             dispatcher.utter_message(text=response)
@@ -59,6 +92,7 @@ class ActionGetGeneralInfo(Action):
         except Exception as e:
             print(f"Error: {e}")
             dispatcher.utter_message(text="Sorry, I encountered an error while processing your request.")
+
 
 
 class ActionGetSpecificInfo(Action):
