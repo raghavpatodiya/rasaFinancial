@@ -29,7 +29,7 @@ body {
   border: none;
   color: #fff;
   transition: all 0.3s ease;
-  z-index: 9998;
+  z-index: 9999;
 }
 .chat-widget-header {
   background-color: #007bff;
@@ -195,5 +195,5 @@ footer {
   color: #fff;
 }
 .container-buttons {
-  z-index: 9999; /* Adjust as needed */
+  z-index: 9998; /* Adjust as needed */
 }

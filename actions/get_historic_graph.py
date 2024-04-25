@@ -29,7 +29,7 @@ class ActionGetStockTrendGraph(Action):
         return []
     
     def check_info_type(self, dispatcher: CollectingDispatcher, company_name: str, info: str):
-        if info in ["trend", "price", "stock price"]:
+        if info in ["trend", "price", "stock price", "stock"]:
             self.process_stock_trend_graph(dispatcher, company_name)
         elif info in ["roe", "return on equity"]:
             self.process_stock_roe_graph(dispatcher, company_name)
