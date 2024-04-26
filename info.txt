@@ -103,7 +103,6 @@ Error:
     if user_id exists just update the location and not create new rows for it
     fix watchlist and enable email updates
     after getting user location enable time, weather, currency, etc
-    include market sentiment in general info
 
 Tool: 
     
