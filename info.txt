@@ -85,6 +85,7 @@ Incorporate:
     Market Heat Maps
     Offer interactive tools like stock screeners, options calculators, or retirement planning calculators.
     if bot response "An unexpected error occurred while processing your request.", use some api to answer
+    calculator
 
 Functionalities: 
     once price predicted - buysellhold
