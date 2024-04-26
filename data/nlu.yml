@@ -271,6 +271,9 @@ nlu:
     - stock price of [voltas](stock_name)
     - stock price of [fortis](stock_name)
     - stock price of [idfc](stock_name)
+    - stock price of [hdfc](stock_name) bank.
+    - price of [idb](stock_name) bank stocks.
+    - stock price of [icici](stock_name) bank.
 
 - intent: ask_older_stock_price
   examples: |
@@ -446,6 +449,11 @@ nlu:
     - get me [company name](info) of [goog](stock_name)
     - what is the [full name](info) of [team](stock_name)
     - get me [official name](info) of [tsla](stock_name)
+    - get [currency](info) of [hdfc](stock_name) bank.
+    - get [currency](info) of [idb](stock_name) bank.
+    - get [currency](info) of [icici](stock_name) bank.
+    - get [currency](info) of [idfc](stock_name) bank.
+    
      
       
 - intent: ask_stock_predictions
@@ -674,6 +682,7 @@ nlu:
     - compare this with [pe ratio](info) of [nvidia]](stock_name2)
     - compare this with [market cap](info) of [goog](stock_name2)
     - compare [market sentiment](info) of [nvidia](stock_name) and [team](stock_name2)
+    - compare the [stock price](info) of [hdfc](stock_name) bank and [icici](stock_name2) bank.
 
     
 - intent: ask_graph
@@ -705,6 +714,7 @@ nlu:
     - get me [price](info) graph for [SUVEN.NS](stock_name)
     - get me [price](info) graph for [HUHTAMAKI.NS](stock_name)
     - get me [price](info) graph for [INDOSTAR.NS](stock_name)
+    - get me [trend](info) graph of [hdfc](stock_name) bank.
 
 - intent: ask_predictions_graph
   examples: |
