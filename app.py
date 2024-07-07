@@ -366,7 +366,7 @@ def get_stock_data():
                 'market_cap': market_cap
             }
             all_stock_data.append(stock_data)
-    return all_stock_data
+    return jsonify(all_stock_data)
 
 # Route for location access
 @app.route('/store-location', methods=['POST'])
